@@ -1,0 +1,51 @@
+# WARNING: These are private use scripts!
+# These may be changed or cancelled totally!
+
+E000..E07F; Tengwar
+E080..E0Ff; Cirth
+E100..E14F; Engsvanyali
+E150..E1Af; Kinya
+E1B0..E1Cf; Ilianore
+E1D0..E1Ff; Syai
+E200..E26F; Verdurian
+E280..E29F; Aui
+E2A0..E2Cf; Amman-Iar
+E2D0..E2Df; Streich
+E2E0..E2Ff; Xaini
+E300..E33F; Mizarian
+E340..E35F; Zirinka
+E360..E37F; Sarkai
+E380..E3Af; Thelwik
+E3B0..E3Ff; Olaetyan
+E400..E42F; Niskloz
+E430..E44F; Kazat_Akkorou
+E450..E46F; Kazvarad
+E470..E48F; Zarkhand
+E490..E4Bf; Roezhxh
+E4C0..E4Ef; Serivelna
+E4F0..E4Ff; Kelwathi
+E500..E51F; Saklor
+E520..E54F; Rynnan
+E550..E57F; Alzetjan
+E580..E59F; Telarasso
+E5A0..E5Bf; Ssuraki
+E5C0..E5Df; Gargoyle
+E5E0..E5Ff; Ophidian
+E600..E62F; Ferengi
+E630..E64F; Seussian_Latin_Extensions
+E650..E68F; Unassigned
+E690..E6Cf; Ewellic
+E6D0..E6Ff; Phaistos_Disc
+E700..E73F; Unassigned
+E740..E76F; Unifon
+E770..E77F; Solresol
+E780..E7Ff; Visible_Speech
+E800..E82F; Monofon
+E830..E88F; Unassigned
+E890..F89F; Unassigned
+F8A0..F8Cf; Aiha
+F8D0..F8Ff; Klingon
+000F0000..000F0E69; Kinya Syllables
+000F0E70..000F16Af; Pikto
+
+# EOF

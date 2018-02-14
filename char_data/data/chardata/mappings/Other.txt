@@ -1,0 +1,75 @@
+# The "other" sublist in the character palette for 
+# uncommon properties to reduce clutter
+#General Properties    --
+General Category    TreeList
+Core Properties    TreeList
+Property List    TreeList
+
+Arabic/Bidirectional Properties    --
+Arabic Shaping Group	Flat
+Arabic Shaping Type	Flat
+Bidirectional Category	TreeList
+Joining Type    TreeList
+
+Combining Properties    --
+Canonical Combining Classes	TreeList
+Case Folding Status	TreeList
+
+Numeric/Digit Properties    --
+Decimal Digit Value	Flat
+Digit Value    Flat
+Numeric Value    Flat
+Primary Numeric    Flat
+
+Breaking Properties    --
+Grapheme Break    TreeList
+Line Break    TreeList
+Sentence Break    TreeList
+Word Break    TreeList
+
+Other Properties    --
+Age	TreeList
+East Asian Width	TreeList
+
+By Chinese/Japanese Frequency    --
+Chinese Frequency    Flat
+Hong Kong Grade    Flat
+Japanese Grade    Flat
+Japanese Frequency    Flat
+
+Book Indices    --
+Kodansha Compact Kanji Guide    Flat
+Kanji and Kana    Flat
+Kodansha Kanji Learners Dictionary    Flat
+Cihai    Flat
+The Kanji Way to Japanese Language Power    Flat
+Meyer Wempe    Flat
+Other Numeric    Flat
+Hanyu Da Zidian    Flat
+Cheung Bauer    Flat
+Essential Kanji    Flat
+Modern Reader's Japanese-English Character Dictionary    Flat
+Accounting Numeric    Flat
+New Nelson Japanese-English Character Dictionary    Flat
+Remembering the Kanji    Flat
+Japanese Kanji Flashcards    Flat
+KangXi    Flat
+Lau    Flat
+Fenn Dictionary    Flat
+A Guide to Remembering Japanese Characters    Flat
+Dae Jaweon    Flat
+A Guide to Reading and Writing Japanese (Sakade)    Flat
+Cowles    Flat
+Matthews    Flat
+Grammata Serica Recensa    Flat
+Kanji in Context    Flat
+Gakken Kanji Dictionary    Flat
+Morohashi    Flat
+Tuttle Kanji Cards    Flat
+Karlgren    Flat
+Song Ben Guang Yun    Flat
+HKGlyph    Flat
+Japanese Names    Flat
+A Guide to Reading and Writing Japanese (Henshall)    Flat
+New Japanese-English Character Dictionary    Flat
+Nelson    Flat

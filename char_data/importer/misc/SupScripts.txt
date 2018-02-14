@@ -1,0 +1,156 @@
+Common	
+Arabic	Arabic
+Arabic Presentation Forms-A	Arabic
+Arabic Presentation Forms-B	Arabic
+Armenian	Armenian
+*Basic Latin	Basic Numbers, Punctuaton and Symbols
+*General Punctuation	Basic Numbers, Punctuaton and Symbols
+*Latin-1 Supplement	Basic Numbers, Punctuaton and Symbols
+*Small Form Variants	Basic Numbers, Punctuaton and Symbols
+*Superscripts and subscripts	Basic Numbers, Punctuaton and Symbols
+*Vertical Forms	Basic Numbers, Punctuaton and Symbols
+CJK Compatibility	CJK Symbols
+CJK Compatibility Forms	CJK Symbols
+CJK Strokes	CJK Symbols
+CJK Symbols and Punctuation	CJK Symbols
+Enclosed CJK Letters and Months	CJK Symbols
+Ideographic Description Characters	CJK Symbols
+Kanbun	CJK Symbols
+Currency Symbols	Currency Signs
+Thai	Currency Signs
+Devanagari	Devanagari
+Arrows	Geometric Shapes
+Block Elements	Geometric Shapes
+Box Drawing	Geometric Shapes
+Geometric Shapes	Geometric Shapes
+Miscellaneous Symbols and Arrows	Geometric Shapes
+Supplemental Arrows-A	Geometric Shapes
+Supplemental Arrows-B	Geometric Shapes
+Yijing Hexagram Symbols	Geometric Shapes
+Georgian	Georgian
+Greek and Coptic	Greek
+Hanunoo	Hanunoo
+Hiragana	Hiragana
+Kannada	Kannada
+Katakana	Katakana
+Halfwidth and Fullwidth Forms	Latin
+*Mathematical Alphanumeric Symbols	Mathematical Signs
+Mathematical Operators	Mathematical Signs
+Supplemental Mathematical Operators	Mathematical Signs
+Supplemental Punctuation	General Punctuation
+Latin Extended-D	Modifier and Combining Characters
+Modifier Tone Letters	Modifier and Combining Characters
+Spacing Modifier Letters	Modifier and Combining Characters
+Mongolian	Mongolian
+Byzantine Musical Symbols	Musical Symbols
+Musical Symbols	Musical Symbols
+Aegean Numbers	Numbers
+Counting Rod Numerals	Numbers
+Enclosed Alphanumerics	Numbers
+Number Forms	Numbers
+Phaistos Disc	Phaistos Disc
+Ancient Symbols	Pictures and Miscellaneous Symbols
+Dingbats	Pictures and Miscellaneous Symbols
+Domino Tiles	Pictures and Miscellaneous Symbols
+Miscellaneous Symbols	Pictures and Miscellaneous Symbols
+Tai Xuan Jing Symbols	Pictures and Miscellaneous Symbols
+Runic	Runic
+Control Pictures	Technical Symbols
+Letterlike Symbols	Letterlike Symbols
+Miscellaneous Technical	Technical Symbols
+Optical Character Recognition	Technical Symbols
+Specials	Technical Symbols
+Tags	Technical Symbols
+
+Inherited	
+Arabic	Arabic
+CJK Symbols and Punctuation	CJK Symbols
+Combining Diacritical Marks	Modifier and Combining Characters
+Combining Diacritical Marks Supplement	Modifier and Combining Characters
+Combining Diacritical Marks for Symbols	Modifier and Combining Characters
+Combining Half Marks	Modifier and Combining Characters
+Devanagari	Devanagari
+*General Punctuation	Basic Numbers, Punctuaton and Symbols
+Hiragana	Hiragana
+Musical Symbols	Musical Symbols
+
+
+Basic Latin	
+U+0000-U+001F	Control Characters
+U+0020	Spaces
+U+0021-U+002F	General Punctuation
+U+003F-U+0040	General Punctuation
+U+0023-U+0024	Currency Signs
+U+005B-U+0060	General Punctuation
+U+0030-U+0039	Numbers
+U+007B-U+007E	General Punctuation
+U+003C-U+003E	Mathematical Signs
+U+007F	Control Characters
+
+General Punctuation	
+U+2000-U+200B	Spaces
+U+200E-U+200F	Format Characters
+U+2010-U+2015	Geometric Shapes
+U+2016-U+2027	General Punctuation
+U+2028-U+202F	Format Characters
+U+2030-U+2046	General Punctuation
+U+2047-U+2049	General Punctuation
+U+204A-U+2055	General Punctuation
+U+2056	General Punctuation
+U+2057	General Punctuation
+U+2058-U+205E	General Punctuation
+U+205F	Spaces
+U+2060	Format Characters
+U+2061-U+2064	General Punctuation
+U+206A-U+206F	General Punctuation
+
+
+Latin-1 Supplement	
+U+0080-U+009F	Control Characters
+U+00A1-U+00BF	General Punctuation
+U+00A9	Letterlike Symbols
+U+00AE	Letterlike Symbols
+U+00A2	Currency Signs
+U+00A3	Currency Signs
+U+00A4	Currency Signs
+U+00A5	Currency Signs
+U+00B9	Numbers
+U+00B2	Numbers
+U+00B3	Numbers
+U+00A0	Spaces
+U+00B1	Mathematical Signs
+U+00BC-U+00BE	Mathematical Signs
+U+00B8	Modifier and Combining Characters
+U+00B7	Modifier and Combining Characters
+U+00B4	Modifier and Combining Characters
+U+00B0	Modifier and Combining Characters
+U+00AF	Modifier and Combining Characters
+U+00A8	
+U+00D7-U+00F7	
+
+Small Form Variants	
+U+FE50-U+FE52	General Punctuation
+U+FE54-U+FE66	General Punctuation
+U+FE68-U+FE6B	General Punctuation
+U+FE69	Currency Signs
+U+FE5F	Currency Signs
+
+Superscripts and Subscripts	
+U+2070-U+2079	Numbers
+U+207A-U+207E	Mathematical Signs
+U+2080-U+2089	Numbers
+U+208A-U+208E	Mathematical Signs
+
+Vertical Forms	
+U+FE10-U+FE19	General Punctuation
+U+FE10-U+FE19	CJK Symbols
+
+General Punctuation	
+U+200C-U+200D	Format Characters
+
+Hiragana	
+U+3099-U+309C	Katakana
+
+Katakana	
+U+30A0	Hiragana
+U+30FC	Hiragana

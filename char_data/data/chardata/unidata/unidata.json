@@ -1,0 +1,1497 @@
+{
+    "arabic shaping type": {
+        "LSeek": [
+            "uint8", 
+            68, 
+            494
+        ], 
+        "LIgnoreRanges": [
+            1060, 
+            55
+        ], 
+        "LRanges": [
+            0, 
+            68
+        ], 
+        "LWords": [
+            "utf-8", 
+            1056, 
+            4
+        ], 
+        "LAmount": [
+            "uint8", 
+            562, 
+            494
+        ]
+    }, 
+    "block name": {
+        "LSeek": [
+            "uint8", 
+            1115, 
+            160
+        ], 
+        "LWords": [
+            "utf-8", 
+            3306, 
+            1708
+        ], 
+        "LIgnoreRanges": [
+            5014, 
+            124
+        ], 
+        "LRanges": [
+            5138, 
+            4579
+        ], 
+        "LWordLinks": [
+            "uint16", 
+            1275, 
+            677
+        ], 
+        "LAmount": [
+            "uint8", 
+            2629, 
+            677
+        ]
+    }, 
+    "core properties": {
+        "LSeek": [
+            "uint8", 
+            16255, 
+            8661
+        ], 
+        "LIgnoreRanges": [
+            33828, 
+            1112
+        ], 
+        "LRanges": [
+            9717, 
+            6538
+        ], 
+        "LWords": [
+            "utf-8", 
+            33577, 
+            251
+        ], 
+        "LAmount": [
+            "uint8", 
+            24916, 
+            8661
+        ]
+    }, 
+    "normalization corrections errors": {
+        "LSeek": [
+            "uint8", 
+            34940, 
+            80
+        ], 
+        "LRanges": [
+            35135, 
+            4
+        ], 
+        "LIgnoreRanges": [
+            35068, 
+            67
+        ], 
+        "LValues": [
+            "uint32", 
+            35020, 
+            12
+        ]
+    }, 
+    "special casing upper": {
+        "LSeek": [
+            "uint16", 
+            35139, 
+            325
+        ], 
+        "LRanges": [
+            36600, 
+            4
+        ], 
+        "LIgnoreRanges": [
+            36473, 
+            127
+        ], 
+        "LValues": [
+            "uint16", 
+            35789, 
+            342
+        ]
+    }, 
+    "numeric value": {
+        "LSeek": [
+            "uint16", 
+            36608, 
+            1938
+        ], 
+        "LIgnoreRanges": [
+            42731, 
+            922
+        ], 
+        "LRanges": [
+            36604, 
+            4
+        ], 
+        "LWords": [
+            "utf-8", 
+            42422, 
+            309
+        ], 
+        "LAmount": [
+            "uint8", 
+            40484, 
+            1938
+        ]
+    }, 
+    "uppercase": {
+        "LSeek": [
+            "uint16", 
+            43653, 
+            2267
+        ], 
+        "LRanges": [
+            56753, 
+            4
+        ], 
+        "LIgnoreRanges": [
+            56595, 
+            158
+        ], 
+        "LValues": [
+            "uint32", 
+            48187, 
+            2102
+        ]
+    }, 
+    "technical notice": {
+        "LSeek": [
+            "uint8", 
+            56757, 
+            224
+        ], 
+        "LWords": [
+            "utf-8", 
+            57482, 
+            554
+        ], 
+        "LIgnoreRanges": [
+            58036, 
+            148
+        ], 
+        "LRanges": [
+            58184, 
+            4
+        ], 
+        "LWordLinks": [
+            "uint16", 
+            56981, 
+            167
+        ], 
+        "LAmount": [
+            "uint8", 
+            57315, 
+            167
+        ]
+    }, 
+    "block description": {
+        "LSeek": [
+            "uint8", 
+            58188, 
+            0
+        ], 
+        "LWords": [
+            "utf-8", 
+            58212, 
+            42
+        ], 
+        "LIgnoreRanges": [
+            58254, 
+            4
+        ], 
+        "LRanges": [
+            58258, 
+            30
+        ], 
+        "LWordLinks": [
+            "uint8", 
+            58188, 
+            12
+        ], 
+        "LAmount": [
+            "uint8", 
+            58200, 
+            12
+        ]
+    }, 
+    "general category": {
+        "LSeek": [
+            "uint8", 
+            64940, 
+            11455
+        ], 
+        "LIgnoreRanges": [
+            87908, 
+            1423
+        ], 
+        "LRanges": [
+            58288, 
+            6652
+        ], 
+        "LWords": [
+            "utf-8", 
+            87850, 
+            58
+        ], 
+        "LAmount": [
+            "uint8", 
+            76395, 
+            11455
+        ]
+    }, 
+    "subblock technical notice": {
+        "LSeek": [
+            "uint16", 
+            89331, 
+            1717
+        ], 
+        "LWords": [
+            "utf-8", 
+            101252, 
+            6959
+        ], 
+        "LIgnoreRanges": [
+            108211, 
+            1134
+        ], 
+        "LRanges": [
+            109345, 
+            1322
+        ], 
+        "LWordLinks": [
+            "uint16", 
+            92765, 
+            2829
+        ], 
+        "LAmount": [
+            "uint8", 
+            98423, 
+            2829
+        ]
+    }, 
+    "subblock heading": {
+        "LSeek": [
+            "uint16", 
+            110667, 
+            14303
+        ], 
+        "LWords": [
+            "utf-8", 
+            150289, 
+            7383
+        ], 
+        "LIgnoreRanges": [
+            157672, 
+            1518
+        ], 
+        "LRanges": [
+            159190, 
+            7069
+        ], 
+        "LWordLinks": [
+            "uint16", 
+            139273, 
+            3672
+        ], 
+        "LAmount": [
+            "uint8", 
+            146617, 
+            3672
+        ]
+    }, 
+    "line break": {
+        "LSeek": [
+            "uint8", 
+            182540, 
+            20442
+        ], 
+        "LIgnoreRanges": [
+            223502, 
+            1229
+        ], 
+        "LRanges": [
+            166259, 
+            16281
+        ], 
+        "LWords": [
+            "utf-8", 
+            223424, 
+            78
+        ], 
+        "LAmount": [
+            "uint8", 
+            202982, 
+            20442
+        ]
+    }, 
+    "grapheme break": {
+        "LSeek": [
+            "uint8", 
+            278669, 
+            15075
+        ], 
+        "LIgnoreRanges": [
+            308855, 
+            680
+        ], 
+        "LRanges": [
+            268149, 
+            10520
+        ], 
+        "LWords": [
+            "utf-8", 
+            308819, 
+            36
+        ], 
+        "LAmount": [
+            "uint8", 
+            293744, 
+            15075
+        ]
+    }, 
+    "FC NFKC closure": {
+        "LSeek": [
+            "uint16", 
+            309535, 
+            1351
+        ], 
+        "LRanges": [
+            315249, 
+            4
+        ], 
+        "LIgnoreRanges": [
+            315069, 
+            180
+        ], 
+        "LValues": [
+            "uint16", 
+            312237, 
+            1416
+        ]
+    }, 
+    "NFD quick check": {
+        "LSeek": [
+            "uint8", 
+            315631, 
+            1984
+        ], 
+        "LIgnoreRanges": [
+            319600, 
+            432
+        ], 
+        "LRanges": [
+            315253, 
+            378
+        ], 
+        "LWords": [
+            "utf-8", 
+            319599, 
+            1
+        ], 
+        "LAmount": [
+            "uint8", 
+            317615, 
+            1984
+        ]
+    }, 
+    "full composition exclusion": {
+        "LValues": [
+            "utf-8", 
+            320032, 
+            489
+        ], 
+        "LIgnoreRanges": [
+            320521, 
+            205
+        ], 
+        "LRanges": [
+            320726, 
+            92
+        ]
+    }, 
+    "NFKC casefold": {
+        "LSeek": [
+            "uint16", 
+            320818, 
+            8218
+        ], 
+        "LRanges": [
+            392078, 
+            24
+        ], 
+        "LIgnoreRanges": [
+            391482, 
+            596
+        ], 
+        "LValues": [
+            "uint32", 
+            337254, 
+            13557
+        ]
+    }, 
+    "script": {
+        "LSeek": [
+            "uint16", 
+            398569, 
+            5931
+        ], 
+        "LIgnoreRanges": [
+            417174, 
+            1124
+        ], 
+        "LRanges": [
+            392102, 
+            6467
+        ], 
+        "LWords": [
+            "utf-8", 
+            416362, 
+            812
+        ], 
+        "LAmount": [
+            "uint8", 
+            410431, 
+            5931
+        ]
+    }, 
+    "special casing lower": {
+        "LSeek": [
+            "uint8", 
+            418298, 
+            325
+        ], 
+        "LRanges": [
+            419212, 
+            4
+        ], 
+        "LIgnoreRanges": [
+            419085, 
+            127
+        ], 
+        "LValues": [
+            "uint16", 
+            418623, 
+            231
+        ]
+    }, 
+    "named aliases": {
+        "LSeek": [
+            "uint8", 
+            419216, 
+            0
+        ], 
+        "LWords": [
+            "utf-8", 
+            419216, 
+            0
+        ], 
+        "LIgnoreRanges": [
+            419216, 
+            4
+        ], 
+        "LRanges": [
+            419220, 
+            4
+        ], 
+        "LWordLinks": [
+            "uint8", 
+            419216, 
+            0
+        ], 
+        "LAmount": [
+            "uint8", 
+            419216, 
+            0
+        ]
+    }, 
+    "titlecase": {
+        "LSeek": [
+            "uint16", 
+            800710, 
+            2267
+        ], 
+        "LRanges": [
+            813842, 
+            4
+        ], 
+        "LIgnoreRanges": [
+            813684, 
+            158
+        ], 
+        "LValues": [
+            "uint32", 
+            805244, 
+            2110
+        ]
+    }, 
+    "changes when NFKC casefolded": {
+        "LValues": [
+            "utf-8", 
+            420865, 
+            3408
+        ], 
+        "LIgnoreRanges": [
+            424273, 
+            714
+        ], 
+        "LRanges": [
+            424987, 
+            1118
+        ]
+    }, 
+    "comments": {
+        "LSeek": [
+            "uint16", 
+            426105, 
+            9480
+        ], 
+        "LWords": [
+            "utf-8", 
+            488160, 
+            18306
+        ], 
+        "LIgnoreRanges": [
+            506466, 
+            1662
+        ], 
+        "LRanges": [
+            508128, 
+            4
+        ], 
+        "LWordLinks": [
+            "uint16", 
+            445065, 
+            14365
+        ], 
+        "LAmount": [
+            "uint8", 
+            473795, 
+            14365
+        ]
+    }, 
+    "east asian width": {
+        "LSeek": [
+            "uint8", 
+            513975, 
+            5832
+        ], 
+        "LIgnoreRanges": [
+            525646, 
+            1104
+        ], 
+        "LRanges": [
+            508132, 
+            5843
+        ], 
+        "LWords": [
+            "utf-8", 
+            525639, 
+            7
+        ], 
+        "LAmount": [
+            "uint8", 
+            519807, 
+            5832
+        ]
+    }, 
+    "NFKD quick check": {
+        "LSeek": [
+            "uint8", 
+            528002, 
+            3392
+        ], 
+        "LIgnoreRanges": [
+            534787, 
+            752
+        ], 
+        "LRanges": [
+            526750, 
+            1252
+        ], 
+        "LWords": [
+            "utf-8", 
+            534786, 
+            1
+        ], 
+        "LAmount": [
+            "uint8", 
+            531394, 
+            3392
+        ]
+    }, 
+    "expands on NFC": {
+        "LValues": [
+            "utf-8", 
+            1899506, 
+            242
+        ], 
+        "LIgnoreRanges": [
+            1899748, 
+            147
+        ], 
+        "LRanges": [
+            1899895, 
+            4
+        ]
+    }, 
+    "conscript name": {
+        "LSeek": [
+            "uint16", 
+            580531, 
+            5888
+        ], 
+        "LWords": [
+            "utf-8", 
+            659924, 
+            15941
+        ], 
+        "LIgnoreRanges": [
+            675865, 
+            47
+        ], 
+        "LRanges": [
+            675912, 
+            44
+        ], 
+        "LWordLinks": [
+            "uint16", 
+            592307, 
+            22539
+        ], 
+        "LAmount": [
+            "uint8", 
+            637385, 
+            22539
+        ]
+    }, 
+    "subblock see also": {
+        "LSeek": [
+            "uint16", 
+            676038, 
+            96
+        ], 
+        "LIgnoreRanges": [
+            679008, 
+            71
+        ], 
+        "LRanges": [
+            675956, 
+            82
+        ], 
+        "LWords": [
+            "utf-8", 
+            676422, 
+            2586
+        ], 
+        "LAmount": [
+            "uint16", 
+            676230, 
+            96
+        ]
+    }, 
+    "see also": {
+        "LSeek": [
+            "uint32", 
+            679083, 
+            8082
+        ], 
+        "LIgnoreRanges": [
+            796929, 
+            1237
+        ], 
+        "LRanges": [
+            679079, 
+            4
+        ], 
+        "LWords": [
+            "utf-8", 
+            727575, 
+            69354
+        ], 
+        "LAmount": [
+            "uint16", 
+            711411, 
+            8082
+        ]
+    }, 
+    "NFC quick check": {
+        "LSeek": [
+            "uint8", 
+            798310, 
+            746
+        ], 
+        "LIgnoreRanges": [
+            799804, 
+            365
+        ], 
+        "LRanges": [
+            798166, 
+            144
+        ], 
+        "LWords": [
+            "utf-8", 
+            799802, 
+            2
+        ], 
+        "LAmount": [
+            "uint8", 
+            799056, 
+            746
+        ]
+    }, 
+    "formally also called": {
+        "LSeek": [
+            "uint8", 
+            800169, 
+            19
+        ], 
+        "LWords": [
+            "utf-8", 
+            800338, 
+            239
+        ], 
+        "LIgnoreRanges": [
+            800577, 
+            129
+        ], 
+        "LRanges": [
+            800706, 
+            4
+        ], 
+        "LWordLinks": [
+            "uint8", 
+            800188, 
+            75
+        ], 
+        "LAmount": [
+            "uint8", 
+            800263, 
+            75
+        ]
+    }, 
+    "arabic shaping group": {
+        "LSeek": [
+            "uint16", 
+            419272, 
+            400
+        ], 
+        "LIgnoreRanges": [
+            420810, 
+            55
+        ], 
+        "LRanges": [
+            419224, 
+            48
+        ], 
+        "LWords": [
+            "utf-8", 
+            420472, 
+            338
+        ], 
+        "LAmount": [
+            "uint8", 
+            420072, 
+            400
+        ]
+    }, 
+    "digit value": {
+        "LSeek": [
+            "uint8", 
+            1755140, 
+            984
+        ], 
+        "LIgnoreRanges": [
+            1757118, 
+            634
+        ], 
+        "LRanges": [
+            1755136, 
+            4
+        ], 
+        "LWords": [
+            "utf-8", 
+            1757108, 
+            10
+        ], 
+        "LAmount": [
+            "uint8", 
+            1756124, 
+            984
+        ]
+    }, 
+    "special casing condition list": {
+        "LSeek": [
+            "uint8", 
+            813850, 
+            46
+        ], 
+        "LIgnoreRanges": [
+            813997, 
+            59
+        ], 
+        "LRanges": [
+            813846, 
+            4
+        ], 
+        "LWords": [
+            "utf-8", 
+            813942, 
+            55
+        ], 
+        "LAmount": [
+            "uint8", 
+            813896, 
+            46
+        ]
+    }, 
+    "NFKC quick check": {
+        "LSeek": [
+            "uint8", 
+            1758750, 
+            2427
+        ], 
+        "LIgnoreRanges": [
+            1763606, 
+            784
+        ], 
+        "LRanges": [
+            1757752, 
+            998
+        ], 
+        "LWords": [
+            "utf-8", 
+            1763604, 
+            2
+        ], 
+        "LAmount": [
+            "uint8", 
+            1761177, 
+            2427
+        ]
+    }, 
+    "also called": {
+        "LSeek": [
+            "uint16", 
+            224731, 
+            6849
+        ], 
+        "LWords": [
+            "utf-8", 
+            254659, 
+            12597
+        ], 
+        "LIgnoreRanges": [
+            267256, 
+            889
+        ], 
+        "LRanges": [
+            268145, 
+            4
+        ], 
+        "LWordLinks": [
+            "uint16", 
+            238429, 
+            5410
+        ], 
+        "LAmount": [
+            "uint8", 
+            249249, 
+            5410
+        ]
+    }, 
+    "expands on NFKD": {
+        "LValues": [
+            "utf-8", 
+            857788, 
+            2702
+        ], 
+        "LIgnoreRanges": [
+            860490, 
+            618
+        ], 
+        "LRanges": [
+            861108, 
+            514
+        ]
+    }, 
+    "bidirectional category": {
+        "LSeek": [
+            "uint8", 
+            867598, 
+            8369
+        ], 
+        "LIgnoreRanges": [
+            884376, 
+            1476
+        ], 
+        "LRanges": [
+            861622, 
+            5976
+        ], 
+        "LWords": [
+            "utf-8", 
+            884336, 
+            40
+        ], 
+        "LAmount": [
+            "uint8", 
+            875967, 
+            8369
+        ]
+    }, 
+    "bidi mirroring": {
+        "LSeek": [
+            "uint16", 
+            885856, 
+            1171
+        ], 
+        "LIgnoreRanges": [
+            890825, 
+            168
+        ], 
+        "LRanges": [
+            885852, 
+            4
+        ], 
+        "LWords": [
+            "utf-8", 
+            889369, 
+            1456
+        ], 
+        "LAmount": [
+            "uint8", 
+            888198, 
+            1171
+        ]
+    }, 
+    "conscript blocks": {
+        "LSeek": [
+            "uint8", 
+            892088, 
+            48
+        ], 
+        "LIgnoreRanges": [
+            892533, 
+            46
+        ], 
+        "LRanges": [
+            890993, 
+            1095
+        ], 
+        "LWords": [
+            "utf-8", 
+            892184, 
+            349
+        ], 
+        "LAmount": [
+            "uint8", 
+            892136, 
+            48
+        ]
+    }, 
+    "expands on NFKC": {
+        "LValues": [
+            "utf-8", 
+            892579, 
+            1215
+        ], 
+        "LIgnoreRanges": [
+            893794, 
+            501
+        ], 
+        "LRanges": [
+            894295, 
+            222
+        ]
+    }, 
+    "mirrored": {
+        "LSeek": [
+            "uint8", 
+            900087, 
+            5502
+        ], 
+        "LIgnoreRanges": [
+            911093, 
+            1270
+        ], 
+        "LRanges": [
+            894517, 
+            5570
+        ], 
+        "LWords": [
+            "utf-8", 
+            911091, 
+            2
+        ], 
+        "LAmount": [
+            "uint8", 
+            905589, 
+            5502
+        ]
+    }, 
+    "word break": {
+        "LSeek": [
+            "uint8", 
+            916633, 
+            6904
+        ], 
+        "LIgnoreRanges": [
+            930522, 
+            859
+        ], 
+        "LRanges": [
+            912363, 
+            4270
+        ], 
+        "LWords": [
+            "utf-8", 
+            930441, 
+            81
+        ], 
+        "LAmount": [
+            "uint8", 
+            923537, 
+            6904
+        ]
+    }, 
+    "sentence break": {
+        "LSeek": [
+            "uint8", 
+            936384, 
+            9275
+        ], 
+        "LIgnoreRanges": [
+            955003, 
+            870
+        ], 
+        "LRanges": [
+            931381, 
+            5003
+        ], 
+        "LWords": [
+            "utf-8", 
+            954934, 
+            69
+        ], 
+        "LAmount": [
+            "uint8", 
+            945659, 
+            9275
+        ]
+    }, 
+    "special casing title": {
+        "LSeek": [
+            "uint16", 
+            955873, 
+            325
+        ], 
+        "LRanges": [
+            957226, 
+            4
+        ], 
+        "LIgnoreRanges": [
+            957099, 
+            127
+        ], 
+        "LValues": [
+            "uint16", 
+            956523, 
+            288
+        ]
+    }, 
+    "lowercase": {
+        "LSeek": [
+            "uint16", 
+            957230, 
+            2185
+        ], 
+        "LRanges": [
+            970104, 
+            4
+        ], 
+        "LIgnoreRanges": [
+            969944, 
+            160
+        ], 
+        "LValues": [
+            "uint32", 
+            961600, 
+            2086
+        ]
+    }, 
+    "composition exclusions": {
+        "LSeek": [
+            "uint8", 
+            970112, 
+            241
+        ], 
+        "LIgnoreRanges": [
+            970598, 
+            135
+        ], 
+        "LRanges": [
+            970108, 
+            4
+        ], 
+        "LWords": [
+            "utf-8", 
+            970594, 
+            4
+        ], 
+        "LAmount": [
+            "uint8", 
+            970353, 
+            241
+        ]
+    }, 
+    "name": {
+        "LSeek": [
+            "uint32", 
+            970733, 
+            27536
+        ], 
+        "LWords": [
+            "utf-8", 
+            1684217, 
+            69732
+        ], 
+        "LIgnoreRanges": [
+            1753949, 
+            926
+        ], 
+        "LRanges": [
+            1754875, 
+            62
+        ], 
+        "LWordLinks": [
+            "uint32", 
+            1080877, 
+            120668
+        ], 
+        "LAmount": [
+            "uint8", 
+            1563549, 
+            120668
+        ]
+    }, 
+    "normalization corrections corrected": {
+        "LSeek": [
+            "uint8", 
+            1754937, 
+            80
+        ], 
+        "LRanges": [
+            1755132, 
+            4
+        ], 
+        "LIgnoreRanges": [
+            1755065, 
+            67
+        ], 
+        "LValues": [
+            "uint32", 
+            1755017, 
+            12
+        ]
+    }, 
+    "age": {
+        "LSeek": [
+            "uint8", 
+            542304, 
+            8392
+        ], 
+        "LIgnoreRanges": [
+            559127, 
+            1637
+        ], 
+        "LRanges": [
+            535539, 
+            6765
+        ], 
+        "LWords": [
+            "utf-8", 
+            559088, 
+            39
+        ], 
+        "LAmount": [
+            "uint8", 
+            550696, 
+            8392
+        ]
+    }, 
+    "canonical combining classes": {
+        "LSeek": [
+            "uint8", 
+            566099, 
+            6515
+        ], 
+        "LIgnoreRanges": [
+            579255, 
+            1276
+        ], 
+        "LRanges": [
+            560764, 
+            5335
+        ], 
+        "LWords": [
+            "utf-8", 
+            579129, 
+            126
+        ], 
+        "LAmount": [
+            "uint8", 
+            572614, 
+            6515
+        ]
+    }, 
+    "property list": {
+        "LSeek": [
+            "uint16", 
+            1766441, 
+            7098
+        ], 
+        "LIgnoreRanges": [
+            1788182, 
+            1271
+        ], 
+        "LRanges": [
+            1764390, 
+            2051
+        ], 
+        "LWords": [
+            "utf-8", 
+            1787735, 
+            447
+        ], 
+        "LAmount": [
+            "uint8", 
+            1780637, 
+            7098
+        ]
+    }, 
+    "compatibility mapping": {
+        "LSeek": [
+            "uint32", 
+            1789457, 
+            4817
+        ], 
+        "LIgnoreRanges": [
+            1894892, 
+            490
+        ], 
+        "LRanges": [
+            1789453, 
+            4
+        ], 
+        "LWords": [
+            "utf-8", 
+            1813542, 
+            81350
+        ], 
+        "LAmount": [
+            "uint8", 
+            1808725, 
+            4817
+        ]
+    }, 
+    "case folding status": {
+        "LSeek": [
+            "uint8", 
+            1895602, 
+            1871
+        ], 
+        "LIgnoreRanges": [
+            1899348, 
+            158
+        ], 
+        "LRanges": [
+            1895382, 
+            220
+        ], 
+        "LWords": [
+            "utf-8", 
+            1899344, 
+            4
+        ], 
+        "LAmount": [
+            "uint8", 
+            1897473, 
+            1871
+        ]
+    }, 
+    "Unicode 1.0 name": {
+        "LSeek": [
+            "uint16", 
+            814056, 
+            4054
+        ], 
+        "LWords": [
+            "utf-8", 
+            852878, 
+            4611
+        ], 
+        "LIgnoreRanges": [
+            857489, 
+            295
+        ], 
+        "LRanges": [
+            857784, 
+            4
+        ], 
+        "LWordLinks": [
+            "uint16", 
+            822164, 
+            10238
+        ], 
+        "LAmount": [
+            "uint8", 
+            842640, 
+            10238
+        ]
+    }, 
+    "expands on NFD": {
+        "LValues": [
+            "utf-8", 
+            1899899, 
+            1886
+        ], 
+        "LIgnoreRanges": [
+            1901785, 
+            416
+        ], 
+        "LRanges": [
+            1902201, 
+            254
+        ]
+    }, 
+    "decomposed form": {
+        "LSeek": [
+            "uint16", 
+            1936715, 
+            3489
+        ], 
+        "LIgnoreRanges": [
+            1995805, 
+            394
+        ], 
+        "LRanges": [
+            1936711, 
+            4
+        ], 
+        "LWords": [
+            "utf-8", 
+            1947182, 
+            48623
+        ], 
+        "LAmount": [
+            "uint8", 
+            1943693, 
+            3489
+        ]
+    }, 
+    "case folding": {
+        "LSeek": [
+            "uint16", 
+            1912020, 
+            2312
+        ], 
+        "LRanges": [
+            1926232, 
+            4
+        ], 
+        "LIgnoreRanges": [
+            1926056, 
+            176
+        ], 
+        "LValues": [
+            "uint32", 
+            1916644, 
+            2353
+        ]
+    }, 
+    "joining type": {
+        "LSeek": [
+            "uint8", 
+            1926578, 
+            3657
+        ], 
+        "LIgnoreRanges": [
+            1933896, 
+            709
+        ], 
+        "LRanges": [
+            1926236, 
+            342
+        ], 
+        "LWords": [
+            "utf-8", 
+            1933892, 
+            4
+        ], 
+        "LAmount": [
+            "uint8", 
+            1930235, 
+            3657
+        ]
+    }, 
+    "decimal digit value": {
+        "LSeek": [
+            "uint8", 
+            1934609, 
+            796
+        ], 
+        "LIgnoreRanges": [
+            1936211, 
+            500
+        ], 
+        "LRanges": [
+            1934605, 
+            4
+        ], 
+        "LWords": [
+            "utf-8", 
+            1936201, 
+            10
+        ], 
+        "LAmount": [
+            "uint8", 
+            1935405, 
+            796
+        ]
+    }, 
+    "block": {
+        "LSeek": [
+            "uint8", 
+            1908064, 
+            160
+        ], 
+        "LIgnoreRanges": [
+            1911896, 
+            124
+        ], 
+        "LRanges": [
+            1902455, 
+            5609
+        ], 
+        "LWords": [
+            "utf-8", 
+            1908384, 
+            3512
+        ], 
+        "LAmount": [
+            "uint8", 
+            1908224, 
+            160
+        ]
+    }
+}

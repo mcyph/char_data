@@ -1,0 +1,24 @@
+{
+    "Multi Radicals": {
+        "LSeek": [
+            "ln", 
+            "H", 
+            0, 
+            40190
+        ], 
+        "LRanges": [
+            170476, 
+            4
+        ], 
+        "LIgnoreRanges": [
+            170366, 
+            110
+        ], 
+        "LValues": [
+            "ln", 
+            "H", 
+            40190, 
+            130176
+        ]
+    }
+}

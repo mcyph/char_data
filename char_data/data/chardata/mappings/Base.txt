@@ -1,0 +1,17 @@
+[Base]
+LBase = [
+	'scripts/blocks',
+	['general scripts', 'ThreeLevelTreeList'],
+	['general blocks', 'TreeList'],
+	['conscript blocks', 'TreeList'],
+	
+	'other lists',
+	['alphabets of languages', 'TreeList'],
+	['other properties', 'OtherSubList'],
+	
+	#'miscellaneous',
+	#['chinese handwriting', 'Handwriting'],
+	#['paste characters', 'PasteChars'],
+	#['character search', 'NameSubList'],
+	#['by IPA usage', 'IPASubList'],
+]

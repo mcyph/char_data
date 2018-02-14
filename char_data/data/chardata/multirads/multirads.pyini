@@ -1,0 +1,10 @@
+[Multi Radicals]
+header = 'Radical/Additional Strokes'
+formatter = 'UnicodeHex' # FIXME! ==============================
+
+# NOTE: The `MultiRadIndex` gets it's own data externally, 
+# so that e.g. Simplified variants can be added by converting 
+# Simplified to Traditional radicals. This adds many errors 
+# as Simplified variants sometimes have changed/removed radicals 
+# so I didn't want to include it in the main data
+index = 'MultiRadIndex'

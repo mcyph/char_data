@@ -1,0 +1,116 @@
+# The script mappings to a tree by region etc
+ScriptTypes = '''
+Avestan    Middle Eastern Scripts
+Bamum    African Scripts
+Egyptian Hieroglyphs    African Scripts
+Format Characters    Symbols and Punctuation
+Imperial Aramaic    Middle Eastern Scripts
+Inscriptional Pahlavi    Middle Eastern Scripts
+Inscriptional Parthian    Middle Eastern Scripts
+Javanese    South East Asian
+Kaithi    Indic Scripts
+Lisu    South East Asian
+Meetei Mayek    South East Asian
+Old South Arabian    Middle Eastern Scripts
+Old Turkic    Middle Eastern Scripts
+Samaritan    Middle Eastern Scripts
+Tai Tham    South East Asian
+Tai Viet    South East Asian
+
+Arabic    Middle Eastern Scripts
+Armenian    European Scripts
+Balinese    South East Asian
+Bengali    Indic Scripts
+Bopomofo    East Asian Scripts
+Braille    Miscellaneous
+Buginese    South East Asian
+Buhid    Phillipine Scripts
+Canadian Aboriginal    American Scripts
+Cherokee    American Scripts
+Common    Miscellaneous
+Coptic    European Scripts
+Cuneiform    Ancient Scripts
+Cypriot    Ancient Scripts
+Cyrillic    European Scripts
+Deseret    American Scripts
+Devanagari    Indic Scripts
+Ethiopic    African Scripts
+Georgian    European Scripts
+Glagolitic    Miscellaneous
+Gothic    Ancient Scripts
+Greek    European Scripts
+Gujarati    Indic Scripts
+Gurmukhi    Indic Scripts
+Han    East Asian Scripts
+Hangul    East Asian Scripts
+Hanunoo    Phillipine Scripts
+Hebrew    Middle Eastern Scripts
+Hiragana    East Asian Scripts
+Inherited    Miscellaneous
+Kannada    Indic Scripts
+Katakana    East Asian Scripts
+Kharoshthi    Central Asian Scripts
+Khmer    South East Asian
+Lao    South East Asian
+Latin    European Scripts
+Limbu    Indic Scripts
+Linear B    Ancient Scripts
+Malayalam    Indic Scripts
+Mongolian    Central Asian Scripts
+Myanmar    South East Asian
+New Tai Lue    South East Asian
+Nko    African Scripts
+Ogham    Ancient Scripts
+Old Italic    Ancient Scripts
+Old Persian    Ancient Scripts
+Oriya    Indic Scripts
+Osmanya    Miscellaneous
+Phags Pa    Central Asian Scripts
+Phoenician    Ancient Scripts
+Runic    Ancient Scripts
+Shavian    Miscellaneous
+Sinhala    Indic Scripts
+Syloti Nagri    Indic Scripts
+Syriac    Middle Eastern Scripts
+Tagalog    Phillipine Scripts
+Tagbanwa    Phillipine Scripts
+Tai Le    South East Asian
+Tamil    Indic Scripts
+Telugu    Indic Scripts
+Thaana    Middle Eastern Scripts
+Thai    South East Asian
+Tibetan    Central Asian Scripts
+Tifinagh    African Scripts
+Ugaritic    Ancient Scripts
+Yi    East Asian Scripts
+
+Kayah Li    South East Asian
+Lepcha    Central Asian Scripts
+Rejang    South East Asian
+Sundanese    South East Asian
+Saurashtra    Indic Scripts
+Cham    South East Asian
+Ol Chiki    Indic Scripts
+Vai African    Scripts
+Carian    European Scripts
+Lycian    European Scripts
+Lydian    European Scripts
+
+CJK Symbols    East Asian Scripts
+Phaistos Disc    Ancient Scripts
+Vai    African Scripts
+Control Characters    Miscellaneous
+
+Currency Signs    Symbols and Punctuation
+General Punctuation    Symbols and Punctuation
+Geometric Shapes    Symbols and Punctuation
+IPA Alphabet    Symbols and Punctuation
+Letterlike Symbols    Symbols and Punctuation
+Mathematical Signs    Symbols and Punctuation
+Modifier and Combining Characters    Symbols and Punctuation
+Musical Symbols    Miscellaneous
+Numbers    Symbols and Punctuation
+Pictures and Miscellaneous Symbols    Symbols and Punctuation
+Spaces    Symbols and Punctuation
+Technical Symbols    Symbols and Punctuation
+'''

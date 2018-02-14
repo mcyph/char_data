@@ -1,0 +1,395 @@
+#========================================================#
+#                  Unicode Data Basefile                 #
+#========================================================#
+
+# [Code Value, Name, Decimal digit value, Digit value
+# Unicode 1.0 Name, 10646 comment field, Numeric value]
+# are all ignored
+# as are Uppercase Mapping, Lowercase Mapping and Titlecase Mapping
+
+# General Category
+
+tDCat = {'Lu': 'Letter, Uppercase',
+    'Ll': 'Letter, Lowercase',
+    'Lt': 'Letter, Titlecase',
+    'Lm': 'Letter, Modifier',
+    'Lo': 'Letter, Other',
+    'Mn': 'Mark, Nonspacing',
+    'Mc': 'Mark, Spacing Combining',
+    'Me': 'Mark, Enclosing',
+    'Nd': 'Number, Decimal Digit',
+    'Nl': 'Number, Letter',
+    'No': 'Number, Other',
+    'Pc': 'Punctuation, Connector',
+    'Pd': 'Punctuation, Dash',
+    'Ps': 'Punctuation, Open',
+    'Pe': 'Punctuation, Close',
+    'Pi': 'Punctuation, Initial quote (may behave like Ps or Pe depending on usage)',
+    'Pf': 'Punctuation, Final quote (may behave like Ps or Pe depending on usage)',
+    'Po': 'Punctuation, Other',
+    'Sm': 'Symbol, Math',
+    'Sc': 'Symbol, Currency',
+    'Sk': 'Symbol, Modifier',
+    'So': 'Symbol, Other',
+    'Zs': 'Separator, Space',
+    'Zl': 'Separator, Line',
+    'Zp': 'Separator, Paragraph',
+    'Cc': 'Other, Control',
+    'Cf': 'Other, Format',
+    'Cs': 'Other, Surrogate',
+    'Co': 'Other, Private Use',
+    'Cn': 'Other, Not Assigned (no characters in the file have this property)'}
+DCat = {}
+for k in tDCat:
+    Split = tDCat[k].split(', ')
+    DCat[k] = '%s %s' % (Split[1], Split[0])
+DCat[None] = 'Unknown'
+D['General Category'] = DCat
+DRevCats = {}
+for Key, Value in DCat.items():
+    DRevCats[Value.split('(')[0].strip().title()] = Key
+
+# Canonical Combining Classes
+
+D['Canonical Combining Classes'] = {'0': 'Spacing, split, enclosing, reordrant, and Tibetan subjoined',
+ '1': 'Overlays and interior',
+ '7': 'Nuktas',
+ '8': 'Hiragana/Katakana voicing marks',
+ '9': 'Viramas',
+ '10': 'Start of fixed position classes',
+ '199': 'End of fixed position classes',
+ '200': 'Below left attached',
+ '202': 'Below attached',
+ '204': 'Below right attached',
+ '208': 'Left attached (reordrant around single base character)',
+ '210': 'Right attached',
+ '212': 'Above left attached',
+ '214': 'Above attached',
+ '216': 'Above right attached',
+ '218': 'Below left',
+ '220': 'Below',
+ '222': 'Below right',
+ '224': 'Left (reordrant around single base character)',
+ '226': 'Right',
+ '228': 'Above left',
+ '230': 'Above',
+ '232': 'Above right',
+ '233': 'Double below',
+ '234': 'Double above',
+ '240': 'Below (iota subscript)',
+ None: 'Unknown'}
+
+# Bidirectional Category
+
+D['Bidirectional Category'] = {'L': 'Left-to-Right',
+ 'LRE': 'Left-to-Right Embedding',
+ 'LRO': 'Left-to-Right Override',
+ 'R': 'Right-to-Left',
+ 'AL': 'Right-to-Left Arabic',
+ 'RLE': 'Right-to-Left Embedding',
+ 'RLO': 'Right-to-Left Override',
+ 'PDF': 'Pop Directional Format',
+ 'EN': 'European Number',
+ 'ES': 'European Number Separator',
+ 'ET': 'European Number Terminator',
+ 'AN': 'Arabic Number',
+ 'CS': 'Common Number Separator',
+ 'NSM': 'Non-Spacing Mark',
+ 'BN': 'Boundary Neutral',
+ 'B': 'Paragraph Separator',
+ 'S': 'Segment Separator',
+ 'WS': 'Whitespace',
+ 'ON': 'Other Neutrals',
+ None: 'Unknown'}
+
+# Character Decomposition Mapping 
+
+D['Character Decomposition Mapping'] = '''
+<font> A font variant (e.g. a blackletter form).
+<noBreak> A no-break version of a space or hyphen.
+<initial> An initial presentation form (Arabic).
+<medial> A medial presentation form (Arabic).
+<final> A final presentation form (Arabic).
+<isolated> An isolated presentation form (Arabic).
+<circle> An encircled form.
+<super> A superscript form.
+<sub> A subscript form.
+<vertical> A vertical layout presentation form.
+<wide> A wide (or zenkaku) compatibility character.
+<narrow> A narrow (or hankaku) compatibility character.
+<small> A small variant form (CNS compatibility).
+<square> A CJK squared font variant.
+<fraction> A vulgar fraction form.
+<compat> Otherwise unspecified compatibility character.
+None Unknown
+'''
+
+# Mirrored
+
+D['Mirrored'] = {
+ True: 'Yes (Flipped on Right-to-Left)', 
+ False: 'No (Not Flipped on Right-to-Left)',
+ None: 'Unknown'}
+
+#========================================================#
+#                     Arabic Shaping                     #
+#========================================================#
+
+# From Arabic Shaping
+# TODO: Should this be TYPE rather than GROUP?
+D['Arabic Shaping Group'] = '''
+R Right_Joining
+L Left_Joining
+D Dual_Joining
+C Join_Causing
+U Non_Joining
+T Transparent
+None Unknown
+'''
+D['Arabic Shaping Type'] = D['Arabic Shaping Group']
+
+#========================================================#
+#                 Composition Exclusions                 #
+#========================================================#
+
+# TODO!
+
+#========================================================#
+#                    East Asian Width                    #
+#========================================================#
+
+D['East Asian Width'] = {'A': 'Ambiguous (Sometimes Wide and Sometimes Narrow)', 
+ 'F': 'Fullwidth', # (no Halfwidth Alternative), THESE ARE WRONG!
+ 'H': 'Halfwidth', # (no Fullwidth Alternative)
+ 'Na': 'Always Narrow', # (with Wide Alternative)
+ 'W': 'Always Wide', # (with Narrow Alternative)
+ 'N': 'Neutral (Not East Asian)',
+  None: 'Neutral (Not East Asian)'}
+
+#========================================================#
+#                    Line Break                    #
+#========================================================#
+
+D['Line Break'] = u'''
+BK    Mandatory Break
+CR    Carriage Return
+LF    Line Feed
+CM    Attached Characters and Combining Marks
+NL    Next Line
+SG    Surrogates
+WJ    Word Joiner
+ZW    Zero Width Space
+GL    Non-breaking ("Glue")
+SP    Space
+B2    BreakﾠOpportunity Before and After
+BA    Break Opportunity After
+BB    Break Opportunity Before
+HY    Hyphen
+CB    Contingent Break Opportunity
+CL    Closing Punctuation
+EX    Exclamation/Interrogation
+IN    Inseparable
+NS    Nonstarter
+OP    Opening Punctuation
+QU    Ambiguous Quotation
+IS    Infix Separator (Numeric)
+NU    Numeric
+PO    Postfix (Numeric)
+PR    Prefix (Numeric)
+SY    Symbols Allowing Break After
+AI    Ambiguous
+AL    Ordinary Alphabetic and Symbol Characters
+H2    Hangul LV Syllable
+H3    Hangul LVT Syllable
+ID    Ideographic
+JL    Hangul L Jamo
+JV    Hangul V Jamo
+JT    Hangul T Jamo
+SA    Complex Context Dependent (South East Asian)
+XX    Unknown
+None    Unknown
+'''
+
+# I might add 'mouse-over' info later to elaborate, 
+# but the below info is a bit much in a table
+"""
+D['Line Break'] = u'''
+BK    Mandatory Break (Cause a line break after)
+CR    Carriage Return (Cause a line break after, except between CR and LF)
+LF    Line Feed (Cause a line break after)
+CM    Attached Characters and Combining Marks (Prohibit a line break between the character and the preceding character)
+NL    Next Line (Cause a line break after)
+SG    Surrogates (Should not occur in well-formed text)
+WJ    Word Joiner (Prohibit line breaks before or after)
+ZW    Zero Width Space (Provide a break opportunity)
+GL    Non-breaking ("Glue") (Prohibit line breaks before or after)
+SP    Space (Generally provide a line break opportunity after the character, enable indirect breaks)
+B2    BreakﾠOpportunity Before and After (Provide a line break opportunity before and after the character)
+BA    Break Opportunity After (Generally provide a line break opportunity after the character)
+BB    Break Opportunity Before (Generally provide a line break opportunity before the character)
+HY    Hyphen (Provide a line break opportunity after the character, except in numeric context)
+CB    Contingent Break Opportunity (Provide a line break opportunity contingent on additional information)
+CL    Closing Punctuation (Prohibit line breaks before)
+EX    Exclamation/Interrogation (Prohibit line breaks before)
+IN    Inseparable (Allow only indirect line breaks between pairs)
+NS    Nonstarter (Allow only indirect line breaks before)
+OP    Opening Punctuation (Prohibit line breaks after)
+QU    Ambiguous Quotation (Act like they are both opening and closing)
+IS    Infix Separator (Numeric) (Prevent breaks after any and before numeric)
+NU    Numeric (Form numeric expressions for line breaking purposes)
+PO    Postfix (Numeric) (Do not break following a numeric expression)
+PR    Prefix (Numeric) (Do not break in front of a numeric expression)
+SY    Symbols Allowing Break After (Prevent a break before, and allow a break after)
+AI    Ambiguous (Alphabetic or Ideographic) (Act like AL when the resolved EAW is N; otherwise, act as ID)
+AL    Ordinary Alphabetic and Symbol Characters (Are alphabetic characters or symbols that are used with alphabetic characters)
+H2    Hangul LV Syllable (Form Korean syllable blocks)
+H3    Hangul LVT Syllable (Form Korean syllable blocks)
+ID    Ideographic (Break before or after, except in some numeric context)
+JL    Hangul L Jamo (Form Korean syllable blocks)
+JV    Hangul V Jamo (Form Korean syllable blocks)
+JT    Hangul T Jamo (Form Korean syllable blocks)
+SA    Complex Context Dependent (South East Asian) (Provide a line break opportunity contingent on additional, language-specific context analysis)
+XX    Unknown (Have as yet unknown line breaking behavior or unassigned code positions)
+None    Unknown (Have as yet unknown line breaking behavior or unassigned code positions)
+'''
+"""
+
+# NOTE: NamesList is ignored here
+# NOTE: PropertyList is OK as-is, only without underscores
+# NOTE: Derived Core Properties is OK as-is, only without underscores
+
+# NOTE: Bidi Mirroring This property, unlike the Bidi property 
+# above, describes the mirrored CODEPOINT. It therefore 
+# should be an encoding filter.
+
+#========================================================#
+#                    Case Folding Status/Mapping                    #
+#========================================================#
+
+# NOTE: Case Folding Mapping is a separate property
+D['Case Folding Status'] = '''
+C Common Case Folding
+F Full Case Folding
+S Simple Case Folding
+T Special Case
+None None
+'''
+
+#========================================================#
+#                    Derived Age                    #
+#========================================================#
+
+D['Age'] = '''
+1.1 Unicode 1.1.0 June 1993
+2.0 Unicode 2.0.0 July 1996
+2.1 Unicode 2.1.2 May 1998
+3.0 Unicode 3.0.0 September 1999
+3.1 Unicode 3.1.0 March 2001
+3.2 Unicode 3.2.0 March 2002
+4.0 Unicode 4.0.0 April 2003
+4.1 Unicode 4.1.0 March 2005
+5.0 Unicode 5.0.0 July 2006
+5.1 Unicode 5.1.0 April 2008
+5.2 Unicode 5.2.0 October 2009
+None Unassigned
+'''
+
+#========================================================#
+#                    Derived Normalization Properties                    #
+#========================================================#
+
+# NOTE: Named Aliases is ignored here
+# NOTE: Normalization Corrections is ignored here
+# NOTE: Unicode Blocks/Scripts are ignored here
+# NOTE: Special Casing is ignored here
+
+#========================================================#
+#                    Derived Normalization Properties                    #
+#========================================================#
+
+#========================================================#
+#              Derived Joining Properties                #
+#========================================================#
+
+D['Joining Type'] = '''C Join Causing
+D Dual Joining
+R Right Joining
+T Transparent
+None Unknown'''
+
+#========================================================#
+#              CompositionExclusions (Bool)              #
+#========================================================#
+
+D['Composition Exclusions'] = {True: 'Excluded from Compositions',
+                               False: None, # TODO: Should this be hidden?
+                               None: None}
+
+#========================================================#
+#                 SentenceBreakProperty                  #
+#========================================================#
+
+# TODO: MOVE ME!
+D['Grapheme Break'] = '''
+CR    Carriage Return (CR)
+LF    Line Feed (LF)
+Control    Control
+Extend    Grapheme Extended
+L    Hangul Syllable Type L
+V    Hangul Syllable Type V
+T    Hangul Syllable Type T
+LV    Hangul Syllable Type LV
+LVT    Hangul Syllable Type LVT
+Any    Any Character
+None    Unknown
+'''
+
+# TODO: MOVE ME!
+D['Word Break'] = '''
+Format    General Format Property
+Katakana    Katakana
+ALetter    Alphabetic Letter
+MidLetter    Middle Letter
+MidNum    Middle Number
+Numeric    Numeric
+ExtendNumLet    Connector Punctuation
+Any    Any Character
+None    Unknown
+''' # TODO: Elaborate on ALetter?
+
+# TODO: MOVE ME!
+D['IICore'] = {
+    True: 'Yes, commonly used in East Asia',
+    False: 'No, not commonly used in East Asia',
+    None: None} # Don't display the property if not Unicode
+
+D['Sentence Break'] = '''
+Sep    Separator
+Format    Format (without ZWJ/ZWNJ)
+Sp    Space
+Lower    Lowercase
+Upper    Uppercase
+OLetter    Other Letter
+Numeric    Numeric
+ATerm    Alphabetic Terminator (Full Stop)
+STerm    Space Terminator
+Close    Close
+Any    Any Character
+None    Unknown
+'''
+
+for k in D:
+    if type(D[k]) in (str, unicode):
+        DOut = {}
+        for Line in D[k].split('\n'):
+            Line = Line.strip()
+            if not Line: continue
+            Key, Mapping = Line.split()[0], ' '.join(Line.split()[1:])
+            Key = Key.strip()
+            Mapping = Mapping.strip()
+            if Key == 'None':
+                if Mapping == 'None': 
+                    Mapping = None
+                DOut[None] = Mapping
+            else: DOut[Key] = Mapping
+        D[k] = DOut

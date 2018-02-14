@@ -1,0 +1,8 @@
+# The Chinese radical/multirad sublist
+Radicals = '''Chinese Unified Radicals    MultiRadSel
+Chinese Simplified Radicals    MultiRadSel
+Chinese Traditional Radicals    MultiRadSel
+Japanese Radicals    MultiRadSel
+Korean Radicals    MultiRadSel
+Tang Radicals    MultiRadSel
+Vietnamese Radicals    MultiRadSel'''

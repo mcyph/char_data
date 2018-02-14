@@ -1,0 +1,106 @@
+{
+    "Readings": {
+
+    },
+    "Encodings": {
+        "CNS11643": {
+            "formatter": "NoFormatStrings",
+            "ignored": true,
+            "LLangs": ["yue", "cmn", "hak"],
+            "name": "CNS11643"
+        }
+    },
+    "Total Strokes": {
+
+    },
+    "Definition": {
+        "Hakka": {
+            formatter = 'Definition'
+            header = 'Readings'
+            index = 'CompressedNames'
+            LLangs = ['hak']
+            LScript = ['hak', 'Guangdong']
+            name = 'Hakka'
+        }
+    }
+}
+
+
+
+
+[TotalStrokes]:
+    formatter = 'NoFormatStrings'
+    header = 'Total Strokes'
+    ignored = True
+    LLangs = ['yue', 'hak']
+    name = 'TotalStrokes'
+
+[English]:
+    formatter = 'Definition'
+    header = 'Definition'
+    index = 'Fulltext'
+    LLangs = ['yue', 'hak']
+    name = 'Cantonese Definition'
+
+[Cangjie]:
+    formatter = 'NoFormatStrings'
+    header = 'Input'
+    ignored = True
+    index = 'StringKeys'
+    LLangs = ['yue', 'hak']
+    name = 'Cangjie'
+
+[FourCorner]:
+    formatter = 'NoFormatStrings'
+    header = 'Input'
+    ignored = True
+    index = 'StringKeys'
+    LLangs = ['yue', 'hak']
+    name = 'FourCorner'
+
+[Big5]:
+	formatter = 'Hex'
+    header = 'Encodings'
+    ignored = True
+    LLangs = ['yue', 'cmn', 'hak']
+    name = 'Big5'
+
+[GB]:
+	formatter = 'NoFormatStrings' # HACK!
+    header = 'Encodings'
+    ignored = True
+    LLangs = ['yue', 'cmn', 'hak']
+    name = 'GB'
+
+[Cantonese]:
+    formatter = 'Definition'
+    header = 'Readings'
+    index = 'CompressedNames'
+    LLangs = ['yue']
+    LScript = ['yue', 'Jyutping']
+    name = 'Cantonese'
+
+[Mandarin]:
+    formatter = 'Definition'
+    header = 'Readings'
+    ignored = True
+    index = 'CompressedNames'
+    LLangs = ['cmn']
+    LScript = ['cmn', 'PinYin']
+    name = 'Mandarin'
+
+[R/S]:
+    formatter = 'RadicalStrokes'
+    header = 'Radical/Additional Strokes'
+    ignored = True
+    index = 'RadicalStrokes'
+    LLangs = ['yue', 'hak']
+    name = 'Cantonese and Hakka'
+
+[UTF8]:
+	formatter = 'NoFormatStrings' # HACK!
+    header = 'Word'
+    ignored = True
+    LLangs = ['All']
+    name = 'Word'
+
