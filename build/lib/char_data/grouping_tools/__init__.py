@@ -1,0 +1,2 @@
+from get_smallest_name import get_smallest_name
+from LatinAccents import LatinAccents

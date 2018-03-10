@@ -8,8 +8,8 @@ from dicts.chinese.variants import (
     DLinkKeys, DReverseLinkKeys, NORMAL, REVERSE
 )
 
-from warnings import warn
-warn("PLEASE FIX CEDictVariants to be not reliant on Flazzle dictionary modules!!!")
+#from warnings import warn
+#warn("PLEASE FIX CEDictVariants to be not reliant on Flazzle dictionary modules!!!")
 # HACK!
 #DReverseLinkKeys = {}
 #REVERSE = None
