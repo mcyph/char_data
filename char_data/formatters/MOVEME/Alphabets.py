@@ -5,6 +5,7 @@ from char_data.data.Languages.Langs import DLangs
 # to ask "does x language use x character"?
 # TODO: Use a single dict with IDs to minimize overhead?
 
+
 def get_L_alphabet_langs():
     # Returns ((language name, a set of the alphabet of that language))
     # (in order to test whether a language has a specific 
@@ -23,6 +24,7 @@ def get_L_alphabet_langs():
                 LAlpha.append((DLang['name'], S))
     return LAlpha
 
+
 def get_L_alphabet_list_items(key='general blocks'):
     # Add by first letter in blocks
     LBlocks = CharData.property_keys(key)
@@ -34,6 +36,7 @@ def get_L_alphabet_list_items(key='general blocks'):
             LKeys.sort()
             LRtn.append(('Starting with "%s"' % (char.upper()), LKeys))
     return LRtn
+
 
 def get_L_langs():
     LLangs = []

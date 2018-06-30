@@ -12,7 +12,6 @@ class Data(ClassByProperty):
     def __init__(self):
         ClassByProperty.__init__(self, DData)
 
-
     def keys(self, data_source=None):
         """
         Get a list of the possible data source/key combinations
@@ -26,7 +25,6 @@ class Data(ClassByProperty):
         LKeys.sort()
         return LKeys
 
-
     def raw_data(self, key, ord_):
         """
         Get the raw data from formatter instance `key`
@@ -37,7 +35,6 @@ class Data(ClassByProperty):
         
         inst = self.get_class_by_property(key)
         return inst.raw_data(ord_)
-
 
     def formatted(self, key, ord_):
         """

@@ -4,6 +4,7 @@ from toolkit.arrays.ArrayUtils import write_array, write_json
 
 from char_data.datatypes.write.range_gen_tools import compress_ord_ranges
 
+
 def coerce_to_int(DOrds):
     for ord_, L in DOrds.items():
         if isinstance(L, basestring):
@@ -18,6 +19,7 @@ def coerce_to_int(DOrds):
             nL.append(int(i))
         DOrds[ord_] = nL
     return DOrds
+
 
 def write_integer_list(f, key, DOrds):
     """

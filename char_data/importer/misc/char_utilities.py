@@ -10,6 +10,7 @@ from char_data.data_paths import data_path
 #UNIPATH = r'F:\Documents\Uni_\Uni\6.0.0\%s'
 UNIPATH = data_path('chardata', 'unidata/src/%s')
 
+
 def get_code_point(Hex):
     if '..' in Hex:
         # Two hex values - return an int range
@@ -23,10 +24,12 @@ def get_code_point(Hex):
             print "ERROR:", Hex
             raise
 
+
 def uni_open(FileName):
     Path = UNIPATH % FileName
     File = codecs.open(Path, 'rb', 'utf-8', 'replace')
     return File
+
 
 def open_scsv(Path):
     # Open a Unicode file, separated by semicolons
@@ -45,6 +48,7 @@ def open_scsv(Path):
         
         yield LLine
     File.close()
+
 
 def get_char_gaps(LCodePoints):
     DCodePoints = {}
@@ -67,6 +71,7 @@ def get_char_gaps(LCodePoints):
     #print 'get_char_gaps:', LRtn
     return sorted(LRtn)
 
+
 def iter_ranges_1(LIgnoreRanges, max_):
     #print 'MAX iter_ranges:', max_
     lastadjCodePoint = -1
@@ -85,6 +90,7 @@ def iter_ranges_1(LIgnoreRanges, max_):
             lastadjCodePoint = adjCodePoint
             #print 'ord_:', ord_, 'adjCodePoint:', adjCodePoint
             yield ord_
+
 
 def iter_ranges_2(LIgnoreRanges, max_):
     low_range = 0
@@ -105,6 +111,7 @@ def iter_ranges_2(LIgnoreRanges, max_):
             #print from_, to, i
             yield i
 
+
 def iter_ranges(LIgnoreRanges, max_):
     if 1:
         # Skip CPU cycles at an accuracy cost
@@ -121,6 +128,7 @@ def iter_ranges(LIgnoreRanges, max_):
         
         for i in iter_2: 
             yield i
+
 
 def get_adjusted_code_point(ord_, LIgnoreRanges):
     """

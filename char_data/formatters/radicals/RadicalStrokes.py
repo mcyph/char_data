@@ -4,6 +4,7 @@ from char_data.radicals.DataRadicals import DRadTypes
 
 #DRads = Radical.get_D_rads()
 
+
 class RadicalStrokes(StringData):
     def __init__(self, key, f, DJSON):
         StringData.__init__(self, key, f, DJSON)

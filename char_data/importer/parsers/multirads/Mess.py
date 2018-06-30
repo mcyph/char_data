@@ -8,12 +8,14 @@ from input.WidthConv import full_to_halfwidth
 DRadicals = get_D_rads()
 #from Chars.CharData import CharData # FIXME! ====================================================
 
+
 def get_L_rad_lines():
     # HACK: Get both the radkfile and radkfile2 data and return them together
     with codecs.open('Chars/Data/radkfile', 'rb', 'euc-jp') as f1:
         with codecs.open('Chars/Data/radkfile2', 'rb', 'euc-jp') as f2:
             L = f1.read().split('\n')+f2.read().split('\n')
     return L
+
 
 '''
 if rad in DAlternate:
@@ -72,6 +74,7 @@ if rad in DRadAliases:
         DChars[char] += key # Add to DChars
 '''
 
+
 def get_both_multi_rads(DSimpRads, DSimpChars, DTradRads, DTradChars):
     # Get from both the simplified and traditional radicals
     DBothRads = {}
@@ -100,6 +103,7 @@ def get_both_multi_rads(DSimpRads, DSimpChars, DTradRads, DTradChars):
         DBothChars[k] += DTradChars[k]
         DBothChars[k] = fast_rem_dupes(DBothChars[k])
     return conv_to_array(DBothRads), DBothChars
+
 
 def get_disp_rads(Trad):
     # Returns [[NumStrokes, RadChars, EngDef], ...]
@@ -231,6 +235,7 @@ get_disp_rads = cache_funct('GetDispRads', get_disp_rads)
 # 土阡龠斤大邦豆女支皮辰生隶鼻人岡込儿滴汁元面久又車虍至ノ鹿黒豕比乙九マ几ユ巨足歯目
 # 山彳鹵巴長骨寸白臼西廾
 
+
 def get_by_multi_rads(LRads, Trad):
     xx = 0
     DRads = DBothRads
@@ -262,11 +267,13 @@ def get_by_multi_rads(LRads, Trad):
     LRtn.sort()
     return LRtn
 
+
 def get_L_multi_rads(Trad):
     if Trad == 'Both': Rads = LBothRads
     elif Trad: Rads = LTradRads
     else: Rads = LSimpRads
     return Rads
+
 
 def get_multi_rads():
     # Get the Traditional and auto-convert to Simplified data

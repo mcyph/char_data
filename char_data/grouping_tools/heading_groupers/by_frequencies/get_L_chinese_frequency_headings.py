@@ -5,6 +5,7 @@ DGrades = {
     'Japanese Grade': 'Japanese'
 }
 
+
 def get_L_chinese_frequency_headings(LRanges, LSortBy):
     """
     Group by frequencys/grade etc under subheadings

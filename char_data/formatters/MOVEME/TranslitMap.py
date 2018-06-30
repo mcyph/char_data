@@ -2,13 +2,16 @@ from toolkit.escape import E
 from multi_translit.translit.Defines import *
 from multi_translit.translit.TranslitLoad import DIDToStr, DTranslitChars, DISOToDSet, DStrToISO
 
+
 def compare(a, b):
     if a == 'Latin': return -1
     elif b == 'Latin': return 1
     else: return cmp(a, b)
 
+
 CmpCaseInsensitive1 = lambda x: x[0].lower()
 CmpCaseInsensitive2 = lambda x: x.lower()
+
 
 def get_translit_map(CodePoint):
     # Add transliteration mappings

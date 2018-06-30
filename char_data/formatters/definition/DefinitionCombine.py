@@ -1,7 +1,10 @@
-DCombine = {'cmn': [],
-            'jpn': [],
-            'kor': [],
-            '': []}
+DCombine = {
+    'cmn': [],
+    'jpn': [],
+    'kor': [],
+    '': []
+}
+
 
 class DefinitionCombine:
     def __init__(self, LKeys):

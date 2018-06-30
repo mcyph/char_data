@@ -1,5 +1,6 @@
 from char_data import formatted
 
+
 DFallbackExc = {
     #'Hiragana': 'Japanese',
     #'Katakana': 'Japanese',
@@ -7,6 +8,7 @@ DFallbackExc = {
     #'Hangul': 'Korean',
     #'Bopomofo': 'ChineseTraditional'
 }
+
 
 def get_font_script(ord_):
     """

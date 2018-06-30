@@ -2,6 +2,7 @@ import binascii
 from toolkit.surrogates import w_unichr
 #from Dicts.Other.Import.DelimText import Encodings
 
+
 class Encodings:
     def __init__(self, encoding):
         self.encoding = encoding

@@ -3,6 +3,7 @@ from char_data.datatypes.read import Boolean, StringData
 from toolkit.py_ini import read_D_ini
 from char_data.data_paths import data_path
 
+
 def get_D_rev_enum():
     DRevEnum = {}
     for key, i_D in DEnum.items():
@@ -11,8 +12,10 @@ def get_D_rev_enum():
     print DRevEnum
     return DRevEnum
 
+
 DEnum = read_D_ini(data_path('chardata', 'EnumKeys.ini'))
 DRevEnum = get_D_rev_enum()
+
 
 class Enum:
     def formatted(self, ord_):
@@ -23,6 +26,7 @@ class Enum:
         else: 
             return data # HACK!
 
+
 class StringEnum(StringData, Enum):
     def __init__(self, key, f, DJSON):
         """
@@ -31,6 +35,7 @@ class StringEnum(StringData, Enum):
         "Letter, Modifier"
         """
         StringData.__init__(self, key, f, DJSON)
+
 
 class BooleanEnum(Boolean, Enum):
     def __init__(self, key, f, DJSON):

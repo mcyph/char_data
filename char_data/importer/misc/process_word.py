@@ -10,33 +10,38 @@ from toolkit.surrogates import w_ord
 #from Translit.TranslitEngine import get_engine
 #CTones2PinYin = get_engine('Chinese Pinyin Accents-PinYin')
 
-DAlt = {u'け': u'か',
-        u'せ': u'',
-        u'せ': u'せさ', # sense-/dasai (dasse-) HACK!
-        u'て': u'た',
-        #u'げ': u'が',
-        u'げ': u'ご', # suge- (sugoi) HACK!
-        u'ぜ': u'ざ',
-        u'へ': u'は',
-        u'べ': u'ば',
-        u'ぺ': u'ぱ',
-        u'め': u'ま',
-        u'れ': u'ら',
-        u'ね': u'な',
-        u'え': u'わ', # koe- (kowai)
-        u'で': u'ど', # hide- (hidoi)
-        }
+DAlt = {
+    u'け': u'か',
+    u'せ': u'',
+    u'せ': u'せさ', # sense-/dasai (dasse-) HACK!
+    u'て': u'た',
+    #u'げ': u'が',
+    u'げ': u'ご', # suge- (sugoi) HACK!
+    u'ぜ': u'ざ',
+    u'へ': u'は',
+    u'べ': u'ば',
+    u'ぺ': u'ぱ',
+    u'め': u'ま',
+    u'れ': u'ら',
+    u'ね': u'な',
+    u'え': u'わ', # koe- (kowai)
+    u'で': u'ど', # hide- (hidoi)
+}
 
 #================================================================#
 #                      Filter Accents/Tones                      #
 #================================================================#
 
-DNums = {'0': None, '1': None, '2': None, '3': None, 
-         '4': None, '5': None, '6': None, '7': None, '8': None, '9': None, '10': None}
+DNums = {
+    '0': None, '1': None, '2': None, '3': None,
+    '4': None, '5': None, '6': None, '7': None,
+    '8': None, '9': None, '10': None
+}
 def remove_tones(Word):
     Word = Word.replace(' ', '')
     Word = ''.join([i for i in Word if i not in DNums])
     return Word
+
 
 bAccents = u'̣̉̀̃́'
 aAccents = u'̛̣́̀̃̂̆̉'
@@ -59,18 +64,23 @@ def filter_thai_accents(Word):
     Word = ''.join([i for i in Word if i not in DtAccents])
     return Word
 
-DIgnore = {'Lm': 'Letter, Modifier',
-           'Mn': 'Letter, Nonspacing',
-           'Mc': 'Mark, Spacing Combining',
-           'Me': 'Mark, Combining',
-           'Sk': 'Symbol, Modifier',
-           'Cc': 'Other, Control',
-           'Cf': 'Other, Format'}
+
+DIgnore = {
+    'Lm': 'Letter, Modifier',
+    'Mn': 'Letter, Nonspacing',
+    'Mc': 'Mark, Spacing Combining',
+    'Me': 'Mark, Combining',
+    'Sk': 'Symbol, Modifier',
+    'Cc': 'Other, Control',
+    'Cf': 'Other, Format'
+}
+
 
 def get_cat(S):
     # TODO: Should there be better error handling?
     try: return unicodedata.category(S)
     except: return None
+
 
 def filter_accents(Word):
     # Remove accents for e.g. French
@@ -80,11 +90,13 @@ def filter_accents(Word):
     Word = ''.join([i for i in Word if not get_cat(i) in DIgnore])
     return Word
 
+
 def is_hanzi(S):
     Ord = w_ord(S)
     if Ord >= 0x4E00 and Ord <= 0x9FFF: return 1
     elif Ord >= 0x3400 and Ord <= 0x4DBF: return 1
     return 0
+
 
 def get_L_words(fISOCode, fVariant, Word, Deinflect=False):
     if fISOCode in ('cmn', 'yue'):
@@ -271,6 +283,7 @@ def get_deinflect_word(Word, fISOCode, fVariant, StripWhite=True):
         return [i for i in rem_dupes(get_L_words(fISOCode, fVariant, Word, True)) if i.strip()]
     else: return Word
 
+
 def get_sub_word_internal(Word, fISOCode, fVariant, StripWhite=True):
     # RETURNS A LIST!
     # When using GetWordEntry() above, it gets the *dictionary* 
@@ -320,6 +333,7 @@ def get_sub_word_internal(Word, fISOCode, fVariant, StripWhite=True):
     if StripWhite:
         return [i for i in rem_dupes(get_L_words(fISOCode, fVariant, Word, False)) if i.strip()]
     else: return Word
+
 
 def get_sub_word_disp(Word, fISOCode, fVariant):
     # Same as above, except converts the internal form

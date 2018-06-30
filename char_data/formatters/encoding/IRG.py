@@ -1,5 +1,6 @@
 from char_data.datatypes.read import StringData
 
+
 class IRG(StringData): # ??? ==========================================================
     def __init__(self, key, f, DJSON):
         StringData.__init__(self, key, f, DJSON)

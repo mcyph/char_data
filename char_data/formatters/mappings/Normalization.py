@@ -3,6 +3,7 @@ import unicodedata
 from toolkit.hex_padding import get_uni_point
 from toolkit.surrogates import w_unichr, w_ord
 
+
 class Normalization():
     def __init__(self, typ):
         assert typ in ('NFD', 'NFKD')

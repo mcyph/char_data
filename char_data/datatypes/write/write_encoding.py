@@ -4,12 +4,14 @@ from toolkit.arrays.ArrayUtils import write_array, write_json
 from char_data.datatypes.write.write_boolean import ranges_to_single_ords
 from char_data.datatypes.write.range_gen_tools import compress_ord_ranges
 
+
 def coorce_to_encodings(DOrds):
     DFlags = {} # {flag: string, ...}
     for ord_, value in DOrds.items():
         LEnc = get_L_encoding(DFlags, value)
         DOrds[ord_] = LEnc
     return DFlags, DOrds
+
 
 def write_encoding(f, key, DOrds):
     DFlags, DOrds = coorce_to_encodings(DOrds)
@@ -71,6 +73,7 @@ def write_encoding(f, key, DOrds):
         DRtn['LFlags'] = write_array(f, LFlags)
     
     return DRtn
+
 
 def get_L_encoding(DFlags, hex_):
     if type(hex_) in (str, unicode):

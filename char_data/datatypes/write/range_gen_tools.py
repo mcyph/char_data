@@ -1,5 +1,6 @@
 MINIMUM_THRESHOLD = 15
 
+
 def uncompress_ranges(DOrds):
     DRtn = {}
     for ord_ in DOrds:
@@ -20,6 +21,7 @@ def uncompress_ranges(DOrds):
             DRtn[ord_] = DOrds[ord_]
     return DRtn
 
+
 def append(DOrds, LRanges, LRange, last_value, LDelOrds):
     # Add a minimum range threshold, to save type overhead
     num_chars = (LRange[1]-LRange[0])
@@ -32,6 +34,7 @@ def append(DOrds, LRanges, LRange, last_value, LDelOrds):
         
         # Add to ranges as above, remembering tha val is [+0]
         LRanges.append(tuple(LRange)+(last_value,))
+
 
 def compress_ord_ranges(DOrds):
     """
@@ -81,4 +84,3 @@ def compress_ord_ranges(DOrds):
     LRanges.sort()
     
     return LRanges, DOrds
-    

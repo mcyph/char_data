@@ -3,6 +3,7 @@ from char_data.importer.misc.char_utilities import get_char_gaps, iter_ranges
 from toolkit.arrays.ArrayUtils import write_array, write_json
 from char_data.datatypes.write.range_gen_tools import compress_ord_ranges
 
+
 def write_sentence_data(f, key, DOrds):
     """
     Names [UnicodeData (single), NamesList (multiple)]

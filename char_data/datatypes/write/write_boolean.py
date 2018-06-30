@@ -3,6 +3,7 @@ from char_data.importer.misc.char_utilities import get_char_gaps, iter_ranges
 from toolkit.arrays.ArrayUtils import write_array, write_json
 from char_data.datatypes.write.range_gen_tools import compress_ord_ranges
 
+
 def ranges_to_single_ords(DOrds):
     # Convert ranges to single codepoints
     for ord_ in list(DOrds.keys()):
@@ -13,6 +14,7 @@ def ranges_to_single_ords(DOrds):
                 assert not x in DOrds
                 DOrds[x] = value
     return DOrds
+
 
 def write_boolean(f, key, DOrds):
     '''

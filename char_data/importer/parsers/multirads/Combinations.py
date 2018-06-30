@@ -1,6 +1,7 @@
 from toolkit.combs import get_L_unique_combs
 from toolkit.rem_dupes import fast_rem_dupes
 
+
 def get_D_kanji_combs(DKanji):
     DRtn = {}
     
@@ -17,6 +18,7 @@ def get_D_kanji_combs(DKanji):
     
     print 'kanji combinations number:', num_items, len(DRtn)
     return DRtn
+
 
 if __name__ == '__main__':
     from os import chdir

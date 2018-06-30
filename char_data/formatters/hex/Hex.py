@@ -1,6 +1,7 @@
 from toolkit.hex_padding import get_hex_point
 from char_data.datatypes.read import Encoding
 
+
 class Hex(Encoding):
     def __init__(self, key, f, DJSON):
         Encoding.__init__(self, key, f, DJSON)

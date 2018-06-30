@@ -10,7 +10,6 @@ from char_data import ClassByProperty
 class Indexes(ClassByProperty):
     def __init__(self):
         ClassByProperty.__init__(self, DIndexes)
-    
 
     def search(self, key, value, *args, **kw):
         """
@@ -20,7 +19,6 @@ class Indexes(ClassByProperty):
         """
         inst = self.get_class_by_property(key)
         return inst.search(value, *args, **kw)
-    
 
     def keys(self):
         """
@@ -31,7 +29,6 @@ class Indexes(ClassByProperty):
             for i in DKeys:
                 LRtn.append((key, i, DKeys[i].typ))
         return sorted(LRtn)
-    
 
     def values(self, key):
         """

@@ -5,6 +5,7 @@ from toolkit.arrays import get_uni_array, get_int_array
 from char_data.datatypes.write import indice_tools
 from char_data.datatypes.write.range_gen_tools import compress_ord_ranges
 
+
 def write_indices(f, key, DOrds):
     """
     Indices [Storing Page Positions as Either Numeric or Char Data]

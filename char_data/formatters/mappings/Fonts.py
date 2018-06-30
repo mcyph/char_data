@@ -8,4 +8,3 @@ class Fonts:
     
     def formatted(self, ord_):
         pass
-    

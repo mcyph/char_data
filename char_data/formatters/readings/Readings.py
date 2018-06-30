@@ -12,7 +12,6 @@ class Readings(SentenceData):
     def __init__(self, key, f, DJSON):
         SentenceData.__init__(self, key, f, DJSON)
 
-
     def formatted(self, ord_):
         """
         The definitions are already in English, so just make sure 
@@ -49,7 +48,6 @@ class Readings(SentenceData):
         
         else: 
             return conv_hex(self.key, data)
-
 
     def format_japanese(self, readings):
         LNew = []

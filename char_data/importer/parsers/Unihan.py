@@ -3,6 +3,7 @@ import codecs
 
 ALLOW_WIDE_CHARS = True
 
+
 def open_unihan(LPaths, CCDict=False):
     LLines = []
     for path in LPaths:

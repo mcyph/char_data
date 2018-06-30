@@ -2,6 +2,7 @@
 #from Chars.Radicals.MultiRad import DBothChars
 from toolkit.surrogates import w_unichr
 
+
 class MultiRadicals:
     def raw_data(self, ord_):
         char = w_unichr(ord_)

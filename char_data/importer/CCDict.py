@@ -3,6 +3,7 @@ from char_data.data_paths import data_path
 from char_data.importer.parsers.Unihan import open_unihan
 from char_data.importer.Write import WriteBase, add
 
+
 class ImportCCDict(WriteBase):
     def __init__(self):
         WriteBase.__init__(self, 'ccdict/ccdict.pyini')
@@ -26,8 +27,10 @@ class ImportCCDict(WriteBase):
                 #print key, ord_, value
                 yield key, ord_, value
 
+
 def run():
     ImportCCDict().write(data_path('chardata', 'ccdict/ccdict'))
+
 
 if __name__ == '__main__':
     run()

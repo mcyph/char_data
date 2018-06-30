@@ -1,6 +1,7 @@
 from char_data import raw_data
 from toolkit.surrogates import w_unichr, w_ord
 
+
 def get_simp_chars(Char, DTradChars=None):
     if type(Char) == int:
         Char = w_unichr(Char)
@@ -34,6 +35,7 @@ def get_simp_chars(Char, DTradChars=None):
     if DTradChars: 
         LSubChars = [i for i in LSubChars if not i in DTradChars]
     return rem_dupes(LSubChars)
+
 
 def get_simp_multi_rads():
     # convert DRads Traditional-Simplified

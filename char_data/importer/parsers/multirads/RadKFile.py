@@ -2,6 +2,7 @@ from __future__ import with_statement
 import codecs
 from toolkit.rem_dupes import fast_rem_dupes
 
+
 def get_D_rads(path):
     '''
     Open the "radkfile" and "radkfile2" euc-jp 
@@ -43,6 +44,7 @@ def get_D_rads(path):
     DRads.setdefault(rad, []).extend(LChars)
     return DRads
 
+
 def get_D_kanji(DRads):
     '''
     Reverses the result from `get_D_rads` above
@@ -53,6 +55,7 @@ def get_D_kanji(DRads):
         for char in LChars:
             DRtn.setdefault(char, []).append(radical)
     return DRtn
+
 
 def combine_radkfile_2(DRads1, DRads2):
     for rad, LKanji in DRads2.items():

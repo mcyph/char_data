@@ -59,7 +59,6 @@ class _LatinAccents:
         return DLatin
     #get_D_latin = cache_funct('get_D_latin', get_D_latin)
 
-
     def get_D_accents(self, LChars):
         """
         Get a map from a basic character
@@ -91,7 +90,6 @@ class _LatinAccents:
 
         return DRtn
 
-
     def _get_L_mappings(self, s):
         LRtn = []
         for i_s in [s[:x] for x in xrange(1, len(s)+1)]:
@@ -108,7 +106,6 @@ class _LatinAccents:
 
         assert LRtn, s
         return LRtn
-
 
     def get_D_latin_to_L_chars(self, script='Latin'):
         DRtn = {}
@@ -130,7 +127,9 @@ class _LatinAccents:
                 L.append(w_unichr(ord_))
         return DRtn
 
+
 LatinAccents = _LatinAccents()
+
 
 if __name__ == '__main__':
     print LatinAccents.get_D_latin()

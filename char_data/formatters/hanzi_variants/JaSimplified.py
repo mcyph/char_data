@@ -8,7 +8,6 @@ class JaSimplified:
         self.key = key
         self.D = DTradToJa if key == 'japanesesimplified' else DJaToTrad
 
-
     def raw_data(self, ord_):
         from char_data import raw_data
         L = []
@@ -22,7 +21,6 @@ class JaSimplified:
                 )
 
         return L or None
-
 
     def formatted(self, ord_):
         from char_data import raw_data

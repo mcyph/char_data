@@ -2,6 +2,7 @@ import re
 import codecs
 from char_data.importer.parsers import NamesListTokens as consts
 
+
 class NamesList:
     MAIN_LOGIC = [
         (('TITLE',), 'TITLE_PAGE'),
@@ -341,6 +342,7 @@ class NamesList:
                     
         return nL
 
+
 def longest(L):
     nL = []
     LRtn = []
@@ -357,6 +359,7 @@ def longest(L):
         LRtn.append(' '.join(nL))
     return LRtn
 
+
 def convert(i):
     try: 
         if (not i.isupper() and not i.isdigit()) or len(i) not in (4, 5, 6):
@@ -365,6 +368,7 @@ def convert(i):
         return int(i, 16)
     except: 
         return i
+
 
 def convert_hex(L):
     nL = []
@@ -380,6 +384,7 @@ def convert_hex(L):
         else:
             nL.append(convert(i))
     return nL
+
 
 if __name__ == '__main__':
     for mode, D in NamesList(r'D:\Documents\Uni_\Uni\6.0.0\NamesList.txt'):

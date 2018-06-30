@@ -5,6 +5,7 @@ from toolkit.py_ini import read_D_pyini
 # TODO: Fix busy people chapter "A"!
 # TODO: Fix Morohashi in Kanjidic (Kanjidic2.py)! =====================================================
 
+
 Indicies = '''dicref_henshall3    <page>
 dicref_sakade    <page>
 dicref_henshall    <page>
@@ -43,12 +44,14 @@ Morohashi    <page><simplified:char:1:[']?>
 Nelson    <page>
 SBGY    <page:3>.<position:2>'''
 
+
 DIndicies = {}
 for Line in Indicies.split('\n'):
     Line = Line.strip()
     if Line: 
         key, value = Line.split('    ')
         DIndicies[key] = value
+
 
 def create_re_object(key):
     #print 'KEY:', key
@@ -115,9 +118,11 @@ def create_re_object(key):
     re_ = re.compile(re_, re.UNICODE)
     return DTypes, re_
 
+
 DREs = {}
 for key in DIndicies:
     DREs[key] = create_re_object(key)
+
 
 def parse_indices(key, DOrds):
     # Split into multiple dictionaries as values
@@ -139,6 +144,7 @@ def parse_indices(key, DOrds):
         D[ord_] = [convert(key, i) for i in value]
         #print 'key:', key, 'value:', value, 'D:', D[ord_]
     return LArrays, D
+
 
 def convert(key, value):
     # Split value into a dictionary using that key's re_ object

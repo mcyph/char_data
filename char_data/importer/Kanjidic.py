@@ -3,6 +3,7 @@ from char_data.data_paths import data_path
 from char_data.importer.parsers.Kanjidic2 import open_kanjidic_2
 from char_data.importer.Write import WriteBase, add
 
+
 class Kanjidic(WriteBase):
     def __init__(self):
         WriteBase.__init__(self, 'kanjidic/kanjidic.pyini')
@@ -19,8 +20,10 @@ class Kanjidic(WriteBase):
                 
                 yield key, ord_, value
 
+
 def run():
     Kanjidic().write(data_path('chardata', 'kanjidic/kanjidic'))
+
 
 if __name__ == '__main__':
     run()

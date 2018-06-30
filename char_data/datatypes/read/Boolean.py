@@ -4,9 +4,13 @@ from char_data.datatypes.read import RangeClass, NO_DATA
 from char_data.importer.misc.char_utilities import get_adjusted_code_point
 from char_data.datatypes.write import write_boolean
 
-DBool = {'1': True, 
-         '0': False, 
-         'U': None}
+
+DBool = {
+    '1': True,
+    '0': False,
+    'U': None
+}
+
 
 class Boolean(RangeClass):
     writer = staticmethod(write_boolean)

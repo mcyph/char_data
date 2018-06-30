@@ -11,6 +11,7 @@ def too_many_chars(L):
             return True
     return False
 
+
 def filter_to_enc(Encoding, LChars):
     #print LChars
     LRtn = []

@@ -5,6 +5,7 @@ from char_data import raw_data
 #from char_data.radicals.DataRadicals import DBothChars, DBothRads
 from toolkit.surrogates import w_unichr
 
+
 class SimilarHanzi:
     def __init__(self, iso, script):
         self.iso = iso

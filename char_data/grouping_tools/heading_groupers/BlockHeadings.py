@@ -1,8 +1,10 @@
 from char_data import formatted
 from get_font_script import get_font_script
 
+
 BLOCK_CHANGE = 0
 NO_BLOCK_CHANGE = 1
+
 
 class BlockHeadings:
     #=============================================================================#
@@ -24,7 +26,6 @@ class BlockHeadings:
                 self._process_codepoint(LRtn, DState, ord_)
 
         return DState['font_script'] or 'All', LRtn
-
 
     def _process_range(self, LRtn, DState, ord_):
         """
@@ -74,7 +75,6 @@ class BlockHeadings:
             # 3: A combination of the above two
             self.iter_sub_range(LRtn, ord_, DState, BLOCK_CHANGE)
 
-
     def _process_codepoint(self, LRtn, DState, ord_):
         """
         A codepoint, only one SubName required
@@ -108,11 +108,9 @@ class BlockHeadings:
             LRtn.append(('chars', []))
         LRtn[-1][1].append(ord_)
 
-
     #=============================================================================#
     #                         Iterate Through Sub-Ranges                          #
     #=============================================================================#
-
 
     def iter_sub_range(self, LRtn, LRange, DState, flag):
         from_, to = LRange

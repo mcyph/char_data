@@ -3,19 +3,22 @@ from toolkit.escape import E, esc_word_disp
 from lxml.etree import iterparse
 from toolkit.surrogates import w_ord
 
+
 SIgnored = set()
-for i in ('misc', 
-          'query_code', 
-          'radical', 
-          'reading_meaning', 
-          'rmgroup',
-          'header', 
-          'kanjidic2', 
-          'character', 
-          'codepoint', 
-          'dic_number'):
-    
+for i in (
+    'misc',
+    'query_code',
+    'radical',
+    'reading_meaning',
+    'rmgroup',
+    'header',
+    'kanjidic2',
+    'character',
+    'codepoint',
+    'dic_number'
+):
     SIgnored.add(i)
+
 
 def open_kanjidic_2(path):
     ext = path.split('.')[-1].lower()
@@ -197,6 +200,7 @@ def open_kanjidic_2(path):
         else:
             print 'WARNING:', tag, elem
     f.close()
+
 
 if __name__ == '__main__':
     DKeys = {}

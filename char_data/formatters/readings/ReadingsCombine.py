@@ -13,4 +13,3 @@ class ReadingsCombine:
     
     def formatted(self, ord_):
         pass
-    

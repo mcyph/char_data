@@ -5,6 +5,7 @@ from char_data.importer.misc.char_utilities import get_adjusted_code_point
 from char_data.datatypes.write import write_integer_list
 from char_data.datatypes.read.RangeClass import  NO_DATA
 
+
 class IntegerList(RangeClass):
     writer = staticmethod(write_integer_list)
     

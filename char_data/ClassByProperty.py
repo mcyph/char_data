@@ -2,7 +2,6 @@
 #                 Get Class by Property                   #
 #=========================================================#
 
-
 class ClassByProperty:
     def __init__(self, D):
         self.D = D

@@ -29,7 +29,6 @@ class CEDictVariants:
         self.LKeys = DReverseLinkKeys[key]
         self.key = key
 
-
     def raw_data(self, ord_):
         c = unichr(ord_)
 
@@ -44,13 +43,11 @@ class CEDictVariants:
 
         return L or None
 
-
     def formatted(self, ord_):
         c = unichr(ord_)
         L = self.raw_data(ord_)
         if not L:
             return None
-
 
         LOut = []
 

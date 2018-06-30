@@ -1,5 +1,6 @@
 #from Data.Languages.Langs import DLangs
 
+
 # TODO: Write me!
 class Alphabets:
     def __init__(self):

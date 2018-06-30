@@ -5,6 +5,7 @@ from char_data.importer.misc.char_utilities import get_adjusted_code_point
 from char_data.datatypes.write import write_indices
 from char_data.datatypes.read.RangeClass import  NO_DATA
 
+
 class Indices(RangeClass):
     writer = staticmethod(write_indices)
     

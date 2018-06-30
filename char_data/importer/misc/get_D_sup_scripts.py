@@ -2,6 +2,7 @@ import codecs
 from toolkit.DIPA import DIPA
 from toolkit.rem_dupes import rem_dupes
 
+
 def get_D_sup_scripts(DScripts, DBlockSubNames):
     # First of all, get a mapping from {Script: {SubScript: {}}}
     # This sounds like a chicken-and-egg problem!

@@ -1,5 +1,6 @@
 from toolkit.surrogates import w_unichr
 
+
 class Casing:
     def __init__(self, typ):
         """

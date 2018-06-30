@@ -1,6 +1,7 @@
 from char_data.CharData import CharData
 from char_data.ranges.IterRanges import iter_ranges
 
+
 def get_D_scripts():
     DScripts = {}
     
@@ -22,6 +23,7 @@ def get_D_scripts():
     return DScripts
 DScripts = get_D_scripts()
 
+
 def get_script_subranges(typ):
     # 
     range = CharData.search('General Scripts', typ)
@@ -35,6 +37,7 @@ def get_script_subranges(typ):
     if typ=='Common' or typ=='Inherited': 
         LRtn.sort()
     return (typ, LRtn)
+
 
 def get_L_scripts():
     # Add by script region, e.g. "Middle East"
@@ -63,3 +66,4 @@ def get_L_scripts():
         if not script in SUsedScripts: 
             print 'SCRIPT UNUSED WARNING:', script.encode('utf-8')
     return LScripts
+

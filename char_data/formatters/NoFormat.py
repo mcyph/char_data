@@ -1,6 +1,7 @@
 from char_data.datatypes.read import IntegerList, StringData
 from char_data.radicals.Cangjie import DCangjie
 
+
 class NoFormatStrings(StringData): # WARNING! ============================================================
     def __init__(self, key, f, DJSON):
         StringData.__init__(self, key, f, DJSON)
@@ -20,6 +21,7 @@ class NoFormatStrings(StringData): # WARNING! ==================================
                     LRtn.append('?')
             return '%s (%s)' % (data, ''.join(LRtn))
         return data
+
 
 class NoFormatIntegers(IntegerList):
     def __init__(self, key, f, DJSON):

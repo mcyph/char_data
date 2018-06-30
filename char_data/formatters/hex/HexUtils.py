@@ -1,5 +1,6 @@
 from toolkit.surrogates import w_unichr
 
+
 def conv_hex(key, s):
     #print 'KEY:', key
     if key == 'Block Subnames' or key == 'Name' or \

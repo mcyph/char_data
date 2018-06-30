@@ -3,6 +3,7 @@ from toolkit.surrogates import w_unichr
 
 from char_data.datatypes.read import Encoding
 
+
 class UnicodeHex(Encoding):
     def formatted(self, ord_):
         # TODO: If the data is in decimal, return a visual representation:
