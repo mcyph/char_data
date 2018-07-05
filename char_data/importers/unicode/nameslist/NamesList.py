@@ -389,4 +389,3 @@ def convert_hex(L):
 if __name__ == '__main__':
     for mode, D in NamesList(r'D:\Documents\Uni_\Uni\6.0.0\NamesList.txt'):
         print mode, D
-        

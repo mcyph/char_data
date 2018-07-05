@@ -6,6 +6,7 @@ from char_data.data_paths import data_path
 #                       Properties                        #
 #=========================================================#
 
+
 def get_D_props():
     D = {}
     for ns, key, _ in idx_keys():
@@ -13,6 +14,7 @@ def get_D_props():
         D['%s.%s' % (ns, conv_key)] = '%s.%s' % (ns, key)
         D[conv_key] = key
     return D
+
 
 def get_D_prop_aliases():
     """
@@ -49,11 +51,13 @@ def get_D_prop_aliases():
 #                         Values                          #
 #=========================================================#
 
+
 def get_D_values():
     D = {}
     for ns, key, _ in idx_keys():
         D['%s.%s' % (ns, key)] = D[key] = _get_D_values((ns, key))
     return D
+
 
 def _get_D_values(key):
     """
@@ -74,8 +78,10 @@ def _get_D_values(key):
         D[k] = i
     return D
 
+
 def get_D_value_aliases():
     pass
+
 
 def get_D_general_cat_aliases():
     D = {}
@@ -104,6 +110,7 @@ def get_D_general_cat_aliases():
 #=========================================================#
 #                         Other                           #
 #=========================================================#
+
 
 def get_D_default_props():
     """

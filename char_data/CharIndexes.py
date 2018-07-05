@@ -1,15 +1,14 @@
-from char_data.data.ReadData import DIndexes
-from char_data import ClassByProperty
-
+from storage.DataReader import DIndexes
+from storage.DataBase import DataBase
 
 #=========================================================#
 #                        Indexes                          #
 #=========================================================#
 
 
-class Indexes(ClassByProperty):
+class CharIndexes(DataBase):
     def __init__(self):
-        ClassByProperty.__init__(self, DIndexes)
+        DataBase.__init__(self, DIndexes)
 
     def search(self, key, value, *args, **kw):
         """
@@ -51,4 +50,3 @@ if __name__ == '__main__':
         print LValues
         for value in LValues:
             print 'KEY/VALUE:', (key, value), Indexes.search(key, value)
-            

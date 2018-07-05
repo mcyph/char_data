@@ -5,6 +5,7 @@ from char_data.data_paths import data_path
 from char_data.importer.parsers.Unihan import open_unihan
 from char_data.importer.Write import WriteBase, add
 
+
 class Unihan(WriteBase):
     def __init__(self):
         WriteBase.__init__(self, 'unihan/unihan.pyini')
@@ -85,8 +86,10 @@ class Unihan(WriteBase):
                 D['CheungBauer Cangjie'] = cangjie
                 D['CheungBauer Jyutping'] = jyutping
 
+
 def run():
     Unihan().write(data_path('chardata', 'unihan/unihan'))
+
 
 if __name__ == '__main__':
     run()

@@ -1,17 +1,9 @@
 # -*- coding: utf-8 -*-
+from _kangxi_data import KANGXI_BOTH, KANGXI_SIMPLIFIED, KANGXI_TRADITIONAL
 
-def _get_rads(is_trad):
-    # NOTES:
-    # 1. The 'meat' standing Kangxi is not supported by some fonts
-    # 2. the 'walk' alternate has a different stroke count for Japanese (辶, 2)
-    
-    # TODO: Add 197'; 162'; 201' ==================================================================
-    
-    RADS = u''''''
-    return RADS
 
 def get_D_rads():
-    RADS = _get_rads(None)
+    RADS = _get_rads(KANGXI_BOTH)
     
     D = {}
     for line in RADS.split('\n'):
@@ -27,6 +19,7 @@ def get_D_rads():
             D[key] = [[strokes, radical, english]]
     return D
 
+
 def get_D_multi_to_rad_num():
     DRtn = {}
     DRads = get_D_rads()
@@ -36,8 +29,9 @@ def get_D_multi_to_rad_num():
                 DRtn[Char] = RadNum
     return DRtn
 
-def get_rads(is_trad):
-    RADS = _get_rads(is_trad)
+
+def get_rads(kangxi_kind):
+    RADS = _get_rads(kangxi_kind)
     
     DSimp = {}
     LList = []
@@ -75,11 +69,12 @@ def get_rads(is_trad):
             raise Exception
     return LList, LIndex
 
+
 def get_i_rads():
     import os
     os.chdir('../')
     
-    RADS = _get_rads(None)
+    RADS = _get_rads(KANGXI_BOTH)
     
     LList = []
     for line in RADS.split('\n'):
@@ -87,6 +82,7 @@ def get_i_rads():
         LLine = line.split()
         LList.append([LLine[1], LLine[2]])
     return LList
+
 
 """L = []; i = 0
 for Rad, Chr in get_i_rads():

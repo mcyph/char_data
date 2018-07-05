@@ -5,7 +5,7 @@ from char_data.data_paths import data_path
 from char_data.indexes import DIndexReaders
 
 
-class DataRead:
+class DataReader:
     LData = [
         ('unicodedata', 'unidata'),
         ('unihan', 'unihan'),
@@ -17,7 +17,6 @@ class DataRead:
     #                         Read Indexes                           #
     #================================================================#
 
-
     def get_D_indexes(self):
         """
         Load the indexes for reverse searching
@@ -26,7 +25,6 @@ class DataRead:
         for key, path in self.LData:
             D[key.lower()] = self.open_index('%s/%s' % (path, path))
         return D
-
 
     def open_index(self, path):
         DRtn = {}
@@ -50,11 +48,9 @@ class DataRead:
         
         return DRtn
 
-
     #================================================================#
     #                        Read Basic Data                         #
     #================================================================#
-
 
     def get_D_data(self):
         """
@@ -74,7 +70,6 @@ class DataRead:
         self.create_hanzi_variants_insts()
         return D
 
-
     def open_data(self, path):
         DRtn = {}
         
@@ -92,7 +87,6 @@ class DataRead:
         
         return DRtn
 
-
     def create_hanzi_variants_insts(self):
         D = self.D['hanzi variants'] = {}
 
@@ -106,13 +100,9 @@ class DataRead:
         for key in formatters.LHanziVariantKeys:
             D[key.lower()] = formatters.CEDictVariants(key)
 
-
     #================================================================#
     #                   Create Dynamic Instances                     #
     #================================================================#
-
-
-
 
     def create_combine_insts(self):
         """
@@ -135,7 +125,6 @@ class DataRead:
         for FIXME in FIXME:
             DRS[FIXME] = FIXME
 
-
     def create_alphabet_insts(self):
         # TODO: Create the Alphabets instance
         DOther = self.D.setdefault('other', {})
@@ -148,19 +137,16 @@ class DataRead:
         # TODO: Create the Translit instances
         DOther['transliteration mappings'] = formatters.Translit(FIXME)
 
-
     def create_encoding_insts(self):
         # TODO: Create the Encodings instances
         DEncs = self.D['encodings'] = {}
         for encoding in FIXME:
             DEncs[encoding] = formatters.Encodings(encoding)
 
-
     def create_multi_radicals_inst(self):
         # TODO: Create the MultiRadicals instance [???]
         DOther = self.D.setdefault('other', {})
         DOther['multi radicals'] = formatters.MultiRadicals(FIXME)
-
 
     def create_normalization_insts(self):
         # TODO: Create the Normalization instances
@@ -171,7 +157,7 @@ class DataRead:
 
 from char_data import formatters
 
-inst = DataRead()
-DData = inst.get_D_data()
-DIndexes = inst.get_D_indexes()
+data_reader = DataReader()
+DData = data_reader.get_D_data()
+DIndexes = data_reader.get_D_indexes()
 #print DIndexes

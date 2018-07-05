@@ -4,7 +4,7 @@ from char_data.data_paths import data_path
 
 
 # HACK!
-from dicts.chinese.variants import (
+from dicts.data_processors.chinese.variants import (
     DLinkKeys, DReverseLinkKeys, NORMAL, REVERSE
 )
 

@@ -5,6 +5,8 @@ USE_CACHE = True
 # e.g. whether to use a tree or list control or radical control etc.
 
 DLists = {}
+
+
 def get_select(S):
     LList = []
     opt_group = False
@@ -34,6 +36,9 @@ def get_select(S):
         LList.append('</optgroup>')
     return ''.join(LList)
 
-DSelect = {'Base': get_select('Base.txt'),
-           'Other': get_select('Other.txt'),
-           'Radicals': get_select('Radicals.txt')}
+
+DSelect = {
+    'Base': get_select('Base.txt'),
+    'Other': get_select('Other.txt'),
+    'Radicals': get_select('Radicals.txt')
+}

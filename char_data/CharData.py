@@ -1,16 +1,16 @@
 from toolkit.surrogates import w_ord
 
-from char_data.data.ReadData import DData
-from char_data import ClassByProperty
+from storage.DataReader import DData
+from storage.DataBase import DataBase
 
 #=========================================================#
 #                      Basic Data                         #
 #=========================================================#
 
 
-class Data(ClassByProperty):
+class CharData(DataBase):
     def __init__(self):
-        ClassByProperty.__init__(self, DData)
+        DataBase.__init__(self, DData)
 
     def keys(self, data_source=None):
         """

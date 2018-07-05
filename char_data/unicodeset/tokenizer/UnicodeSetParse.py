@@ -38,6 +38,7 @@ DOperators = {
 # * SUPPORT '' AND ' blah ' FORMAT! ================================================
 # * SUPPORT VARIABLES! =============================================================
 
+
 def get_unicode_set_ranges(s, DVars=None):
     """
     Get the ICU UnicodeSet range tokens
@@ -387,6 +388,7 @@ class UnicodeSetParse(ProcessRangeBase):
         if not typ in DValues:
             return value # WARNING! ==============================================
         return DValues[typ].get(unicode(value), value)
+
 
 if __name__ == '__main__':
     for i in [

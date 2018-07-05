@@ -2,6 +2,13 @@
 from tokenizer.UnicodeSetParse import RANGES, STRING, OPERATOR
 from tokenizer.UnicodeSetParse import get_unicode_set_ranges
 
+"""
+This file contains an implementation of UnicodeSet in ICU.
+
+There are likely gaps in its implementation. It was intended 
+to be used for a parser for ICU's transliteration system.
+"""
+
 
 class Difference:
     def __init__(self, o1, o2):

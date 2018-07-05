@@ -27,6 +27,7 @@ Y	卜 fortune telling	The 卜 shape and rotated forms
 X	重/難 collision/difficult	(1) disambiguation of Cangjie code decomposition collisions, (2) code for a "difficult-to-decompose" part
 Z	(See note)	Auxiliary code used for entering special characters'''
 
+
 def get_D_cangjie():
     D = {}
     for line in cangjie.split('\n'):
@@ -40,4 +41,6 @@ def get_D_cangjie():
         
         D[letter] = [hanzi, english, description]
     return D
+
+
 DCangjie = get_D_cangjie()

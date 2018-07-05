@@ -1,3 +1,5 @@
+
+
 class ProcessRangeBase:
     def process_range(self, x, s):
         """

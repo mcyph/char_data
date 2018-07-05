@@ -2,8 +2,13 @@
 #                 Get Class by Property                   #
 #=========================================================#
 
-class ClassByProperty:
+
+class DataBase:
     def __init__(self, D):
+        """
+        This is fed the data from get_D_indexes and get_D_data
+        in DataReader, to allow finding properties of characters
+        """
         self.D = D
         self.DCache = {}
 
@@ -54,4 +59,3 @@ class ClassByProperty:
                     return self.D[data_source][key]
         
         raise KeyError("invalid character property name: %s" % s)
-

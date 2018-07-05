@@ -1,3 +1,4 @@
+
 # TODO: REMOVE ME! ----------------------------------------------------------------------------------------
 DISO2Lang = {
     None: 'All', 
@@ -10,10 +11,12 @@ DISO2Lang = {
     'vie': 'Vietnamese'
 }
 
+
 DLang2ISO = {}
 for key, value in DISO2Lang.items():
     DLang2ISO[value] = key
 del key, value
+
 
 # TODO: REMOVE ME! ----------------------------------------------------------------------------------------
 DISO2LFullText = {
@@ -24,7 +27,8 @@ DISO2LFullText = {
     'cmn': [['Mandarin'], ['Chinese Definition']],
     'ltc': [['Tang'], ['Chinese Definition']],
     'vie': [['Vietnamese'], ['Chinese Definition']]
-} # PHONETIC WARNING!
+}  # PHONETIC WARNING!
+
 
 DMap = {
     'All': ('cmn:eng', 'jpn:eng', 'yue:eng', 'General', 'NamesList'),

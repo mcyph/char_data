@@ -17,5 +17,4 @@ idx_search = dep_fn('idx_search')
 idx_keys = dep_fn('idx_keys')
 idx_values = dep_fn('idx_values')
 
-from ClassByProperty import ClassByProperty
-from CharInfo import * # HACK!
+from char_info import * # HACK!

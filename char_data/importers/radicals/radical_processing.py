@@ -16,33 +16,41 @@ if __name__ == '__main__':
 
 # NOTE: RSUnicode is essentially the same as RSKangXi so I've excluded it
 DRadTypes = {
-    'Chinese Unified Radicals': 
-        ('Both', 'Unicode RS', ('Chinese Frequency', 
-                                'Hong Kong Grade', 
-                                'Japanese Frequency')),
-    'Chinese Simplified Radicals': 
-        (False, 'Unicode RS', ('Chinese Frequency', 
+    'Chinese Unified Radicals': (
+        'Both', 'Unicode RS', ('Chinese Frequency',
+                               'Hong Kong Grade',
+                               'Japanese Frequency')
+    ),
+    'Chinese Simplified Radicals': (
+        False, 'Unicode RS', ('Chinese Frequency',
                                'Hong Kong Grade', 
-                               'Japanese Frequency')),
-    'Chinese Traditional Radicals': 
-        (True, 'Unicode RS', ('Chinese Frequency', 
-                              'Hong Kong Grade', 
-                              'Japanese Frequency')),
-    'Japanese Radicals': 
-        (True, ('Japanese', 'Unicode RS'), ('Japanese Grade', 'Japanese Frequency')),
-    'Korean Radicals': 
-        (True, ('Korean RS', 'Unicode RS'), ('Chinese Frequency', 
-                                             'Hong Kong Grade', 
-                                             'Japanese Frequency')), # FIXME!
-    'Tang Radicals': 
-        (True, 'Unicode RS', ('Chinese Frequency', 
-                              'Hong Kong Grade', 
-                              'Japanese Frequency')), # FIXME!
-    'Vietnamese Radicals': 
-        (True, 'Unicode RS', ('Chinese Frequency', 
-                              'Hong Kong Grade', 
-                              'Japanese Frequency'))} # FIXME!
-
+                               'Japanese Frequency')
+    ),
+    'Chinese Traditional Radicals': (
+        True, 'Unicode RS', ('Chinese Frequency',
+                             'Hong Kong Grade',
+                             'Japanese Frequency')
+    ),
+    'Japanese Radicals': (
+        True, ('Japanese', 'Unicode RS'), ('Japanese Grade',
+                                           'Japanese Frequency')
+    ),
+    'Korean Radicals': (
+        True, ('Korean RS', 'Unicode RS'), ('Chinese Frequency',
+                                            'Hong Kong Grade',
+                                            'Japanese Frequency')
+    ),  # FIXME!
+    'Tang Radicals': (
+        True, 'Unicode RS', ('Chinese Frequency',
+                             'Hong Kong Grade',
+                             'Japanese Frequency')
+    ),  # FIXME!
+    'Vietnamese Radicals': (
+        True, 'Unicode RS', ('Chinese Frequency',
+                             'Hong Kong Grade',
+                             'Japanese Frequency')
+    )
+}  # FIXME!
 
 
 '''
@@ -74,6 +82,7 @@ def get_rad_list(Key):
     else: 
         raise Exception("Unknown ListType %s" % ListType)
 '''
+
 
 def compress_rads():
     DIsTrad = {}
@@ -108,6 +117,6 @@ def compress_rads():
     LRtn = [(i[1], i[2]) for i in LRtn]
     return DIsTrad, LRtn
 
+
 if __name__ == '__main__':
     print compress_rads()
-    
