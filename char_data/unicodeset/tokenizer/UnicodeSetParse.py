@@ -1,5 +1,5 @@
 from string import ascii_letters
-from toolkit.surrogates import w_unichr
+from toolkit.encodings.surrogates import w_unichr
 
 from UnicodeSetUtils import (
     get_D_default_props, get_D_prop_aliases, get_D_values, get_D_props

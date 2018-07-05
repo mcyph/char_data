@@ -1,6 +1,6 @@
 import codecs
-from toolkit.DIPA import DIPA
-from toolkit.rem_dupes import rem_dupes
+from toolkit.encodings.DIPA import DIPA
+from toolkit.list_operations.rem_dupes import rem_dupes
 
 
 def get_D_sup_scripts(DScripts, DBlockSubNames):

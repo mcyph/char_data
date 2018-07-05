@@ -1,5 +1,5 @@
 from char_data import raw_data
-from toolkit.surrogates import w_unichr, w_ord
+from toolkit.encodings.surrogates import w_unichr, w_ord
 
 
 def get_simp_chars(Char, DTradChars=None):

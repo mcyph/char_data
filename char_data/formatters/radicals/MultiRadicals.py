@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #from Chars.Radicals.MultiRad import DBothChars
-from toolkit.surrogates import w_unichr
+from toolkit.encodings.surrogates import w_unichr
 
 
 class MultiRadicals:

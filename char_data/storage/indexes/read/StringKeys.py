@@ -1,4 +1,4 @@
-from toolkit.rem_dupes import fast_rem_dupes
+from toolkit.list_operations.rem_dupes import fast_rem_dupes
 from toolkit.arrays.ArrayUtils import read_arrays, read_json
 
 class StringKeyIndex:

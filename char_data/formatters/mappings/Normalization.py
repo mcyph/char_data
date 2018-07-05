@@ -1,7 +1,7 @@
 import unicodedata
 
-from toolkit.hex_padding import get_uni_point
-from toolkit.surrogates import w_unichr, w_ord
+from toolkit.encodings.hex_padding import get_uni_point
+from toolkit.encodings.surrogates import w_unichr, w_ord
 
 
 class Normalization():

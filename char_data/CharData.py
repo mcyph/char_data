@@ -1,4 +1,4 @@
-from toolkit.surrogates import w_ord
+from toolkit.encodings.surrogates import w_ord
 
 from storage.DataReader import DData
 from storage.DataBase import DataBase

@@ -1,6 +1,6 @@
 from __future__ import with_statement
 import codecs
-from toolkit.rem_dupes import fast_rem_dupes
+from toolkit.list_operations.rem_dupes import fast_rem_dupes
 
 
 def get_D_rads(path):

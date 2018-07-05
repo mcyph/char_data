@@ -4,8 +4,8 @@ from toolkit.arrays import get_int_array, get_array_by_type
 from toolkit.arrays.ArrayUtils import write_array, write_json
 from char_data.importer.misc.process_word import remove_tones
 from title_idx.language_support.Stem import get_L_stemmed
-from toolkit.rem_dupes import rem_dupes
-from toolkit.fast_hash import fast_hash
+from toolkit.list_operations.rem_dupes import rem_dupes
+from toolkit.hashes.fast_hash import fast_hash
 
 def write_fulltext_index(f, key, DData, DJSON):
     #print 'DJSON:', DJSON

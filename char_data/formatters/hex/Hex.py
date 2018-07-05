@@ -1,4 +1,4 @@
-from toolkit.hex_padding import get_hex_point
+from toolkit.encodings.hex_padding import get_hex_point
 from char_data.datatypes.read import Encoding
 
 

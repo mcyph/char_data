@@ -1,4 +1,4 @@
-from toolkit.surrogates import w_unichr
+from toolkit.encodings.surrogates import w_unichr
 
 
 def conv_hex(key, s):

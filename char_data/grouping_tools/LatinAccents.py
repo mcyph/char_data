@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from char_data import raw_data, idx_search
-from toolkit.surrogates import w_unichr
+from toolkit.encodings.surrogates import w_unichr
 from get_smallest_name import get_smallest_name
 
 

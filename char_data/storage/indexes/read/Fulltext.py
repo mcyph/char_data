@@ -5,7 +5,7 @@ from unicodedata import normalize
 
 from title_idx.language_support.Stem import get_L_stemmed
 from toolkit.arrays.ArrayUtils import read_json, read_array
-from toolkit.fast_hash import fast_hash
+from toolkit.hashes.fast_hash import fast_hash
 
 class FulltextIndex:
     typ = 'fulltext'

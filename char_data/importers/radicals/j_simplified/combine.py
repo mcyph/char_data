@@ -1,4 +1,4 @@
-from toolkit.rem_dupes import rem_dupes
+from toolkit.list_operations.rem_dupes import rem_dupes
 from codecs import open
 
 D = {}

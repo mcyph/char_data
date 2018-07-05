@@ -3,7 +3,7 @@ from sys import maxint
 
 from char_data import raw_data
 #from char_data.radicals.DataRadicals import DBothChars, DBothRads
-from toolkit.surrogates import w_unichr
+from toolkit.encodings.surrogates import w_unichr
 
 
 class SimilarHanzi:

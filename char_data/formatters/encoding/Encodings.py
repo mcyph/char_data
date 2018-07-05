@@ -1,5 +1,5 @@
 import binascii
-from toolkit.surrogates import w_unichr
+from toolkit.encodings.surrogates import w_unichr
 #from Dicts.Other.Import.DelimText import Encodings
 
 

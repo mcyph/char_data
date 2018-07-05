@@ -1,4 +1,4 @@
-from toolkit.surrogates import w_ord
+from toolkit.encodings.surrogates import w_ord
 from char_data.importer.Write import WriteBase, add
 from char_data.importer.parsers.multirads.RadKFile import get_D_rads, get_D_kanji, combine_radkfile_2
 
