@@ -4,7 +4,7 @@ from toolkit.encodings.surrogates import w_unichr
 from UnicodeSetUtils import (
     get_D_default_props, get_D_prop_aliases, get_D_values, get_D_props
 )
-from char_data import idx_search
+from char_data import char_indexes
 # Get various property/value aliases etc
 from ProcessRangeBase import ProcessRangeBase
 
@@ -366,7 +366,7 @@ class UnicodeSetParse(ProcessRangeBase):
             # name/conscript name/definitions etc! ===============================
             # (readings should allow partial matches I think)
             #print typ, value
-            for i in idx_search(typ, value):
+            for i in char_indexes.search(typ, value):
                 if isinstance(i, (list, tuple)):
                     from_, to = i
                     LRtn.append((w_unichr(from_), w_unichr(to)))

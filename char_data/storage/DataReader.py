@@ -1,8 +1,8 @@
 from toolkit.json_tools import load
 from toolkit.py_ini import read_D_pyini
-from char_data.data_paths import data_path
 
-from char_data.indexes import DIndexReaders
+from char_data.data_paths import data_path
+from char_data.storage.indexes import DIndexReaders
 
 
 class DataReader:
@@ -30,7 +30,7 @@ class DataReader:
         DRtn = {}
         
         DKeys = load(data_path('chardata', path+'-idx.json'))
-        DINI = read_D_pyini(data_path('chardata', path+'.pyini'))
+        DINI = read_D_pyini(data_path('chardata', path.replace('/output/', '/')+'.pyini'))
         #print DINI
         
         with open(data_path('chardata', path+'-idx.bin'), 'r+b') as f:
@@ -59,7 +59,7 @@ class DataReader:
         D = self.D = {}
         for key, path in self.LData:
             D[key.lower()] = self.open_data(
-                data_path('chardata', '%s/%s' % (path, path))
+                data_path('chardata', '%s/output/%s' % (path, path))
             )
         
         #self.create_combine_insts()
@@ -74,13 +74,13 @@ class DataReader:
         DRtn = {}
         
         DKeys = load(path+'.json')
-        DINI = read_D_pyini(path+'.pyini')
+        DINI = read_D_pyini(path.replace('/output/', '/')+'.pyini')
         #print DINI
         
         with open('%s.bin' % path, 'r+b') as f:
             for key, DJSON in DKeys.items():
                 i_DINI = DINI[key]
-                cls = getattr(formatters, i_DINI['formatter'])
+                cls = getattr(property_formatters, i_DINI['formatter'])
                 
                 assert not key.lower() in DRtn
                 DRtn[key.lower()] = cls(key, f, DJSON)
@@ -91,14 +91,14 @@ class DataReader:
         D = self.D['hanzi variants'] = {}
 
         D['japanesesimplified'] = (
-            formatters.JaSimplified('japanesesimplified')
+            property_formatters.JaSimplified('japanesesimplified')
         )
         D['chinesetraditional'] = (
-            formatters.JaSimplified('chinesetraditional')
+            property_formatters.JaSimplified('chinesetraditional')
         )
 
-        for key in formatters.LHanziVariantKeys:
-            D[key.lower()] = formatters.CEDictVariants(key)
+        for key in property_formatters.LHanziVariantKeys:
+            D[key.lower()] = property_formatters.CEDictVariants(key)
 
     #================================================================#
     #                   Create Dynamic Instances                     #
@@ -113,12 +113,12 @@ class DataReader:
         # TODO: Create the DefinitionCombine instances
         DDefs = self.D['definitions'] = {}
         for iso in FIXME:
-            DDefs[iso] = formatters.DefinitionCombine(LKeys)
+            DDefs[iso] = property_formatters.DefinitionCombine(LKeys)
         
         # TODO: Create the ReadingsCombine instances
         DReadings = self.D['readings'] = {}
         for iso in FIXME:
-            DReadings[iso] = formatters.ReadingsCombine(FIXME)
+            DReadings[iso] = property_formatters.ReadingsCombine(FIXME)
         
         # TODO: Create the RSCombine instances
         DRS = D['rs'] = {}
@@ -128,34 +128,34 @@ class DataReader:
     def create_alphabet_insts(self):
         # TODO: Create the Alphabets instance
         DOther = self.D.setdefault('other', {})
-        DOther['alphabets'] = formatters.Alphabets(FIXME)
+        DOther['alphabets'] = property_formatters.Alphabets(FIXME)
         
         # TODO: Create the Casing instances
-        DOther['lowercased form'] = formatters.Casing(FIXME)
-        DOther['uppercased form'] = formatters.Casing(FIXME)
+        DOther['lowercased form'] = property_formatters.Casing(FIXME)
+        DOther['uppercased form'] = property_formatters.Casing(FIXME)
         
         # TODO: Create the Translit instances
-        DOther['transliteration mappings'] = formatters.Translit(FIXME)
+        DOther['transliteration mappings'] = property_formatters.Translit(FIXME)
 
     def create_encoding_insts(self):
         # TODO: Create the Encodings instances
         DEncs = self.D['encodings'] = {}
         for encoding in FIXME:
-            DEncs[encoding] = formatters.Encodings(encoding)
+            DEncs[encoding] = property_formatters.Encodings(encoding)
 
     def create_multi_radicals_inst(self):
         # TODO: Create the MultiRadicals instance [???]
         DOther = self.D.setdefault('other', {})
-        DOther['multi radicals'] = formatters.MultiRadicals(FIXME)
+        DOther['multi radicals'] = property_formatters.MultiRadicals(FIXME)
 
     def create_normalization_insts(self):
         # TODO: Create the Normalization instances
         DOther = self.D.setdefault('other', {})
-        DOther['nfd normalization'] = formatters.Normalization('NFD')
-        DOther['nfkd normalization'] = formatters.Normalization('NFKD')
+        DOther['nfd normalization'] = property_formatters.Normalization('NFD')
+        DOther['nfkd normalization'] = property_formatters.Normalization('NFKD')
 
 
-from char_data import formatters
+from char_data.formatters import property_formatters
 
 data_reader = DataReader()
 DData = data_reader.get_D_data()

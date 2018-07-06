@@ -3,12 +3,12 @@ import os
 from pprint import pprint
 from char_data.formatters.radicals import SimilarHanzi
 
-from char_data.CharInfo import formatted, raw_data, keys, idx_keys, idx_values, idx_search
+from char_data.CharInfo import formatted, char_data.raw_data, keys, idx_keys, idx_values, char_indexes.search
 
 #pprint(keys())
 #pprint(idx_keys())
 #print idx_values('general category')
-#print idx_search('general category', 'Ps')
+#print char_indexes.search('general category', 'Ps')
 #print
 
 #raise
@@ -17,7 +17,7 @@ from char_data.CharInfo import formatted, raw_data, keys, idx_keys, idx_values, 
 #print formatted('chinesetraditional', u'転')
 #print formatted('Japanese variant', u'轉')
 #print formatted('name', 'a')
-#print raw_data('name', 'z')
+#print char_data.raw_data('name', 'z')
 
 def test(chars):
     for ord_ in chars:
@@ -31,9 +31,9 @@ def test(chars):
 
 
             try:
-                raw_ = raw_data(key, ord_)
+                raw_ = char_data.raw_data(key, ord_)
                 if raw_:
-                    print key, raw_data(key, ord_), formatted(key, ord_)
+                    print key, char_data.raw_data(key, ord_), formatted(key, ord_)
             except:
                 import traceback
                 traceback.print_exc()
@@ -59,7 +59,7 @@ print test(u'～〜~')
 Traceback (most recent call last):
   File "F:\Dev\Flazzle-NewJS\Chars\Tests.py", line 19, in test
 ERROR: ('unihan', 'rsunicode') 卤 21348 0x5364
-    key, raw_data(key, ord_), formatted(key, ord_)
+    key, char_data.raw_data(key, ord_), formatted(key, ord_)
   File "F:\Dev\Flazzle-NewJS\Chars\CharData.py", line 82, in formatted
     return inst.formatted(ord_)
   File "F:\Dev\Flazzle-NewJS\Chars\Formatters\Radicals\RadicalStrokes.py", line 41, in formatted
@@ -69,7 +69,7 @@ KeyError: "197'"
 Traceback (most recent call last):
   File "F:\Dev\Flazzle-NewJS\Chars\Tests.py", line 19, in test
 ERROR: ('unihan', 'rsunicode') 辶 36790 0x8fb6
-    key, raw_data(key, ord_), formatted(key, ord_)
+    key, char_data.raw_data(key, ord_), formatted(key, ord_)
   File "F:\Dev\Flazzle-NewJS\Chars\CharData.py", line 82, in formatted
     return inst.formatted(ord_)
   File "F:\Dev\Flazzle-NewJS\Chars\Formatters\Radicals\RadicalStrokes.py", line 41, in formatted
@@ -79,7 +79,7 @@ KeyError: "162'"
 Traceback (most recent call last):
   File "F:\Dev\Flazzle-NewJS\Chars\Tests.py", line 19, in test
 ERROR: ('unihan', 'rsunicode') 鹾 40574 0x9e7e
-    key, raw_data(key, ord_), formatted(key, ord_)
+    key, char_data.raw_data(key, ord_), formatted(key, ord_)
   File "F:\Dev\Flazzle-NewJS\Chars\CharData.py", line 82, in formatted
     return inst.formatted(ord_)
   File "F:\Dev\Flazzle-NewJS\Chars\Formatters\Radicals\RadicalStrokes.py", line 41, in formatted
@@ -88,7 +88,7 @@ KeyError: "197'"
 
 Traceback (most recent call last):
   File "F:\Dev\Flazzle-NewJS\Chars\Tests.py", line 19, in test
-    key, raw_data(key, ord_), formatted(key, ord_)
+    key, char_data.raw_data(key, ord_), formatted(key, ord_)
   File "F:\Dev\Flazzle-NewJS\Chars\CharData.py", line 82, in formatted
     return inst.formatted(ord_)
   File "F:\Dev\Flazzle-NewJS\Chars\Formatters\Radicals\RadicalStrokes.py", line 41, in formatted

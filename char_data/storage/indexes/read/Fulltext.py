@@ -3,9 +3,9 @@ import bisect
 #from editdist import distance
 from unicodedata import normalize
 
-from title_idx.language_support.Stem import get_L_stemmed
 from toolkit.arrays.ArrayUtils import read_json, read_array
 from toolkit.hashes.fast_hash import fast_hash
+
 
 class FulltextIndex:
     typ = 'fulltext'
@@ -56,8 +56,8 @@ class FulltextIndex:
             SPrev = SPossible
         
         for ord_ in SPrev:
-            from char_data import raw_data
-            value = raw_data(FIXME, search) # FIXME! ==============================
+            from char_data import char_data
+            value = char_data.raw_data(FIXME, search) # FIXME! ==============================
             if value.upper() == search.upper():
                 return (ord_,)
         raise KeyError(search)
@@ -95,7 +95,8 @@ class FulltextIndex:
     
     def _find(self, SPrev, SPossible, search):
         LDeinflect = self.LDeinflect
-        if LDeinflect: 
+        if LDeinflect:
+            from title_idx.language_support.Stem import get_L_stemmed
             search = get_L_stemmed(search.lower(), *LDeinflect)[0].upper()
             #print 'STEMMED SEARCH:', LDeinflect, search.encode('utf-8')
         

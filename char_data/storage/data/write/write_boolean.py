@@ -1,7 +1,8 @@
 from toolkit.arrays import get_uni_array
-from char_data.importer.misc.char_utilities import get_char_gaps, iter_ranges
+from char_data.misc.get_char_gaps import get_char_gaps
+from char_data.misc.iter_ranges import iter_ranges
 from toolkit.arrays.ArrayUtils import write_array, write_json
-from char_data.datatypes.write.range_gen_tools import compress_ord_ranges
+from range_gen_tools import compress_ord_ranges
 
 
 def ranges_to_single_ords(DOrds):

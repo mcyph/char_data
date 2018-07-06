@@ -1,9 +1,9 @@
 from toolkit.arrays.ArrayUtils import write_arrays, write_json
-from char_data.importer.misc.char_utilities import get_char_gaps, iter_ranges
+from char_data.misc import get_char_gaps, iter_ranges
 from toolkit.arrays import get_uni_array, get_int_array
 
-from char_data.datatypes.write import indice_tools
-from char_data.datatypes.write.range_gen_tools import compress_ord_ranges
+from char_data.storage.data.write import indice_tools
+from char_data.storage.data.write.range_gen_tools import compress_ord_ranges
 
 
 def write_indices(f, key, DOrds):

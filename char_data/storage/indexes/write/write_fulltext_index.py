@@ -2,8 +2,7 @@ from unicodedata import normalize
 
 from toolkit.arrays import get_int_array, get_array_by_type
 from toolkit.arrays.ArrayUtils import write_array, write_json
-from char_data.importer.misc.process_word import remove_tones
-from title_idx.language_support.Stem import get_L_stemmed
+from char_data.misc.process_word import remove_tones
 from toolkit.list_operations.rem_dupes import rem_dupes
 from toolkit.hashes.fast_hash import fast_hash
 
@@ -80,7 +79,8 @@ class FulltextWriter:
             token = token.strip().upper()
             if token: 
                 self.SSpell.add(token)
-            
+
+            from title_idx.language_support.Stem import get_L_stemmed
             LStemmed = get_L_stemmed(token.strip(), self.LISO[0])
             LWords.extend(LStemmed) # CHECK ME! ======================================================
         

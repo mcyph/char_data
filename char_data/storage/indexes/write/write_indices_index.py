@@ -1,5 +1,6 @@
-from char_data.indexes.write.write_integer_keys_index import write_integer_keys_index
-from char_data.datatypes.write import indice_tools
+from write_integer_keys_index import write_integer_keys_index
+from char_data.storage.data.write import indice_tools
+
 
 def write_indices_index(f, key, DData, DJSON):
     '''

@@ -1,8 +1,8 @@
 from toolkit.arrays.ArrayUtils import read_array, read_json
-from char_data.datatypes.read import RangeClass, NO_DATA
+from char_data.storage.data.read import RangeClass, NO_DATA
 
-from char_data.importer.misc.char_utilities import get_adjusted_code_point
-from char_data.datatypes.write import write_boolean
+from char_data.misc import get_adjusted_code_point
+from char_data.storage.data.write import write_boolean
 
 
 DBool = {

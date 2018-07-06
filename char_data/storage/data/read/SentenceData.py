@@ -1,9 +1,9 @@
 from toolkit.arrays.ArrayUtils import read_array, read_json
-from char_data.datatypes.read import RangeClass
+from char_data.storage.data.read import RangeClass
 
-from char_data.importer.misc.char_utilities import get_adjusted_code_point
-from char_data.datatypes.write import write_sentence_data
-from char_data.datatypes.read.RangeClass import  NO_DATA
+from char_data.misc import get_adjusted_code_point
+from char_data.storage.data.write import write_sentence_data
+from char_data.storage.data.read.RangeClass import  NO_DATA
 
 
 class SentenceData(RangeClass):
