@@ -1,5 +1,6 @@
 from char_data.datatypes.read import Indices as _Indices
 
+
 class Indices(_Indices):
     def __init__(self, key, f, DJSON):
         _Indices.__init__(self, key, f, DJSON)

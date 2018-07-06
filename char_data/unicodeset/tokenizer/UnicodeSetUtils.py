@@ -95,7 +95,7 @@ def get_D_general_cat_aliases():
     ) as f:
 
         for line in f:
-            line = line.strip()
+            line = line.split('#')[0].strip()
             if not line:
                 continue
             
@@ -119,14 +119,18 @@ def get_D_default_props():
     TODO: Add posix values, e.g. [:alnum:] etc!
     """
     
-    L = ['general category', 
-         'script',
-         'property list']
+    L = [
+        'general category',
+        'script',
+        'property list'
+    ]
     
     D = {}
-    D['l&'] = [('general category', i) for i in ('Ll', 
-                                                 'Lu', 
-                                                 'Lt')]
+    D['l&'] = [('general category', i) for i in (
+        'Ll',
+        'Lu',
+        'Lt'
+    )]
     
     for key in idx_values('general category'):
         # make it so that e.g. "L"/"l" finds all letters
@@ -136,8 +140,7 @@ def get_D_default_props():
         i_D = _get_D_values(idx_key)
         for key, value in i_D.items():
             D.setdefault(key, []).append((idx_key, value))
-    
-    
+
     for key, value in get_D_general_cat_aliases().items():
         #print value
         if value == 'Cn':

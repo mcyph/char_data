@@ -134,13 +134,15 @@ LatinAccents = _LatinAccents()
 if __name__ == '__main__':
     print LatinAccents.get_D_latin()
 
-    print LatinAccents.get_D_accents(["ü",
-    u"e"
-    u"á",
-    u"é",
-    u"í",
-    u"ñ",
-    u"ó",
-    u"ú"])
+    print LatinAccents.get_D_accents([
+        u"ü",
+        u"e"
+        u"á",
+        u"é",
+        u"í",
+        u"ñ",
+        u"ó",
+        u"ú"
+    ])
 
 

@@ -1,3 +1,6 @@
+# For use by the Unicode Set implementation,
+# to allow for [:xxx:] and \p{xxx} mappings
+
 C	Other
 Cc	Control
 Cf	Format

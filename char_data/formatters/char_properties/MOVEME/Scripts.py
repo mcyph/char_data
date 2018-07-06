@@ -1,5 +1,23 @@
-# The script mappings to a tree by region etc
-ScriptTypes = '''
+#from char_data.CharData import CharData
+#from char_data.ranges.IterRanges import iter_ranges
+
+LScriptOrder = [
+    'East Asian Scripts', # TEMPORARY!
+    'Symbols and Punctuation',
+    'European Scripts',
+
+    'Middle Eastern Scripts',
+    'Indic Scripts',
+    'South East Asian',
+    'African Scripts',
+    'American Scripts',
+    'Central Asian Scripts',
+    'Phillipine Scripts',
+    'Ancient Scripts',
+    'Miscellaneous'
+]
+
+script_types = '''
 Avestan    Middle Eastern Scripts
 Bamum    African Scripts
 Egyptian Hieroglyphs    African Scripts
@@ -114,3 +132,70 @@ Pictures and Miscellaneous Symbols    Symbols and Punctuation
 Spaces    Symbols and Punctuation
 Technical Symbols    Symbols and Punctuation
 '''
+
+
+def get_D_scripts():
+    DScripts = {}
+    
+    for line in script_types.split('\n'): # from Data/ScriptTypes.txt
+        line = line.strip()
+        if not line: 
+            continue
+        
+        try: 
+            script, mapping = line.replace('    ', '\t').split('\t')
+        except: 
+            print "ERROR ON LINE:", line.encode('utf-8')
+            raise
+        
+        if not mapping in DScripts:
+            DScripts[mapping] = []
+        DScripts[mapping].append(script)
+    
+    return DScripts
+
+DScripts = get_D_scripts()
+
+
+def get_L_scripts():
+    # Add by script region, e.g. "Middle East"
+    #LScripts = sorted(DScripts.keys())
+    SUsedScripts = set()
+    
+    LRtn = []
+    for region in LScriptOrder: # from ScriptOrder.txt
+        if not region in DScripts: 
+            continue
+        
+        DScripts[region].sort()
+        
+        LSubRanges = []
+        for script in DScripts[region]:
+            LSubRanges.append(script)  # HACK!!!!! ======================================================================
+            #LSubRanges.append(get_script_subranges(script))
+            SUsedScripts.add(script)
+        
+        #print 'LAPPEND:', LAppend
+        LRtn.append((region, LSubRanges))
+
+    return LRtn
+
+
+def get_script_subranges(typ):
+    #
+    range = CharData.search('General Scripts', typ)
+    del_font_script, LRanges = iter_ranges(range)
+
+    LRtn = []
+    for i_type, value in LRanges:
+        if i_type == 'Block':
+            LRtn.append(value)
+
+    if typ == 'Common' or typ == 'Inherited':
+        LRtn.sort()
+    return (typ, LRtn)
+
+
+if __name__ == '__main__':
+    from pprint import pprint
+    pprint(get_L_scripts(), indent=4)

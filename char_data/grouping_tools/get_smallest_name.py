@@ -1,8 +1,13 @@
+# -*- coding: utf-8 -*-
+
 def get_smallest_name(LName):
     """
+    A function to allow grouping a characters by a heading,
+    useful for instance when displaying search results
+
     Most of the time, e.g. in "latin small letter z with swash tail"
     the "z" is the smallest part, and allows easy sorting.
-    Therefore, get the smallest characters to allow grouping.
+    Therefore, get the smallest characters to allow for this.
     """
     cur_len = 32768 # ??? ==============================================================
     

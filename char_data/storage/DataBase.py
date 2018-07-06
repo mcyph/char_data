@@ -12,7 +12,6 @@ class DataBase:
         self.D = D
         self.DCache = {}
 
-
     def get_class_by_property(self, s):
         if isinstance(s, list):
             s = tuple(s)
@@ -20,7 +19,6 @@ class DataBase:
         if not s in self.DCache:
             self.DCache[s] = self._get_class_by_property(s)
         return self.DCache[s]
-
 
     def _get_class_by_property(self, s):
         """
