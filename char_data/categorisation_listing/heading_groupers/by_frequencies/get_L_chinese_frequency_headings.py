@@ -1,4 +1,5 @@
-from uni_tools import chars
+from char_data import formatted
+
 
 DGrades = {
     'Hong Kong Grade': 'Hong Kong Grade',
@@ -12,7 +13,7 @@ def get_L_chinese_frequency_headings(LRanges, LSortBy):
     """
     DRanges = {}
     for ord_ in LRanges:
-        freq = chars.formatted(LSortBy[0], ord_)
+        freq = formatted(LSortBy[0], ord_)
         
         if freq is None:
             if False: 
@@ -70,3 +71,8 @@ def get_L_chinese_frequency_headings(LRanges, LSortBy):
         LRtn[-1][1].sort()
         LRtn[-1][1] = [i[1] for i in LRtn[-1][1]]
     return LRtn
+
+
+if __name__ == '__main__':
+    # TODO: Add a test here!!!!!! =========================================================================
+    pass

@@ -16,8 +16,11 @@ def get_D_sup_scripts(DScripts, DBlockSubNames):
         
         if type(Range) in (list, tuple):
             FromRange, ToRange = Range
-        else: FromRange, ToRange = Range, Range
-        if ToRange-FromRange > 1000: continue # HACK!
+        else:
+            FromRange, ToRange = Range, Range
+
+        if ToRange-FromRange > 1000:
+            continue # HACK!
         
         for i in xrange(FromRange, ToRange+1):
             if not ScriptName in DScriptChars:
@@ -30,8 +33,11 @@ def get_D_sup_scripts(DScripts, DBlockSubNames):
         BlockName = DBlockSubNames[BlockRange].strip()
         if type(BlockRange) in (list, tuple):
             FromRange, ToRange = BlockRange
-        else: FromRange, ToRange = BlockRange, BlockRange
-        if ToRange-FromRange > 1000: continue # HACK!
+        else:
+            FromRange, ToRange = BlockRange, BlockRange
+
+        if ToRange-FromRange > 1000:
+            continue # HACK!
         
         for i in xrange(FromRange, ToRange+1):
             if not BlockName in DBlockChars:
@@ -47,6 +53,7 @@ def get_D_sup_scripts(DScripts, DBlockSubNames):
                     if not ScriptName in DMap:
                         DMap[ScriptName] = {}
                     D = DMap[ScriptName]
+
                     if not BlockName in D:
                         D[BlockName] = []
                     D[BlockName].append(Char)
@@ -64,9 +71,13 @@ def get_D_sup_scripts(DScripts, DBlockSubNames):
     os.chdir(r'E:\Dev\Flazzle') # HACK! ---------------------------------------------------------
     print os.getcwdu()
     File = codecs.open('Chars/Import/SupScripts.txt', 'rb', 'utf-8')
+
     for Line in File:
-        if not Line.strip(): continue
-        else: From, To = Line.split('\t')
+        if not Line.strip():
+            continue
+        else:
+            From, To = Line.split('\t')
+
         From, To = From.strip(), To.strip()
         if not To: 
             # Script name specified, e.g. "Common" or "Basic Latin"
@@ -78,8 +89,11 @@ def get_D_sup_scripts(DScripts, DBlockSubNames):
             # Iterate through the script mappings in 
             # DSubBlocks and use alternative mappings
             print DMap[cScript].keys()
+
             BlockSubName = From
-            if BlockSubName[0] == '*': continue
+            if BlockSubName[0] == '*':
+                continue
+
             for iRange in DMap[cScript][BlockSubName]:
                 if not To in DRtn:
                     DRtn[To] = []
@@ -90,7 +104,8 @@ def get_D_sup_scripts(DScripts, DBlockSubNames):
             if '-' in iRange: 
                 iRange = int(iRange.split('-')[0].replace('U+', ''), 16), \
                          int(iRange.split('-')[1].replace('U+', ''), 16)
-            else: iRange = int(iRange.replace('U+', ''), 16)
+            else:
+                iRange = int(iRange.replace('U+', ''), 16)
             
             if not To in DRtn:
                 DRtn[To] = []
@@ -98,9 +113,12 @@ def get_D_sup_scripts(DScripts, DBlockSubNames):
     
     # Add phonetic IPA mappings
     DRtn['IPA Alphabet'] = []
+
     for k in DIPA:
         DRtn['IPA Alphabet'].extend([ord(i) for i in DIPA[k] if i.strip()])
+
     for c in 'abcdefghijklmnopqrstuvwxyz':
         DRtn['IPA Alphabet'].append(ord(c))
+
     DRtn['IPA Alphabet'] = rem_dupes(DRtn['IPA Alphabet'])
     return DRtn

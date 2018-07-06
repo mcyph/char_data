@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+
 def get_smallest_name(LName):
     """
     A function to allow grouping a characters by a heading,

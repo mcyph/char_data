@@ -1,4 +1,4 @@
-from char_data.grouping_tools import get_smallest_name
+from get_smallest_name import get_smallest_name
 from get_font_script import get_font_script
 
 
