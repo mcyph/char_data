@@ -2,8 +2,8 @@ import glob
 
 from char_data.data_paths import data_path
 
-from char_data.importer.parsers.Unihan import open_unihan
-from char_data.importer.Write import WriteBase, add
+from open_unihan import open_unihan
+from char_data.importers.Write import WriteBase, add
 
 
 class Unihan(WriteBase):

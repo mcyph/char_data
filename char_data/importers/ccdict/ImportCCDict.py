@@ -1,7 +1,7 @@
 from char_data.data_paths import data_path
 
-from char_data.importer.parsers.Unihan import open_unihan
-from char_data.importer.Write import WriteBase, add
+from char_data.importers.unicode.unihan import open_unihan
+from char_data.importers.Write import WriteBase, add
 
 
 class ImportCCDict(WriteBase):

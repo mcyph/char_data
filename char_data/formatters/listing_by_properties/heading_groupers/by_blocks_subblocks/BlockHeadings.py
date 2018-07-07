@@ -87,7 +87,7 @@ class BlockHeadings:
         sub_block = None
 
         if block and not 'CJK' in block:
-            sub_block = char_data.formatted('block subname', ord_)
+            sub_block = char_data.formatted('subblock heading', ord_)
 
         if (
             DState['font_script'] is None or
@@ -118,8 +118,8 @@ class BlockHeadings:
 
     def iter_sub_range(self, LRtn, LRange, DState, flag):
         from_, to = LRange
-        from_sub_block = char_data.formatted('block subname', from_)
-        to_sub_block = char_data.formatted('block subname', to)
+        from_sub_block = char_data.formatted('subblock heading', from_)
+        to_sub_block = char_data.formatted('subblock heading', to)
 
         # Define various conditionals
         last_equal = DState['last_sub_block'] == from_sub_block
@@ -160,7 +160,7 @@ class BlockHeadings:
                         LRtn.append(('block', block))
                         DState['last_block'] = block
 
-                sub_block = char_data.formatted('block subname', ord_)
+                sub_block = char_data.formatted('subblock heading', ord_)
 
                 if sub_block != DState['last_sub_block']:
                     LRtn.append(('sub_block', sub_block))
@@ -178,10 +178,13 @@ get_L_block_headings = block_headings.get_L_block_headings
 
 
 if __name__ == '__main__':
-    import sys
-    print sys.modules.keys()
-    from char_data import char_indexes
-    print get_L_block_headings(
+    from char_data import char_indexes, char_data
+
+    from pprint import pprint
+    pprint(char_indexes.keys())
+    pprint(char_data.keys())
+
+    pprint(get_L_block_headings(
         char_indexes.search('unicodedata.script', 'Latin')
-    )
+    ))
 

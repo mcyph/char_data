@@ -1,22 +1,26 @@
+import warnings
 from json import dumps
 
 from toolkit.io.file_tools import file_write
 from toolkit.py_ini import read_D_pyini
 from char_data.data_paths import data_path
-from char_data.indexes import DIndexWriters
-from char_data import formatters
+from char_data.storage.indexes import DIndexWriters
+from char_data.formatters import property_formatters
+
 
 def add(old_fn):
     def new_fn(self, *args, **kw):
         # use iterator `old_fn` and add character information
         for key, ord_, value in old_fn(self, *args, **kw):
             D = self.DKeys[key]
-            
-            if False: 
-                assert not ord_ in D, "ordinal %s key %s already exists" % (ord_, key)
-            
+
+            if ord_ in D:
+                warnings.warn(
+                    "ordinal %s key %s already exists" % (ord_, key)
+                )
             D[ord_] = value
     return new_fn
+
 
 class WriteBase:
     def __init__(self, path):
@@ -36,9 +40,11 @@ class WriteBase:
             else:
                 indexer = None
             
-            self.DCls[key] = (getattr(formatters, DItem['formatter']),
-                              indexer,
-                              DItem)
+            self.DCls[key] = (
+                getattr(property_formatters, DItem['formatter']),
+                indexer,
+                DItem
+            )
     
     def write(self, path):
         """
@@ -67,8 +73,9 @@ class WriteBase:
         file_write('%s.json' % path, dumps(DJSON, indent=4))
         file_write('%s-idx.json' % path, dumps(DIdxJSON, indent=4))
 
+
 if __name__ == '__main__':
-    from char_data.importer import Unihan, Kanjidic, CCDict, Unicode
+    from char_data.importers import Unihan, Kanjidic, CCDict, Unicode
     CCDict.run()
     Kanjidic.run()
     #MultiRads.run()

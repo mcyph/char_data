@@ -11,12 +11,12 @@ class FulltextIndex:
     typ = 'fulltext'
     
     def __init__(self, f, DJSON):
-        '''
+        """
         Provides a basic fulltext index for searching through
         characters.
         
         OPEN ISSUE: Replace me with a Lucene class? ==================================================
-        '''
+        """
         
         # None for no deinflection
         # [ISO, variant] to use with the stemmer
@@ -31,17 +31,17 @@ class FulltextIndex:
     #======================================================#
     
     def keys(self):
-        '''
+        """
         CompressedNames reference by unsigned int hash
         and there can sometimes be too many items, so 
         I've disabled it for now
-        '''
+        """
         return None
     
     def search(self, search):
-        '''
+        """
         Search for a specific value
-        '''
+        """
         LSearch = [i.strip().upper() 
                    for i in search.split() 
                    if i.strip()]
@@ -70,10 +70,10 @@ class FulltextIndex:
         return self.LSpell
     
     def fulltext(self, search):
-        '''
+        """
         Try in each of the words, removing possibilities 
         if there aren't any of that name
-        '''
+        """
         LSearch = [i.strip().upper() 
                    for i in search.split() 
                    if i.strip()]
@@ -122,11 +122,11 @@ class FulltextIndex:
     #======================================================#
     
     def spellcheck(self, search):
-        '''
+        """
         Get spellchecked values close to `search`
         
         NOTE: Only works for a single word! ==================================
-        '''
+        """
         search = unicode(search)
         
         LRtn = []

@@ -10,7 +10,8 @@ class DataReader:
         ('unicodedata', 'unidata'),
         ('unihan', 'unihan'),
         ('ccdict', 'ccdict'),
-        ('kanjidic', 'kanjidic')
+        ('kanjidic', 'kanjidic'),
+        ('nameslist', 'nameslist')
     ]
     
     #================================================================#
@@ -23,7 +24,7 @@ class DataReader:
         """
         D = {}
         for key, path in self.LData:
-            D[key.lower()] = self.open_index('%s/%s' % (path, path))
+            D[key.lower()] = self.open_index('%s/output/%s' % (path, path))
         return D
 
     def open_index(self, path):

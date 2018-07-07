@@ -1,7 +1,7 @@
 from char_data.data_paths import data_path
 
-from char_data.importer.parsers.Kanjidic2 import open_kanjidic_2
-from char_data.importer.Write import WriteBase, add
+from Kanjidic2 import open_kanjidic_2
+from char_data.importers.Write import WriteBase, add
 
 
 class Kanjidic(WriteBase):

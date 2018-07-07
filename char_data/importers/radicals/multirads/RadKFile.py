@@ -4,13 +4,13 @@ from toolkit.list_operations.rem_dupes import fast_rem_dupes
 
 
 def get_D_rads(path):
-    '''
+    """
     Open the "radkfile" and "radkfile2" euc-jp 
     multiradical files by Michael Raine and Jim Breen
     http://www.csse.monash.edu.au/~jwb/kradinf.html
     
     returns {radical: [kanji, ...], ...}
-    '''
+    """
     rad = None
     DRads = {}
     LChars = []
@@ -46,10 +46,10 @@ def get_D_rads(path):
 
 
 def get_D_kanji(DRads):
-    '''
+    """
     Reverses the result from `get_D_rads` above
     returns {kanji: [radical, ...], ..}
-    '''
+    """
     DRtn = {}
     for radical, LChars in DRads.items():
         for char in LChars:

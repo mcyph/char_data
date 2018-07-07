@@ -1,0 +1,41 @@
+# Reader for the Unicode data nameslist format
+
+['block description',
+ 'block name']
+    header = 'nameslist block information'
+    formatter = 'StringEnum'
+    index = None
+
+['has separator']
+    header = 'nameslist block information'
+    formatter = 'StringEnum'
+    index = None
+
+
+['subblock heading',
+ 'subblock technical notice']
+    header = 'nameslist subblock information'
+    formatter = 'StringEnum'
+    index = None
+
+['subblock see also']
+    header = 'nameslist subblock information'
+    formatter = 'MappingLink'
+    index = 'IntegerKeys'
+
+
+['also called',
+ 'formally also called',
+ 'technical notice',
+ 'comments']
+    header = 'nameslist character information'
+    formatter = 'NoFormatStrings'
+    index = None
+
+['see also']
+    header = 'nameslist character information'
+    formatter = 'MappingLink'
+    index = 'IntegerKeys'
+
+# 'decomposed form',
+# 'compatibility mapping',

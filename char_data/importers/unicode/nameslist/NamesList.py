@@ -1,6 +1,7 @@
 import re
 import codecs
-from char_data.importer.parsers import NamesListTokens as consts
+import names_list_tokens as consts
+from char_data.data_paths import data_path
 
 
 class NamesList:
@@ -387,5 +388,5 @@ def convert_hex(L):
 
 
 if __name__ == '__main__':
-    for mode, D in NamesList(r'D:\Documents\Uni_\Uni\6.0.0\NamesList.txt'):
+    for mode, D in NamesList(data_path('chardata', 'unidata/source/NamesList.txt')):
         print mode, D

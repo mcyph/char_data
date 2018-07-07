@@ -1,0 +1,277 @@
+{
+    "formally also called": {
+        "LSeek": [
+            "uint16", 
+            4, 
+            19
+        ], 
+        "LIgnoreRanges": [
+            422, 
+            129
+        ], 
+        "LRanges": [
+            0, 
+            4
+        ], 
+        "LWords": [
+            "utf-8", 
+            61, 
+            361
+        ], 
+        "LAmount": [
+            "uint8", 
+            42, 
+            19
+        ]
+    }, 
+    "block name": {
+        "LSeek": [
+            "uint16", 
+            7099, 
+            4563
+        ], 
+        "LIgnoreRanges": [
+            24064, 
+            1298
+        ], 
+        "LRanges": [
+            551, 
+            6548
+        ], 
+        "LWords": [
+            "utf-8", 
+            20788, 
+            3276
+        ], 
+        "LAmount": [
+            "uint8", 
+            16225, 
+            4563
+        ]
+    }, 
+    "has separator": {
+        "LSeek": [
+            "uint8", 
+            25366, 
+            0
+        ], 
+        "LIgnoreRanges": [
+            25366, 
+            4
+        ], 
+        "LRanges": [
+            25362, 
+            4
+        ], 
+        "LWords": [
+            "utf-8", 
+            25366, 
+            0
+        ], 
+        "LAmount": [
+            "uint8", 
+            25366, 
+            0
+        ]
+    }, 
+    "technical notice": {
+        "LSeek": [
+            "uint16", 
+            295209, 
+            224
+        ], 
+        "LIgnoreRanges": [
+            296817, 
+            148
+        ], 
+        "LRanges": [
+            295205, 
+            4
+        ], 
+        "LWords": [
+            "utf-8", 
+            295881, 
+            936
+        ], 
+        "LAmount": [
+            "uint8", 
+            295657, 
+            224
+        ]
+    }, 
+    "block description": {
+        "LSeek": [
+            "uint8", 
+            99685, 
+            0
+        ], 
+        "LIgnoreRanges": [
+            99746, 
+            4
+        ], 
+        "LRanges": [
+            99642, 
+            43
+        ], 
+        "LWords": [
+            "utf-8", 
+            99685, 
+            61
+        ], 
+        "LAmount": [
+            "uint8", 
+            99685, 
+            0
+        ]
+    }, 
+    "comments": {
+        "LSeek": [
+            "uint32", 
+            99754, 
+            9480
+        ], 
+        "LIgnoreRanges": [
+            218174, 
+            1662
+        ], 
+        "LRanges": [
+            99750, 
+            4
+        ], 
+        "LWords": [
+            "utf-8", 
+            147154, 
+            71020
+        ], 
+        "LAmount": [
+            "uint8", 
+            137674, 
+            9480
+        ]
+    }, 
+    "also called": {
+        "LSeek": [
+            "uint16", 
+            219840, 
+            6943
+        ], 
+        "LIgnoreRanges": [
+            266613, 
+            889
+        ], 
+        "LRanges": [
+            219836, 
+            4
+        ], 
+        "LWords": [
+            "utf-8", 
+            240669, 
+            25944
+        ], 
+        "LAmount": [
+            "uint8", 
+            233726, 
+            6943
+        ]
+    }, 
+    "subblock see also": {
+        "LSeek": [
+            "uint8", 
+            267579, 
+            96
+        ], 
+        "LIgnoreRanges": [
+            268181, 
+            71
+        ], 
+        "LRanges": [
+            267502, 
+            77
+        ], 
+        "LWords": [
+            "utf-8", 
+            267771, 
+            410
+        ], 
+        "LAmount": [
+            "uint8", 
+            267675, 
+            96
+        ]
+    }, 
+    "subblock technical notice": {
+        "LSeek": [
+            "uint16", 
+            270052, 
+            1733
+        ], 
+        "LIgnoreRanges": [
+            294071, 
+            1134
+        ], 
+        "LRanges": [
+            268252, 
+            1800
+        ], 
+        "LWords": [
+            "utf-8", 
+            276984, 
+            17087
+        ], 
+        "LAmount": [
+            "uint16", 
+            273518, 
+            1733
+        ]
+    }, 
+    "subblock heading": {
+        "LSeek": [
+            "uint16", 
+            34719, 
+            14303
+        ], 
+        "LIgnoreRanges": [
+            98124, 
+            1518
+        ], 
+        "LRanges": [
+            25370, 
+            9349
+        ], 
+        "LWords": [
+            "utf-8", 
+            77628, 
+            20496
+        ], 
+        "LAmount": [
+            "uint8", 
+            63325, 
+            14303
+        ]
+    }, 
+    "see also": {
+        "LSeek": [
+            "uint16", 
+            296969, 
+            8082
+        ], 
+        "LIgnoreRanges": [
+            334245, 
+            1237
+        ], 
+        "LRanges": [
+            296965, 
+            4
+        ], 
+        "LWords": [
+            "utf-8", 
+            321215, 
+            13030
+        ], 
+        "LAmount": [
+            "uint8", 
+            313133, 
+            8082
+        ]
+    }
+}
