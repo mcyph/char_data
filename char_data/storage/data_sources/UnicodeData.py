@@ -1,5 +1,18 @@
+from char_data.formatters.property_formatters import (
+    Definition, NoFormatStrings, IRG, UnicodeHex, Frequency,
+    BooleanEnum, NoFormatIntegers, Hex, Indices, RadicalStrokes
+)
+from char_data.formatters.listing_by_properties.property_mappings.consts import (
+    HEADER_FIXME, HEADER_DEFINITION, HEADER_NUMERIC, HEADER_READINGS,
+    HEADER_LANGUAGE_USAGE, HEADER_VARIANTS, HEADER_GRADES_FREQUENCIES,
+    HEADER_TOTAL_STROKES, HEADER_RADICAL_STROKES, HEADER_INPUT,
+    HEADER_ENCODING, HEADER_INDICES, HEADER_PHONETIC_INDICES,
+    HEADER_ADOBE
+)
+
+
 class UnicodeData:
-    def __init__(self):
+    def __init__(self, load_db=True):
         self.age = StringEnum(
             self, HEADER_FIXME, 'age', 'Age',
             LISOs=None, index=StringKeys

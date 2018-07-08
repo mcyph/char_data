@@ -12,7 +12,7 @@ from char_data.formatters.listing_by_properties.property_mappings.consts import 
 
 
 class Unihan:
-    def __init__(self):
+    def __init__(self, load_db=True):
         #====================================================================#
         #                            Definitions                             #
         #====================================================================#
