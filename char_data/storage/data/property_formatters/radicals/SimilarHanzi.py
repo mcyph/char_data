@@ -77,6 +77,6 @@ class SimilarHanzi:
     
     def get_rads(self, char):
         return [i for i in DBothChars[char] if i != u'�'] # HACK!
-    
-    def formatted(self, ord_):
-        return ' '.join(w_unichr(i_ord) for i_ord in self.char_data.raw_data(ord_))
+
+    def _format_data(self, ord_, data):
+        return ' '.join(w_unichr(i_ord) for i_ord in data)

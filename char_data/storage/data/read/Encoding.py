@@ -9,7 +9,7 @@ from char_data.storage.data.read.RangeClass import NO_DATA
 class Encoding(RangeClass):
     writer = staticmethod(write_encoding)
     
-    def __init__(self, key, f, DJSON):
+    def _load_data(self, key, f, DJSON):
         self.DJSON = DJSON
         self.key = key
         

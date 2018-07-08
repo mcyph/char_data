@@ -6,9 +6,6 @@ from char_data.storage.data.read import SentenceData
 
 
 class Definition(SentenceData):
-    def __init__(self, key, f, DJSON):
-        SentenceData.__init__(self, key, f, DJSON)
-
     def raw_data(self, ord_):
         if self.key=='Name' and ord_>=0xAC00 and ord_<=0xD7AF:
             # HACK: Use the unicodedata module for Hangul
@@ -20,8 +17,8 @@ class Definition(SentenceData):
         # Add UnicodeData Name
         return SentenceData.raw_data(self, ord_)
 
-    def formatted(self, ord_):
-        return self.raw_data(ord_) # HACK! =====================================================
+    def _format_data(self, ord_, data):
+        return data # HACK! =====================================================
 
     def add_sounds(self, s, iso, script):
         LRtn = []

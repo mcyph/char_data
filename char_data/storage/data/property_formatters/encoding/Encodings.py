@@ -6,6 +6,7 @@ from toolkit.encodings.surrogates import w_unichr
 class Encodings:
     def __init__(self, encoding):
         self.encoding = encoding
+        FIXME
     
     def explain(self, ord_):
         pass
@@ -22,9 +23,7 @@ class Encodings:
         except Exception: 
             return None
     
-    def formatted(self, ord_):
-        data = self.raw_data(ord_)
-        
+    def _format_data(self, ord_, data):
         if isinstance(data, basestring):
             LHex = ['%s' % binascii.hexlify(i).upper() for i in data]
             return ' '.join(LHex)

@@ -1,3 +1,31 @@
+# TODO: REMOVE ME! ----------------------------------------------------------------------------------------
+DISO2LFullText = {
+    'yue': [['Cantonese', 'Cantonese Readings'], ['Cantonese Definition']], # MULTIPLE?
+    'jpn': [['Japanese Kun', 'Japanese On', 'Japanese Nanori'], ['Japanese Definition']],
+    'hak': [['Hakka'], ['Cantonese Definition']],
+    'kor': [['Korean', 'Hangul Readings', 'Korean Hangul'], ['Chinese Meanings']], # MULTIPLE?
+    'cmn': [['Mandarin'], ['Chinese Definition']],
+    'ltc': [['Tang'], ['Chinese Definition']],
+    'vie': [['Vietnamese'], ['Chinese Definition']]
+}  # PHONETIC WARNING!
+
+
+DMap = {
+    'All': ('cmn:eng', 'jpn:eng', 'yue:eng', 'General', 'NamesList'),
+    'cmn:eng': ('cmn:eng', 'General', 'NamesList'),
+    'yue:eng': ('yue:eng', 'General', 'NamesList'),
+    'jpn:eng': ('jpn:eng', 'General', 'NamesList'),
+    'jpn:spa': ('jpn:spa', 'General', 'NamesList'),
+    'jpn:por': ('jpn:por', 'General', 'NamesList'),
+    'kor:eng': ('cmn:eng', 'General', 'NamesList'),
+    'hak:eng': ('yue:eng', 'General', 'NamesList'),
+    'ltc:eng': ('cmn:eng', 'General', 'NamesList'),
+    'vie:eng': ('cmn:eng', 'General', 'NamesList')
+}
+
+
+
+
 DCombine = {
     'cmn': [],
     'jpn': [],
@@ -8,13 +36,13 @@ DCombine = {
 
 class DefinitionCombine:
     def __init__(self, LKeys):
-        pass
+        FIXME
     
     def raw_data(self, ord_):
         # TODO: Combine data from multiple sources
         pass
     
-    def formatted(self, ord_):
+    def formatted(self, ord_, data):
         LRtn = []
         if typ == 'cmn:eng':
             extend_data(LRtn, )

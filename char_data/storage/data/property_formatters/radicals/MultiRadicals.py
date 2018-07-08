@@ -11,7 +11,7 @@ class MultiRadicals:
             return ' '.join(tuple([i for i in DBothChars[char] if i != u'�']))
         else:
             return None
-    
-    def formatted(self, ord_):
+
+    def _format_data(self, ord_, data):
         # Add multi-radical mappings
-        return self.char_data.raw_data(ord_) # TODO: Make me more pretty! ==============================
+        return data # TODO: Make me more pretty! ==============================

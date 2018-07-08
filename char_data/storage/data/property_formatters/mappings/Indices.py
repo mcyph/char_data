@@ -2,14 +2,9 @@ from char_data.storage.data.read import Indices as _Indices
 
 
 class Indices(_Indices):
-    def __init__(self, key, f, DJSON):
-        _Indices.__init__(self, key, f, DJSON)
-    
-    def formatted(self, ord_):
+    def _format_data(self, ord_, data):
         # Indices have a dict e.g. {'Page': 145, 'Offset': "'"} etc
         # TODO: ADD INDICE FORMATTING for KangXi etc columns!
-        data = self.raw_data(ord_)
-        
         if data is None:
             return None
         LOrder, LData = data

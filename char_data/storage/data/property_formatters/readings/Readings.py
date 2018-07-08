@@ -9,16 +9,11 @@ def _is_upper(S):
 
 
 class Readings(SentenceData):
-    def __init__(self, key, f, DJSON):
-        SentenceData.__init__(self, key, f, DJSON)
-
-    def formatted(self, ord_):
+    def _format_data(self, ord_, data):
         """
         The definitions are already in English, so just make sure 
         they aren't in a SHOUTING format and return them
         """
-        
-        data = self.raw_data(ord_)
         if not data:
             return None
         

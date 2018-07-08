@@ -3,17 +3,12 @@ from char_data.storage.data.read import Encoding
 
 
 class Hex(Encoding):
-    def __init__(self, key, f, DJSON):
-        Encoding.__init__(self, key, f, DJSON)
-    
-    def formatted(self, ord_):
+    def _format_data(self, ord_, data):
         # TODO: If the data is in hex, return a visual representation:
         # %(hex)s[padded to 4 hex digits separated by spaces]
         # If the data is string, split into the right side of <, -, : etc
         # and convert the hex on the left hand side
-        data = self.raw_data(ord_)
-        
-        if not data: 
+        if not data:
             return None
         
         elif type(data) in (str, unicode):

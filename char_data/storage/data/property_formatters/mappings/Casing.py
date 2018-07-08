@@ -9,9 +9,9 @@ class Casing:
         """
         self.typ = typ
         
-    def raw_data(self, ord_):
+    def raw_data(self, ord_, data):
         char = w_unichr(ord_)
-        
+
         if self.typ == 'lower':
             return char.lower()
         elif self.typ == 'upper':
@@ -23,5 +23,5 @@ class Casing:
         else:
             raise Exception("unknown casing type %s" % self.typ)
     
-    def formatted(self, ord_):
-        return self.char_data.raw_data(ord_)
+    def _format_data(self, ord_, data):
+        return data

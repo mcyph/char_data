@@ -46,7 +46,7 @@ class CEDictVariants:
 
         return L or None
 
-    def formatted(self, ord_):
+    def _format_data(self, ord_, data):
         c = unichr(ord_)
         L = self.raw_data(ord_)
         if not L:

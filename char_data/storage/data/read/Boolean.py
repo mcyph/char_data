@@ -15,7 +15,7 @@ DBool = {
 class Boolean(RangeClass):
     writer = staticmethod(write_boolean)
     
-    def __init__(self, key, f, DJSON):
+    def _load_data(self, key, f, DJSON):
         self.DJSON = DJSON
         self.key = key
         

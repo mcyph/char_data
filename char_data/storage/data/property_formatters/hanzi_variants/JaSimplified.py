@@ -22,7 +22,7 @@ class JaSimplified:
 
         return L or None
 
-    def formatted(self, ord_):
+    def _format_data(self, ord_, data):
         from char_data import char_data
         L = []
 

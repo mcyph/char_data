@@ -19,9 +19,7 @@ DRevEnum = get_D_rev_enum()
 
 
 class Enum:
-    def formatted(self, ord_):
-        data = self.raw_data(ord_)
-        
+    def _format_data(self, ord_, data):
         if self.key in DEnum:
             return DEnum[self.key][unicode(data)]
         else: 
@@ -29,20 +27,16 @@ class Enum:
 
 
 class StringEnum(StringData, Enum):
-    def __init__(self, key, f, DJSON):
-        """
-        Provides expansion of strings to provide more meaning, 
-        e.g. a "General Category" of "Lm" might be converted to 
-        "Letter, Modifier"
-        """
-        StringData.__init__(self, key, f, DJSON)
+    """
+    Provides expansion of strings to provide more meaning,
+    e.g. a "General Category" of "Lm" might be converted to
+    "Letter, Modifier"
+    """
 
 
 class BooleanEnum(Boolean, Enum):
-    def __init__(self, key, f, DJSON):
-        """
-        Same as StringEnum, except only `True`/`False` allowed,
-        used for e.g. IICore to indicate whether a character is
-        common in East Asia or not
-        """
-        Boolean.__init__(self, key, f, DJSON)
+    """
+    Same as StringEnum, except only `True`/`False` allowed,
+    used for e.g. IICore to indicate whether a character is
+    common in East Asia or not
+    """

@@ -16,10 +16,8 @@ class Normalization():
             return unicodedata.normalize(self.typ, char)
         except: 
             return None
-    
-    def formatted(self, ord_):
-        data = self.raw_data(ord_)
-        
+
+    def _format_data(self, ord_, data):
         if len(data) > 1:
             i_ord = ' '.join([get_uni_point(w_ord(i)) for i in data])
             return '%s (%s)' % (data, i_ord)

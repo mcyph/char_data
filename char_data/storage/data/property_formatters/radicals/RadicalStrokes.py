@@ -6,9 +6,6 @@ from char_data.importers.radicals.radical_processing import DRadTypes
 
 
 class RadicalStrokes(StringData):
-    def __init__(self, key, f, DJSON):
-        StringData.__init__(self, key, f, DJSON)
-    
     def get_L_keys(self):
         # radical types
         LRadInfo = DRadTypes[self.key]
@@ -17,15 +14,13 @@ class RadicalStrokes(StringData):
         rad_column = None # MultiRadSel HACK!
         LRtn = [list_type, rad_column, traditional]
         return LRtn
-    
-    def formatted(self, ord_):
-        # TODO: Split into (radical, Additional Strokes) and display as 
+
+    def _format_data(self, ord_, data):
+        # TODO: Split into (radical, Additional Strokes) and display as
         # the actual radical using radical.py:
         # %(radical)s (%(Additional Strokes)s Additional Strokes)
         # TODO: Should there be an Adobe/CheungBauer parser?
-        data = self.char_data.raw_data(ord_)
-        
-        if not data: 
+        if not data:
             return None
         
         L = []

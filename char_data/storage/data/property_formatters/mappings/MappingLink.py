@@ -14,18 +14,16 @@ def write(f, key, DOrds):
 class MappingLink(StringData):
     writer = staticmethod(write)
     
-    def __init__(self, key, f, DJSON):
-        """
-        Intended to provide for 'block see also', 'see also':
-        (codepoint, name)
-         
-        'decomposed form', 'compatibility mapping'
-        (mapping, mapping type, name) 
-        
-        and pretty-print the above data
-        """
-        StringData.__init__(self, key, f, DJSON)
+    """
+    Intended to provide for 'block see also', 'see also':
+    (codepoint, name)
+     
+    'decomposed form', 'compatibility mapping'
+    (mapping, mapping type, name) 
     
-    def formatted(self, ord_):
+    and pretty-print the above data
+    """
+
+    def _format_data(self, ord_, data):
         # TODO: Provide a pretty link etc!
-        return self.raw_data(ord_)
+        return data

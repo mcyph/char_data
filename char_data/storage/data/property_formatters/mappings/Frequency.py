@@ -14,11 +14,7 @@ class Frequency(IntegerList):
         10: 'Character for use in names (10)'
     }
 
-    def __init__(self, key, f, DJSON):
-        IntegerList.__init__(self, key, f, DJSON)
-    
-    def formatted(self, ord_):
-        data = self.raw_data(ord_)
+    def _format_data(self, ord_, data):
         key = self.key
         
         if not data: 
