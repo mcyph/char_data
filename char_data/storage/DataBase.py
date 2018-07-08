@@ -50,7 +50,7 @@ class DataBase:
                 'ccdict',
                 'kanjidic',
                 'others',
-                'hanzi variants'
+                'hanzi_variants'
             ):
                 key = s
                 if data_source in self.D and key in self.D[data_source]:

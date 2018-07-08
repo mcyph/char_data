@@ -13,41 +13,6 @@ class DataReader:
         ('kanjidic', 'kanjidic'),
         ('nameslist', 'nameslist')
     ]
-    
-    #================================================================#
-    #                         Read Indexes                           #
-    #================================================================#
-
-    def get_D_indexes(self):
-        """
-        Load the indexes for reverse searching
-        """
-        D = {}
-        for key, path in self.LData:
-            D[key.lower()] = self.open_index('%s/output/%s' % (path, path))
-        return D
-
-    def open_index(self, path):
-        DRtn = {}
-        
-        DKeys = load(data_path('chardata', path+'-idx.json'))
-        DINI = read_D_pyini(data_path('chardata', path.replace('/output/', '/')+'.pyini'))
-        #print DINI
-        
-        with open(data_path('chardata', path+'-idx.bin'), 'r+b') as f:
-            for key, DJSON in DKeys.items():
-                i_DINI = DINI[key]
-                if not 'index' in i_DINI or i_DINI['index'] in (None, 'FIXME'): # HACK!
-                    continue
-                elif DJSON is None:
-                    continue # ???
-                
-                cls = DIndexReaders[i_DINI['index']]
-                assert not key.lower() in DRtn
-                #print 'Getting key:', key, DJSON
-                DRtn[key.lower()] = cls(f, DJSON)
-        
-        return DRtn
 
     #================================================================#
     #                        Read Basic Data                         #
@@ -81,15 +46,16 @@ class DataReader:
         with open('%s.bin' % path, 'r+b') as f:
             for key, DJSON in DKeys.items():
                 i_DINI = DINI[key]
+
                 cls = getattr(property_formatters, i_DINI['formatter'])
-                
-                assert not key.lower() in DRtn
-                DRtn[key.lower()] = cls(key, f, DJSON)
+                set_key_to = key.lower().replace(' ', '_')
+                assert not set_key_to in DRtn
+                DRtn[set_key_to] = cls(key, f, DJSON)
         
         return DRtn
 
     def create_hanzi_variants_insts(self):
-        D = self.D['hanzi variants'] = {}
+        D = self.D['hanzi_variants'] = {}
 
         D['japanesesimplified'] = (
             property_formatters.JaSimplified('japanesesimplified')
@@ -99,10 +65,46 @@ class DataReader:
         )
 
         for key in property_formatters.LHanziVariantKeys:
-            D[key.lower()] = property_formatters.CEDictVariants(key)
+            D[key.lower().replace(' ', '_')] = property_formatters.CEDictVariants(key)
+
+        #================================================================#
+        #                         Read Indexes                           #
+        #================================================================#
+
+        def get_D_indexes(self):
+            """
+            Load the indexes for reverse searching
+            """
+            D = {}
+            for key, path in self.LData:
+                D[key.lower()] = self.open_index('%s/output/%s' % (path, path))
+            return D
+
+        def open_index(self, path):
+            DRtn = {}
+
+            DKeys = load(data_path('chardata', path + '-idx.json'))
+            DINI = read_D_pyini(data_path('chardata', path.replace('/output/', '/') + '.pyini'))
+            # print DINI
+
+            with open(data_path('chardata', path + '-idx.bin'), 'r+b') as f:
+                for key, DJSON in DKeys.items():
+                    i_DINI = DINI[key]
+                    if not 'index' in i_DINI or i_DINI['index'] in (None, 'FIXME'):  # HACK!
+                        continue
+                    elif DJSON is None:
+                        continue  # ???
+
+                    cls = DIndexReaders[i_DINI['index']]
+                    set_key_to = key.lower().replace(' ', '_')
+                    assert not set_key_to in DRtn
+                    # print 'Getting key:', key, DJSON
+                    DRtn[set_key_to] = cls(f, DJSON)
+
+            return DRtn
 
     #================================================================#
-    #                   Create Dynamic Instances                     #
+    #                 Create Dynamic Data Instances                  #
     #================================================================#
 
     def create_combine_insts(self):
