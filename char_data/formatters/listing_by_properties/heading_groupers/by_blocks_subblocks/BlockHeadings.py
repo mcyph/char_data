@@ -67,7 +67,7 @@ class BlockHeadings:
 
         elif from_equals_to and not from_is_None:
             # block changed, change and iter sub_block without changing block
-            LRtn.append(('block', from_block))
+            self.append_block(LRtn, from_block, from_)
             DState['last_block'] = from_block
 
             self.iter_sub_range(LRtn, ord_, DState, NO_BLOCK_CHANGE)
@@ -100,17 +100,32 @@ class BlockHeadings:
 
         # Update block name/block subnames if they've changed
         if block != DState['last_block']:
-            LRtn.append(('block', block))
+            self.append_block(LRtn, block, ord_)
             DState['last_block'] = block
 
         if sub_block and sub_block != DState['last_sub_block']:
-            LRtn.append(('sub_block', sub_block))
+            self.append_sub_block(LRtn, sub_block, ord_)
             DState['last_sub_block'] = sub_block
 
         # Append to the last "chars" entry to save space if possible
         if LRtn[-1][0] != 'chars':
             LRtn.append(('chars', []))
         LRtn[-1][1].append(ord_)
+
+    def append_block(self, LRtn, block, ord_):
+        """
+        Append a block, including block description if it exists
+        """
+        desc = char_data.formatted('block description', ord_)
+
+        if desc:
+            LRtn.append(
+                ('block', block, '. '.join(i.strip('.') for i in desc))
+            )
+        else:
+            LRtn.append(
+                ('block', block)
+            )
 
     #=============================================================================#
     #                         Iterate Through Sub-Ranges                          #
@@ -134,7 +149,7 @@ class BlockHeadings:
 
         elif from_equals_to and not from_none:
             # Subblock changed, change and iter sub_block without changing block
-            LRtn.append(('sub_block', from_sub_block))
+            self.append_sub_block(LRtn, from_sub_block, from_)
             DState['last_sub_block'] = from_sub_block
 
             if LRtn[-1][0] != 'chars':
@@ -163,7 +178,7 @@ class BlockHeadings:
                 sub_block = char_data.formatted('subblock heading', ord_)
 
                 if sub_block != DState['last_sub_block']:
-                    LRtn.append(('sub_block', sub_block))
+                    self.append_sub_block(LRtn, sub_block, ord_)
                     DState['last_sub_block'] = sub_block
 
                 if LRtn[-1][0] != 'chars':
@@ -171,6 +186,42 @@ class BlockHeadings:
 
                 # TODO: Add range support!
                 LRtn[-1][1].append(ord_)
+
+    def append_sub_block(self, LRtn, sub_block, ord_):
+        """
+        Append, including:
+        * subblock technical notice
+        * subblock see also
+        if that information is available, along with the subblock
+        """
+        tech_notice = char_data.formatted('subblock technical notice', ord_)
+        see_also = char_data.raw_data('subblock see also', ord_)
+
+        if tech_notice:
+            tech_notice = '. '.join(i.strip('.') for i in tech_notice)
+
+        if see_also:
+            # [[734, "modifier letter rhotic hook"], ...]
+            see_also = 'See also %s' % see_also # FIXME: WHY IS THIS A UNICODE TYPE???? ===========================================================
+            #print see_also, see_also[0], type(see_also)
+            #see_also = 'See also %s' % (
+            #    '; '.join(
+            #        '%s %s' % (i_ord, desc) for i_ord, desc in see_also
+            #    )
+            #)
+
+        comment = ''
+        if tech_notice and see_also:
+            comment = '%s. %s' % (tech_notice, see_also)
+        elif tech_notice:
+            comment = tech_notice
+        elif see_also:
+            comment = see_also
+
+        if comment:
+            LRtn.append(
+                ('sub_block', '. '.join(sub_block), comment)
+            )
 
 
 block_headings = BlockHeadings()

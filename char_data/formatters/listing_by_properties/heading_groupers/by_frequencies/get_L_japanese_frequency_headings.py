@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from char_data import char_data
 
 
@@ -10,7 +11,7 @@ def get_L_japanese_frequency_headings(LRanges):
     # Group by frequency/grade etc under subheadings
     DRanges = {}
     for ord_ in LRanges:
-        frequency = raw_data('kanjidic.frequency', ord_)
+        frequency = char_data.raw_data('kanjidic.freq', ord_)
         
         if frequency is None:
             if False: 
@@ -20,6 +21,7 @@ def get_L_japanese_frequency_headings(LRanges):
             else: 
                 key = 'very uncommon'
         else:
+            frequency = frequency[0]
             key = frequency // JFREQ_AMOUNT
         
         if not key in DRanges: 
@@ -43,3 +45,10 @@ def get_L_japanese_frequency_headings(LRanges):
         LRtn.append(('sub_block', sub_block))
         LRtn.append(['chars', [i[1] for i in DRanges[key]]])
     return LRtn
+
+
+if __name__ == '__main__':
+    # TODO: Add a test here!!!!!! =========================================================================
+    print get_L_japanese_frequency_headings(
+        [ord(u'感'), ord(u'心')]
+    )

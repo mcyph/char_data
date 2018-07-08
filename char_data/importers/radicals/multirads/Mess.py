@@ -259,7 +259,7 @@ def get_by_multi_rads(LRads, Trad):
     # NOT RECOMMENDED as 變 is shown under 亠
     if False:
         for Char in tuple(DPossible.keys()):
-            LZVariant = raw_data('unihan.zvariant', Char)
+            LZVariant = char_data.raw_data('unihan.zvariant', Char)
             if LZVariant:
                 for Variant in LZVariant:
                     DPossible[Variant] = None

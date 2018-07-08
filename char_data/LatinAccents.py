@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from char_data import char_data, char_index
+from char_data import char_data, char_indexes
 from toolkit.encodings.surrogates import w_unichr
 from get_smallest_name import get_smallest_name
 
@@ -29,7 +29,7 @@ class _LatinAccents:
                 char = w_unichr(ord_)
 
                 # Find the relevant key
-                name = [_.lower() for _ in raw_data('name', ord_)]
+                name = [_.lower() for _ in char_data.raw_data('name', ord_)]
                 letters = get_smallest_name(name)
                 #print 'SMALLEST NAME:', name, letters, unichr(ord_)
 
@@ -116,7 +116,7 @@ class _LatinAccents:
                 LRange = (LRange, LRange+1)
 
             for ord_ in xrange(*LRange):
-                name = raw_data('name', ord_)
+                name = char_data.raw_data('name', ord_)
                 key = get_smallest_name(name).lower()
                 #print key, unichr(ord_).encode('utf-8'), name
 

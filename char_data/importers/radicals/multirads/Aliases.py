@@ -1,7 +1,9 @@
-'''
+# -*- coding: utf-8 -*-
+
+"""
 DStrokeCounts gives the number of strokes for Katakana 
 etc which don't have a unihan.TotalStrokes entry
-'''
+"""
 DStrokeCounts = {
     u'ノ': 1,
     u'ハ': 2,
@@ -19,11 +21,11 @@ DRadAliases =   {
     u'｜': u'丨丨'
 }
 
-'''
+"""
 This provides a "break-down" of more complicated radicals 
 into simpler ones so that beginners can find characters 
 more easily, even if sometimes this isn't technically correct
-'''
+"""
 DAlternate =    {
     u'化': u'亻',
     u'刈': u'刂',
@@ -45,7 +47,7 @@ DAlternate =    {
     u'忙': u'忄'
 }
 
-'''
+"""
 Sometimes big multirads can be divided themselves into 
 smaller 'parts' to make things easier to find
 e.g. 里 has "Paddy" and "Earth
@@ -56,7 +58,7 @@ A LOT of these are strictly speaking incorrect, but as
 e.g. "土" looks like "士" in a small font, I'd argue they won't 
 find the result, so it's better to show them as aliases, 
 even though they have very different different meanings
-'''
+"""
 
 DRadAppend = {
     u'里': u'土田',

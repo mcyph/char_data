@@ -18,7 +18,7 @@ def get_simp_chars(Char, DTradChars=None):
         ]
         
         for Variant in LVariants:
-            V = raw_data(Variant, w_ord(Char))
+            V = char_data.raw_data(Variant, w_ord(Char))
             if V:
                 LSubChars += [
                     w_unichr(i) for i in V

@@ -3,8 +3,8 @@ from char_data import char_data
 
 
 DGrades = {
-    'Hong Kong Grade': 'Hong Kong Grade',
-    'Japanese Grade': 'Japanese'
+    'unihan.grade': 'Hong Kong Grade',
+    'kanjidic.grade': 'Japanese Grade'
 }
 
 
@@ -15,7 +15,7 @@ def get_L_chinese_frequency_headings(LRanges, LSortBy):
     DRanges = {}
     for ord_ in LRanges:
         freq = char_data.formatted(LSortBy[0], ord_)
-        
+
         if freq is None:
             if False: 
                 continue
@@ -76,6 +76,7 @@ def get_L_chinese_frequency_headings(LRanges, LSortBy):
 
 if __name__ == '__main__':
     # TODO: Add a test here!!!!!! =========================================================================
-    get_L_chinese_frequency_headings(
-        [ord(u'感')], ['Chinese Frequency']
+    from char_data.importers.radicals.radical_processing import DRadTypes
+    print get_L_chinese_frequency_headings(
+        [ord(u'感'), ord(u'心')], DRadTypes['Chinese Unified Radicals'][2]
     )

@@ -1,5 +1,7 @@
+from char_data import char_data
+from char_data.misc.get_font_script import get_font_script
+
 from get_smallest_name import get_smallest_name
-from get_font_script import get_font_script
 
 
 def get_L_unicode_name_headings(LRanges, name):
@@ -20,7 +22,8 @@ def get_L_unicode_name_headings(LRanges, name):
             
             for i_code in xrange(from_, to+1):
                 append = get_smallest_name(
-                    CharData.get_L_names(i_code, types=('general',))[0]
+                    char_data.formatted('unicodedata.name', i_code)
+                    #CharData.get_L_names(i_code, types=('general',))[0]
                 )
                 
                 if name=='Cyrillic' and append[0]=='e' and len(append)>1:
@@ -36,7 +39,8 @@ def get_L_unicode_name_headings(LRanges, name):
                 #font_script = get_fallback(ord_)
             
             append = get_smallest_name(
-                CharData.get_L_names(ord_, Types=('general',))[0]
+                char_data.formatted('unicodedata.name', ord_)
+                #CharData.get_L_names(ord_, Types=('general',))[0]
             )
             
             if name=='Cyrillic' and append[0]=='e' and len(append)>1:
@@ -77,3 +81,8 @@ def get_L_unicode_name_headings(LRanges, name):
     
     #LRtn = [['chars', [i[1] for i in LRtn]]]
     return font_script, n_LRtn
+
+
+if __name__ == '__main__':
+    print get_L_unicode_name_headings([ord('e'), ord('c')], 'Latin')
+
