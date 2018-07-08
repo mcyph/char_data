@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 from char_data import char_data, char_indexes
 from toolkit.encodings.surrogates import w_unichr
-from get_smallest_name import get_smallest_name
+
+from char_data.misc import get_smallest_name
 
 
 class _LatinAccents:

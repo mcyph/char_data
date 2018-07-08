@@ -12,7 +12,7 @@ class JaSimplified:
         from char_data import char_data
         L = []
 
-        for i_ord, _ in ((ord_, 0),)+(raw_data('traditionalvariant', ord_) or ()):
+        for i_ord, _ in ((ord_, 0),)+(char_data.raw_data('traditionalvariant', ord_) or ()):
             i_c = unichr(i_ord)
 
             if i_c in self.D:
@@ -26,7 +26,7 @@ class JaSimplified:
         from char_data import char_data
         L = []
 
-        for i_ord, _ in ((ord_, 0),)+(raw_data('traditionalvariant', ord_) or ()):
+        for i_ord, _ in ((ord_, 0),)+(char_data.raw_data('traditionalvariant', ord_) or ()):
             i_c = unichr(i_ord)
 
             if i_c in self.D:

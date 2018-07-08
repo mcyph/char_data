@@ -1,0 +1,11 @@
+def filter_to_encoding(Encoding, LChars):
+    #print LChars
+    LRtn = []
+    for i in LChars:
+        try:
+            if ord(unichr(i).encode(Encoding, 'ignore').decode(Encoding, 'ignore')) == i:
+                LRtn.append(i)
+        except:
+            pass
+            #print 'filterToEnc ERROR:', i
+    return LRtn

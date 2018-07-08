@@ -1,10 +1,17 @@
 from char_data import char_data
-from char_data.misc.get_font_script import get_font_script
-
-from get_smallest_name import get_smallest_name
+from char_data.misc import get_font_script, get_smallest_name
 
 
-def get_L_unicode_name_headings(LRanges, name):
+def get_L_unicode_name_headings(LRanges, name=None):
+    if name is None:
+        first_ord = LRanges[0]
+        if type(first_ord) == tuple:
+            first_ord = first_ord[0]
+
+        script = char_data.raw_data('unicodedata.script', first_ord)
+        name = script if script else None
+        #print '**NAME:', name
+
     LRtn = []
     font_script = None
     
@@ -84,5 +91,5 @@ def get_L_unicode_name_headings(LRanges, name):
 
 
 if __name__ == '__main__':
-    print get_L_unicode_name_headings([ord('e'), ord('c')], 'Latin')
+    print get_L_unicode_name_headings([ord('e'), ord('c')])
 
