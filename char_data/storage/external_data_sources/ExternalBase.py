@@ -1,0 +1,3 @@
+
+class ExternalBase:
+    pass

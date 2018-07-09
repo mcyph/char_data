@@ -9,10 +9,13 @@ from char_data.storage.consts import (
     HEADER_TOTAL_STROKES, HEADER_RADICAL_STROKES, HEADER_INPUT,
     HEADER_ENCODING, HEADER_INDICES
 )
+from InternalBase import InternalBase
 
 
-class Kanjidic:
+class Kanjidic(InternalBase):
     def __init__(self, load_db=True):
+        InternalBase.__init__(self, 'kanjidic')
+
         #====================================================================#
         #                            Definitions                             #
         #====================================================================#

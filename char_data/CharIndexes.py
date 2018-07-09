@@ -1,4 +1,8 @@
-from char_data.storage.DataReader import DIndexes
+from char_data.storage.DataReader import data_reader
+
+from char_data.storage.data.read.BaseClass import BaseClass
+from char_data.storage.external_data_sources.ExternalBase import ExternalBase
+from char_data.storage.internal_data_sources.InternalBase import InternalBase
 
 from DataBase import DataBase
 
@@ -10,7 +14,7 @@ from DataBase import DataBase
 
 class CharIndexes(DataBase):
     def __init__(self):
-        DataBase.__init__(self, DIndexes)
+        DataBase.__init__(self, data_reader)
 
     def search(self, key, value, *args, **kw):
         """
@@ -26,9 +30,21 @@ class CharIndexes(DataBase):
         Get the index keys, e.g. "Arabic Shaping Group"
         """
         LRtn = []
-        for key, DKeys in DIndexes.items():
-            for i in DKeys:
-                LRtn.append((key, i, DKeys[i].typ))
+
+        for key, _ in data_reader.LData:
+            o = getattr(data_reader, key)
+            if not isinstance(o, (InternalBase, ExternalBase)):
+                continue
+
+            for property in dir(o):
+                i_o = getattr(o, property)
+                if not isinstance(property, BaseClass):  # TODO: SUPPORT EXTERNAL BASES HERE!!! =====================
+                    continue
+                elif not i_o.index:
+                    continue
+
+                LRtn.append((key, i_o.key, i_o.index.typ))
+
         return sorted(LRtn)
 
     def values(self, key):

@@ -9,10 +9,13 @@ from char_data.storage.consts import (
     HEADER_ENCODING, HEADER_INDICES, HEADER_PHONETIC_INDICES,
     HEADER_ADOBE
 )
+from InternalBase import InternalBase
 
 
-class Unihan:
-    def __init__(self, load_db=True):
+class Unihan(InternalBase):
+    def __init__(self):
+        InternalBase.__init__(self, 'unihan')
+
         #====================================================================#
         #                            Definitions                             #
         #====================================================================#

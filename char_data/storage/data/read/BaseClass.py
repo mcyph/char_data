@@ -15,20 +15,23 @@ class BaseClass:
         self.short_desc = short_desc
         self.long_desc = long_desc
         self.LISOs = LISOs or []
+        self.index = index if index != 'FIXME' else None  # HACK HACK HACK!!!!!
 
-        if parent.load_db:
+        try:
             self._ensure_data_loaded()
+        except:
+            from traceback import print_exc
+            print_exc()
 
     def _ensure_data_loaded(self):
         # Load the base data
-
-        D = self.parent.DJSON[self.key]
-        self._load_data(self.key, self.parent.f, D)
+        D = self.parent.DBaseJSON[self.key]
+        self._load_data(self.key, self.parent.f_base_data, D)
 
         # Load the index data
-        D = self.parent.DFIXME[self.key]
+        D = self.parent.DIndexJSON[self.key]
         self.index = (
-            DIndexReaders[self.index](self.key, self.parent.f, D) if self.index
+            DIndexReaders[self.index](self.key, self.parent.f_index_data, D) if self.index
             else None
         )
 

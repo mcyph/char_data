@@ -4,6 +4,9 @@ from toolkit.py_ini import read_D_pyini
 from char_data.data_paths import data_path
 from char_data.storage.indexes import DIndexReaders
 
+from internal_data_sources import CCDict, Kanjidic, UnicodeData, Unihan
+from get_key_name import get_key_name
+
 
 class DataReader:
     LData = [
@@ -11,48 +14,29 @@ class DataReader:
         ('unihan', 'unihan'),
         ('ccdict', 'ccdict'),
         ('kanjidic', 'kanjidic'),
-        ('nameslist', 'nameslist')
+        #('nameslist', 'nameslist')
     ]
 
     #================================================================#
     #                        Read Basic Data                         #
     #================================================================#
 
-    def get_D_data(self):
+    def __init__(self):
         """
         Load the basic data instances
         """
-        D = self.D = {}
-        for key, path in self.LData:
-            D[key.lower()] = self.open_data(
-                data_path('chardata', '%s/output/%s' % (path, path))
-            )
-        
+        self.ccdict = CCDict()
+        self.kanjidic = Kanjidic()
+        self.unicodedata = UnicodeData()
+        self.unihan = Unihan()
+
+
         #self.create_combine_insts()
         #self.create_alphabet_insts()
         #self.create_multi_radicals_inst()
         #self.create_normalization_insts()
         #self.create_encoding_insts()
-        self.create_hanzi_variants_insts()
-        return D
-
-    def open_data(self, path):
-        DRtn = {}
-        
-        DKeys = load(path+'.json')
-        DINI = read_D_pyini(path.replace('/output/', '/')+'.pyini')
-        #print DINI
-        
-        with open('%s.bin' % path, 'r+b') as f:
-            for key, DJSON in DKeys.items():
-                i_DINI = DINI[key]
-
-                cls = getattr(property_formatters, i_DINI['formatter'])
-                set_key_to = key.lower().replace(' ', '_')
-                assert not set_key_to in DRtn
-                DRtn[set_key_to] = cls(key, f, DJSON)
-        
-        return DRtn
+        #self.create_hanzi_variants_insts()
 
     def create_hanzi_variants_insts(self):
         D = self.D['hanzi_variants'] = {}
@@ -66,42 +50,6 @@ class DataReader:
 
         for key in property_formatters.LHanziVariantKeys:
             D[key.lower().replace(' ', '_')] = property_formatters.CEDictVariants(key)
-
-        #================================================================#
-        #                         Read Indexes                           #
-        #================================================================#
-
-        def get_D_indexes(self):
-            """
-            Load the indexes for reverse searching
-            """
-            D = {}
-            for key, path in self.LData:
-                D[key.lower()] = self.open_index('%s/output/%s' % (path, path))
-            return D
-
-        def open_index(self, path):
-            DRtn = {}
-
-            DKeys = load(data_path('chardata', path + '-idx.json'))
-            DINI = read_D_pyini(data_path('chardata', path.replace('/output/', '/') + '.pyini'))
-            # print DINI
-
-            with open(data_path('chardata', path + '-idx.bin'), 'r+b') as f:
-                for key, DJSON in DKeys.items():
-                    i_DINI = DINI[key]
-                    if not 'index' in i_DINI or i_DINI['index'] in (None, 'FIXME'):  # HACK!
-                        continue
-                    elif DJSON is None:
-                        continue  # ???
-
-                    cls = DIndexReaders[i_DINI['index']]
-                    set_key_to = key.lower().replace(' ', '_')
-                    assert not set_key_to in DRtn
-                    # print 'Getting key:', key, DJSON
-                    DRtn[set_key_to] = cls(f, DJSON)
-
-            return DRtn
 
     #================================================================#
     #                 Create Dynamic Data Instances                  #
@@ -161,6 +109,3 @@ class DataReader:
 from char_data.formatters import property_formatters
 
 data_reader = DataReader()
-DData = data_reader.get_D_data()
-DIndexes = data_reader.get_D_indexes()
-#print DIndexes

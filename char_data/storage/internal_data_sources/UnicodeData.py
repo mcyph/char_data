@@ -7,12 +7,15 @@ from char_data.storage.consts import (
     HEADER_DEFINITION, HEADER_NUMERIC,
     HEADER_NAMED_ALIASES, HEADER_SCRIPTS_BLOCKS,
     HEADER_UNICODE_GENERAL, HEADER_CASING, HEADER_NORMALISATION,
-    HEADER_UNICODE_LAYOUT, HEADER_SUBBLOCK_INFO
+    HEADER_UNICODE_LAYOUT, HEADER_SUBBLOCK_INFO, HEADER_SEE_ALSO
 )
+from InternalBase import InternalBase
 
 
-class UnicodeData:
-    def __init__(self, load_db=True):
+class UnicodeData(InternalBase):
+    def __init__(self):
+        InternalBase.__init__(self, 'unicodedata')
+
         #====================================================================#
         #                            Definitions                             #
         #====================================================================#

@@ -1,7 +1,12 @@
 from toolkit.encodings.surrogates import w_ord
-from char_data.storage.DataReader import DData
+
+from char_data.storage.DataReader import data_reader
+from char_data.storage.data.read.BaseClass import BaseClass
+from char_data.storage.external_data_sources.ExternalBase import ExternalBase
+from char_data.storage.internal_data_sources.InternalBase import InternalBase
 
 from DataBase import DataBase
+
 
 #=========================================================#
 #                      Basic Data                         #
@@ -10,20 +15,26 @@ from DataBase import DataBase
 
 class CharData(DataBase):
     def __init__(self):
-        DataBase.__init__(self, DData)
+        DataBase.__init__(self, data_reader)
 
     def keys(self, data_source=None):
         """
         Get a list of the possible data source/key combinations
         """
-        LKeys = []
-        if data_source:
-            LKeys.extend((data_source, key) for key in DData[data_source])
-        else:
-            for i_data_source, D in DData.items():
-                LKeys.extend((i_data_source, key) for key in D.keys())
-        LKeys.sort()
-        return LKeys
+        LRtn = []
+
+        for key, _ in data_reader.LData:
+            o = getattr(data_reader, key)
+            if not isinstance(o, (InternalBase, ExternalBase)):
+                continue
+
+            for property in dir(o):
+                i_o = getattr(o, property)
+                if not isinstance(property, BaseClass):  # TODO: SUPPORT EXTERNAL BASES HERE!!! =====================
+                    continue
+                LRtn.append((key, i_o.key))
+
+        return sorted(LRtn)
 
     def raw_data(self, key, ord_):
         """

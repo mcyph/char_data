@@ -1,15 +1,18 @@
+from char_data.storage.data.read.BaseClass import BaseClass
+
 #=========================================================#
 #                 Get Class by Property                   #
 #=========================================================#
 
 
 class DataBase:
-    def __init__(self, D):
+    def __init__(self, o):
         """
         This is fed the data from get_D_indexes and get_D_data
         in DataReader, to allow finding properties of characters
         """
-        self.D = D
+        self.o = o
+        self.SPossible = set(i[0] for i in self.o.LData)
         self.DCache = {}
 
     def get_class_by_property(self, s):
@@ -41,7 +44,9 @@ class DataBase:
             # referenced as "unicodedata.unicode 1.0 name"
             
             data_source, _, key = s.partition('.')
-            return self.D[data_source][key]
+            assert data_source in self.SPossible
+            o = getattr(getattr(self.o, data_source), key)
+            assert isinstance(o, BaseClass)
         else:
             # e.g. 'Name' (try in all of the sources)
             for data_source in (
@@ -53,7 +58,9 @@ class DataBase:
                 'hanzi_variants'
             ):
                 key = s
-                if data_source in self.D and key in self.D[data_source]:
-                    return self.D[data_source][key]
+                if data_source in self.SPossible:
+                    o = getattr(self.o, data_source)
+                    if hasattr(o, key) and isinstance(getattr(o, key), BaseClass):
+                        return getattr(getattr(self.o, data_source), key)
         
         raise KeyError("invalid character property name: %s" % s)
