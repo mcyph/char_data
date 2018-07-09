@@ -1,6 +1,3 @@
-from char_data.storage.indexes import DIndexReaders
-from char_data.storage.get_key_name import get_key_name
-
 class NO_DATA: pass
 
 
@@ -12,6 +9,7 @@ class BaseClass:
         self.parent = parent
         self.header_const = header_const
         self.original_name = original_name
+        from char_data.data_sources.get_key_name import get_key_name
         self.key = get_key_name(original_name)
         self.short_desc = short_desc
         self.long_desc = long_desc
@@ -21,6 +19,8 @@ class BaseClass:
         self._ensure_data_loaded()
 
     def _ensure_data_loaded(self):
+        from char_data.storage.indexes import DIndexReaders
+
         try:
             # Load the base data
             D = self.parent.DBaseJSON[self.key]

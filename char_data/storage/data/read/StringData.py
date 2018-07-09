@@ -1,9 +1,10 @@
 from toolkit.arrays.ArrayUtils import read_array, read_json
-from char_data.storage.data.read import BaseClass
 
 from char_data.misc import get_adjusted_code_point
 from char_data.storage.data.write import write_string_data
 from char_data.storage.data.read.BaseClass import NO_DATA
+
+from BaseClass import BaseClass
 
 
 class StringData(BaseClass):

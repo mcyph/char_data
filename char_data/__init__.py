@@ -25,11 +25,10 @@ if False:
     import thread
     thread.start_new_thread(init_me, ())
 else:
-    from CharData import CharData
-    from CharIndexes import CharIndexes
+    from CharData import char_data
+    from CharIndexes import char_indexes
 
-    char_data = CharData()
-    char_indexes = CharIndexes()
+
 
 # Define various shortcuts
 #keys = char_data.keys

@@ -1,5 +1,5 @@
 from char_data.storage.data.read.BaseClass import BaseClass
-from char_data.storage.get_key_name import get_key_name
+from char_data.data_sources.get_key_name import get_key_name
 
 #=========================================================#
 #                 Get Class by Property                   #

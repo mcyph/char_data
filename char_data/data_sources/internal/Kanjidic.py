@@ -3,7 +3,7 @@ from char_data.data_sources.internal.property_formatters import (
     NoFormatIntegers, Indices,
     StringEnum, Readings
 )
-from char_data.storage.consts import (
+from char_data.data_sources.consts import (
     HEADER_DEFINITION, HEADER_READINGS,
     HEADER_GRADES_FREQUENCIES,
     HEADER_TOTAL_STROKES, HEADER_RADICAL_STROKES, HEADER_INPUT,

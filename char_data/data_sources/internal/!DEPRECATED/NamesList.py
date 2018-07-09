@@ -1,7 +1,7 @@
 from char_data.data_sources.internal.property_formatters import (
     NoFormatStrings, MappingLink, StringEnum
 )
-from char_data.storage.consts import (
+from char_data.data_sources.consts import (
     HEADER_FIXME, HEADER_DEFINITION,
     HEADER_SEE_ALSO, HEADER_BLOCK_INFO, HEADER_SUBBLOCK_INFO
 )

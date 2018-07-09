@@ -1,9 +1,9 @@
 from toolkit.encodings.surrogates import w_ord
 
-from char_data.storage import data_reader
 from char_data.storage.data.read.BaseClass import BaseClass
 from char_data.data_sources.external.ExternalBase import ExternalBase
 from char_data.data_sources.internal.InternalBase import InternalBase
+from char_data.data_sources import DataReader
 
 from DataBase import DataBase
 
@@ -13,9 +13,14 @@ from DataBase import DataBase
 #=========================================================#
 
 
-class CharData(DataBase):
+class CharData(DataBase, DataReader):
     def __init__(self):
-        DataBase.__init__(self, data_reader)
+        DataReader.__init__(self)
+        DataBase.__init__(self, self)
+
+
+    def __getattr__(self, item):
+        return getattr(self.data_reader, item)
 
     def keys(self, data_source=None):
         """
@@ -23,8 +28,11 @@ class CharData(DataBase):
         """
         LRtn = []
 
-        for key, _ in data_reader.LData:
-            o = getattr(data_reader, key)
+        for key, _ in self.LData:
+            if data_source and data_source != key:
+                continue
+
+            o = getattr(self, key)
             if not isinstance(o, (InternalBase, ExternalBase)):
                 continue
 
@@ -57,3 +65,7 @@ class CharData(DataBase):
         
         inst = self.get_class_by_property(key)
         return inst.formatted(ord_)
+
+
+char_data = CharData()
+

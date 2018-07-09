@@ -1,7 +1,7 @@
 from char_data.data_sources.internal.property_formatters import (
     Definition, NoFormatStrings, Hex, RadicalStrokes
 )
-from char_data.storage.consts import (
+from char_data.data_sources.consts import (
     HEADER_FIXME, HEADER_DEFINITION, HEADER_READINGS,
     HEADER_TOTAL_STROKES, HEADER_RADICAL_STROKES, HEADER_INPUT
 )

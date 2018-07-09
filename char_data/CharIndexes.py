@@ -1,10 +1,9 @@
-from char_data.storage.DataReader import data_reader
-
 from char_data.storage.data.read.BaseClass import BaseClass
 from char_data.data_sources.external.ExternalBase import ExternalBase
 from char_data.data_sources.internal.InternalBase import InternalBase
 
 from DataBase import DataBase
+from CharData import char_data
 
 
 #=========================================================#
@@ -14,7 +13,7 @@ from DataBase import DataBase
 
 class CharIndexes(DataBase):
     def __init__(self):
-        DataBase.__init__(self, data_reader)
+        DataBase.__init__(self, char_data)
 
     def search(self, key, value, *args, **kw):
         """
@@ -31,8 +30,8 @@ class CharIndexes(DataBase):
         """
         LRtn = []
 
-        for key, _ in data_reader.LData:
-            o = getattr(data_reader, key)
+        for key, _ in char_data.LData:
+            o = getattr(char_data, key)
             if not isinstance(o, (InternalBase, ExternalBase)):
                 continue
 
@@ -55,6 +54,9 @@ class CharIndexes(DataBase):
         """
         inst = self.get_class_by_property(key)
         return inst.index.keys()
+
+
+char_indexes = CharIndexes()
 
 
 if __name__ == '__main__':

@@ -2,7 +2,7 @@ from char_data.data_sources.internal.property_formatters import (
     Definition, NoFormatStrings, IRG, UnicodeHex, Frequency,
     BooleanEnum, NoFormatIntegers, Hex, Indices, RadicalStrokes
 )
-from char_data.storage.consts import (
+from char_data.data_sources.consts import (
     HEADER_FIXME, HEADER_DEFINITION, HEADER_NUMERIC, HEADER_READINGS,
     HEADER_LANGUAGE_USAGE, HEADER_VARIANTS, HEADER_GRADES_FREQUENCIES,
     HEADER_TOTAL_STROKES, HEADER_RADICAL_STROKES, HEADER_INPUT,

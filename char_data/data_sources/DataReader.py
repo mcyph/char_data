@@ -100,4 +100,3 @@ class DataReader:
 
 from char_data.data_sources.internal import property_formatters
 
-data_reader = DataReader()

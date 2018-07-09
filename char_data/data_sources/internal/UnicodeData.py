@@ -3,7 +3,7 @@ from char_data.data_sources.internal.property_formatters import (
     BooleanEnum,
     MappingLink, StringEnum
 )
-from char_data.storage.consts import (
+from char_data.data_sources.consts import (
     HEADER_DEFINITION, HEADER_NUMERIC,
     HEADER_NAMED_ALIASES, HEADER_SCRIPTS_BLOCKS,
     HEADER_UNICODE_GENERAL, HEADER_CASING, HEADER_NORMALISATION,
