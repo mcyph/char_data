@@ -2,8 +2,8 @@ from toolkit.encodings.surrogates import w_ord
 
 from char_data.storage import data_reader
 from char_data.storage.data.read.BaseClass import BaseClass
-from char_data.storage.external_data_sources.ExternalBase import ExternalBase
-from char_data.storage.internal_data_sources.InternalBase import InternalBase
+from char_data.data_sources.external.ExternalBase import ExternalBase
+from char_data.data_sources.internal.InternalBase import InternalBase
 
 from DataBase import DataBase
 

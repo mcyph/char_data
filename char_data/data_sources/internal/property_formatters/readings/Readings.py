@@ -1,5 +1,5 @@
 from char_data.storage.data.read import SentenceData
-from char_data.storage.internal_data_sources.property_formatters.hex import conv_hex
+from char_data.data_sources.internal.property_formatters.hex import conv_hex
 
 SNums = set(str(i) for i in xrange(10))
 

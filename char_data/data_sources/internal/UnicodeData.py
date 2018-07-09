@@ -1,4 +1,4 @@
-from char_data.storage.internal_data_sources.property_formatters import (
+from char_data.data_sources.internal.property_formatters import (
     Definition, NoFormatStrings, UnicodeHex,
     BooleanEnum,
     MappingLink, StringEnum

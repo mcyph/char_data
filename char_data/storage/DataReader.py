@@ -1,11 +1,4 @@
-from toolkit.json_tools import load
-from toolkit.py_ini import read_D_pyini
-
-from char_data.data_paths import data_path
-from char_data.storage.indexes import DIndexReaders
-
-from internal_data_sources import CCDict, Kanjidic, UnicodeData, Unihan
-from get_key_name import get_key_name
+from char_data.data_sources.internal import CCDict, Kanjidic, UnicodeData, Unihan
 
 
 class DataReader:
@@ -29,7 +22,6 @@ class DataReader:
         self.kanjidic = Kanjidic()
         self.unicodedata = UnicodeData()
         self.unihan = Unihan()
-
 
         #self.create_combine_insts()
         #self.create_alphabet_insts()
@@ -106,6 +98,6 @@ class DataReader:
         DOther['nfkd normalization'] = property_formatters.Normalization('NFKD')
 
 
-from char_data.storage.internal_data_sources import property_formatters
+from char_data.data_sources.internal import property_formatters
 
 data_reader = DataReader()
