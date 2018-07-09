@@ -1,7 +1,7 @@
 from toolkit.encodings.surrogates import w_ord
-
 from char_data.storage.DataReader import DData
-from char_data.storage.DataBase import DataBase
+
+from DataBase import DataBase
 
 #=========================================================#
 #                      Basic Data                         #

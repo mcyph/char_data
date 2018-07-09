@@ -1,0 +1,3 @@
+class InternalBase:
+    pass
+

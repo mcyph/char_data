@@ -1,3 +1,6 @@
+from char_data.storage.indexes import DIndexReaders
+from char_data.storage.get_key_name import get_key_name
+
 class NO_DATA: pass
 
 
@@ -8,18 +11,26 @@ class BaseClass:
 
         self.parent = parent
         self.original_name = original_name
+        self.key = get_key_name(original_name)
         self.short_desc = short_desc
         self.long_desc = long_desc
         self.LISOs = LISOs or []
-        self.index = index  # a callable????
 
         if parent.load_db:
             self._ensure_data_loaded()
 
     def _ensure_data_loaded(self):
-        key = self.parent.get_data_key(self)  # FIXME!!! ==========================================================
-        DJSON = self.parent.DJSON[key]
-        self._load_data(key, self.parent.f, DJSON)
+        # Load the base data
+
+        D = self.parent.DJSON[self.key]
+        self._load_data(self.key, self.parent.f, D)
+
+        # Load the index data
+        D = self.parent.DFIXME[self.key]
+        self.index = (
+            DIndexReaders[self.index](self.key, self.parent.f, D) if self.index
+            else None
+        )
 
     def _load_data(self, key, f, DJSON):
         # Needs to be implemented in subclasses of this base class,

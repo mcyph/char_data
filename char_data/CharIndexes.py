@@ -1,5 +1,7 @@
 from char_data.storage.DataReader import DIndexes
-from char_data.storage.DataBase import DataBase
+
+from DataBase import DataBase
+
 
 #=========================================================#
 #                        Indexes                          #
