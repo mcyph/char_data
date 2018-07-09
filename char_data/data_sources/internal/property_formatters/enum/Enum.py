@@ -1,5 +1,6 @@
 from toolkit.py_ini import read_D_ini
 from char_data.data_paths import data_path
+from DEnum import DEnum
 
 
 def get_D_rev_enum():
@@ -11,7 +12,6 @@ def get_D_rev_enum():
     return DRevEnum
 
 
-DEnum = read_D_ini(data_path('chardata', 'EnumKeys.ini'))
 DRevEnum = get_D_rev_enum()
 
 
@@ -21,3 +21,11 @@ class Enum:
             return DEnum[self.key][unicode(data)]
         else: 
             return data # HACK!
+
+
+if __name__ == '__main__':
+    from json import dumps
+
+    print(dumps(DEnum, indent=4, ensure_ascii=False, sort_keys=True))
+
+
