@@ -1,6 +1,6 @@
 from toolkit.encodings.surrogates import w_ord
 
-from char_data.storage.DataReader import data_reader
+from char_data.storage import data_reader
 from char_data.storage.data.read.BaseClass import BaseClass
 from char_data.storage.external_data_sources.ExternalBase import ExternalBase
 from char_data.storage.internal_data_sources.InternalBase import InternalBase
@@ -30,7 +30,7 @@ class CharData(DataBase):
 
             for property in dir(o):
                 i_o = getattr(o, property)
-                if not isinstance(property, BaseClass):  # TODO: SUPPORT EXTERNAL BASES HERE!!! =====================
+                if not isinstance(i_o, BaseClass):  # TODO: SUPPORT EXTERNAL BASES HERE!!! =====================
                     continue
                 LRtn.append((key, i_o.key))
 

@@ -23,7 +23,7 @@ class CharIndexes(DataBase):
         Radical.AdditionalStrokes index etc
         """
         inst = self.get_class_by_property(key)
-        return inst.search(value, *args, **kw)
+        return inst.index.search(value, *args, **kw)
 
     def keys(self):
         """
@@ -38,7 +38,7 @@ class CharIndexes(DataBase):
 
             for property in dir(o):
                 i_o = getattr(o, property)
-                if not isinstance(property, BaseClass):  # TODO: SUPPORT EXTERNAL BASES HERE!!! =====================
+                if not isinstance(i_o, BaseClass):  # TODO: SUPPORT EXTERNAL BASES HERE!!! =====================
                     continue
                 elif not i_o.index:
                     continue
@@ -54,7 +54,7 @@ class CharIndexes(DataBase):
         key is the property name and key_type is e.g. "Fulltext" etc
         """
         inst = self.get_class_by_property(key)
-        return inst.keys()
+        return inst.index.keys()
 
 
 if __name__ == '__main__':

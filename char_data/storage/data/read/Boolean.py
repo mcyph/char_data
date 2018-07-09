@@ -1,5 +1,5 @@
 from toolkit.arrays.ArrayUtils import read_array, read_json
-from char_data.storage.data.read import RangeClass, NO_DATA
+from char_data.storage.data.read import BaseClass, NO_DATA
 
 from char_data.misc import get_adjusted_code_point
 from char_data.storage.data.write import write_boolean
@@ -12,7 +12,7 @@ DBool = {
 }
 
 
-class Boolean(RangeClass):
+class Boolean(BaseClass):
     writer = staticmethod(write_boolean)
     
     def _load_data(self, key, f, DJSON):

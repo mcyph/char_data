@@ -14,7 +14,7 @@ from InternalBase import InternalBase
 
 class UnicodeData(InternalBase):
     def __init__(self):
-        InternalBase.__init__(self, 'unicodedata')
+        InternalBase.__init__(self, 'unidata')
 
         #====================================================================#
         #                            Definitions                             #

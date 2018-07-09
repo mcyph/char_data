@@ -8,8 +8,12 @@ class InternalBase:
     def __init__(self, key):
         self.key = key
 
-        self.f_base_data, self.DBaseJSON = self.__get_file_and_D_config(key)
-        self.f_index_data, self.DIndexJSON = self.__get_file_and_D_config(key)
+        self.f_base_data, self.DBaseJSON = self.__get_file_and_D_config(
+            key, append_idx=False
+        )
+        self.f_index_data, self.DIndexJSON = self.__get_file_and_D_config(
+            key, append_idx=True
+        )
 
     def __get_file_and_D_config(self, key, append_idx=False):
         DRtn = {}

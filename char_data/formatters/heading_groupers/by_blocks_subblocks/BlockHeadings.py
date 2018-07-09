@@ -1,9 +1,10 @@
-from char_data.data_paths import data_path
 import sys
 print sys.modules.keys()
 
 from char_data import char_data
 from char_data.misc.get_font_script import get_font_script
+from char_data.data_paths import data_path
+
 
 
 BLOCK_CHANGE = 0

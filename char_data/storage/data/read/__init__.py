@@ -1,4 +1,4 @@
-from RangeClass import NO_DATA, RangeClass
+from BaseClass import NO_DATA, BaseClass
 
 from Boolean import Boolean
 from Encoding import Encoding

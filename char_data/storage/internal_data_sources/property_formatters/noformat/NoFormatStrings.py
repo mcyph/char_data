@@ -1,5 +1,5 @@
 from char_data.storage.data.read import StringData
-from char_data.importers.radicals.cangjie import DCangjie
+from char_data.storage.internal_data_sources.importers.radicals.cangjie import DCangjie
 
 
 class NoFormatStrings(StringData):  # WARNING! ============================================================

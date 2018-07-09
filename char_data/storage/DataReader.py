@@ -106,6 +106,6 @@ class DataReader:
         DOther['nfkd normalization'] = property_formatters.Normalization('NFKD')
 
 
-from char_data.formatters import property_formatters
+from char_data.storage.internal_data_sources import property_formatters
 
 data_reader = DataReader()

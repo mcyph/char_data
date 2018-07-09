@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from char_data.storage.data.read import StringData
-from char_data.importers.radicals.radical_processing import DRadTypes
+from char_data.storage.internal_data_sources.importers.radicals import DRadTypes
 
 #DRads = Radical.get_D_rads()
 

@@ -1,12 +1,12 @@
 from toolkit.arrays.ArrayUtils import read_array, read_json
-from char_data.storage.data.read import RangeClass
+from char_data.storage.data.read import BaseClass
 
 from char_data.misc import get_adjusted_code_point
 from char_data.storage.data.write import write_string_data
-from char_data.storage.data.read.RangeClass import NO_DATA
+from char_data.storage.data.read.BaseClass import NO_DATA
 
 
-class StringData(RangeClass):
+class StringData(BaseClass):
     writer = staticmethod(write_string_data)
     
     def _load_data(self, key, f, DJSON):

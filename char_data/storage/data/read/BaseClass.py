@@ -5,11 +5,12 @@ class NO_DATA: pass
 
 
 class BaseClass:
-    def __init__(self, parent, original_name, short_desc,
+    def __init__(self, parent, header_const, original_name, short_desc,
                  long_desc=None, LISOs=None, index=None):
         self.data_loaded = False
 
         self.parent = parent
+        self.header_const = header_const
         self.original_name = original_name
         self.key = get_key_name(original_name)
         self.short_desc = short_desc
@@ -29,11 +30,11 @@ class BaseClass:
         self._load_data(self.key, self.parent.f_base_data, D)
 
         # Load the index data
-        D = self.parent.DIndexJSON[self.key]
-        self.index = (
-            DIndexReaders[self.index](self.key, self.parent.f_index_data, D) if self.index
-            else None
-        )
+        if self.index:
+            D = self.parent.DIndexJSON[self.key]
+            self.index = (
+                DIndexReaders[self.index](self.parent.f_index_data, D)
+            )
 
     def _load_data(self, key, f, DJSON):
         # Needs to be implemented in subclasses of this base class,

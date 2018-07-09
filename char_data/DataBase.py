@@ -1,4 +1,5 @@
 from char_data.storage.data.read.BaseClass import BaseClass
+from char_data.storage.get_key_name import get_key_name
 
 #=========================================================#
 #                 Get Class by Property                   #
@@ -44,9 +45,11 @@ class DataBase:
             # referenced as "unicodedata.unicode 1.0 name"
             
             data_source, _, key = s.partition('.')
+            key = get_key_name(key)
             assert data_source in self.SPossible
             o = getattr(getattr(self.o, data_source), key)
             assert isinstance(o, BaseClass)
+            return o
         else:
             # e.g. 'Name' (try in all of the sources)
             for data_source in (
@@ -57,7 +60,7 @@ class DataBase:
                 'others',
                 'hanzi_variants'
             ):
-                key = s
+                key = get_key_name(s)
                 if data_source in self.SPossible:
                     o = getattr(self.o, data_source)
                     if hasattr(o, key) and isinstance(getattr(o, key), BaseClass):
