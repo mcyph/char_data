@@ -6,4 +6,4 @@ def get_key_name(s):
     """
     for c in '.,-/ ':
         s = s.replace(c, '_')
-    return s
+    return s.lower()

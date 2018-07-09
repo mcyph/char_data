@@ -18,23 +18,28 @@ class BaseClass:
         self.LISOs = LISOs or []
         self.index = index if index != 'FIXME' else None  # HACK HACK HACK!!!!!
 
+        self._ensure_data_loaded()
+
+    def _ensure_data_loaded(self):
         try:
-            self._ensure_data_loaded()
+            # Load the base data
+            D = self.parent.DBaseJSON[self.key]
+            self._load_data(self.key, self.parent.f_base_data, D)
         except:
             from traceback import print_exc
             print_exc()
 
-    def _ensure_data_loaded(self):
-        # Load the base data
-        D = self.parent.DBaseJSON[self.key]
-        self._load_data(self.key, self.parent.f_base_data, D)
-
         # Load the index data
         if self.index:
-            D = self.parent.DIndexJSON[self.key]
-            self.index = (
-                DIndexReaders[self.index](self.parent.f_index_data, D)
-            )
+            try:
+                D = self.parent.DIndexJSON[self.key]
+                self.index = (
+                    DIndexReaders[self.index](self.parent.f_index_data, D)
+                )
+            except:
+                from traceback import print_exc
+                print_exc()
+                self.index = None
 
     def _load_data(self, key, f, DJSON):
         # Needs to be implemented in subclasses of this base class,
