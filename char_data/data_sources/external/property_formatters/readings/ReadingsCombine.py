@@ -1,4 +1,7 @@
-class ReadingsCombine:
+from char_data.data_sources.external.property_formatters import ExternalBaseClass
+
+
+class ReadingsCombine(ExternalBaseClass):
     def __init__(self, LKeys):
         pass
     

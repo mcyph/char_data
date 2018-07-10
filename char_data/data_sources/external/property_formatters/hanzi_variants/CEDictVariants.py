@@ -7,6 +7,7 @@ from char_data.data_paths import data_path
 from char_data.data_sources.external.importers.hanzi_variants import (
     DLinkKeys, DReverseLinkKeys, NORMAL, REVERSE
 )
+from char_data.data_sources.external.property_formatters import ExternalBaseClass
 
 #from warnings import warn
 #warn("PLEASE FIX CEDictVariants to be not reliant on Flazzle dictionary modules!!!")
@@ -26,10 +27,15 @@ with open(
     DVariants = json.loads(f.read())
 
 
-class CEDictVariants:
-    def __init__(self, key):
+class CEDictVariants(ExternalBaseClass):
+    def __init__(self, key, parent):
         self.LKeys = DReverseLinkKeys[key]
         self.key = key
+
+        ExternalBaseClass.__init__(
+            self, parent, HEADER_FIXME, original_name=key,
+            short_desc=key, LISOs=FIXME
+        )
 
     def raw_data(self, ord_):
         c = unichr(ord_)

@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
 from sys import maxint
 
-from char_data.data_sources.external.property_formatters.ExternalBaseClass import ExternalBaseClass
+from char_data.data_sources.external.property_formatters import ExternalBaseClass
 from char_data.radicals.DataRadicals import DBothChars, DBothRads
 from toolkit.encodings.surrogates import w_unichr
 
 
 class SimilarHanzi(ExternalBaseClass):
-    def __init__(self, parent, key):
+    def __init__(self, parent):
         ExternalBaseClass.__init__(
-            self, parent, HEADER_FIXME,
-            'similar_hanzi', 'similar_hanzi',
-            LISOs=FIXME
+            self, parent, HEADER_FIXME, original_name='similar_hanzi',
+            short_desc='Similar Hanzi', LISOs=FIXME
         )
     
     def raw_data(self, ord_):

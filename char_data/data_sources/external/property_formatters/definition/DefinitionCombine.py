@@ -1,3 +1,6 @@
+from char_data.data_sources.external.property_formatters import ExternalBaseClass
+
+
 # TODO: REMOVE ME! ----------------------------------------------------------------------------------------
 DISO2LFullText = {
     'yue': [['Cantonese', 'Cantonese Readings'], ['Cantonese Definition']], # MULTIPLE?
@@ -34,7 +37,7 @@ DCombine = {
 }
 
 
-class DefinitionCombine:
+class DefinitionCombine(ExternalBaseClass):
     def __init__(self, LKeys):
         FIXME
     

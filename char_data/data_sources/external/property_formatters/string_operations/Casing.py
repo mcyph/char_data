@@ -1,7 +1,9 @@
 from toolkit.encodings.surrogates import w_unichr
 
+from char_data.data_sources.external.property_formatters import ExternalBaseClass
 
-class Casing:
+
+class Casing(ExternalBaseClass):
     def __init__(self, typ):
         """
         Provides basic lower/upper casing etc
