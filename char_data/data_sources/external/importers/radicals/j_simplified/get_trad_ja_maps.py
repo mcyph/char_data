@@ -4,6 +4,13 @@ from char_data.data_paths import data_path
 
 
 def get_trad_ja_maps():
+    """
+    Returns dicts which convert traditional chinese to Japanese
+    characters, and Japanese to traditional, respectively
+
+    Has keys of single Hanzi/Kanji, and values as multi-character
+    Unicode strings
+    """
     DTradToJa = defaultdict(unicode)
     DJaToTrad = defaultdict(unicode)
 

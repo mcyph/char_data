@@ -1,6 +1,7 @@
 from toolkit.encodings.surrogates import w_ord
 from char_data.importer.Write import WriteBase, add
-from char_data.importer.parsers.multirads.RadKFile import get_D_rads, get_D_kanji, combine_radkfile_2
+from RadKFile import rad_k_file
+
 
 class MultiRads(WriteBase):
     def __init__(self):
@@ -9,15 +10,16 @@ class MultiRads(WriteBase):
         
     @add
     def open_radkfile(self):
-        DRads = combine_radkfile_2(get_D_rads('Chars/Data/MultiRads/radkfile'),
-                                   get_D_rads('Chars/Data/MultiRads/radkfile2'))
-        DKanji = get_D_kanji(DRads)
+        DRads = rad_k_file.DRads  # ???? What about indexing????
+        DKanji = rad_k_file.DKanji
         
         for kanji, LRads in DKanji.items():
-            yield 'Multi Radicals', w_ord(kanji), [w_ord(i) for i in LRads]
+            yield 'multi_radicals', w_ord(kanji), [w_ord(i) for i in LRads]
+
 
 def run():
     MultiRads().write('Chars/Data/MultiRads/MultiRads')
+
 
 if __name__ == '__main__':
     run()

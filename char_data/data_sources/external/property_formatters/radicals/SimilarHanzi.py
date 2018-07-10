@@ -1,14 +1,18 @@
 # -*- coding: utf-8 -*-
 from sys import maxint
 
-#from char_data.radicals.DataRadicals import DBothChars, DBothRads
+from char_data.data_sources.external.property_formatters.ExternalBaseClass import ExternalBaseClass
+from char_data.radicals.DataRadicals import DBothChars, DBothRads
 from toolkit.encodings.surrogates import w_unichr
 
 
-class SimilarHanzi:
-    def __init__(self, iso, script):
-        self.iso = iso
-        self.script = script
+class SimilarHanzi(ExternalBaseClass):
+    def __init__(self, parent, key):
+        ExternalBaseClass.__init__(
+            self, parent, HEADER_FIXME,
+            'similar_hanzi', 'similar_hanzi',
+            LISOs=FIXME
+        )
     
     def raw_data(self, ord_):
         """
@@ -54,6 +58,7 @@ class SimilarHanzi:
         stroke_diff = maxint
         
         #print unichr(ord_), char_data.raw_data('unihan.totalstrokes', ord_)
+        from char_data import char_data
         for num_strokes in char_data.raw_data('unihan.totalstrokes', ord_) or []:
             for i_num_strokes in LNumStrokes:
                 x = abs(i_num_strokes-num_strokes)

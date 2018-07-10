@@ -1,11 +1,11 @@
 from char_data.storage.data.read import StringData
-from char_data.data_sources.internal.importers.radicals.cangjie import DCangjie
+from DCangjie import DCangjie
 
 
 class NoFormatStrings(StringData):  # WARNING! ============================================================
     def _format_data(self, ord_, data):
         # As the name suggests, don't do any processing, just return
-        if self.key == 'Cangjie Input Code' and data:
+        if self.key == 'cangjie' and data:
             # CANGJIE HACK!
             # TODO: Move to a separate type :-P
             LRtn = []

@@ -1,4 +1,4 @@
-from char_data.importers.radicals.j_simplified import get_trad_ja_maps
+from char_data.data_sources.external.importers.radicals.j_simplified import get_trad_ja_maps
 
 DTradToJa, DJaToTrad = get_trad_ja_maps()
 

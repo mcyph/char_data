@@ -89,7 +89,8 @@ class StandardEncodings(ExternalBase):
         # Windows-1252 are identical.
 
         self.cp1250 = Encoding(
-            'cp1250', 'Central and Eastern Europe', ['pl', 'cz', 'sl', 'hu', '??', 'bs', 'cr', FIXME]
+            'cp1250', 'Central and Eastern Europe',
+            ['pl', 'cz', 'sl', 'hu', '??', 'bs', 'cr', FIXME]
         )
         self.cp852 = Encoding(
             'cp852', 'Central and Eastern Europe'

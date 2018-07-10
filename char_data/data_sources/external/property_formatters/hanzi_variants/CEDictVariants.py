@@ -4,7 +4,7 @@ from char_data.data_paths import data_path
 
 
 # HACK!
-from char_data.importers.hanzi_variants import (
+from char_data.data_sources.external.importers.hanzi_variants import (
     DLinkKeys, DReverseLinkKeys, NORMAL, REVERSE
 )
 
@@ -17,7 +17,6 @@ from char_data.importers.hanzi_variants import (
 
 LLinkKeys = list(DReverseLinkKeys.keys())
 #LLinkKeys = ['other variant', 'less common variant', 'popular variant', 'Erhua variant', 'abbreviated form', 'correct form', 'unabbreviated form', 'PRC variant', 'Chinese classifier', 'words which can use classifier', 'non-PRC Variant', 'archaic variant', 'non-Erhua variant', 'see also', 'non-Japanese variant', 'same as', 'obscure variant', 'more common variant', 'modern form', 'archaic form', 'antonym', 'variant of', 'erroneous form', 'Japanese variant', 'modern variant']
-
 
 
 with open(
@@ -72,8 +71,8 @@ class CEDictVariants:
 
 
 if __name__ == '__main__':
-    from char_data.data_sources.external import property_formatters
+    from char_data.data_sources.external.property_formatters import hanzi_variants
 
-    for key in property_formatters.LHanziVariantKeys:
-        print key.lower().replace(' ', '_')
-        #D[] = property_formatters.CEDictVariants(key)
+    for key in sorted(hanzi_variants.LHanziVariantKeys):
+        use_key = key.lower().replace(' ', '_')
+        print "self.%s = CEDictVariants(self, '%s')" % (use_key, key)
