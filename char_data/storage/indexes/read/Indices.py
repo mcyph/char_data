@@ -1,5 +1,6 @@
 from toolkit.arrays.ArrayUtils import read_arrays
 
+
 class IndicesIndex:
     typ = 'indices'
     

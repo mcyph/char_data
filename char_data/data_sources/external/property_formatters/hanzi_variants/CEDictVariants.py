@@ -70,3 +70,10 @@ class CEDictVariants:
 
         return ' '.join(LOut)
 
+
+if __name__ == '__main__':
+    from char_data.data_sources.external import property_formatters
+
+    for key in property_formatters.LHanziVariantKeys:
+        print key.lower().replace(' ', '_')
+        #D[] = property_formatters.CEDictVariants(key)

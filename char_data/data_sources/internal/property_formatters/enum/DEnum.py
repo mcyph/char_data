@@ -1,5 +1,5 @@
 DEnum = {
-    "IICore": {
+    "iicore": { # was IICore
         "False": "No, not commonly used in East Asia",
         "None": "None",
         "True": "Yes, commonly used in East Asia"
@@ -20,7 +20,7 @@ DEnum = {
         "6.1": "Unicode 6.1.0 January 2012",
         "None": "Unassigned"
     },
-    "arabic shaping group": {
+    "arabic_shaping_group": {
         "AIN": "Arabic Ain",
         "ALAPH": "Syriac Alaph",
         "ALEF": "Arabic Alef",
@@ -86,7 +86,7 @@ DEnum = {
         "ZAIN": "Syriac Zain",
         "ZHAIN": "Syriac Zhain"
     },
-    "arabic shaping type": {
+    "arabic_shaping_type": {
         "C": "Join Causing",
         "D": "Dual Joining",
         "L": "Left Joining",
@@ -95,7 +95,7 @@ DEnum = {
         "T": "Transparent",
         "U": "Non Joining"
     },
-    "bidirectional category": {
+    "bidirectional_category": {
         "AL": "Right-to-Left Arabic",
         "AN": "Arabic Number",
         "B": "Paragraph Separator",
@@ -117,7 +117,7 @@ DEnum = {
         "S": "Segment Separator",
         "WS": "Whitespace"
     },
-    "canonical combining classes": {
+    "canonical_combining_classes": {
         "0": "Spacing, split, enclosing, reordrant, and Tibetan subjoined",
         "1": "Overlays and interior",
         "10": "fixed position class 10",
@@ -334,14 +334,14 @@ DEnum = {
         "99": "fixed position class 99",
         "None": "Unknown"
     },
-    "case folding status": {
+    "case_folding_status": {
         "C": "Common Case Folding",
         "F": "Full Case Folding",
         "None": "None",
         "S": "Simple Case Folding",
         "T": "Special Case"
     },
-    "character decomposition mapping": {
+    "character_decomposition_mapping": {
         "<circle>": "An encircled form.",
         "<compat>": "Otherwise unspecified compatibility character.",
         "<final>": "A final presentation form (Arabic).",
@@ -360,12 +360,12 @@ DEnum = {
         "<wide>": "A wide (or zenkaku) compatibility character.",
         "None": "Unknown"
     },
-    "composition exclusions": {
+    "composition_exclusions": {
         "False": "None",
         "None": "None",
         "True": "Excluded from Compositions"
     },
-    "east asian width": {
+    "east_asian_width": {
         "A": "Ambiguous (Sometimes Wide and Sometimes Narrow)",
         "F": "Fullwidth",
         "H": "Halfwidth",
@@ -374,7 +374,7 @@ DEnum = {
         "None": "Neutral (Not East Asian)",
         "W": "Always Wide"
     },
-    "general category": {
+    "general_category": {
         "Cc": "Control Other",
         "Cf": "Format Other",
         "Cn": "Not Assigned (no characters in the file have this property) Other",
@@ -407,7 +407,7 @@ DEnum = {
         "Zp": "Paragraph Separator",
         "Zs": "Space Separator"
     },
-    "grapheme break": {
+    "grapheme_break": {
         "Any": "Any Character",
         "CR": "Carriage Return (CR)",
         "Control": "Control",
@@ -422,14 +422,14 @@ DEnum = {
         "T": "Hangul Syllable Type T",
         "V": "Hangul Syllable Type V"
     },
-    "joining type": {
+    "joining_type": {
         "C": "Join Causing",
         "D": "Dual Joining",
         "None": "Unknown",
         "R": "Right Joining",
         "T": "Transparent"
     },
-    "line break": {
+    "line_break": {
         "AI": "Ambiguous",
         "AL": "Ordinary Alphabetic and Symbol Characters",
         "B2": "Break Opportunity Before and After",
@@ -475,7 +475,7 @@ DEnum = {
         "None": "Unknown",
         "Y": "Yes (Flipped on Right-to-Left)"
     },
-    "sentence break": {
+    "sentence_break": {
         "ATerm": "Alphabetic Terminator (Full Stop)",
         "Any": "Any Character",
         "CR": "Carriage Return",
@@ -493,7 +493,7 @@ DEnum = {
         "Sp": "Space",
         "Upper": "Uppercase"
     },
-    "word break": {
+    "word_break": {
         "ALetter": "Alphabetic Letter",
         "Any": "Any Character",
         "CR": "Carriage Return",

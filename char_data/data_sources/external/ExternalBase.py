@@ -1,3 +1,4 @@
 
 class ExternalBase:
-    pass
+    def __init__(self, key):
+        self.key = key

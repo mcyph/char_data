@@ -1,5 +1,3 @@
-from toolkit.py_ini import read_D_ini
-from char_data.data_paths import data_path
 from DEnum import DEnum
 
 
@@ -17,7 +15,7 @@ DRevEnum = get_D_rev_enum()
 
 class Enum:
     def _format_data(self, ord_, data):
-        if self.key in DEnum:
+        if self.key in DEnum and unicode(data) in DEnum[self.key]:
             return DEnum[self.key][unicode(data)]
         else: 
             return data # HACK!

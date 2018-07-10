@@ -4,8 +4,9 @@ from toolkit.encodings.hex_padding import get_uni_point
 from toolkit.encodings.surrogates import w_unichr, w_ord
 
 
-class Normalization():
+class Normalisation():
     def __init__(self, typ):
+        # Can only
         assert typ in ('NFD', 'NFKD')
         self.typ = typ
     

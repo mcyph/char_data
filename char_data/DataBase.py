@@ -46,7 +46,9 @@ class DataBase:
             
             data_source, _, key = s.partition('.')
             key = get_key_name(key)
-            assert data_source in self.SPossible
+            if not data_source in self.SPossible:
+                raise KeyError("invalid data source: %s" % data_source)
+
             o = getattr(getattr(self.o, data_source), key)
             assert isinstance(o, BaseClass)
             return o
@@ -65,5 +67,7 @@ class DataBase:
                     o = getattr(self.o, data_source)
                     if hasattr(o, key) and isinstance(getattr(o, key), BaseClass):
                         return getattr(getattr(self.o, data_source), key)
+                else:
+                    raise KeyError("invalid data source: %s" % data_source)
         
         raise KeyError("invalid character property name: %s" % s)

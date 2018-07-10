@@ -3,7 +3,7 @@ from toolkit.encodings.surrogates import w_unichr
 #from Dicts.Other.Import.DelimText import Encodings
 
 
-class Encodings:
+class Encoding:
     def __init__(self, encoding):
         self.encoding = encoding
         FIXME

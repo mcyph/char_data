@@ -1,0 +1,3 @@
+class AlphabetIndex:
+    pass
+
