@@ -2,8 +2,17 @@
 #from Chars.Radicals.MultiRad import DBothChars
 from toolkit.encodings.surrogates import w_unichr
 
+from char_data.data_sources.external.property_formatters import ExternalBaseClass
+from char_data.data_sources.consts import HEADER_RADICAL_STROKES
 
-class MultiRadicals:
+
+class MultiRadicals(ExternalBaseClass):
+    def __init__(self, parent):
+        ExternalBaseClass.__init__(
+            self, parent, HEADER_RADICAL_STROKES, original_name='multi_radicals',
+            short_desc='multi_radicals', LISOs=None
+        )
+
     def raw_data(self, ord_):
         char = w_unichr(ord_)
         

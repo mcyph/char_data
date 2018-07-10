@@ -4,13 +4,25 @@ from toolkit.encodings.hex_padding import get_uni_point
 from toolkit.encodings.surrogates import w_unichr, w_ord
 
 from char_data.data_sources.external.property_formatters import ExternalBaseClass
+from char_data.data_sources.consts import HEADER_NORMALISATION
+
+
+DShortDesc = {
+    'NFD': 'NFD Normalisation',
+    'NFKD': 'NFKD (Compatibility) Normalisation'
+}
 
 
 class Normalisation(ExternalBaseClass):
-    def __init__(self, typ):
+    def __init__(self, parent, typ):
         # Can only
         assert typ in ('NFD', 'NFKD')
         self.typ = typ
+
+        ExternalBaseClass.__init__(
+            self, parent, HEADER_NORMALISATION, original_name=typ,
+            short_desc=DShortDesc[typ], LISOs=None
+        )
     
     def raw_data(self, ord_):
         char = w_unichr(ord_)

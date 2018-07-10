@@ -1,9 +1,13 @@
 from char_data.data_sources.external.property_formatters import ExternalBaseClass
+from char_data.data_sources.consts import HEADER_READINGS
 
 
 class ReadingsCombine(ExternalBaseClass):
-    def __init__(self, LKeys):
-        pass
+    def __init__(self, parent, LKeys):
+        ExternalBaseClass.__init__(
+            self, parent, HEADER_READINGS, original_name='similar_hanzi',
+            short_desc='Similar Hanzi', LISOs=FIXME
+        )
     
     def raw_data(self, ord_):
         """

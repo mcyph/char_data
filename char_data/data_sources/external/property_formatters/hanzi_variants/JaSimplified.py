@@ -1,5 +1,6 @@
 from char_data.data_sources.external.importers.radicals.j_simplified import get_trad_ja_maps
 from char_data.data_sources.external.property_formatters import ExternalBaseClass
+from char_data.data_sources.consts import HEADER_VARIANTS
 
 DTradToJa, DJaToTrad = get_trad_ja_maps()
 
@@ -10,8 +11,8 @@ class JaSimplified(ExternalBaseClass):
         self.DOpposite = DTradToJa if key == 'japanesesimplified' else DJaToTrad
 
         ExternalBaseClass.__init__(
-            self, parent, HEADER_FIXME, original_name=key, short_desc=key,
-            LISOs=['ja'] if key == 'japanesesimplified' else FIXME
+            self, parent, HEADER_VARIANTS, original_name=key, short_desc=key,
+            LISOs=['ja'] if key == 'japanesesimplified' else 'traditionalvariant'
         )
 
     def raw_data(self, ord_):

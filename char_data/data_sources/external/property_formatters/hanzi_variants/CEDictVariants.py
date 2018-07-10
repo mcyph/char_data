@@ -8,6 +8,7 @@ from char_data.data_sources.external.importers.hanzi_variants import (
     DLinkKeys, DReverseLinkKeys, NORMAL, REVERSE
 )
 from char_data.data_sources.external.property_formatters import ExternalBaseClass
+from char_data.data_sources.consts import HEADER_VARIANTS
 
 #from warnings import warn
 #warn("PLEASE FIX CEDictVariants to be not reliant on Flazzle dictionary modules!!!")
@@ -33,8 +34,8 @@ class CEDictVariants(ExternalBaseClass):
         self.key = key
 
         ExternalBaseClass.__init__(
-            self, parent, HEADER_FIXME, original_name=key,
-            short_desc=key, LISOs=FIXME
+            self, parent, HEADER_VARIANTS, original_name=key,
+            short_desc=key, LISOs=['zh', 'zh_Hant']  # CHECK ME!!!!! =====================================
         )
 
     def raw_data(self, ord_):

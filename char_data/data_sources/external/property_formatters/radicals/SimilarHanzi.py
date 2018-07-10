@@ -4,13 +4,14 @@ from sys import maxint
 from char_data.data_sources.external.property_formatters import ExternalBaseClass
 from char_data.radicals.DataRadicals import DBothChars, DBothRads
 from toolkit.encodings.surrogates import w_unichr
+from char_data.data_sources.consts import HEADER_RADICAL_STROKES
 
 
 class SimilarHanzi(ExternalBaseClass):
     def __init__(self, parent):
         ExternalBaseClass.__init__(
-            self, parent, HEADER_FIXME, original_name='similar_hanzi',
-            short_desc='Similar Hanzi', LISOs=FIXME
+            self, parent, HEADER_RADICAL_STROKES, original_name='similar_hanzi',
+            short_desc='Hanzi With Similar Radicals', LISOs=None #['ja', 'zh', 'zh_Hant', 'ko']
         )
     
     def raw_data(self, ord_):
