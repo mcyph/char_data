@@ -1,4 +1,4 @@
-from char_data.data_sources.internal.property_formatters.enum.DEnum import DEnum
+from toolkit.escape import E
 
 
 class DataSourceBase:
@@ -6,6 +6,11 @@ class DataSourceBase:
                  long_desc=None, LISOs=None, index=None):
         """
         The base class for both internal and external data sources.
+        (data_sources/internal/data/read/InternalBaseClass and
+         data_sources/external/property_formatters/ExternalBaseClass)
+
+        This really should be in data_sources/, but for now it's here
+        to prevent recursive import issues
         """
 
         self.parent = parent
@@ -32,13 +37,17 @@ class DataSourceBase:
 
     def html_formatted(self, ord_):
         value = self.formatted(ord_)
-        return self._process_property_value(value)
+        if value is None:
+            return None
+        else:
+            return self._process_property_value(value)
 
     def _process_property_value(self, value):
         """
         Get a pretty-printed HTML output version of the value
         """
         from types import BooleanType
+        from char_data.data_sources.internal.property_formatters.enum.DEnum import DEnum
 
         if not isinstance(value, (list, tuple)):
             # TODO: add specific handling for Booleans??

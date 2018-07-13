@@ -1,4 +1,4 @@
-from char_data.data_sources.DataSourceBase import DataSourceBase
+from char_data.DataSourceBase import DataSourceBase
 
 
 class NO_DATA: pass
@@ -55,10 +55,6 @@ class InternalBaseClass(DataSourceBase):
         # Needs to be implemented in subclasses of this base class,
         # instantiating any data arrays
         raise NotImplementedError
-
-    def formatted(self, ord_):
-        data = self.raw_data(ord_)
-        return self._format_data(ord_, data)
 
     def get_range_data(self, ord_):
         for from_, to, value in self.LRanges:

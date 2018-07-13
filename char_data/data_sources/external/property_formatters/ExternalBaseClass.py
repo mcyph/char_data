@@ -1,4 +1,4 @@
-from char_data.data_sources.DataSourceBase import DataSourceBase
+from char_data.DataSourceBase import DataSourceBase
 
 
 class ExternalBaseClass(DataSourceBase):

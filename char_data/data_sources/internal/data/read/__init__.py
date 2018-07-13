@@ -1,4 +1,4 @@
-from BaseClass import NO_DATA, BaseClass
+from InternalBaseClass import NO_DATA, InternalBaseClass
 
 from Boolean import Boolean
 from Encoding import Encoding

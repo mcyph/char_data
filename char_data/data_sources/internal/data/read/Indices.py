@@ -2,9 +2,8 @@ from toolkit.arrays.ArrayUtils import read_arrays, read_json
 
 from char_data.misc import get_adjusted_code_point
 from char_data.data_sources.internal.data.write import write_indices
-from char_data.data_sources.internal.data.read.BaseClass import NO_DATA
 
-from InternalBaseClass import InternalBaseClass
+from InternalBaseClass import InternalBaseClass, NO_DATA
 
 
 class Indices(InternalBaseClass):

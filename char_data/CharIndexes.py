@@ -1,8 +1,4 @@
-from char_data.storage.data.read.BaseClass import BaseClass
-from char_data.data_sources.external.property_formatters import ExternalBaseClass
-from char_data.data_sources.external.ExternalBase import ExternalBase
-from char_data.data_sources.internal.InternalBase import InternalBase
-
+from DataSourceBase import DataSourceBase
 from DataBase import DataBase
 from CharData import char_data
 
@@ -14,6 +10,7 @@ from CharData import char_data
 
 class CharIndexes(DataBase):
     def __init__(self):
+
         DataBase.__init__(self, char_data)
 
     def search(self, key, value, *args, **kw):
@@ -38,11 +35,12 @@ class CharIndexes(DataBase):
 
             for property in dir(o):
                 i_o = getattr(o, property)
-                if not isinstance(i_o, (BaseClass, ExternalBaseClass)):  # TODO: SUPPORT EXTERNAL BASES HERE!!! =====================
+                if not isinstance(i_o, DataSourceBase):  # TODO: SUPPORT EXTERNAL BASES HERE!!! =====================
                     continue
                 elif not i_o.index:
                     continue
 
+                # Outputs [(internal key name, display key name, index kind), ...]
                 LRtn.append((key, i_o.key, i_o.index.typ))
 
         return sorted(LRtn)

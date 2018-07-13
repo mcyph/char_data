@@ -1,5 +1,4 @@
-from char_data.storage.data.read.BaseClass import BaseClass
-from char_data.data_sources.external.property_formatters import ExternalBaseClass
+from DataSourceBase import DataSourceBase
 from char_data.data_sources.get_key_name import get_key_name
 
 #=========================================================#
@@ -51,7 +50,7 @@ class DataBase:
                 raise KeyError("invalid data source: %s" % data_source)
 
             o = getattr(getattr(self.o, data_source), key)
-            assert isinstance(o, (BaseClass, ExternalBaseClass))
+            assert isinstance(o, DataSourceBase)
             return o
         else:
             # e.g. 'Name' (try in all of the sources)
@@ -66,7 +65,7 @@ class DataBase:
                 key = get_key_name(s)
                 if data_source in self.SPossible:
                     o = getattr(self.o, data_source)
-                    if hasattr(o, key) and isinstance(getattr(o, key), BaseClass):
+                    if hasattr(o, key) and isinstance(getattr(o, key), DataSourceBase):
                         return getattr(getattr(self.o, data_source), key)
                 else:
                     raise KeyError("invalid data source: %s" % data_source)

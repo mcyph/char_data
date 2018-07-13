@@ -4,14 +4,14 @@ from char_data.data_sources.external.importers.radicals import DRadTypes, kangxi
 from char_data.data_sources.external.importers.radicals import (
     KANGXI_TRADITIONAL, KANGXI_SIMPLIFIED, KANGXI_BOTH
 )
-from char_data.data_sources.internal.data.read import BaseClass
+from char_data.data_sources.internal.data.read.InternalBaseClass import InternalBaseClass
 
 
 class RadicalStrokes(StringData):
     def __init__(self, parent, header_const, original_name, short_desc,
                  long_desc=None, LISOs=None, index=None):
 
-        BaseClass.__init__(
+        InternalBaseClass.__init__(
             self, parent, header_const, original_name, short_desc,
             long_desc=long_desc, LISOs=LISOs, index=index
         )

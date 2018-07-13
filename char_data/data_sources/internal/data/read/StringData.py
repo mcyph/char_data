@@ -2,9 +2,8 @@ from toolkit.arrays.ArrayUtils import read_array, read_json
 
 from char_data.misc import get_adjusted_code_point
 from char_data.data_sources.internal.data.write import write_string_data
-from char_data.data_sources.internal.data.read.InternalBaseClass import NO_DATA
 
-from InternalBaseClass import InternalBaseClass
+from InternalBaseClass import InternalBaseClass, NO_DATA
 
 
 class StringData(InternalBaseClass):
