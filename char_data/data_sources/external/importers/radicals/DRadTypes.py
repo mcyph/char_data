@@ -37,7 +37,7 @@ DRadTypes = {
     ),  # FIXME!
     'Vietnamese Radicals': (
         True, 'Unicode RS', ('unihan.frequency',
-                             'Hong Kong Grade',
+                             'unihan.gradelevel',
                              'kanjidic.freq')
     )
 }  # FIXME!

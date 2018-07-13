@@ -2,12 +2,12 @@ import unicodedata
 
 #from Dicts.Misc.TextOut import w_readings
 #from Data.Languages import Langs
-from char_data.storage.data.read import SentenceData
+from char_data.data_sources.internal.data.read import SentenceData
 
 
 class Definition(SentenceData):
     def raw_data(self, ord_):
-        if self.key=='Name' and ord_>=0xAC00 and ord_<=0xD7AF:
+        if self.key == 'name' and ord_ >= 0xAC00 and ord_ <= 0xD7AF:
             # HACK: Use the unicodedata module for Hangul
             try: 
                 return unicodedata.name(unichr(ord_)).lower()

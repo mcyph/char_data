@@ -1,4 +1,5 @@
 from char_data.storage.data.read.BaseClass import BaseClass
+from char_data.data_sources.external.property_formatters import ExternalBaseClass
 from char_data.data_sources.external.ExternalBase import ExternalBase
 from char_data.data_sources.internal.InternalBase import InternalBase
 
@@ -32,12 +33,12 @@ class CharIndexes(DataBase):
 
         for key, _ in char_data.LData:
             o = getattr(char_data, key)
-            if not isinstance(o, (InternalBase, ExternalBase)):
-                continue
+            #if not isinstance(o, (InternalBase, ExternalBase)):
+            #    continue
 
             for property in dir(o):
                 i_o = getattr(o, property)
-                if not isinstance(i_o, BaseClass):  # TODO: SUPPORT EXTERNAL BASES HERE!!! =====================
+                if not isinstance(i_o, (BaseClass, ExternalBaseClass)):  # TODO: SUPPORT EXTERNAL BASES HERE!!! =====================
                     continue
                 elif not i_o.index:
                     continue
@@ -60,13 +61,25 @@ char_indexes = CharIndexes()
 
 
 if __name__ == '__main__':
-    from char_data.CharInfo import Indexes
-    
-    for key in Indexes.keys():
-        LValues = Indexes.values(key)
+    from CharData import char_data
+    from char_data.data_sources.consts import DHeaders
+
+    LKeys = []
+    for source, key, kind in char_indexes.keys():
+        print key
+        inst = getattr(getattr(char_data, source), key)
+        header = inst.header_const
+        LKeys.append((header, key, source, inst))
+    LKeys.sort()
+
+    for header, key, source, inst in LKeys:
+        print header, source, key, inst
+        continue
+
+        LValues = char_indexes.values((source, key))
         if not LValues:
             continue
         
         print LValues
         for value in LValues:
-            print 'KEY/VALUE:', (key, value), Indexes.search(key, value)
+            print 'KEY/VALUE:', (key, value), char_indexes.search((source, key), value)

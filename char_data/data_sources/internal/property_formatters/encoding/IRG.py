@@ -1,4 +1,4 @@
-from char_data.storage.data.read import StringData
+from char_data.data_sources.internal.data.read import StringData
 
 
 class IRG(StringData): # ??? ==========================================================

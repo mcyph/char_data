@@ -3,8 +3,8 @@ from char_data.data_sources.external.property_formatters.encoding import Encodin
 
 
 class StandardEncodings(ExternalBase):
-    def __init__(self, key):
-        ExternalBase.__init__(self, key)
+    def __init__(self):
+        ExternalBase.__init__(self, 'standard_encodings')
 
         #================================================================#
         #                         all languages                          #
@@ -90,7 +90,7 @@ class StandardEncodings(ExternalBase):
 
         self.cp1250 = Encoding(self, 
             'cp1250', 'Central and Eastern Europe',
-            ['pl', 'cz', 'sl', 'hu', '??', 'bs', 'cr', FIXME]
+            ['pl', 'cz', 'sl', 'hu', '??', 'bs', 'cr']   # FIXME!!! ========================================================
         )
         self.cp852 = Encoding(self, 
             'cp852', 'Central and Eastern Europe'
@@ -174,7 +174,7 @@ class StandardEncodings(ExternalBase):
         self.iso2022_jp_2 = Encoding(self, 
             'iso2022_jp_2',
             'Japanese, Korean, Simplified Chinese, Western Europe, Greek',
-            ['ja', 'ko', 'zh', 'el', FIXME]
+            ['ja', 'ko', 'zh', 'el']  # FIXME!! =================================================
         )
 
         #================================================================#

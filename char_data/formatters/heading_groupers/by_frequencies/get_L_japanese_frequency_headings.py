@@ -42,7 +42,7 @@ def get_L_japanese_frequency_headings(LRanges):
         
         DRanges[key].sort()
         
-        LRtn.append(('sub_block', sub_block))
+        LRtn.append(('sub_block', [sub_block, None]))
         LRtn.append(['chars', [i[1] for i in DRanges[key]]])
     return LRtn
 

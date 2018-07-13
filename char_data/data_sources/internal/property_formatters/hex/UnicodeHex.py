@@ -1,7 +1,7 @@
 from toolkit.encodings.hex_padding import get_uni_point
 from toolkit.encodings.surrogates import w_unichr
 
-from char_data.storage.data.read import Encoding
+from char_data.data_sources.internal.data.read import Encoding
 
 
 class UnicodeHex(Encoding):

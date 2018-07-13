@@ -1,6 +1,6 @@
 from toolkit.json_tools import dumps
-from char_data.storage.data.read import StringData
-from char_data.storage.data.write.write_string_data import write_string_data
+from char_data.data_sources.internal.data.read import StringData
+from char_data.data_sources.internal.data.write.write_string_data import write_string_data
 
 
 def write(f, key, DOrds):

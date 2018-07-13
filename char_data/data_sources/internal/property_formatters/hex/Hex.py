@@ -1,5 +1,5 @@
 from toolkit.encodings.hex_padding import get_hex_point
-from char_data.storage.data.read import Encoding
+from char_data.data_sources.internal.data.read import Encoding
 
 
 class Hex(Encoding):

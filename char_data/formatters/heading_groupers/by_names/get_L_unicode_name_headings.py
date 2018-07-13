@@ -28,10 +28,14 @@ def get_L_unicode_name_headings(LRanges, name=None):
             #        if font_script: break
             
             for i_code in xrange(from_, to+1):
-                append = get_smallest_name(
-                    char_data.formatted('unicodedata.name', i_code)
-                    #CharData.get_L_names(i_code, types=('general',))[0]
-                )
+                name = char_data.formatted('unicodedata.name', i_code)
+                if not name:
+                    name = '(Unknown)'
+                else:
+                    append = get_smallest_name(
+                        name
+                        #CharData.get_L_names(i_code, types=('general',))[0]
+                    )
                 
                 if name=='Cyrillic' and append[0]=='e' and len(append)>1:
                     append = append[1] # HACK: fix e.g. 'ef' and 'em' and 'es' (f/m/s)
@@ -44,11 +48,15 @@ def get_L_unicode_name_headings(LRanges, name=None):
             #if FirstCodePoint is None:
                 #print 'SUBSINGLE FALLBACK!'
                 #font_script = get_fallback(ord_)
-            
-            append = get_smallest_name(
-                char_data.formatted('unicodedata.name', ord_)
-                #CharData.get_L_names(ord_, Types=('general',))[0]
-            )
+
+            name = char_data.formatted('unicodedata.name', ord_)
+            if not name:
+                name = '(Unknown)'
+            else:
+                append = get_smallest_name(
+                    name
+                    #CharData.get_L_names(ord_, Types=('general',))[0]
+                )
             
             if name=='Cyrillic' and append[0]=='e' and len(append)>1:
                 append = append[1] # HACK: fix e.g. 'ef' and 'em' and 'es' (f/m/s)
@@ -76,11 +84,11 @@ def get_L_unicode_name_headings(LRanges, name=None):
             
             if chk_key == 'zz':
                 n_LRtn.append(
-                    ['sub_block', 'Miscellaneous Symbols']
+                    ['sub_block', ['Miscellaneous Symbols', None]]
                 )
             else: 
                 n_LRtn.append(
-                    ['sub_block', 'characters starting with "%s"' % chk_key.lower()]
+                    ['sub_block', ['characters starting with "%s"' % chk_key.lower(), None]]
                 )
             
             n_LRtn.append(['chars', []])

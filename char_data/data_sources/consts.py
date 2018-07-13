@@ -23,18 +23,79 @@ HEADER_ADOBE = 21
 HEADER_FIXME = None  # TODO!!!
 
 DHeaders = {
-    'Definition': 'HEADER_DEFINITION',
-    'Numeric': 'HEADER_NUMERIC',
-    'Readings': 'HEADER_READINGS',
-    'Language Usage': 'HEADER_LANGUAGE_USAGE',
-    'Variants': 'HEADER_VARIANTS',
-    'Grades/Frequencies': 'HEADER_GRADES_FREQUENCIES',
-    'Total Strokes': 'HEADER_TOTAL_STROKES',
-    'Radical/Additional Strokes': 'HEADER_RADICAL_STROKES',
-    'Input': 'HEADER_INPUT',
-    'Encoding': 'HEADER_ENCODING',
-    'Indices': 'HEADER_INDICES',
-    'Phonetic Indices': 'HEADER_PHONETIC_INDICES',
-    'Adobe': 'HEADER_ADOBE',
+    HEADER_DEFINITION: 'Definition',
+    HEADER_NAMED_ALIASES: 'Named Aliases',
+    HEADER_READINGS: 'Readings',
+    HEADER_SEE_ALSO: 'See Also',
+    HEADER_BLOCK_INFO: 'Block Information',
+    HEADER_SUBBLOCK_INFO: 'Subblock Information',
+    HEADER_SCRIPTS_BLOCKS: "Scripts/Blocks",
+    HEADER_UNICODE_GENERAL: 'Unicode General',
+    HEADER_CASING: 'Casing',
+    HEADER_NORMALISATION: 'Normalisation',
+    HEADER_NUMERIC: 'Numeric',
+    HEADER_LANGUAGE_USAGE: 'Language Usage',
+    HEADER_VARIANTS: 'Variants',
+    HEADER_GRADES_FREQUENCIES: 'Grades/Frequencies',
+    HEADER_TOTAL_STROKES: 'Total Strokes',
+    HEADER_RADICAL_STROKES: 'Radical/Additional Strokes',
+    HEADER_INPUT: 'Input',
+    HEADER_ENCODING: 'Encoding',
+    HEADER_UNICODE_LAYOUT: 'Unicode Layout',
+    HEADER_INDICES: 'Indices',
+    HEADER_PHONETIC_INDICES: 'Phonetic Indices',
+    HEADER_ADOBE: 'Adobe',
     None: 'HEADER_FIXME'
+}
+
+DTwoLevelMappings = {
+    'unicodedata.script': [
+        ('East Asian Scripts', [
+            'Bopomofo', 'CJK_Symbols', 'Han', 'Hangul', 'Hiragana', 'Katakana', 'Yi'
+        ]),
+        ('Symbols and Punctuation', [
+            'Currency_Signs', 'Format_Characters', 'General_Punctuation', 'Geometric_Shapes',
+            'IPA_Alphabet', 'Letterlike_Symbols', 'Mathematical_Signs', 'Modifier_and_Combining_Characters',
+            'Numbers', 'Pictures_and_Miscellaneous_Symbols', 'Spaces', 'Technical_Symbols'
+        ]),
+        ('European Scripts', [
+            'Armenian', 'Carian', 'Coptic', 'Cyrillic', 'Georgian', 'Greek', 'Latin',
+            'Lycian', 'Lydian'
+        ]),
+        ('Middle Eastern Scripts', [
+            'Arabic', 'Avestan', 'Hebrew', 'Imperial_Aramaic', 'Inscriptional_Pahlavi',
+            'Inscriptional_Parthian', 'Old_South_Arabian', 'Old_Turkic', 'Samaritan',
+            'Syriac', 'Thaana'
+        ]),
+        ('Indic Scripts', [
+            'Bengali', 'Devanagari', 'Gujarati', 'Gurmukhi', 'Kaithi', 'Kannada', 'Limbu',
+            'Malayalam', 'Ol_Chiki', 'Oriya', 'Saurashtra', 'Sinhala', 'Syloti_Nagri',
+            'Tamil','Telugu'
+        ]),
+        ('South East Asian', [
+            'Balinese', 'Buginese', 'Cham', 'Javanese', 'Kayah_Li', 'Khmer', 'Lao', 'Lisu',
+            'Meetei_Mayek', 'Myanmar', 'New_Tai_Lue', 'Rejang', 'Sundanese', 'Tai_Le',
+            'Tai_Tham', 'Tai_Viet', 'Thai'
+        ]),
+        ('African Scripts', [
+            'Bamum', 'Egyptian_Hieroglyphs', 'Ethiopic', 'Nko', 'Tifinagh', 'Vai'
+        ]),
+        ('American Scripts', [
+            'Canadian_Aboriginal', 'Cherokee', 'Deseret'
+        ]),
+        ('Central Asian Scripts', [
+            'Kharoshthi', 'Lepcha', 'Mongolian', 'Phags_Pa', 'Tibetan'
+        ]),
+        ('Phillipine Scripts', [
+            'Buhid', 'Hanunoo', 'Tagalog', 'Tagbanwa'
+        ]),
+        ('Ancient Scripts', [
+            'Cuneiform', 'Cypriot', 'Gothic', 'Linear_B', 'Ogham', 'Old_Italic', 'Old_Persian',
+            'Phaistos_Disc', 'Phoenician', 'Runic', 'Ugaritic'
+        ]),
+        ('Miscellaneous', [
+            'Braille', 'Common', 'Control_Characters', 'Glagolitic', 'Inherited',
+            'Musical_Symbols', 'Osmanya','Shavian'
+        ])
+    ]
 }

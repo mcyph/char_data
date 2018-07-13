@@ -1,12 +1,19 @@
 from char_data.data_sources.internal import CCDict, Kanjidic, UnicodeData, Unihan
+from char_data.data_sources.external import HanziVariants, StandardEncodings
 
 
 class DataReader:
     LData = [
+        # Internal sources
         ('unicodedata', 'unidata'),
         ('unihan', 'unihan'),
         ('ccdict', 'ccdict'),
         ('kanjidic', 'kanjidic'),
+
+        # External sources
+        ('hanzi_variants', 'hanzi_variants'),
+        ('standard_encodings', 'standard_encodings'),
+
         #('nameslist', 'nameslist')
     ]
 
@@ -23,25 +30,14 @@ class DataReader:
         self.unicodedata = UnicodeData()
         self.unihan = Unihan()
 
+        self.hanzi_variants = HanziVariants()
+        self.standard_encodings = StandardEncodings()
+
         #self.create_combine_insts()
         #self.create_alphabet_insts()
         #self.create_multi_radicals_inst()
         #self.create_normalization_insts()
         #self.create_encoding_insts()
-        #self.create_hanzi_variants_insts()
-
-    def create_hanzi_variants_insts(self):
-        D = self.D['hanzi_variants'] = {}
-
-        D['japanesesimplified'] = (
-            property_formatters.JaSimplified('japanesesimplified')
-        )
-        D['chinesetraditional'] = (
-            property_formatters.JaSimplified('chinesetraditional')
-        )
-
-        for key in property_formatters.LHanziVariantKeys:
-            D[key.lower().replace(' ', '_')] = property_formatters.CEDictVariants(key)
 
     #================================================================#
     #                 Create Dynamic Data Instances                  #

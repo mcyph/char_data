@@ -26,7 +26,10 @@ class BlockHeadings:
         LRtn = []
         for ord_ in LRanges:
             if type(ord_) == tuple:
-                self._process_range(LRtn, DState, ord_)
+                for i_ord in xrange(ord_[0], ord_[1]+1):
+                    # HACK: Fix Arabic subblock comment/title issues
+                    self._process_codepoint(LRtn, DState, i_ord)
+                #self._process_range(LRtn, DState, ord_)
             else:
                 self._process_codepoint(LRtn, DState, ord_)
 
@@ -86,6 +89,7 @@ class BlockHeadings:
         """
         block = char_data.formatted('block', ord_)
         sub_block = None
+        #print DState['last_sub_block']
 
         if block and not 'CJK' in block:
             sub_block = char_data.formatted('subblock heading', ord_)
@@ -121,11 +125,11 @@ class BlockHeadings:
 
         if desc:
             LRtn.append(
-                ('block', block, '. '.join(i.strip('.') for i in desc))
+                ('block', [block, '. '.join(i.strip('.') for i in desc)])
             )
         else:
             LRtn.append(
-                ('block', block)
+                ('block', [block, None])
             )
 
     #=============================================================================#
@@ -173,7 +177,8 @@ class BlockHeadings:
                     if block != DState['last_block']:
                         # Change block, but only if changed as this code
                         # can be triggered if from_ equals None
-                        LRtn.append(('block', block))
+                        #LRtn.append(('block', block))
+                        self.append_block(LRtn, block, ord_)
                         DState['last_block'] = block
 
                 sub_block = char_data.formatted('subblock heading', ord_)
@@ -221,7 +226,11 @@ class BlockHeadings:
 
         if comment:
             LRtn.append(
-                ('sub_block', '. '.join(sub_block), comment)
+                ('sub_block', ['. '.join(sub_block), comment])
+            )
+        else:
+            LRtn.append(
+                ('sub_block', ['. '.join(sub_block), None])
             )
 
 
@@ -237,6 +246,6 @@ if __name__ == '__main__':
     pprint(char_data.keys())
 
     pprint(get_L_block_headings(
-        char_indexes.search('unicodedata.script', 'Latin')
+        char_indexes.search('unicodedata.script', 'Arabic')
     ))
 

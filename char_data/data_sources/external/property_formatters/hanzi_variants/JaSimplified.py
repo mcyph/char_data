@@ -8,11 +8,11 @@ DTradToJa, DJaToTrad = get_trad_ja_maps()
 class JaSimplified(ExternalBaseClass):
     def __init__(self, parent, key):
         self.key = key
-        self.DOpposite = DTradToJa if key == 'japanesesimplified' else DJaToTrad
+        self.DOpposite = DTradToJa if key == 'japanese_simplified' else DJaToTrad
 
         ExternalBaseClass.__init__(
             self, parent, HEADER_VARIANTS, original_name=key, short_desc=key,
-            LISOs=['ja'] if key == 'japanesesimplified' else 'traditionalvariant'
+            LISOs=['ja'] if key == 'japanese_simplified' else 'chinese_traditional'
         )
 
     def raw_data(self, ord_):

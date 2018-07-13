@@ -29,7 +29,7 @@ with open(
 
 
 class CEDictVariants(ExternalBaseClass):
-    def __init__(self, key, parent):
+    def __init__(self, parent, key):
         self.LKeys = DReverseLinkKeys[key]
         self.key = key
 

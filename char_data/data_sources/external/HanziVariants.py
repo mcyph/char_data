@@ -7,8 +7,8 @@ class HanziVariants(ExternalBase):
     def __init__(self):
         ExternalBase.__init__(self, 'hanzi_variants')
 
-        self.japanese_simplified = JaSimplified('japanesesimplified')
-        self.opposite_of_japanese_simplified = JaSimplified('???')   ## ??? What should I call these variants???
+        self.japanese_simplified = JaSimplified(self, 'japanese_simplified')
+        self.chinese_traditional = JaSimplified(self, 'chinese_traditional')   ## ??? What should I call these variants???
 
         self.erhua_variant = CEDictVariants(self, 'Erhua variant')
         self.non_erhua_variant = CEDictVariants(self, 'non-Erhua variant')

@@ -1,4 +1,4 @@
-from char_data.storage.data.read import Indices as _Indices
+from char_data.data_sources.internal.data.read import Indices as _Indices
 
 
 class Indices(_Indices):

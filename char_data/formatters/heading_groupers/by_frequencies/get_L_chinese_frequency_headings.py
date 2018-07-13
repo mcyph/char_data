@@ -57,7 +57,7 @@ def get_L_chinese_frequency_headings(LRanges, LSortBy):
         LKeys.sort()
     
     for key in LKeys:
-        LRtn.append(('sub_block', key))
+        LRtn.append(('sub_block', [key, None]))
         LRtn.append(['chars', []])
         
         for ord_ in DRanges[key]:

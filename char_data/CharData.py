@@ -1,6 +1,7 @@
 from toolkit.encodings.surrogates import w_ord
 
 from char_data.storage.data.read.BaseClass import BaseClass
+from char_data.data_sources.external.property_formatters import ExternalBaseClass
 from char_data.data_sources.external.ExternalBase import ExternalBase
 from char_data.data_sources.internal.InternalBase import InternalBase
 from char_data.data_sources import DataReader
@@ -18,7 +19,6 @@ class CharData(DataBase, DataReader):
         DataReader.__init__(self)
         DataBase.__init__(self, self)
 
-
     def __getattr__(self, item):
         return getattr(self.data_reader, item)
 
@@ -33,12 +33,14 @@ class CharData(DataBase, DataReader):
                 continue
 
             o = getattr(self, key)
-            if not isinstance(o, (InternalBase, ExternalBase)):
-                continue
+            #if not isinstance(o, (InternalBase, ExternalBase)):
+                #print('CONTINUE:', key, o)
+            #    continue
 
             for property in dir(o):
                 i_o = getattr(o, property)
-                if not isinstance(i_o, BaseClass):  # TODO: SUPPORT EXTERNAL BASES HERE!!! =====================
+                if not isinstance(i_o, (BaseClass, ExternalBaseClass)):  # TODO: SUPPORT EXTERNAL BASES HERE!!! =====================
+                    #print('CONTINUE 2:', key, o)
                     continue
                 LRtn.append((key, i_o.key))
 
