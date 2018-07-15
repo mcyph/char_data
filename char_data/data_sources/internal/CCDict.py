@@ -34,7 +34,7 @@ class CCDict(InternalBase):
         )
         self.english = Definition(
             self, HEADER_DEFINITION, 'English', 'Cantonese Definition',
-            LISOs=['yue', 'hak'], index='Fulltext'
+            LISOs=['yue', 'hak'], index_type='Fulltext'
         )
 
         #====================================================================#
@@ -43,15 +43,15 @@ class CCDict(InternalBase):
 
         self.cantonese = Definition(
             self, HEADER_READINGS, 'Cantonese', 'Cantonese',
-            LISOs=['yue'], index='CompressedNames'
+            LISOs=['yue'], index_type='CompressedNames'
         )
         self.hakka = Definition(
             self, HEADER_READINGS, 'Hakka', 'Hakka',
-            LISOs=['hak'], index='CompressedNames'
+            LISOs=['hak'], index_type='CompressedNames'
         )
         self.mandarin = Definition(
             self, HEADER_READINGS, 'Mandarin', 'Mandarin',
-            LISOs=['cmn'], index='CompressedNames'
+            LISOs=['cmn'], index_type='CompressedNames'
         )
 
         #====================================================================#
@@ -69,7 +69,7 @@ class CCDict(InternalBase):
 
         self.r_s = RadicalStrokes(
             self, HEADER_RADICAL_STROKES, 'R/S', 'Cantonese and Hakka',
-            LISOs=['yue', 'hak'], index='RadicalStrokes'
+            LISOs=['yue', 'hak'], index_type='RadicalStrokes'
         )
 
         #====================================================================#
@@ -78,9 +78,9 @@ class CCDict(InternalBase):
 
         self.cangjie = NoFormatStrings(
             self, HEADER_INPUT, 'Cangjie', 'Cangjie',
-            LISOs=['yue', 'hak'], index='StringKeys'
+            LISOs=['yue', 'hak'], index_type='StringKeys'
         )
         self.fourcorner = NoFormatStrings(
             self, HEADER_INPUT, 'FourCorner', 'FourCorner',
-            LISOs=['yue', 'hak'], index='StringKeys'
+            LISOs=['yue', 'hak'], index_type='StringKeys'
         )

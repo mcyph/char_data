@@ -1,10 +1,11 @@
-# HangulSyllableType-6.1.0.txt
-# Date: 2011-08-25, 00:02:18 GMT [MD]
+# HangulSyllableType-11.0.0.txt
+# Date: 2018-01-31, 08:20:17 GMT
+# © 2018 Unicode®, Inc.
+# Unicode and the Unicode Logo are registered trademarks of Unicode, Inc. in the U.S. and other countries.
+# For terms of use, see http://www.unicode.org/terms_of_use.html
 #
 # Unicode Character Database
-# Copyright (c) 1991-2011 Unicode, Inc.
-# For terms of use, see http://www.unicode.org/terms_of_use.html
-# For documentation, see http://www.unicode.org/reports/tr44/
+#   For documentation, see http://www.unicode.org/reports/tr44/
 
 # ================================================
 

@@ -18,7 +18,7 @@ def iter_values(values):
         
         yield i_value
 
-def write_string_keys_index(f, key, DData, DJSON):
+def write_string_keys_index(f, key, DData):
     '''
     Will be stored by dicts, e.g.
     {'Arabic': [array.array('I')], ...}

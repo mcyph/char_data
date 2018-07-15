@@ -18,6 +18,13 @@ DEnum = {
         "5.2": "Unicode 5.2.0 October 2009",
         "6.0": "Unicode 6.0.0 October 2010",
         "6.1": "Unicode 6.1.0 January 2012",
+        "6.2": "Unicode 6.2.0 September 2012",
+        "6.3": "Unicode 6.3 September 2013",
+        "7.0": "Unicode 7.0 June 2014",
+        "8.0": "Unicode 8.0 June 2015",
+        "9.0": "Unicode 9.0 June 2016",
+        "10.0": "Unicode 10.0 June 2017",
+        "11.0": "Unicode 11.0 June 2018",
         "None": "Unassigned"
     },
     "arabic_shaping_group": {

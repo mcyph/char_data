@@ -6,10 +6,10 @@ from char_data.misc.process_word import remove_tones
 from toolkit.list_operations.rem_dupes import rem_dupes
 from toolkit.hashes.fast_hash import fast_hash
 
-def write_fulltext_index(f, key, DData, DJSON):
+def write_fulltext_index(f, key, DData):
     #print 'DJSON:', DJSON
     #print 'DData:', DData
-    LISO = DJSON.get('script', 'eng:Latin').split(':')
+    LISO = ['eng:Latin'] #  FIXME!!!!        DJSON.get('script', 'eng:Latin').split(':')
     inst = FulltextWriter(key, DData, LISO)
     return inst.write(f)
 

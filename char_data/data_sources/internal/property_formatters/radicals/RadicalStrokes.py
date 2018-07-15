@@ -9,11 +9,11 @@ from char_data.data_sources.internal.data.read.InternalBaseClass import Internal
 
 class RadicalStrokes(StringData):
     def __init__(self, parent, header_const, original_name, short_desc,
-                 long_desc=None, LISOs=None, index=None):
+                 long_desc=None, LISOs=None, index_type=None):
 
         InternalBaseClass.__init__(
             self, parent, header_const, original_name, short_desc,
-            long_desc=long_desc, LISOs=LISOs, index=index
+            long_desc=long_desc, LISOs=LISOs, index_type=index_type
         )
 
         # TODO: PLEASE REWRITE DRadTypes to use the ISO codes or new keys!

@@ -1,7 +1,7 @@
 from toolkit.arrays import get_int_array
 from toolkit.arrays.ArrayUtils import write_arrays
 
-def write_integer_keys_index(f, key, DData, DJSON, prefix=None):
+def write_integer_keys_index(f, key, DData, prefix=None):
     '''
     DNum -> {value: number of items} where 
     `value` might be a grade number

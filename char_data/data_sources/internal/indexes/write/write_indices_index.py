@@ -2,7 +2,7 @@ from write_integer_keys_index import write_integer_keys_index
 from char_data.data_sources.internal.data.write import indice_tools
 
 
-def write_indices_index(f, key, DData, DJSON):
+def write_indices_index(f, key, DData):
     '''
     Technically the same as a IntegerKeys, but as 
     the values are dicts filter down to the page number
@@ -22,5 +22,5 @@ def write_indices_index(f, key, DData, DJSON):
             DOut[ord_] = DVal['page']  # MULTIPLE VALUE WARNING! ============
     
     # TODO: Fix the key orders! ==================================================================
-    return write_integer_keys_index(f, key, DOut, DJSON,
+    return write_integer_keys_index(f, key, DOut,
                                     prefix='pages')

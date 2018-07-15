@@ -1,20 +1,22 @@
 import warnings
 
 from char_data.data_paths import data_path
-
-from char_data.importer.misc.char_utilities import open_scsv, get_code_point, uni_open
-from char_data.datatypes.write.write_encoding import get_L_encoding
-from char_data.importer.parsers.NamesList import NamesList
-from char_data.importer.Write import WriteBase, add
+from char_data.data_sources.internal.importers.misc import get_code_point
+from char_data.data_sources.internal.importers.misc import open_scsv, uni_open
+from char_data.data_sources.internal.data.write.write_encoding import get_L_encoding
+from char_data.data_sources.internal.importers.unicode.nameslist import NamesList
+from char_data.data_sources.internal.importers.Write import WriteBase, add
 
 
 class ImportUnicode(WriteBase):
     def __init__(self):
-        WriteBase.__init__(self, 'unidata/unidata.pyini')
-        
+        from char_data.data_sources.internal.UnicodeData import UnicodeData
+        WriteBase.__init__(self, UnicodeData())
+
+
         # Basic data
         self.unicode_data('UnicodeData.txt')
-        self.names_list(data_path('chardata', 'unidata/src/NamesList.txt'))
+        self.names_list(data_path('chardata', 'unidata/source/NamesList.txt'))
         
         # Arabic shaping
         self.arabic_shaping('ArabicShaping.txt')
@@ -44,11 +46,11 @@ class ImportUnicode(WriteBase):
             # Layout
             ('line break', 'LineBreak.txt'),
             ('joining type', 'extracted/DerivedJoiningType.txt'),
-            ('grapheme break', 'Auxiliary/GraphemeBreakProperty.txt'),
-            ('sentence break', 'Auxiliary/SentenceBreakProperty.txt'),
-            ('word break', 'Auxiliary/WordBreakProperty.txt'),
+            ('grapheme break', 'auxiliary/GraphemeBreakProperty.txt'),
+            ('sentence break', 'auxiliary/SentenceBreakProperty.txt'),
+            ('word break', 'auxiliary/WordBreakProperty.txt'),
             ('bidi mirroring', 'BidiMirroring.txt'),
-                          
+
             # Blocks/scripts
             ('block', 'Blocks.txt'),
             ('script', 'Scripts.txt'),
@@ -92,17 +94,17 @@ class ImportUnicode(WriteBase):
                 'code value', 
                 'name', 
                      
-                'general category', 
-                'canonical combining classes', 
+                'general category',
+                'canonical combining classes',
                 'bidirectional category',
-                'character decomposition mapping', 
+                'character decomposition mapping',
                      
-                'decimal digit value', 
-                'digit value', 
-                'numeric value', 
+                'decimal digit value',
+                'digit value',
+                'numeric value',
                      
                 'mirrored', 
-                'Unicode 1.0 name', 
+                'Unicode 1.0 name',
                 '10646 comment field', 
                 'uppercase', 
                 'lowercase', 

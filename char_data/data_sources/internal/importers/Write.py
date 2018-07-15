@@ -2,17 +2,18 @@ import warnings
 from json import dumps
 
 from toolkit.io.file_tools import file_write
-from toolkit.py_ini import read_D_pyini
+
 from char_data.data_paths import data_path
 from char_data.data_sources.internal.indexes import DIndexWriters
-from char_data.data_sources.internal import property_formatters
+from char_data.DataSourceBase import DataSourceBase
+from char_data.data_sources.get_key_name import get_key_name
 
 
 def add(old_fn):
     def new_fn(self, *args, **kw):
         # use iterator `old_fn` and add character information
         for key, ord_, value in old_fn(self, *args, **kw):
-            D = self.DKeys[key]
+            D = self.DKeys[get_key_name(key)]  # PERFORMANCE WARNING!!! =============================================
 
             if ord_ in D:
                 warnings.warn(
@@ -23,28 +24,27 @@ def add(old_fn):
 
 
 class WriteBase:
-    def __init__(self, path):
+    def __init__(self, internal_data_source):
         self.DKeys = {}
         self.DCls = {}
-        self.read_data(data_path('chardata', path))
+        self.read_data(internal_data_source)
     
-    def read_data(self, path):
-        D = read_D_pyini(path)
-        
-        for key, DItem in D.items():
-            print key, DItem
+    def read_data(self, internal_data_source):
+        for key in dir(internal_data_source):
+            inst = getattr(internal_data_source, key)
+            print inst
+            if not isinstance(inst, DataSourceBase):
+                continue
+
+            print key, inst
             self.DKeys[key] = {}
             
-            if 'index' in DItem and DItem['index'] not in (None, 'FIXME'): # HACK!
-                indexer = DIndexWriters[DItem['index']]
+            if inst.index_type and inst.index_type not in (None, 'FIXME'): # HACK!
+                indexer = DIndexWriters[inst.index_type]
             else:
                 indexer = None
             
-            self.DCls[key] = (
-                getattr(property_formatters, DItem['formatter']),
-                indexer,
-                DItem
-            )
+            self.DCls[key] = (inst, indexer)
     
     def write(self, path):
         """
@@ -60,7 +60,7 @@ class WriteBase:
         f_idx = open('%s-idx.bin' % path, 'wb')
         
         for key, DOrds in self.DKeys.items():
-            formatter_class, index_fn, DItem = self.DCls[key]
+            formatter_class, index_fn = self.DCls[key]
             print 'writing:', key, formatter_class#, DOrds
             
             fn = formatter_class.writer
@@ -68,7 +68,8 @@ class WriteBase:
             
             if index_fn:
                 DData = self.DKeys[key]
-                DIdxJSON[key] = index_fn(f_idx, key, DData, DItem)
+                # NOTE: DItem (i.e. the dict from the .pyini file) was passed here, but
+                DIdxJSON[key] = index_fn(f_idx, key, DData)
         
         file_write('%s.json' % path, dumps(DJSON, indent=4))
         file_write('%s-idx.json' % path, dumps(DIdxJSON, indent=4))

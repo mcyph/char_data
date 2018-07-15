@@ -33,7 +33,7 @@ class Unihan(InternalBase):
         )
         self.definition = Definition(
             self, HEADER_DEFINITION, 'Definition', 'Chinese Definition',
-            LISOs=['cmn', 'yue', 'kor', 'vie', 'ltc'], index='Fulltext'
+            LISOs=['cmn', 'yue', 'kor', 'vie', 'ltc'], index_type='Fulltext'
         )
 
         #====================================================================#
@@ -42,15 +42,15 @@ class Unihan(InternalBase):
 
         self.accountingnumeric = NoFormatStrings(
             self, HEADER_NUMERIC, 'AccountingNumeric', 'Accounting Numeric',
-            index='IntegerKeys'
+            index_type='IntegerKeys'
         )
         self.othernumeric = NoFormatStrings(
             self, HEADER_NUMERIC, 'OtherNumeric', 'Other Numeric',
-            index='IntegerKeys'
+            index_type='IntegerKeys'
         )
         self.primarynumeric = NoFormatStrings(
             self, HEADER_NUMERIC, 'PrimaryNumeric', 'Primary Numeric',
-            index='IntegerKeys'
+            index_type='IntegerKeys'
         )
 
         #====================================================================#
@@ -59,47 +59,47 @@ class Unihan(InternalBase):
 
         self.cantonese = Definition(
             self, HEADER_READINGS, 'Cantonese', 'Cantonese Readings',
-            LISOs=['yue'], index='CompressedNames'
+            LISOs=['yue'], index_type='CompressedNames'
         )
         self.hangul = Definition(
             self, HEADER_READINGS, 'Hangul', 'Hangul Readings',
-            LISOs=['kor'], index='CompressedNames'
+            LISOs=['kor'], index_type='CompressedNames'
         )
         self.hanyupinlu = Definition(
             self, HEADER_READINGS, 'HanyuPinlu', 'Xiandai Hanyu Pinlu',
-            LISOs=['cmn'], index='CompressedNames'
+            LISOs=['cmn'], index_type='CompressedNames'
         )
         self.hanyupinyin = Definition(
             self, HEADER_READINGS, 'HanyuPinyin', 'Hanyu Pinyin',
-            LISOs=['cmn'], index='CompressedNames'
+            LISOs=['cmn'], index_type='CompressedNames'
         )
         self.japanesekun = Definition(
             self, HEADER_READINGS, 'JapaneseKun', 'JapaneseKun',
-            LISOs=['jpn'], index='CompressedNames'
+            LISOs=['jpn'], index_type='CompressedNames'
         )
         self.japaneseon = Definition(
             self, HEADER_READINGS, 'JapaneseOn', 'JapaneseOn',
-            LISOs=['jpn'], index='CompressedNames'
+            LISOs=['jpn'], index_type='CompressedNames'
         )
         self.korean = Definition(
             self, HEADER_READINGS, 'Korean', 'Korean',
-            LISOs=['kor'], index='CompressedNames'
+            LISOs=['kor'], index_type='CompressedNames'
         )
         self.mandarin = Definition(
             self, HEADER_READINGS, 'Mandarin', 'Mandarin',
-            LISOs=['cmn'], index='CompressedNames'
+            LISOs=['cmn'], index_type='CompressedNames'
         )
         self.tang = Definition(
             self, HEADER_READINGS, 'Tang', 'Tang',
-            LISOs=['ltc'], index='CompressedNames'
+            LISOs=['ltc'], index_type='CompressedNames'
         )
         self.vietnamese = Definition(
             self, HEADER_READINGS, 'Vietnamese', 'Vietnamese',
-            LISOs=['vie'], index='CompressedNames'
+            LISOs=['vie'], index_type='CompressedNames'
         )
         self.xhc1983 = Definition(
             self, HEADER_READINGS, 'XHC1983', 'XHC Mandarin Readings',
-            LISOs=['cmn'], index='CompressedNames'
+            LISOs=['cmn'], index_type='CompressedNames'
         )
 
         #====================================================================#
@@ -188,15 +188,15 @@ class Unihan(InternalBase):
 
         self.frequency = Frequency(
             self, HEADER_GRADES_FREQUENCIES, 'Frequency', 'Chinese Frequency',
-            LISOs=['cmn', 'yue', 'kor', 'vie', 'ltc'], index='IntegerKeys'
+            LISOs=['cmn', 'yue', 'kor', 'vie', 'ltc'], index_type='IntegerKeys'
         )
         self.gradelevel = Frequency(
             self, HEADER_GRADES_FREQUENCIES, 'GradeLevel', 'Hong Kong Grade',
-            LISOs=['cmn', 'yue', 'kor', 'vie', 'ltc'], index='IntegerKeys'
+            LISOs=['cmn', 'yue', 'kor', 'vie', 'ltc'], index_type='IntegerKeys'
         )
         self.iicore = BooleanEnum(
             self, HEADER_GRADES_FREQUENCIES, 'IICore', 'IICore',
-            index='IntegerKeys'
+            index_type='IntegerKeys'
         )
 
         #====================================================================#
@@ -205,7 +205,7 @@ class Unihan(InternalBase):
 
         self.totalstrokes = NoFormatIntegers(
             self, HEADER_TOTAL_STROKES, 'TotalStrokes', 'Chinese Strokes',
-            index='IntegerKeys'
+            index_type='IntegerKeys'
         )
 
         #====================================================================#
@@ -214,23 +214,23 @@ class Unihan(InternalBase):
 
         self.rsjapanese = RadicalStrokes(
             self, HEADER_RADICAL_STROKES, 'RSJapanese', 'Japanese',
-            LISOs=['jpn'], index='RadicalStrokes'
+            LISOs=['jpn'], index_type='RadicalStrokes'
         )
         self.rskangxi = RadicalStrokes(
             self, HEADER_RADICAL_STROKES, 'RSKangXi', 'KangXi RS',
-            index='RadicalStrokes'
+            index_type='RadicalStrokes'
         )
         self.rskanwa = RadicalStrokes(
             self, HEADER_RADICAL_STROKES, 'RSKanWa', 'KanWa RS',
-            LISOs=['jpn'], index='RadicalStrokes'
+            LISOs=['jpn'], index_type='RadicalStrokes'
         )
         self.rskorean = RadicalStrokes(
             self, HEADER_RADICAL_STROKES, 'RSKorean', 'Korean RS',
-            LISOs=['kor'], index='RadicalStrokes'
+            LISOs=['kor'], index_type='RadicalStrokes'
         )
         self.rsunicode = RadicalStrokes(
             self, HEADER_RADICAL_STROKES, 'RSUnicode', 'Unicode RS',
-            index='RadicalStrokes'
+            index_type='RadicalStrokes'
         )
 
         #====================================================================#
@@ -239,11 +239,11 @@ class Unihan(InternalBase):
 
         self.cangjie = NoFormatStrings(
             self, HEADER_INPUT, 'Cangjie', 'Cangjie Input Code',
-            LISOs=['cmn', 'yue', 'kor', 'vie', 'ltc'], index='StringKeys'
+            LISOs=['cmn', 'yue', 'kor', 'vie', 'ltc'], index_type='StringKeys'
         )
         self.fourcornercode = NoFormatStrings(
             self, HEADER_INPUT, 'FourCornerCode', 'Four Corner Input Code',
-            LISOs=['cmn', 'yue', 'kor', 'vie', 'ltc'], index='StringKeys'
+            LISOs=['cmn', 'yue', 'kor', 'vie', 'ltc'], index_type='StringKeys'
         )
 
         #====================================================================#
@@ -353,67 +353,67 @@ class Unihan(InternalBase):
 
         self.cheungbauerindex = Indices(
             self, HEADER_INDICES, 'CheungBauerIndex', 'Cheung Bauer',
-            LISOs=['yue'], index='Indices'
+            LISOs=['yue'], index_type='Indices'
         )
         self.cihait = Indices(
             self, HEADER_INDICES, 'CihaiT', 'Cihai',
-            LISOs=['yue'], index='Indices'
+            LISOs=['yue'], index_type='Indices'
         )
         self.cowles = Indices(
             self, HEADER_INDICES, 'Cowles', 'Cowles',
-            LISOs=['yue'], index='Indices'
+            LISOs=['yue'], index_type='Indices'
         )
         self.daejaweon = Indices(
             self, HEADER_INDICES, 'DaeJaweon', 'Dae Jaweon',
-            LISOs=['kor'], index='Indices'
+            LISOs=['kor'], index_type='Indices'
         )
         self.fennindex = Indices(
             self, HEADER_INDICES, 'FennIndex', 'Fenn Dictionary',
-            LISOs=['cmn'], index='Indices'
+            LISOs=['cmn'], index_type='Indices'
         )
         self.gsr = Indices(
             self, HEADER_INDICES, 'GSR', 'Grammata Serica Recensa',
-            LISOs=['cmn', 'yue', 'jpn'], index='Indices'
+            LISOs=['cmn', 'yue', 'jpn'], index_type='Indices'
         )
         self.hanyu = Indices(
             self, HEADER_INDICES, 'HanYu', 'Hanyu Da Zidian',
-            index='Indices'
+            index_type='Indices'
         )
         self.hkglyph = Indices(
             self, HEADER_INDICES, 'HKGlyph', 'HKGlyph',
-            LISOs=['yue'], index='Indices'
+            LISOs=['yue'], index_type='Indices'
         )
         self.kangxi = Indices(
             self, HEADER_INDICES, 'KangXi', 'KangXi',
-            LISOs=['cmn', 'yue', 'kor', 'vie', 'ltc'], index='Indices'
+            LISOs=['cmn', 'yue', 'kor', 'vie', 'ltc'], index_type='Indices'
         )
         self.karlgren = Indices(
             self, HEADER_INDICES, 'Karlgren', 'Karlgren',
-            LISOs=['jpn'], index='Indices'
+            LISOs=['jpn'], index_type='Indices'
         )
         self.lau = Indices(
             self, HEADER_INDICES, 'Lau', 'Lau',
-            LISOs=['yue'], index='Indices'
+            LISOs=['yue'], index_type='Indices'
         )
         self.matthews = Indices(
             self, HEADER_INDICES, 'Matthews', 'Matthews',
-            LISOs=['yue', 'cmn'], index='Indices'
+            LISOs=['yue', 'cmn'], index_type='Indices'
         )
         self.meyerwempe = Indices(
             self, HEADER_INDICES, 'MeyerWempe', 'Meyer Wempe',
-            LISOs=['yue'], index='Indices'
+            LISOs=['yue'], index_type='Indices'
         )
         self.morohashi = Indices(
             self, HEADER_INDICES, 'Morohashi', 'Morohashi',
-            LISOs=['jpn'], index='Indices'
+            LISOs=['jpn'], index_type='Indices'
         )
         self.nelson = Indices(
             self, HEADER_INDICES, 'Nelson', 'Nelson',
-            LISOs=['jpn'], index='Indices'
+            LISOs=['jpn'], index_type='Indices'
         )
         self.sbgy = Indices(
             self, HEADER_INDICES, 'SBGY', 'Song Ben Guang Yun',
-            LISOs=['yue', 'cmn', 'ltc'], index='Indices'
+            LISOs=['yue', 'cmn', 'ltc'], index_type='Indices'
         )
 
         #====================================================================#
@@ -422,7 +422,7 @@ class Unihan(InternalBase):
 
         self.phonetic = NoFormatStrings(
             self, HEADER_PHONETIC_INDICES, 'Phonetic', 'Phonetic',
-            LISOs=['yue'], index='StringKeys'
+            LISOs=['yue'], index_type='StringKeys'
         )
 
         #====================================================================#

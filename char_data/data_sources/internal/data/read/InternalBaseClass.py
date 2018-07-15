@@ -6,7 +6,7 @@ class NO_DATA: pass
 
 class InternalBaseClass(DataSourceBase):
     def __init__(self, parent, header_const, original_name, short_desc,
-                 long_desc=None, LISOs=None, index=None):
+                 long_desc=None, LISOs=None, index_type=None):
         """
         The base class for internal datatype readers
         (e.g. Boolean/IntegerList etc)
@@ -18,12 +18,12 @@ class InternalBaseClass(DataSourceBase):
         (which are derived from subclasses of this base class)
         """
         self.data_loaded = False
-        index = index if index != 'FIXME' else None  # HACK HACK HACK!!!!!
+        self.index_type = index_type if index_type != 'FIXME' else None  # HACK HACK HACK!!!!!
 
         DataSourceBase.__init__(
             self, parent=parent, header_const=header_const,
             original_name=original_name, short_desc=short_desc,
-            long_desc=long_desc, LISOs=LISOs, index=index
+            long_desc=long_desc, LISOs=LISOs, index=self.index_type
         )
 
         self._ensure_data_loaded()
