@@ -6,6 +6,8 @@ from unicodedata import normalize
 from toolkit.arrays.ArrayUtils import read_json, read_array
 from toolkit.hashes.fast_hash import fast_hash
 
+from CharIndexValueInfo import CharIndexValueInfo
+
 
 class FulltextIndex:
     typ = 'fulltext'
@@ -30,13 +32,16 @@ class FulltextIndex:
     #                    Exact Searching                   #
     #======================================================#
     
-    def keys(self):
+    def values(self):
         """
         CompressedNames reference by unsigned int hash
         and there can sometimes be too many items, so 
         I've disabled it for now
         """
         return self.LSpell
+
+    def get_value_info(self, value):
+        return CharIndexValueInfo(value, value) # CHECK ME!!!
     
     def search(self, search):
         """

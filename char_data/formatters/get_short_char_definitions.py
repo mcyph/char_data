@@ -8,6 +8,9 @@ class _ShortCharDefinitions:
         self.cur_block = None
         self.cur_subblock = None
 
+        self.SCurSubblockTokens = set()
+        self.SCurBlockTokens = set()
+
     def get_short_char_definitions(self, LChars):
         LOut = []
 

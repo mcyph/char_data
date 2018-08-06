@@ -1,5 +1,7 @@
 from toolkit.arrays.ArrayUtils import read_arrays
 
+from CharIndexValueInfo import CharIndexValueInfo
+
 
 class RadicalStrokesIndex:
     typ = 'radical_strokes'
@@ -17,7 +19,7 @@ class RadicalStrokesIndex:
         '''
         _, self.DRS = read_arrays(f, DJSON)
     
-    def keys(self):
+    def values(self):
         '''
         RadicalStrokes really need to use the data 
         in Radical to get English radnames etc
@@ -25,6 +27,9 @@ class RadicalStrokesIndex:
         I think adds too many items so I've disabled it
         '''
         return None
+
+    def get_value_info(self, value):
+        return CharIndexValueInfo(FIXME)
     
     def search(self, search):
         if search in self.DRS:

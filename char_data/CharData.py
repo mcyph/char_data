@@ -4,6 +4,28 @@ from DataSourceBase import DataSourceBase
 from char_data.data_sources.DataReader import DataReader
 
 from DataBase import DataBase
+from char_data.data_sources.consts import DHeaders
+
+
+class CharDataKeyInfo:
+    def __init__(self, key, original_key, short_desc,
+                 header_const, source, char_index_key_info=None):
+        self.key = key
+        self.original_key = original_key
+        self.short_desc = short_desc
+        self.header_const = header_const
+        self.source = source
+        self.char_index_key_info = char_index_key_info
+
+    def __unicode__(self):
+        return "CharDataKeyInfo(key=%s, original_key=%s, header_const=%s, char_index_key_info=%s)" % (
+            self.key, self.original_key,
+            DHeaders[self.header_const],
+            unicode(self.char_index_key_info)
+        )
+
+    def __str__(self):
+        return unicode(self).encode('utf-8')
 
 
 #=========================================================#
@@ -23,7 +45,7 @@ class CharData(DataBase, DataReader):
         """
         Get a list of the possible data source/key combinations
 
-        Returns a list of [(internal key name, display key name), ...]
+        Returns a list of ["source.key", ...]
         """
         LRtn = []
 
@@ -41,9 +63,34 @@ class CharData(DataBase, DataReader):
                 if not isinstance(i_o, DataSourceBase):  # TODO: SUPPORT EXTERNAL BASES HERE!!! =====================
                     #print('CONTINUE 2:', key, o)
                     continue
-                LRtn.append((key, i_o.key))
+
+                LRtn.append('%s.%s' % (key, property))
 
         return sorted(LRtn)
+
+    def get_key_info(self, key):
+        """
+        Get information about internal key `key`,
+        e.g. to allow displaying the key to humans
+        (Kanjidic "freq" might be "Japanese Frequency", for instance)
+        """
+        inst = self.get_class_by_property(key)
+        from CharIndexes import char_indexes
+
+        if inst.index:
+            try:
+                ciki = char_indexes.get_key_info(key)
+            except KeyError:
+                ciki = None
+        else:
+            ciki = None
+
+        source = inst.parent.key  # HACK!
+
+        return CharDataKeyInfo(
+            key, inst.key, inst.short_desc,
+            inst.header_const, source, ciki
+        )
 
     def raw_data(self, key, ord_):
         """

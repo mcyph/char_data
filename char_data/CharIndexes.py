@@ -3,15 +3,33 @@ from DataBase import DataBase
 from CharData import char_data
 
 
-#=========================================================#
-#                        Indexes                          #
-#=========================================================#
+
+class CharIndexKeyInfo:
+    def __init__(self, key, display_key, key_type):
+        self.key = key
+        self.display_key = display_key
+        self.key_type = key_type
+
+    def __unicode__(self):
+        return "CharIndexKeyInfo(key=%s, display_key=%s, key_type=%s)" % (
+            self.key, self.display_key, self.key_type
+        )
+
+    def __str__(self):
+        return unicode(self).encode('utf-8')
 
 
 class CharIndexes(DataBase):
-    def __init__(self):
+    #=========================================================#
+    #                        Indexes                          #
+    #=========================================================#
 
+    def __init__(self):
         DataBase.__init__(self, char_data)
+
+    #==================================================================#
+    #                           Key-Related                            #
+    #==================================================================#
 
     def search(self, key, value, *args, **kw):
         """
@@ -41,9 +59,24 @@ class CharIndexes(DataBase):
                     continue
 
                 # Outputs [(internal key name, display key name, index kind), ...]
-                LRtn.append((key, i_o.key, i_o.index.typ))
+                LRtn.append('%s.%s' % (key, property))
 
         return sorted(LRtn)
+
+    def get_key_info(self, key):
+        """
+        Get information about internal key `key`,
+        e.g. to allow displaying the key to humans
+        (Kanjidic "freq" might be "Japanese Frequency", for instance)
+
+        TODO: Should this all be in `char_data`???
+        """
+        inst = self.get_class_by_property(key)
+        return CharIndexKeyInfo(key, inst.key, inst.index.typ)
+
+    #==================================================================#
+    #                          Value-Related                           #
+    #==================================================================#
 
     def values(self, key):
         """
@@ -52,7 +85,17 @@ class CharIndexes(DataBase):
         key is the property name and key_type is e.g. "Fulltext" etc
         """
         inst = self.get_class_by_property(key)
-        return inst.index.keys()
+        return inst.index.values()
+
+    def get_value_info(self, key, value):
+        # HACK: This really should perhaps be at a "formatter" level!!!
+
+        inst = self.get_class_by_property(key)
+        formatted = inst._format_data(0, value)  # HACK HACK HACK!
+        from char_data.data_sources.internal.indexes.read.CharIndexValueInfo import CharIndexValueInfo
+        return CharIndexValueInfo(value, formatted, description=None)
+
+
 
 
 char_indexes = CharIndexes()
@@ -63,15 +106,18 @@ if __name__ == '__main__':
     from char_data.data_sources.consts import DHeaders
 
     LKeys = []
-    for source, key, kind in char_indexes.keys():
+    for key in char_indexes.keys():
         print key
-        inst = getattr(getattr(char_data, source), key)
-        header = inst.header_const
-        LKeys.append((header, key, source, inst))
+        ciki = char_indexes.get_key_info(key)
+        cdki = char_data.get_key_info(key)
+        inst = char_data.get_class_by_property(key)
+
+        header = cdki.header_const
+        LKeys.append((header, key, inst))
     LKeys.sort()
 
-    for header, key, source, inst in LKeys:
-        print header, source, key, inst
+    for header, key, inst in LKeys:
+        print header, key, inst
         continue
 
         LValues = char_indexes.values((source, key))

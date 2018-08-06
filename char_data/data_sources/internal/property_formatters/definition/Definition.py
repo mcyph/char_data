@@ -9,8 +9,9 @@ class Definition(SentenceData):
     def raw_data(self, ord_):
         if self.key == 'name' and ord_ >= 0xAC00 and ord_ <= 0xD7AF:
             # HACK: Use the unicodedata module for Hangul
-            try: 
-                return unicodedata.name(unichr(ord_)).lower()
+            try:
+                r = unicodedata.name(unichr(ord_))
+                return (r,) if r else None
             except: 
                 return None
         
