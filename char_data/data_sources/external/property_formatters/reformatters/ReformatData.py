@@ -5,6 +5,12 @@ from ReformatIndex import ReformatIndex
 
 class ReformatData(ExternalBaseClass):
     def __init__(self, parent, header_const, original_name, short_desc, get_L_data):
+        """
+        This is just a placeholder, as getting raw value information for derived
+        info by codepoints doesn't make much sense (that I can see)
+
+        See also ReformatIndex.py for what this is here for.
+        """
         self.get_L_data = get_L_data
 
         ExternalBaseClass.__init__(self,
