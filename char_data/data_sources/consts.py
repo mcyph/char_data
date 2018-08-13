@@ -50,18 +50,23 @@ DHeaders = {
 
 DTwoLevelMappings = {
     'unicodedata.script': [
-        ('East Asian Scripts', [
-            'Bopomofo', 'CJK_Symbols', 'Han', 'Hangul', 'Hiragana', 'Katakana', 'Yi'
-        ]),
-        ('Symbols and Punctuation', [
-            'Currency_Signs', 'Format_Characters', 'General_Punctuation', 'Geometric_Shapes',
-            'IPA_Alphabet', 'Letterlike_Symbols', 'Mathematical_Signs', 'Modifier_and_Combining_Characters',
-            'Numbers', 'Pictures_and_Miscellaneous_Symbols', 'Spaces', 'Technical_Symbols'
-        ]),
         ('European Scripts', [
             'Armenian', 'Carian', 'Coptic', 'Cyrillic', 'Georgian', 'Greek', 'Latin',
             'Lycian', 'Lydian'
         ]),
+        ('East Asian Scripts', [
+            'Bopomofo', 'CJK_Symbols', 'Han', 'Hangul', 'Hiragana', 'Katakana', 'Yi'
+        ]),
+        ('South East Asian', [
+            'Balinese', 'Buginese', 'Cham', 'Javanese', 'Kayah_Li', 'Khmer', 'Lao', 'Lisu',
+            'Meetei_Mayek', 'Myanmar', 'New_Tai_Lue', 'Rejang', 'Sundanese', 'Tai_Le',
+            'Tai_Tham', 'Tai_Viet', 'Thai'
+        ]),
+        #('Symbols and Punctuation', [
+        #    'Currency_Signs', 'Format_Characters', 'General_Punctuation', 'Geometric_Shapes',
+        #    'IPA_Alphabet', 'Letterlike_Symbols', 'Mathematical_Signs', 'Modifier_and_Combining_Characters',
+        #    'Numbers', 'Pictures_and_Miscellaneous_Symbols', 'Spaces', 'Technical_Symbols'
+        #]),
         ('Middle Eastern Scripts', [
             'Arabic', 'Avestan', 'Hebrew', 'Imperial_Aramaic', 'Inscriptional_Pahlavi',
             'Inscriptional_Parthian', 'Old_South_Arabian', 'Old_Turkic', 'Samaritan',
@@ -71,11 +76,6 @@ DTwoLevelMappings = {
             'Bengali', 'Devanagari', 'Gujarati', 'Gurmukhi', 'Kaithi', 'Kannada', 'Limbu',
             'Malayalam', 'Ol_Chiki', 'Oriya', 'Saurashtra', 'Sinhala', 'Syloti_Nagri',
             'Tamil','Telugu'
-        ]),
-        ('South East Asian', [
-            'Balinese', 'Buginese', 'Cham', 'Javanese', 'Kayah_Li', 'Khmer', 'Lao', 'Lisu',
-            'Meetei_Mayek', 'Myanmar', 'New_Tai_Lue', 'Rejang', 'Sundanese', 'Tai_Le',
-            'Tai_Tham', 'Tai_Viet', 'Thai'
         ]),
         ('African Scripts', [
             'Bamum', 'Egyptian_Hieroglyphs', 'Ethiopic', 'Nko', 'Tifinagh', 'Vai'
