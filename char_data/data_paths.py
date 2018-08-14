@@ -5,7 +5,6 @@ dir_path = os.path.dirname(os.path.realpath(__file__))
 
 data_paths = DataPaths(dir_path, {
     "chardata": "char_data/data",
-    "unicode_set": "char_data/data/unicode_set",
 
     "chinese_variants": "char_data/data/chinese_variants",
     "j_simplified": "char_data/data/j_simplified"

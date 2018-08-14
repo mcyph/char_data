@@ -34,18 +34,25 @@ class ReformatIndex:
 
         cur_block = None
         LData = self.get_L_data()
-        print 'LDATA:', LData
+        #print 'LDATA:', LData
 
         for item in LData:
             print item
 
             if item[0] == 'block':
-                cur_block = item[1]
-                LOut.append((cur_block[0], []))
+                if cur_block and tuple(cur_block) == tuple(item[1]):
+                    # ???
+                    pass
+                else:
+                    cur_block = item[1]
+                    LOut.append((cur_block[0], []))
 
             elif item[0] == 'sub_block':
                 assert cur_block
-                LOut[-1][-1].append('%s.%s' % (cur_block[0], item[1][0]))
+                append_me = '%s.%s' % (cur_block[0], item[1][0])
+
+                if not append_me in LOut[-1][-1]:
+                    LOut[-1][-1].append(append_me)
 
             elif item[0] == 'chars':
                 pass
@@ -66,7 +73,10 @@ class ReformatIndex:
 
             if item[0] == 'sub_block':
                 assert cur_block
-                L.append('%s.%s' % (cur_block[0], item[1][0]))
+                append_me = '%s.%s' % (cur_block[0], item[1][0])
+
+                if not append_me in L:
+                    L.append(append_me)
 
         return L
 

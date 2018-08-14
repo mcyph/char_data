@@ -1,5 +1,5 @@
 from char_data.data_sources.internal import CCDict, Kanjidic, UnicodeData, Unihan
-from char_data.data_sources.external import HanziVariants, StandardEncodings, ReformattedData
+from char_data.data_sources.external import HanziVariants, StandardEncodings, ReformattedData, Alphabets
 
 
 class DataReader:
@@ -14,6 +14,7 @@ class DataReader:
         ('hanzi_variants', 'hanzi_variants'),
         ('standard_encodings', 'standard_encodings'),
         ('reformatted', 'reformatted'),
+        ('cldr_alphabets', 'cldr_alphabets'),
 
         #('nameslist', 'nameslist')
     ]
@@ -34,6 +35,7 @@ class DataReader:
         self.hanzi_variants = HanziVariants()
         self.standard_encodings = StandardEncodings()
         self.reformatted = ReformattedData()
+        self.cldr_alphabets = Alphabets()
 
         #self.create_combine_insts()
         #self.create_alphabet_insts()

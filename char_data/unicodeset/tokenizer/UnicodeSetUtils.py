@@ -1,5 +1,5 @@
 import codecs
-from char_data import idx_keys, idx_values
+from char_data import char_indexes
 from char_data.data_paths import data_path
 
 #=========================================================#
@@ -9,10 +9,8 @@ from char_data.data_paths import data_path
 
 def get_D_props():
     D = {}
-    for ns, key, _ in idx_keys():
-        conv_key = key.lower().replace(' ', '_')
-        D['%s.%s' % (ns, conv_key)] = '%s.%s' % (ns, key)
-        D[conv_key] = key
+    for key in char_indexes.keys():
+        D[key.partition('.')[-1]] = key
     return D
 
 
@@ -25,7 +23,7 @@ def get_D_prop_aliases():
     with codecs.open(
         data_path(
             'chardata',
-            'unidata/src/PropertyAliases.txt'),
+            'unidata/source/PropertyAliases.txt'),
         'rb',
         'utf-8'
     ) as f:
@@ -54,8 +52,8 @@ def get_D_prop_aliases():
 
 def get_D_values():
     D = {}
-    for ns, key, _ in idx_keys():
-        D['%s.%s' % (ns, key)] = D[key] = _get_D_values((ns, key))
+    for key in char_indexes.keys():
+        D[key] = D[key.partition('.')[-1]] = _get_D_values(key)
     return D
 
 
@@ -66,13 +64,13 @@ def _get_D_values(key):
     
     TODO: support property value aliases!
     """
-    L = idx_values(key)
+    L = char_indexes.values(key)
     #print key, type(L)
     if not L:
         return {} # WARNING! =============================================
     
     D = {}
-    for i in idx_values(key):
+    for i in char_indexes.values(key):
         k = unicode(i).lower()
         assert not k in D
         D[k] = i
@@ -87,7 +85,7 @@ def get_D_general_cat_aliases():
     D = {}
     with codecs.open(
         data_path(
-            'unicode_set',
+            'chardata',
             'GeneralCatAliases.txt'
         ),
         'rb',
@@ -132,7 +130,7 @@ def get_D_default_props():
         'Lt'
     )]
     
-    for key in idx_values('general category'):
+    for key in char_indexes.values('general category'):
         # make it so that e.g. "L"/"l" finds all letters
         D.setdefault(key[0].lower(), []).append(('general category', key))
     
