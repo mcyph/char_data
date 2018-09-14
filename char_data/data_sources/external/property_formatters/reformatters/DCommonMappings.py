@@ -26,6 +26,7 @@ DCommonMappings = {
         'Supplemental Symbols and Pictographs',
         'Miscellaneous Symbols and Pictographs',
         'Transport and Map Symbols',
+        'Miscellaneous Symbols',
     ],
     'Other Mathematic Symbols': [
         'Number Forms',
@@ -78,9 +79,6 @@ DCommonMappings = {
         'Enclosed Alphanumerics',
         'Enclosed Alphanumeric Supplement',
         'Enclosed Ideographic Supplement',
-    ],
-    'Miscellaneous Symbols': [
-        'Miscellaneous Symbols',
     ],
     'Dingbats': [
         'Dingbats',
