@@ -14,7 +14,7 @@ def get_by_multi_rads(LRads, Trad):
     DRads = DBothRads
     DPossible = {}
     for iRad in LRads:
-        # print 'iRad:', iRad.encode('utf-8')
+        # print('iRad:', iRad.encode('utf-8'))
         # Only append if either the first radical or already
         # found by previous radicals to filter down to only
         # characters with those multirads
@@ -22,7 +22,7 @@ def get_by_multi_rads(LRads, Trad):
         for SearchForRad in iRad:
             if SearchForRad in DRads:
                 for AppendChar in DRads[SearchForRad]:
-                    # print 'AppendChar:', AppendChar.encode('utf-8')
+                    # print('AppendChar:', AppendChar.encode('utf-8'))
                     if (xx == 0) or (AppendChar in DPossible):
                         nDPossible[AppendChar] = None
         DPossible = nDPossible

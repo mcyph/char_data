@@ -1,4 +1,4 @@
-from toolkit.arrays.ArrayUtils import write_arrays, write_json
+from toolkit.arrays import write_arrays, write_json
 from char_data.misc import get_char_gaps, iter_ranges
 from toolkit.arrays import get_uni_array, get_int_array
 
@@ -62,7 +62,7 @@ def write_indices(f, key, DOrds):
                         else: 
                             LArray.append(int(value)+1)
                     except:
-                        print 'Error on value: %s key: %s typecode: %s' % (value, k, LArray.typecode)
+                        print('Error on value: %s key: %s typecode: %s' % (value, k, LArray.typecode))
                         raise
         else: 
             for k in DArrays:

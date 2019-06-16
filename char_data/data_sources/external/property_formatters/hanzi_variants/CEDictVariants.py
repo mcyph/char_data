@@ -82,4 +82,4 @@ if __name__ == '__main__':
 
     for key in sorted(hanzi_variants.LHanziVariantKeys):
         use_key = key.lower().replace(' ', '_')
-        print "self.%s = CEDictVariants(self, '%s')" % (use_key, key)
+        print("self.%s = CEDictVariants(self, '%s')" % (use_key, key))

@@ -128,9 +128,9 @@ kangxi_data = KangxiData()
 
 
 if __name__ == '__main__':
-    print kangxi_data.get_D_indexed_by_key('numeric_id')
-    print kangxi_data.get_D_indexed_by_key('kangxi')
-    print kangxi_data.get_D_indexed_by_key('num_strokes')
-    print kangxi_data.get_D_indexed_by_key('num_strokes', kind=KANGXI_TRADITIONAL)
-    print kangxi_data.get_D_indexed_by_key('num_strokes', kind=KANGXI_SIMPLIFIED)
+    print(kangxi_data.get_D_indexed_by_key('numeric_id'))
+    print(kangxi_data.get_D_indexed_by_key('kangxi'))
+    print(kangxi_data.get_D_indexed_by_key('num_strokes'))
+    print(kangxi_data.get_D_indexed_by_key('num_strokes', kind=KANGXI_TRADITIONAL))
+    print(kangxi_data.get_D_indexed_by_key('num_strokes', kind=KANGXI_SIMPLIFIED))
 

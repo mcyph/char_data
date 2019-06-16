@@ -1,7 +1,7 @@
 from unicodedata import normalize
 
 from toolkit.arrays import get_int_array, get_array_by_type
-from toolkit.arrays.ArrayUtils import write_array, write_json
+from toolkit.arrays import write_array, write_json
 from char_data.misc.process_word import remove_tones
 from toolkit.list_operations.rem_dupes import rem_dupes
 from toolkit.hashes.fast_hash import fast_hash

@@ -14,7 +14,7 @@ if rad in DAlternate:
     rad = DAlternate[rad]
 
 if rad in DRadAliases:
-    print 'ADDING ALIAS:', rad.encode('utf-8')
+    print('ADDING ALIAS:', rad.encode('utf-8'))
     key = DRadAliases[rad][-1]
     
     if not key in DRads: 
@@ -28,7 +28,7 @@ if rad in DRadAliases:
 if rad in DRadAppend:
     # Add aliases to disambiguate more complicated radicals
     # TODO: What if there're DUPES?
-    print 'APPENDING:', rad.encode('utf-8')
+    print('APPENDING:', rad.encode('utf-8'))
     
     for iRad in DRadAppend[rad]:
         if not iRad in DRads: 
@@ -42,7 +42,7 @@ if rad in DRadAppend:
 if rad in DRadAppend:
     # Add aliases to disambiguate more complicated radicals
     # TODO: What if there're DUPES?
-    print 'APPENDING:', rad.encode('utf-8')
+    print('APPENDING:', rad.encode('utf-8'))
     
     for iRad in DRadAppend[rad]:
         if not iRad in DRads: 
@@ -54,7 +54,7 @@ if rad in DRadAppend:
             DChars[char] += rad # Add to DChars
 
 if rad in DRadAliases:
-    print 'ADDING ALIAS:', rad.encode('utf-8')
+    print('ADDING ALIAS:', rad.encode('utf-8'))
     key = DRadAliases[rad][1]
     
     if not key in DRads: 

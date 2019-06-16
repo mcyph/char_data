@@ -9,9 +9,9 @@ def write_indices_index(f, key, DData):
     
     TODO: Allow more advanced queries? ============================================================
     '''
-    print DData
+    print(DData)
     _, DData = indice_tools.parse_indices(key, DData)
-    print DData
+    print(DData)
     
     DOut = {}
     for ord_ in DData:

@@ -19,6 +19,15 @@ class Definition(SentenceData):
         return SentenceData.raw_data(self, ord_)
 
     def _format_data(self, ord_, data):
+        if data:
+            # prevent ALL CAPS!
+            L = []
+            for i in data:
+                if i.isupper():
+                    i = i.lower()
+                L.append(i)
+            data = tuple(L)
+
         return data # HACK! =====================================================
 
     def add_sounds(self, s, iso, script):

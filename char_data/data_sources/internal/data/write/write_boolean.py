@@ -1,7 +1,7 @@
 from toolkit.arrays import get_uni_array
 from char_data.misc.get_char_gaps import get_char_gaps
 from char_data.misc.iter_ranges import iter_ranges
-from toolkit.arrays.ArrayUtils import write_array, write_json
+from toolkit.arrays import write_array, write_json
 from range_gen_tools import compress_ord_ranges
 
 

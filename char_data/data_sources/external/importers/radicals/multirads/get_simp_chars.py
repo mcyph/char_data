@@ -23,7 +23,7 @@ def get_simp_chars(Char, DTradChars=None):
                 LSubChars += [
                     w_unichr(i) for i in V
                 ]
-                print 'Char:', Char.encode('utf-8'), 'LSubChars:', ''.join(LSubChars).encode('utf-8'), 'V:', V
+                print('Char:', Char.encode('utf-8'), 'LSubChars:', ''.join(LSubChars).encode('utf-8'), 'V:', V)
 
     # Use the transliteration system to convert from T-S,
     # only allowing if different and MultiRad data not

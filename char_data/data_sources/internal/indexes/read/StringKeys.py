@@ -1,5 +1,5 @@
 from toolkit.list_operations.rem_dupes import fast_rem_dupes
-from toolkit.arrays.ArrayUtils import read_arrays, read_json
+from toolkit.arrays import read_arrays, read_json
 
 from char_data.data_sources.internal.property_formatters.enum.DEnum import DEnum
 

@@ -254,13 +254,13 @@ class ProcessLinks:
                 added = True
 
             elif ' variant of ' in s.lower():
-                print 'OTHER VARIANT WARNING:', s
+                print('OTHER VARIANT WARNING:', s)
                 self.add('DVariants', zh_word, s)
                 added = True
 
 
         if not added and ('variant' in s or '|' in s) and not any(i in s for i in ('county', 'township', 'district', 'town')):
-            print 'VARIANT WARNING:', s.encode('utf-8')
+            print('VARIANT WARNING:', s.encode('utf-8'))
 
 
     def add(self, key, LWord, definition):
@@ -273,7 +273,7 @@ class ProcessLinks:
 
         if ' or ' in definition:
             # Multiple variants!
-            print 'MULTIPLE VARIANTS:', definition
+            print('MULTIPLE VARIANTS:', definition)
             definition = definition.replace(' or of ', ' or ')
             LDefinitions = definition.split(' or ')
         else:
@@ -286,7 +286,7 @@ class ProcessLinks:
             LExtend = get_L_cedict_hanzi(i)
             if len(LExtend) > 1 and not i in SAllowMulti and not definition.startswith('CL:'):
                 LExtend = [LExtend[0]]
-                print 'MULTIPLE HANZI WARNING:', i
+                print('MULTIPLE HANZI WARNING:', i)
 
             LDefinitionHanzi.extend(LExtend)
 

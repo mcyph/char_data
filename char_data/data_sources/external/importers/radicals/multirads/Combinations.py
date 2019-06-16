@@ -16,7 +16,7 @@ def get_D_kanji_combs(DKanji):
     for comb in DRtn:
         DRtn[comb] = fast_rem_dupes(DRtn[comb])
     
-    print 'kanji combinations number:', num_items, len(DRtn)
+    print('kanji combinations number:', num_items, len(DRtn))
     return DRtn
 
 
@@ -31,4 +31,4 @@ if __name__ == '__main__':
     DCombs = get_D_kanji_combs(DKanji)
     
     for comb in sorted(DCombs.keys()):
-        print ''.join(comb), ''.join(DCombs[comb])
+        print(''.join(comb), ''.join(DCombs[comb]))

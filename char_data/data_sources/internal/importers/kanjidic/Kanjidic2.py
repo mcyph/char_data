@@ -43,20 +43,20 @@ def open_kanjidic_2(path):
             # Only children useful - ignored
             # But make sure it actually IS blank!
             if elem.keys() or (elem.text and elem.text.strip()):
-                print 'tag Ignore Warning:', tag, elem.keys(), elem.text
+                print('tag Ignore Warning:', tag, elem.keys(), elem.text)
         
         elif tag == 'database_version':
             # The Kanjidic database version
             # May as well print it
-            print 'Kanjidic2 DB Version:', elem.text
+            print('Kanjidic2 DB Version:', elem.text)
             
         elif tag == 'date_of_creation':
             # Likewise
-            print 'Kanjidic2 Date of Creation:', elem.text
+            print('Kanjidic2 Date of Creation:', elem.text)
             
         elif tag == 'file_version':
             # Likewise
-            print 'f Version:', elem.text
+            print('f Version:', elem.text)
         
         elif tag == 'cp_value':
             # Codepoint values can be easily grabbed by str.encode('utf-8') 
@@ -198,7 +198,7 @@ def open_kanjidic_2(path):
             D['jlpt'].append(int(elem.text.strip()))
 
         else:
-            print 'WARNING:', tag, elem
+            print('WARNING:', tag, elem)
     f.close()
 
 
@@ -206,14 +206,14 @@ if __name__ == '__main__':
     DKeys = {}
     len = 0
     for D in open_kanjidic_2(r'E:\Dev\Dictionaries\Asian\Japanese\Commercial\Kanjidic2\kanjidic2.xml'):
-        print D
+        print(D)
         for k in D:
             DKeys[k] = None
         len += 1
     
     LKeys = sorted(DKeys.keys())
     for key in LKeys:
-        print key
-    print
-    print 'LEN:', len
+        print(key)
+    print()
+    print('LEN:', len)
     

@@ -208,7 +208,7 @@ def get_L_words(fISOCode, fVariant, Word, Deinflect=False):
                     LExtend.sort(key=lambda x: -x[0])
                     LRtn += tuple([i[1] for i in LExtend])
         
-        print ';'.join(LRtn).encode('utf-8')
+        print(';'.join(LRtn).encode('utf-8'))
         return LRtn
     else:
         Rtn = (Word, filter_accents(Word))

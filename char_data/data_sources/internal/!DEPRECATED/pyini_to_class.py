@@ -20,7 +20,7 @@ def get_D_data():
     for key, path in LData:
         print
         print
-        print 'FOR:: %s' % key
+        print('FOR:: %s' % key)
 
         open_data(
             data_path('chardata', '%s/output/%s' % (path, path))
@@ -44,7 +44,7 @@ def open_data(path):
 
     DKeys = load(path + '.json')
     DINI = read_D_pyini(path.replace('/output/', '/') + '.pyini')
-    # print DINI
+    # print(DINI)
 
     with open('%s.bin' % path, 'r+b') as f:
         for key, DJSON in DKeys.items():
@@ -55,7 +55,7 @@ def open_data(path):
             )
 
     LRtn.sort()
-    print '\n'.join(i[-1] for i in LRtn)
+    print('\n'.join(i[-1] for i in LRtn))
     return LRtn
 
 

@@ -89,16 +89,16 @@ for Rad, Chr in get_i_rads():
     Name = unicodedata.name(unichr(int(Rad.strip("'"))+12031)).replace('KANGXI RADICAL ', '').lower()
     try: strokes = Unihan.Select(['strokes'], 'Word', unicode(Chr))
     except: strokes = None
-    #print strokes
+    #print(strokes)
     
     #print Name
     if strokes: L.append([int(strokes[0]), Name, Rad, Chr])
-    else: print 'ERROR:', i, Name, Chr.encode('utf-8')
+    else: print('ERROR:', i, Name, Chr.encode('utf-8'))
     i += 1
 L.sort()
 
 
 for i in L:
-    print i[0], i[2], i[3].encode('utf-8'), i[1]
+    print(i[0], i[2], i[3].encode('utf-8'), i[1])
 
-#print L"""
+#print(L)"""

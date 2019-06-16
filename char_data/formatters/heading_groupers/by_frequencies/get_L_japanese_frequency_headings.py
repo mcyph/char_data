@@ -49,6 +49,6 @@ def get_L_japanese_frequency_headings(LRanges):
 
 if __name__ == '__main__':
     # TODO: Add a test here!!!!!! =========================================================================
-    print get_L_japanese_frequency_headings(
+    print(get_L_japanese_frequency_headings(
         [ord(u'感'), ord(u'心')]
-    )
+    ))

@@ -50,11 +50,11 @@ def get_L_cedict_hanzi(s):
 
 
 if __name__ == '__main__':
-    print get_L_cedict_hanzi(u'靈渠|灵渠[Ling2 qu2]')
-    print get_L_cedict_hanzi(u'靈渠[Ling2 qu2]')
-    print get_L_cedict_hanzi(u'靈渠|灵渠[Ling2 qu2]')
-    print get_L_cedict_hanzi(u'靈渠|灵渠[nu:]')
-    print get_L_cedict_hanzi(u'靈渠|灵渠')
-    print get_L_cedict_hanzi(u'靈渠')
+    print(get_L_cedict_hanzi(u'靈渠|灵渠[Ling2 qu2]'))
+    print(get_L_cedict_hanzi(u'靈渠[Ling2 qu2]'))
+    print(get_L_cedict_hanzi(u'靈渠|灵渠[Ling2 qu2]'))
+    print(get_L_cedict_hanzi(u'靈渠|灵渠[nu:]'))
+    print(get_L_cedict_hanzi(u'靈渠|灵渠'))
+    print(get_L_cedict_hanzi(u'靈渠'))
 
-    print get_L_cedict_hanzi(u'a b靈渠')
+    print(get_L_cedict_hanzi(u'a b靈渠'))

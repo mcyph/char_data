@@ -5,7 +5,7 @@ def get_disp_rads(Trad):
     # Returns [[NumStrokes, RadChars, EngDef], ...]
 
     # TODO: Should there be Japanese-specific info?
-    # print 'get_disp_rads:', Trad
+    # print('get_disp_rads:', Trad)
     if Trad == 'Both':
         LKeys = fast_rem_dupes(LTradRadKeys + LSimpRadKeys)
         LKeys = list(LKeys)
@@ -40,7 +40,7 @@ def get_disp_rads(Trad):
                 try:
                     strokes = DStrokeCounts[rad]
                 except:
-                    print 'RAD STROKE ERROR in get_disp_rads:', rad.encode('utf-8')
+                    print('RAD STROKE ERROR in get_disp_rads:', rad.encode('utf-8'))
                     continue
             name = LNames[0].replace('fullwidth ', '').replace('katakana letter ', 'katakana ')
 
@@ -92,8 +92,9 @@ def get_disp_rads(Trad):
                     DMap[iChar] += ''.join([i for i in RadChar if not i in DAppended])
 
             if not Found:
-                for RadChar in RadChars: DAppended[RadChar] = None
-                print 'APPENDRADS:', RadChar.encode('utf-8')
+                for RadChar in RadChars:
+                    DAppended[RadChar] = None
+                print('APPENDRADS:', RadChar.encode('utf-8'))
                 L.append((str(NumStrokes), RadChars, EngDef))
 
         nL = []
@@ -122,7 +123,7 @@ def get_disp_rads(Trad):
         try:
             nL.append([rad, '%s\t%s\t%s' % (strokes, rad, name)])
         except:
-            print 'MULTIRAD ERROR:', [strokes, rad, name]
+            print('MULTIRAD ERROR:', [strokes, rad, name])
     return nL
 
 

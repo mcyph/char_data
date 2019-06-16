@@ -1,5 +1,5 @@
 from toolkit.arrays import get_int_array
-from toolkit.arrays.ArrayUtils import write_arrays
+from toolkit.arrays import write_arrays
 
 def write_integer_keys_index(f, key, DData, prefix=None):
     '''
@@ -103,10 +103,10 @@ def write_integer_keys_index(f, key, DData, prefix=None):
                 for ord_ in DData:
                     if unicode(DData[ord_]) == unicode(value):
                         if xx>=from_ and xx<=to:
-                            #print 'ADDED:', i, xx, unicode(value).encode('utf-8')
+                            #print('ADDED:', i, xx, unicode(value).encode('utf-8'))
                             L.append(ord_)
                         #else: 
-                        #   print 'NOT ADDED:', i, xx, unicode(value).encode('utf-8')
+                        #   print('NOT ADDED:', i, xx, unicode(value).encode('utf-8'))
                         xx += 1
                 
                 if len(L): 

@@ -170,7 +170,7 @@ if __name__ == '__main__':
         u"[a-vx-zá é í ó ú ý ñ ã ẽ ĩ õ ũ ỹ {g\\u0303}]"
     )
     for i in r:
-        print i
+        print(i)
 
     for c in 'a^':
-        print r.contains(c)
+        print(r.contains(c))

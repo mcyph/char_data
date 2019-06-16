@@ -107,7 +107,7 @@ if __name__ == '__main__':
 
     LKeys = []
     for key in char_indexes.keys():
-        print key
+        print(key)
         ciki = char_indexes.get_key_info(key)
         cdki = char_data.get_key_info(key)
         inst = char_data.get_class_by_property(key)
@@ -117,13 +117,13 @@ if __name__ == '__main__':
     LKeys.sort()
 
     for header, key, inst in LKeys:
-        print header, key, inst
+        print(header, key, inst)
         continue
 
         LValues = char_indexes.values((source, key))
         if not LValues:
             continue
         
-        print LValues
+        print(LValues)
         for value in LValues:
-            print 'KEY/VALUE:', (key, value), char_indexes.search((source, key), value)
+            print('KEY/VALUE:', (key, value), char_indexes.search((source, key), value))

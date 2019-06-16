@@ -12,7 +12,7 @@ def get_D_sup_scripts(DScripts, DBlockSubNames):
     for Range in DScripts:
         ScriptName = DScripts[Range].strip()
         #if ScriptName not in ('Common', 'Inherited'): continue # HACK!
-        print 'SCRIPT:', ScriptName
+        #print('SCRIPT:', ScriptName)
         
         if type(Range) in (list, tuple):
             FromRange, ToRange = Range
@@ -69,7 +69,7 @@ def get_D_sup_scripts(DScripts, DBlockSubNames):
     cScript = None
     import os
     os.chdir(r'E:\Dev\Flazzle') # HACK! ---------------------------------------------------------
-    print os.getcwdu()
+    print(os.getcwdu())
     File = codecs.open('Chars/Import/SupScripts.txt', 'rb', 'utf-8')
 
     for Line in File:
@@ -84,11 +84,11 @@ def get_D_sup_scripts(DScripts, DBlockSubNames):
             cScript = From
             continue
         
-        print 'FROM:', From, 'TO:', To, 'cSCRIPT:', cScript
+        print('FROM:', From, 'TO:', To, 'cSCRIPT:', cScript)
         if cScript in ('Common', 'Inherited'):
             # Iterate through the script mappings in 
             # DSubBlocks and use alternative mappings
-            print DMap[cScript].keys()
+            print(DMap[cScript].keys())
 
             BlockSubName = From
             if BlockSubName[0] == '*':

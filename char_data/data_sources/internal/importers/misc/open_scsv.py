@@ -14,7 +14,7 @@ def open_scsv(Path):
             continue
 
         LLine = [i.strip() for i in line.split(';')]
-        # print 'open_scsv line:', LLine
+        # print('open_scsv line:', LLine)
 
         # Output the codepoint as either a
         # tuple range or a single codepoint

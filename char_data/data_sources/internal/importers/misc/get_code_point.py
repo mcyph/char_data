@@ -8,6 +8,6 @@ def get_code_point(Hex):
         try:
             return int(Hex, 16)
         except:
-            print "ERROR:", Hex
+            print("ERROR:", Hex)
             raise
 

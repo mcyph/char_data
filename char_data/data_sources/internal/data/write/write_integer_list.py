@@ -1,6 +1,6 @@
 from toolkit.arrays import get_int_array
 from char_data.misc import get_char_gaps, iter_ranges
-from toolkit.arrays.ArrayUtils import write_array, write_json
+from toolkit.arrays import write_array, write_json
 
 from char_data.data_sources.internal.data.write.range_gen_tools import compress_ord_ranges
 
@@ -48,14 +48,14 @@ def write_integer_list(f, key, DOrds):
             LShort.append(0)
     
     # Write to disk
-    print 'WRITE LShort!'
+    print('WRITE LShort!')
     DRtn = {}
     DRtn['LShort'] = write_array(f, LShort)
-    print 'WRITE LIgnoreRanges!'
+    print('WRITE LIgnoreRanges!')
     DRtn['LIgnoreRanges'] = write_json(f, LIgnoreRanges)
-    print 'WRITE LRanges!'
+    print('WRITE LRanges!')
     DRtn['LRanges'] = write_json(f, LRanges)
-    print 'WRITE DMultiVals!'
+    print('WRITE DMultiVals!')
     DRtn['DMultiVals'] = write_json(f, DMultiVals)
-    print 'OK:', DRtn
+    print('OK:', DRtn)
     return DRtn

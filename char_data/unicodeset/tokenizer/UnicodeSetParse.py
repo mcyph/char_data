@@ -400,6 +400,6 @@ if __name__ == '__main__':
         r'[\u0300-\u0345]',
         '[{my\\ very\\ own\\ {s tring\\}}]'
     ]:
-        print i
+        print(i)
         from pprint import pprint
         pprint(get_unicode_set_ranges(i))

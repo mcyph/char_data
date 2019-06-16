@@ -1,6 +1,36 @@
-from lang_data import LangData, get_L_possible_isos
-from iso_tools import ISOTools
+from json import dumps
+from lang_data import LangData, get_L_possible_isos as _get_L_possible_isos
+from iso_tools import ISOTools, NONE, TERRITORY, VARIANT
 from iso_tools.iso_codes import ISOCodes
+
+
+def get_L_possible_isos():
+    D = {}
+    L = _get_L_possible_isos()
+
+    for iso in L:
+        ld = LangData(iso)
+        D[iso] = dumps(
+            [ld.get_L_alpha(), ld.get_L_symbols()]
+        )
+
+    for iso in L:
+        for i_iso in ISOTools.get_L_removed(
+            iso,
+            [
+                TERRITORY, VARIANT,
+                VARIANT | TERRITORY
+            ],
+            rem_dupes=True
+        ):
+            if i_iso == iso:
+                continue
+
+            if i_iso in D and D[i_iso] == D[iso]:
+                del D[iso]
+                break
+
+    return sorted(D.keys())
 
 
 class AlphabetIndex:
@@ -15,12 +45,18 @@ class AlphabetIndex:
         DOut = {}
 
         for iso in get_L_possible_isos():
-            part3 = ISOTools.split(iso).lang
-            # OPEN ISSUE: Use LCountry[2] here, to use continent rather than country??
-            try:
-                region = ISOCodes.get_D_iso(part3)['LCountry'][1]
-            except KeyError:
-                region = 'Unknown'
+            iso_info = ISOTools.split(iso)
+            if iso_info.territory:
+                from iso_tools.iso_codes.ISOCodes import DCountries
+                region = DCountries.get(iso_info.territory, ['Unknown'])[0]  # TODO: ALLOW FOR i18n etc!!!
+            else:
+                part3 = iso_info.lang
+                # OPEN ISSUE: Use LCountry[2] here, to use continent rather than country??
+                try:
+                    region = ISOCodes.get_D_iso(part3)['LCountry'][1]
+                except KeyError:
+                    region = 'Unknown'
+
             DOut.setdefault(region, []).append(iso)
 
         LOut = []

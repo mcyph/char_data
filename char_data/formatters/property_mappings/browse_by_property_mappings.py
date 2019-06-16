@@ -143,7 +143,7 @@ def check_for_unused_properties(property, SUsedScripts, on_error=warnings.warn):
     all_found = True
 
     LScripts = CharData.MultiIndex.property_keys(property)  # FIXME!!!! ==================================================
-    print 'SCRIPTS:', LScripts
+    #print('SCRIPTS:', LScripts)
 
     for script in LScripts:
         if not script in SUsedScripts:

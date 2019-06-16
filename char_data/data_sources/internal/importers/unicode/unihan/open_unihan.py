@@ -54,7 +54,7 @@ def open_unihan(LPaths, CCDict=False):
         try: 
             uni_hex, key, value = LLine
         except: 
-            print 'ERROR ON LINE:', LLine
+            print('ERROR ON LINE:', LLine)
             continue
         
         if 'Unihan' in LPaths[0] and key[0] == 'k':

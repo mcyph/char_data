@@ -183,7 +183,7 @@ class LinkDB:
             try: 
                 LRtn.append((LRtn1[i], LRtn2[i]))
             except: 
-                print 'LINKDB WARNING: %s' % ' '.join(LWords)
+                print('LINKDB WARNING: %s' % ' '.join(LWords))
                 return [] # WARNING!
         
         LRtn = [i for i in LRtn if i[0] != LWords[0] and i[1] != LWords[1]] # WARNING!
@@ -195,14 +195,14 @@ if __name__ == '__main__':
         if not trad: 
             trad = simp
         
-        print 'Testing:', simp.encode('utf-8'), trad.encode('utf-8')
+        print('Testing:', simp.encode('utf-8'), trad.encode('utf-8'))
         
         for typ, opposite, variant in LinkDB.iter_variants((simp, trad)): # HACK!
-            print '\tVar - %s;'%typ, '%s;'%opposite, ' '.join([unicode(i) for i in variant]).encode('utf-8')
+            print('\tVar - %s;'%typ, '%s;'%opposite, ' '.join([unicode(i) for i in variant]).encode('utf-8'))
         
         for typ, LVariant in LinkDB.get_links((simp, trad)): # HACK!
             simp, trad = LVariant
-            print '\tLnk - %s:'%typ, simp.encode('utf-8'), trad.encode('utf-8')
+            print('\tLnk - %s:'%typ, simp.encode('utf-8'), trad.encode('utf-8'))
     
     test(u'真是的') # Recommended variant
     test(u'眞是的') # Other variant

@@ -24,7 +24,7 @@ def test(chars):
         if isinstance(ord_, basestring):
             ord_ = ord(ord_)
 
-        print ord_
+        print(ord_)
         #print keys()
         
         for key in sorted(keys()):
@@ -33,27 +33,27 @@ def test(chars):
             try:
                 raw_ = char_data.raw_data(key, ord_)
                 if raw_:
-                    print key, char_data.raw_data(key, ord_), formatted(key, ord_)
+                    print(key, char_data.raw_data(key, ord_), formatted(key, ord_))
             except:
                 import traceback
                 traceback.print_exc()
                 
-                print 'ERROR:', key, unichr(ord_), ord_, hex(ord_)
+                print('ERROR:', key, unichr(ord_), ord_, hex(ord_))
         
         if ord_ % 1000 == 0: 
-            print ord_
+            print(ord_)
         #print
 
 from cProfile import run
 #test(u'㐀㐅厝意')
 #run('test(xrange(300000))')
 #print test(u'abc')
-print test(u'～〜~')
+print(test(u'～〜~'))
 
 #i = SimilarHanzi(None, None)
 #for ord_ in u'藤意総思心認感必応急優態想念':
-#    print ord_, i.formatted(ord(ord_))[:50]
-#    print
+#    print(ord_, i.formatted(ord(ord_))[:50])
+#    print()
 
 '''
 Traceback (most recent call last):

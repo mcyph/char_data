@@ -6,7 +6,7 @@ def get_D_rev_enum():
     for key, i_D in DEnum.items():
         DRevEnum[key] = dict((value.split('(')[0].strip(), key) 
                              for key, value in i_D.items())
-    print DRevEnum
+    #print DRevEnum
     return DRevEnum
 
 

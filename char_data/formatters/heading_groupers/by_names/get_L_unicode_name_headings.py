@@ -99,5 +99,5 @@ def get_L_unicode_name_headings(LRanges, name=None):
 
 
 if __name__ == '__main__':
-    print get_L_unicode_name_headings([ord('e'), ord('c')])
+    print(get_L_unicode_name_headings([ord('e'), ord('c')]))
 

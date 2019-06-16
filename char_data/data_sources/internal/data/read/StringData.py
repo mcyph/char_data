@@ -1,4 +1,4 @@
-from toolkit.arrays.ArrayUtils import read_array, read_json
+from toolkit.arrays import read_array, read_json
 
 from char_data.misc import get_adjusted_code_point
 from char_data.data_sources.internal.data.write import write_string_data

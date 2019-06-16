@@ -1,5 +1,5 @@
 from toolkit.arrays import get_uni_array, get_int_array
-from toolkit.arrays.ArrayUtils import write_arrays, write_json
+from toolkit.arrays import write_arrays, write_json
 
 def iter_values(values):
     '''
@@ -41,7 +41,7 @@ def write_string_keys_index(f, key, DData):
                 DStringKeys[value].append(ord_)
     
     if len(DStringKeys) > 1000:
-        print 'StringKeys Ignored Because of Size:', key, len(DStringKeys)
+        print('StringKeys Ignored Because of Size:', key, len(DStringKeys))
         return
     
     LRangesOut = []

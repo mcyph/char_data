@@ -32,11 +32,11 @@ class WriteBase:
     def read_data(self, internal_data_source):
         for key in dir(internal_data_source):
             inst = getattr(internal_data_source, key)
-            print inst
+            print(inst)
             if not isinstance(inst, DataSourceBase):
                 continue
 
-            print key, inst
+            print(key, inst)
             self.DKeys[key] = {}
             
             if inst.index_type and inst.index_type not in (None, 'FIXME'): # HACK!
@@ -61,7 +61,7 @@ class WriteBase:
         
         for key, DOrds in self.DKeys.items():
             formatter_class, index_fn = self.DCls[key]
-            print 'writing:', key, formatter_class#, DOrds
+            print('writing:', key, formatter_class)#, DOrds
             
             fn = formatter_class.writer
             DJSON[key] = fn(f_data, key, DOrds)

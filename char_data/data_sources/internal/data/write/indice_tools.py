@@ -149,18 +149,18 @@ def parse_indices(key, DOrds):
 def convert(key, value):
     # Split value into a dictionary using that key's re_ object
     del_D_types, re_ = DREs[key]
-    #try: print 'value:', value
-    #except: print 'value:', value.encode('utf-8')
+    #try: print('value:', value)
+    #except: print('value:', value.encode('utf-8'))
     
     # HACK: Chop the second onwards references
     o_val = value
     value = value.split()[0]
     if o_val != value: 
-        print 'MultiVal warning:', key, o_val.encode('utf-8')
+        print('MultiVal warning:', key, o_val.encode('utf-8'))
     
     match = re_.search(value)
     if not match: 
-        print 'INDICE WARNING:', key, value.encode('utf-8')
+        print('INDICE WARNING:', key, value.encode('utf-8'))
         return {}
     else: 
         DRtn = {}

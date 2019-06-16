@@ -148,7 +148,7 @@ class NamesList:
                     break
             
             if not match:
-                print '*** WARNING ***:', mode, line
+                print('*** WARNING ***:', mode, line)
         self.close()
     
     def process_data(self, mode, D):
@@ -179,7 +179,7 @@ class NamesList:
                     nD['information'] = '\n'.join([i[0] for i in L])
                     
                 else:
-                    print 'CHAR_ENTRY warning:', k, L
+                    print('CHAR_ENTRY warning:', k, L)
             
             yield 'information', nD
                 
@@ -229,7 +229,7 @@ class NamesList:
                     DSubBlock['subblock see also'] = [(i[1][0], i[0]) for i in L]
                 
                 else:
-                    print 'BLOCK warning:', k, L
+                    print('BLOCK warning:', k, L)
             
             if nD:
                 yield 'block', nD
@@ -307,7 +307,7 @@ class NamesList:
                     nD['comments'] = '\n'.join([i[0] for i in L])
                 
                 else:
-                    print 'CHAR_ENTRY warning:', k, L
+                    print('CHAR_ENTRY warning:', k, L)
         
             yield 'character', nD
             
@@ -389,4 +389,4 @@ def convert_hex(L):
 
 if __name__ == '__main__':
     for mode, D in NamesList(data_path('chardata', 'unidata/source/NamesList.txt')):
-        print mode, D
+        print(mode, D)

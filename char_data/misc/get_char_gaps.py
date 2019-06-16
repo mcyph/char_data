@@ -6,7 +6,7 @@ def get_char_gaps(LCodePoints):
             # Ignore ranges
             continue
         DCodePoints[i] = None
-    # print 'DCodePoints:', DCodePoints.keys()[:100]
+    # print('DCodePoints:', DCodePoints.keys()[:100])
 
     # 300000 should be plenty for now
     LRtn = []
@@ -19,5 +19,5 @@ def get_char_gaps(LCodePoints):
                     LRtn.append((lowGap, hiGap - 1))
                 lowGap = hiGap + 1
 
-    # print 'get_char_gaps:', LRtn
+    # print('get_char_gaps:', LRtn)
     return sorted(LRtn)

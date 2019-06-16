@@ -84,7 +84,7 @@ class _LatinAccents:
                     for map_ in self.DLatin[char]:
                         if char == map_:
                             # HACK: Don't include e.g. 'e' without any accents!
-                            print 'CONTINUE:', map_, chars
+                            #print('CONTINUE:', map_, chars)
                             continue
 
                         DRtn.setdefault(map_, []).append(chars)
@@ -133,9 +133,9 @@ LatinAccents = _LatinAccents()
 
 
 if __name__ == '__main__':
-    print LatinAccents.get_D_latin()
+    print(LatinAccents.get_D_latin())
 
-    print LatinAccents.get_D_accents([
+    print(LatinAccents.get_D_accents([
         u"ü",
         u"e"
         u"á",
@@ -144,6 +144,6 @@ if __name__ == '__main__':
         u"ñ",
         u"ó",
         u"ú"
-    ])
+    ]))
 
 
