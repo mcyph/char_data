@@ -56,6 +56,22 @@ Character Data Searching
 .. code-block:: python
 
     >>> from char_data import char_data
+
+    >>> char_data.get_key_info('standard_encodings.cp869')
+    <char_data.CharData.CharDataKeyInfo instance at 0x7f65c3202b90>
+
+    >>> unicode(char_data.get_key_info('standard_encodings.cp869'))
+    u'CharDataKeyInfo(key=standard_encodings.cp869, original_key=cp869, header_const=Encoding, char_index_key_info=None)'
+
+    >> char_data.raw_data(key='name', ord_=55)
+    (u'DIGIT SEVEN',)
+
+    >> char_data.formatted(key='name', ord_=55)
+    (u'digit seven',)
+
+    >> char_data.html_formatted(key='name', ord_=55)
+    u'digit seven'
+
     >>> char_data.keys()
     ['ccdict.big5', 'ccdict.cangjie', 'ccdict.cantonese', 'ccdict.cns11643',
     'ccdict.english', 'ccdict.fourcorner', 'ccdict.gb', 'ccdict.hakka',
@@ -183,21 +199,6 @@ Character Data Searching
     'unihan.totalstrokes', 'unihan.traditionalvariant', 'unihan.vietnamese',
     'unihan.xerox', 'unihan.xhc1983', 'unihan.zvariant']
 
-    >>> char_data.get_key_info('standard_encodings.cp869')
-    <char_data.CharData.CharDataKeyInfo instance at 0x7f65c3202b90>
-
-    >>> unicode(char_data.get_key_info('standard_encodings.cp869'))
-    u'CharDataKeyInfo(key=standard_encodings.cp869, original_key=cp869, header_const=Encoding, char_index_key_info=None)'
-
-    >> char_data.raw_data(key='name', ord_=55)
-    (u'DIGIT SEVEN',)
-
-    >> char_data.formatted(key='name', ord_=55)
-    (u'digit seven',)
-
-    >> char_data.html_formatted(key='name', ord_=55)
-    u'digit seven'
-
 
 Character Index Searching
 #########################
@@ -206,9 +207,14 @@ Character Index Searching
 
     from char_data import char_indexes
 
-    char_indexes.search(key, value)
-    char_indexes.keys()
-    char_indexes.get_key_info(key)
-    char_indexes.values(key)
-    char_indexes.get_value_info(key, value)
+    >>> char_indexes.keys()
+
+    >>> char_indexes.values(key=FIXME)
+
+    >>> char_indexes.search(key=FIXME, value=FIXME)
+
+    >>> key_info = char_indexes.get_key_info(key)
+    ...
+
+    >>> char_indexes.get_value_info(key, value)
 
