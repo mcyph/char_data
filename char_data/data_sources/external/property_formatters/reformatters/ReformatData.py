@@ -4,7 +4,8 @@ from ReformatIndex import ReformatIndex
 
 
 class ReformatData(ExternalBaseClass):
-    def __init__(self, parent, header_const, original_name, short_desc, get_L_data):
+    def __init__(self, parent, header_const, original_name, short_desc, get_L_data,
+                 alternative_mapping_key=None):
         """
         This is just a placeholder, as getting raw value information for derived
         info by codepoints doesn't make much sense (that I can see)
@@ -16,7 +17,10 @@ class ReformatData(ExternalBaseClass):
         ExternalBaseClass.__init__(self,
             parent, header_const, original_name, short_desc
         )
-        self.index = ReformatIndex(original_name, get_L_data)
+        self.index = ReformatIndex(
+            original_name, get_L_data,
+            alternative_mapping_key=alternative_mapping_key
+        )
 
     def raw_data(self, ord_):
         # As based on other data (like the "Common" characters script)
@@ -25,5 +29,5 @@ class ReformatData(ExternalBaseClass):
 
     def _format_data(self, ord_, data):
         if data is not None:
-            return data.partition('.')[-1]  # HACK!
+            return data  # HACK!
         return None

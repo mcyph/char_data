@@ -9,32 +9,38 @@ from ExternalBase import ExternalBase
 
 class ReformattedData(ExternalBase):
     def __init__(self):
-
-
-        def get_filter_fn(LUseOnly):
+        def get_filter_fn(L):
             def fn():
                 if not hasattr(self, 'LCommon'):
                     self.LCommon = self.__get_by_L_block_headings('unicodedata.script', 'Common')
 
-                return self.__filter_to_only(
-                    self.LCommon, LUseOnly=LUseOnly
-                )
+                LRtn = []
+                for heading, LUseOnly in L:
+                    LRtn.append([
+                        heading,
+                        self.__filter_to_only(
+                            self.LCommon, LUseOnly=LUseOnly
+                        )
+                    ])
+                return LRtn
             return fn
 
-        for mapping in DCommonMappings:
-            setattr(self, get_key_name(mapping), ReformatData(
-                self, header_const=HEADER_OTHER_SYMBOLS,
-                original_name=get_key_name(mapping),
-                short_desc=mapping,
-                get_L_data=get_filter_fn(DCommonMappings[mapping])
-            ))
+        self.emoji_and_other_symbols = ReformatData(
+            self, header_const=HEADER_OTHER_SYMBOLS,
+            original_name='emoji and other symbols',
+            short_desc="Emoji and Other Symbols",
+            get_L_data=get_filter_fn([mapping, DCommonMappings[mapping]] for mapping in sorted(DCommonMappings.keys()))
+        )
 
         self.inherited = ReformatData(
             self, header_const=HEADER_OTHER_SYMBOLS, original_name='inherited',
             short_desc='Inherited Combining Characters (etc)',
-            get_L_data=lambda: self.__get_by_L_block_headings(
-                'unicodedata.script', 'Inherited'
-            )
+            get_L_data=lambda: [[
+                'Inherited Combining Characters (etc)',
+                self.__get_by_L_block_headings(
+                    'unicodedata.script', 'Inherited'
+                )
+            ]]
         )
 
         #self.ipa = ReformatData(
