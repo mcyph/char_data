@@ -1,2 +1,2 @@
-from JaSimplified import JaSimplified
-from CEDictVariants import CEDictVariants, LLinkKeys as LHanziVariantKeys
+from .JaSimplified import JaSimplified
+from .CEDictVariants import CEDictVariants, LLinkKeys as LHanziVariantKeys

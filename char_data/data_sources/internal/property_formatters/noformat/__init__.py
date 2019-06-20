@@ -1,2 +1,2 @@
-from NoFormatIntegers import NoFormatIntegers
-from NoFormatStrings import NoFormatStrings
+from .NoFormatIntegers import NoFormatIntegers
+from .NoFormatStrings import NoFormatStrings

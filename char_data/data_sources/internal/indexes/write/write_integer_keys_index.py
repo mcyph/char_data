@@ -101,7 +101,7 @@ def write_integer_keys_index(f, key, DData, prefix=None):
                 format = '%s (%s - %s)' % (value, from_+1, to+1)
                 L = get_int_array()
                 for ord_ in DData:
-                    if unicode(DData[ord_]) == unicode(value):
+                    if str(DData[ord_]) == str(value):
                         if xx>=from_ and xx<=to:
                             #print('ADDED:', i, xx, unicode(value).encode('utf-8'))
                             L.append(ord_)

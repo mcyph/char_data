@@ -1,9 +1,7 @@
 import abc
 
 
-class ListBase(object):
-    __metaclass__ = abc.ABCMeta
-
+class ListBase(object, metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def get_L(self):
         raise NotImplementedError()

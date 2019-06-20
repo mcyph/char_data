@@ -2,7 +2,7 @@ from toolkit.arrays import get_uni_array
 from char_data.misc.get_char_gaps import get_char_gaps
 from char_data.misc.iter_ranges import iter_ranges
 from toolkit.arrays import write_array, write_json
-from range_gen_tools import compress_ord_ranges
+from .range_gen_tools import compress_ord_ranges
 
 
 def ranges_to_single_ords(DOrds):
@@ -11,7 +11,7 @@ def ranges_to_single_ords(DOrds):
         if isinstance(ord_, tuple):
             value = DOrds[ord_]
             del DOrds[ord_]
-            for x in xrange(ord_[0], ord_[1]+1): # CHECK ME! ============================================
+            for x in range(ord_[0], ord_[1]+1): # CHECK ME! ============================================
                 assert not x in DOrds
                 DOrds[x] = value
     return DOrds

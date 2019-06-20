@@ -1,5 +1,4 @@
-from __future__ import with_statement
-import codecs
+
 from toolkit.list_operations.rem_dupes import fast_rem_dupes
 
 
@@ -24,7 +23,7 @@ class RadKFile:
         DRads = {}
         LChars = []
 
-        with codecs.open(path, 'rb', 'euc-jp') as f:
+        with open(path, 'r', encoding='euc-jp') as f:
             for line in f:
                 line = line.rstrip('\r\n')
 
@@ -54,7 +53,7 @@ class RadKFile:
         return DRads
 
     def combine_radkfile_2(self, DRads1, DRads2):
-        for rad, LKanji in DRads2.items():
+        for rad, LKanji in list(DRads2.items()):
             L = DRads1.setdefault(rad, [])
             L.extend(LKanji)
             DRads1[rad] = fast_rem_dupes(L)
@@ -66,7 +65,7 @@ class RadKFile:
         returns {kanji: [radical, ...], ..}
         """
         DRtn = {}
-        for radical, LChars in DRads.items():
+        for radical, LChars in list(DRads.items()):
             for char in LChars:
                 DRtn.setdefault(char, []).append(radical)
         return DRtn

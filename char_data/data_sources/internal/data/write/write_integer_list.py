@@ -6,14 +6,14 @@ from char_data.data_sources.internal.data.write.range_gen_tools import compress_
 
 
 def coerce_to_int(DOrds):
-    for ord_, L in DOrds.items():
-        if isinstance(L, basestring):
+    for ord_, L in list(DOrds.items()):
+        if isinstance(L, str):
             L = L.split()
         
         nL = []
         for i in L:
-            chk1 = unicode(int(i))
-            chk2 = unicode(i)
+            chk1 = str(int(i))
+            chk2 = str(i)
             assert chk1 == chk2, "%s should be %s" % (chk1, chk2)
             
             nL.append(int(i))
@@ -57,5 +57,5 @@ def write_integer_list(f, key, DOrds):
     DRtn['LRanges'] = write_json(f, LRanges)
     print('WRITE DMultiVals!')
     DRtn['DMultiVals'] = write_json(f, DMultiVals)
-    print('OK:', DRtn)
+    print(('OK:', DRtn))
     return DRtn

@@ -5,7 +5,7 @@ from char_data.data_sources.internal.data.write.write_string_data import write_s
 
 def write(f, key, DOrds):
     n_DOrds = {}
-    for ord_, value in DOrds.items():
+    for ord_, value in list(DOrds.items()):
         n_DOrds[ord_] = dumps(value) # MULTIPLE VALUE WARNING! ===========================================
     
     return write_string_data(f, key, n_DOrds)

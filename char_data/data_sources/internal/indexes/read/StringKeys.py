@@ -3,7 +3,7 @@ from toolkit.arrays import read_arrays, read_json
 
 from char_data.data_sources.internal.property_formatters.enum.DEnum import DEnum
 
-from CharIndexValueInfo import CharIndexValueInfo
+from .CharIndexValueInfo import CharIndexValueInfo
 
 
 class StringKeyIndex:
@@ -27,7 +27,7 @@ class StringKeyIndex:
 
     def get_value_info(self, value):
         if self.key in DEnum:
-            display_value = DEnum[self.key].get(unicode(value), value)
+            display_value = DEnum[self.key].get(str(value), value)
         else:
             display_value = value
 

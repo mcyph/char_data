@@ -11,7 +11,7 @@ class Hex(Encoding):
         if not data:
             return None
         
-        elif type(data) in (str, unicode):
+        elif type(data) in (str, str):
             pass
         
         elif type(data) in (list, tuple):

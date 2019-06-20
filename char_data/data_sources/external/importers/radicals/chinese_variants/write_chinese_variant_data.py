@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import codecs
 from toolkit.json_tools import loads
 from flazzle.dicts.Edict.CEDict.JSimplified import DTradToSimp, DSimpToTrad
 
@@ -16,12 +15,12 @@ def write_forward(DVariants):
     Output variants, including Japanese data
     """
     DFwd = DVariants['DFwd']
-    File = codecs.open('CnVariants.txt', 'wb', 'utf-8', 'replace')
+    File = open('CnVariants.txt', 'w', encoding='utf-8', errors='replace')
     File.write('# Chinese Variants File - encoded using UTF-8\n')
     File.write('# Extracted from CEDict and Chinese Traditional->Japanese Simplified data\n')
     File.write('# Format: <Variant Type>\\t<Hanzi>\\t<Traditional Variant>\\t<Simplified Variant>\\n\n')
-    File.write(u'# For example, "JVariants\t広 \t廣\t广"\n')
-    File.write(u'#   Means "The Japanese character 広 has Chinese Variants 廣 and 广"\n')
+    File.write('# For example, "JVariants\t広 \t廣\t广"\n')
+    File.write('#   Means "The Japanese character 広 has Chinese Variants 廣 and 广"\n')
     File.write('# NOTE: Japanese variants can only be converted Chinese Traditional <-> Japanese for now!\n')
     File.write('# Extracted with a script created using trial-and-error - MAY HAVE ERRORS!\n')
     for Type in DFwd:
@@ -44,7 +43,7 @@ def write_reverse(DVariants):
     Output reverse variants
     """
     DRev = DVariants['DRev']
-    File = codecs.open('CnVariantsReversed.txt', 'wb', 'utf-8', 'replace')
+    File = open('CnVariantsReversed.txt', 'wb', encoding='utf-8', errors='replace')
     for Type in DRev:
         if Type == 'DJVariants':
             File.write('# Begin "Japanese Simplified Traditional" Character Mappings\n')

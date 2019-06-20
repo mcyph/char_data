@@ -48,7 +48,7 @@ class InternalBaseClass(DataSourceBase):
                 )
             except:
                 #from traceback import print_exc
-                print("ERROR LOADING INDEX: %s with index type %s" % (self.key, self.index_type))
+                print(("ERROR LOADING INDEX: %s with index type %s" % (self.key, self.index_type)))
                 #print_exc()
                 self.index = None
 

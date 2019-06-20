@@ -4,7 +4,7 @@ from char_data.data_sources.external.property_formatters.reformatters.DCommonMap
 from char_data.data_sources.consts import HEADER_OTHER_SYMBOLS  # HACK!!!!
 from char_data.data_sources.get_key_name import get_key_name
 
-from ExternalBase import ExternalBase
+from .ExternalBase import ExternalBase
 
 
 class ReformattedData(ExternalBase):

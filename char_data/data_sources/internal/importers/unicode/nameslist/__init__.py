@@ -1,2 +1,2 @@
-from NamesList import NamesList
-from NamesListImport import NamesListImport
+from .NamesList import NamesList
+from .NamesListImport import NamesListImport

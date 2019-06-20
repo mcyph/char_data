@@ -1,9 +1,9 @@
 from toolkit.encodings.surrogates import w_ord
 
-from DataSourceBase import DataSourceBase
+from .DataSourceBase import DataSourceBase
 from char_data.data_sources.DataReader import DataReader
 
-from DataBase import DataBase
+from .DataBase import DataBase
 from char_data.data_sources.consts import DHeaders
 
 
@@ -21,11 +21,11 @@ class CharDataKeyInfo:
         return "CharDataKeyInfo(key=%s, original_key=%s, header_const=%s, char_index_key_info=%s)" % (
             self.key, self.original_key,
             DHeaders[self.header_const],
-            unicode(self.char_index_key_info)
+            str(self.char_index_key_info)
         )
 
     def __str__(self):
-        return unicode(self).encode('utf-8')
+        return str(self).encode('utf-8')
 
 
 #=========================================================#
@@ -75,7 +75,7 @@ class CharData(DataBase, DataReader):
         (Kanjidic "freq" might be "Japanese Frequency", for instance)
         """
         inst = self.get_class_by_property(key)
-        from CharIndexes import char_indexes
+        from .CharIndexes import char_indexes
 
         if inst.index:
             try:
@@ -97,7 +97,7 @@ class CharData(DataBase, DataReader):
         Get the raw data from formatter instance `key`
         about character ordinal or character `ord_`
         """
-        if isinstance(ord_, basestring):
+        if isinstance(ord_, str):
             ord_ = w_ord(ord_)
         
         inst = self.get_class_by_property(key)
@@ -108,7 +108,7 @@ class CharData(DataBase, DataReader):
         Get the formatted data from formatter instance `key`
         about character ordinal or character `ord_`
         """
-        if isinstance(ord_, basestring):
+        if isinstance(ord_, str):
             ord_ = w_ord(ord_)
         
         inst = self.get_class_by_property(key)
@@ -118,7 +118,7 @@ class CharData(DataBase, DataReader):
         """
         Uses the formatted() method above, but also adds basic HTML formatting
         """
-        if isinstance(ord_, basestring):
+        if isinstance(ord_, str):
             ord_ = w_ord(ord_)
 
         inst = self.get_class_by_property(key)

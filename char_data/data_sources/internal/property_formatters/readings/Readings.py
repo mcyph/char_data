@@ -1,7 +1,7 @@
 from char_data.data_sources.internal.data.read import SentenceData
 from char_data.data_sources.internal.property_formatters.hex import conv_hex
 
-SNums = set(str(i) for i in xrange(10))
+SNums = set(str(i) for i in range(10))
 
 
 def _is_upper(S):

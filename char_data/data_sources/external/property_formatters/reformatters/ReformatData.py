@@ -1,6 +1,6 @@
 from char_data.data_sources.external.property_formatters import ExternalBaseClass
 
-from ReformatIndex import ReformatIndex
+from .ReformatIndex import ReformatIndex
 
 
 class ReformatData(ExternalBaseClass):

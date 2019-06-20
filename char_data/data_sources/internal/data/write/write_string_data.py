@@ -27,7 +27,7 @@ def write_string_data(f, key, DOrds):
             # Append the seek position for string `data`
             if not data in DWordSeek:
                 seek = len(LWords)
-                amount = LWords.extend(unicode(data))
+                amount = LWords.extend(str(data))
                 DWordSeek[data] = (seek, amount)
 
             LRtn.append(

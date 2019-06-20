@@ -1,4 +1,4 @@
-from write_integer_keys_index import write_integer_keys_index
+from .write_integer_keys_index import write_integer_keys_index
 from char_data.data_sources.internal.data.write import indice_tools
 
 

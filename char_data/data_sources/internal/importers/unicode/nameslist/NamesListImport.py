@@ -1,7 +1,7 @@
 from char_data.data_sources.internal.importers.Write import WriteBase, add
 from char_data.data_paths import data_path
 
-from NamesList import NamesList
+from .NamesList import NamesList
 
 
 class NamesListImport(WriteBase):
@@ -38,14 +38,14 @@ class NamesListImport(WriteBase):
                 ord_ = int(D['codepoint'])
 
                 if current_D_block:
-                    for key, value in current_D_block.items():
+                    for key, value in list(current_D_block.items()):
                         if key in ('block name', 'block description'):
                             yield key, ord_, value
                         elif key == 'has separator':
                             yield key, ord_, str(value) # HACK: PLEASE MAKE WORK WITH ENUMS!!!! ====================================
 
                 if current_D_sub_block:
-                    for key, value in current_D_sub_block.items():
+                    for key, value in list(current_D_sub_block.items()):
                         if key in ('subblock heading', 'subblock technical notice'):
                             yield key, ord_, value
                         elif key == 'subblock see also':

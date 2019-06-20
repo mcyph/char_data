@@ -9,7 +9,7 @@
 from re import compile
 from collections import namedtuple, defaultdict
 
-from __kangxi_data import _KANGXI_DATA
+from .__kangxi_data import _KANGXI_DATA
 
 
 KANGXI_TRADITIONAL = 0
@@ -81,7 +81,7 @@ class KangxiData:
             )
 
         LOut = []
-        for numeric_id, LKangxiItems in DUnknown.items():
+        for numeric_id, LKangxiItems in list(DUnknown.items()):
             for kangxi_item in LKangxiItems:
                 if numeric_id in DSimplified:
                     # Traditional/Simplified variants
@@ -128,9 +128,9 @@ kangxi_data = KangxiData()
 
 
 if __name__ == '__main__':
-    print(kangxi_data.get_D_indexed_by_key('numeric_id'))
-    print(kangxi_data.get_D_indexed_by_key('kangxi'))
-    print(kangxi_data.get_D_indexed_by_key('num_strokes'))
-    print(kangxi_data.get_D_indexed_by_key('num_strokes', kind=KANGXI_TRADITIONAL))
-    print(kangxi_data.get_D_indexed_by_key('num_strokes', kind=KANGXI_SIMPLIFIED))
+    print((kangxi_data.get_D_indexed_by_key('numeric_id')))
+    print((kangxi_data.get_D_indexed_by_key('kangxi')))
+    print((kangxi_data.get_D_indexed_by_key('num_strokes')))
+    print((kangxi_data.get_D_indexed_by_key('num_strokes', kind=KANGXI_TRADITIONAL)))
+    print((kangxi_data.get_D_indexed_by_key('num_strokes', kind=KANGXI_SIMPLIFIED)))
 

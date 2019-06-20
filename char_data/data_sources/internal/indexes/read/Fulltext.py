@@ -6,7 +6,7 @@ from unicodedata import normalize
 from toolkit.arrays import read_json, read_array
 from toolkit.hashes.fast_hash import fast_hash
 
-from CharIndexValueInfo import CharIndexValueInfo
+from .CharIndexValueInfo import CharIndexValueInfo
 
 
 class FulltextIndex:
@@ -134,7 +134,7 @@ class FulltextIndex:
         
         NOTE: Only works for a single word! ==================================
         """
-        search = unicode(search)
+        search = str(search)
         
         LRtn = []
         for word in self.LSpell:
@@ -152,6 +152,6 @@ class FulltextIndex:
         
         LRtn = [i for i in heapq.nsmallest(10, LRtn)]
         LRtn.sort()
-        LRtn = [normalize('NFC', unicode(i[1].lower())) for i in LRtn]
+        LRtn = [normalize('NFC', str(i[1].lower())) for i in LRtn]
         #print 'SPELLCHECK:', LRtn
         return LRtn

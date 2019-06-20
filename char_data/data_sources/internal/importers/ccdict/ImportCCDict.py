@@ -1,6 +1,6 @@
 from char_data.data_paths import data_path
 
-from char_data.data_sources.internal.importers.unicode.unihan import open_unihan
+from char_data.data_sources.internal.importers.str.unihan import open_unihan
 from char_data.data_sources.internal.importers.Write import WriteBase, add
 
 
@@ -18,7 +18,7 @@ class ImportCCDict(WriteBase):
         for D in open_unihan([data_path('chardata', 'ccdict/src/ccdict.txt')]):
             ord_ = D['codepoint']
             
-            for key, value in D.items():
+            for key, value in list(D.items()):
                 if key == 'codepoint':
                     continue
                 elif key.startswith('f'):

@@ -1,6 +1,6 @@
 from char_data.data_sources.internal.data.read import StringData
 
-from Enum import Enum
+from .Enum import Enum
 
 
 class StringEnum(Enum, StringData):

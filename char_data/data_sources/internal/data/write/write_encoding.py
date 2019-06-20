@@ -1,13 +1,13 @@
 from toolkit.arrays import get_int_array
 from char_data.misc import get_char_gaps, iter_ranges
 from toolkit.arrays import write_array, write_json
-from write_boolean import ranges_to_single_ords
-from range_gen_tools import compress_ord_ranges
+from .write_boolean import ranges_to_single_ords
+from .range_gen_tools import compress_ord_ranges
 
 
 def coorce_to_encodings(DOrds):
     DFlags = {} # {flag: string, ...}
-    for ord_, value in DOrds.items():
+    for ord_, value in list(DOrds.items()):
         LEnc = get_L_encoding(DFlags, value)
         DOrds[ord_] = LEnc
     return DFlags, DOrds
@@ -68,7 +68,7 @@ def write_encoding(f, key, DOrds):
     
     if DFlags:
         # Write flags to disk if there are any for this key
-        DFlagsReversed = dict((str(value), i_key) for i_key, value in DFlags.items())
+        DFlagsReversed = dict((str(value), i_key) for i_key, value in list(DFlags.items()))
         DRtn['DFlags'] = write_json(f, DFlagsReversed)
         DRtn['LFlags'] = write_array(f, LFlags)
     
@@ -76,7 +76,7 @@ def write_encoding(f, key, DOrds):
 
 
 def get_L_encoding(DFlags, hex_):
-    if type(hex_) in (str, unicode):
+    if type(hex_) in (str, str):
         # Return a list of ints from the hex values separated by spaces
         LRtn = []
         for enc in hex_.split():

@@ -1,1 +1,1 @@
-from ExternalBaseClass import ExternalBaseClass
+from .ExternalBaseClass import ExternalBaseClass

@@ -13,7 +13,7 @@ def get_L_alphabet_langs():
     for iso in DLangs:
         default_profile, DProfiles = DLangs[iso]
         
-        for profile, DLang in DProfiles.items():
+        for profile, DLang in list(DProfiles.items()):
             if 'LAlpha' in DLang and DLang['LAlpha']:
                 S = set()
                 for header, LChars in DLang['LAlpha']:
@@ -42,10 +42,10 @@ def get_L_langs():
     LLangs = []
     DName2ISO = {}
     
-    for iso, L in DLangs.items():
+    for iso, L in list(DLangs.items()):
         default_profile, DVariants = L
         
-        for profile, DLang in DVariants.items():
+        for profile, DLang in list(DVariants.items()):
             if not 'LAlpha' in DLang or not DLang['LAlpha']:
                 continue
             

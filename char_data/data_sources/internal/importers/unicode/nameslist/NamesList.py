@@ -1,6 +1,5 @@
 import re
-import codecs
-import names_list_tokens as consts
+from . import names_list_tokens as consts
 from char_data.data_paths import data_path
 
 
@@ -62,7 +61,7 @@ class NamesList:
     ]
 
     def __init__(self, path):
-        self.f = codecs.open(path, 'rb', 'latin-1') # CHECK ME! ============================================
+        self.f = open(path, 'r', encoding='latin-1') # CHECK ME! ============================================
     
     def close(self):
         self.f.close()
@@ -148,7 +147,7 @@ class NamesList:
                     break
             
             if not match:
-                print('*** WARNING ***:', mode, line)
+                print(('*** WARNING ***:', mode, line))
         self.close()
     
     def process_data(self, mode, D):
@@ -156,10 +155,10 @@ class NamesList:
         
         if mode == 'TITLE_PAGE':
             nD = {}
-            for k, L in D.items():
+            for k, L in list(D.items()):
                 if k in ('TITLE', 'SUBTITLE', 'NOTICE_LINE'):
                     assert len(L)==1 and len(L[0])==1
-                    assert isinstance(L[0][0], basestring)
+                    assert isinstance(L[0][0], str)
                 
                 
                 if k == 'TITLE':
@@ -179,7 +178,7 @@ class NamesList:
                     nD['information'] = '\n'.join([i[0] for i in L])
                     
                 else:
-                    print('CHAR_ENTRY warning:', k, L)
+                    print(('CHAR_ENTRY warning:', k, L))
             
             yield 'information', nD
                 
@@ -187,19 +186,19 @@ class NamesList:
             nD = {}
             DSubBlock = {} # For supplementary comments about subblocks inside blocks
             
-            for k, L in D.items():
+            for k, L in list(D.items()):
                 if k == 'BLOCKHEADER':
                     assert len(L)==1 and len(L[0]) in (3, 4), L
                     assert len(L[0][0])==1 and len(L[0][-1])==1
                     assert (isinstance(L[0][0][0], int) and
                             isinstance(L[0][-1][0], int) and
-                            isinstance(L[0][1], basestring))
+                            isinstance(L[0][1], str))
                     
                     nD['from'] = L[0][0][0]
                     nD['to'] = L[0][-1][0]
                     
                     if len(L[0])==4:
-                        assert isinstance(L[0][2], basestring)
+                        assert isinstance(L[0][2], str)
                         nD['block description'] = L[0][1] # e.g. "C0 Controls and Basic Latin"
                         nD['block name'] = L[0][2] # e.g. "Basic Latin"
                     
@@ -212,24 +211,24 @@ class NamesList:
                     
                 elif k == 'SUBHEADER':
                     # [[u'Based on TIS 620-2533'], [u'Consonants']]
-                    assert all(len(i)==1 and isinstance(i[0], basestring) for i in L)
+                    assert all(len(i)==1 and isinstance(i[0], str) for i in L)
                     DSubBlock['subblock heading'] = [i[0] for i in L]
                     
                 elif k == 'NOTICE_LINE':
                     # [[u'For viram punctuation, use the generic Indic 0964 and 0965.']]
-                    assert all(len(i)==1 and isinstance(i[0], basestring) for i in L)
+                    assert all(len(i)==1 and isinstance(i[0], str) for i in L)
                     DSubBlock['subblock technical notice'] = [i[0] for i in L]
             
                 elif k == 'CROSS_REF':
                     # [[u'latin small letter ae', [230]], ...]
                     assert all(len(i)==2 and 
-                           isinstance(i[0], basestring) and 
+                           isinstance(i[0], str) and 
                            isinstance(i[1], list) and 
                            isinstance(i[1][0], int) for i in L), L
                     DSubBlock['subblock see also'] = [(i[1][0], i[0]) for i in L]
                 
                 else:
-                    print('BLOCK warning:', k, L)
+                    print(('BLOCK warning:', k, L))
             
             if nD:
                 yield 'block', nD
@@ -239,23 +238,23 @@ class NamesList:
         
         elif mode == 'CHAR_ENTRY':
             nD = {}
-            for k, L in D.items():
+            for k, L in list(D.items()):
                 if k == 'NAME_LINE':
                     # CHAR_ENTRY mode; [[[2305], u'DEVANAGARI SIGN CANDRABINDU']]
                     assert len(L)==1 and len(L[0])==2 and len(L[0][0])==1
                     assert isinstance(L[0][0][0], int), L
-                    assert isinstance(L[0][1], basestring)
+                    assert isinstance(L[0][1], str)
                     nD['codepoint'] = L[0][0][0]
                     nD['name'] = L[0][1]
                 
                 elif k == 'ALIAS_LINE':
                     # [[u'latin small letter script a (1.0)']]
-                    assert all(len(i)==1 and isinstance(i[0], basestring) for i in L)
+                    assert all(len(i)==1 and isinstance(i[0], str) for i in L)
                     nD['also called'] = [i[0] for i in L]
                     
                 elif k == 'FORMALALIAS_LINE':
                     # [[u'KANNADA LETTER LLLA']]
-                    assert all(len(i)==1 and isinstance(i[0], basestring) for i in L)
+                    assert all(len(i)==1 and isinstance(i[0], str) for i in L)
                     nD['formally also called'] = [i[0] for i in L]
                     
                 elif k == 'CROSS_REF':
@@ -263,7 +262,7 @@ class NamesList:
                     nL = []
                     for i in L:
                         if len(i) == 2:
-                            assert isinstance(i[0], basestring)
+                            assert isinstance(i[0], str)
                             assert isinstance(i[1], list) and len(i[1])==1 and isinstance(i[1][0], int)
                             nL.append((i[1][0], i[0]))
                         else:
@@ -295,7 +294,7 @@ class NamesList:
                 elif k == 'NOTICE_LINE':
                     # [[u'* from ISO 2047']]; "*" indicates a dotpoint
                     # usually indicates notes on ISO standards etc
-                    assert all(len(i)==1 and isinstance(i[0], basestring) for i in L)
+                    assert all(len(i)==1 and isinstance(i[0], str) for i in L)
                     nD['technical notice'] = [i[0] for i in L]
                 
                 elif k == 'COMMENT_LINE':
@@ -303,11 +302,11 @@ class NamesList:
                     # * indicates a dotpoint
                     # [[u'* archaic phonetic for palatalized alveolar or dental stop'], 
                     # [u'* recommended spelling 0074 02B2']]
-                    assert all(len(i)==1 and isinstance(i[0], basestring) for i in L)
+                    assert all(len(i)==1 and isinstance(i[0], str) for i in L)
                     nD['comments'] = '\n'.join([i[0] for i in L])
                 
                 else:
-                    print('CHAR_ENTRY warning:', k, L)
+                    print(('CHAR_ENTRY warning:', k, L))
         
             yield 'character', nD
             
@@ -325,20 +324,20 @@ class NamesList:
             
             if len(i) == 2:
                 typ, LOrd = i
-                assert isinstance(typ, basestring)
+                assert isinstance(typ, str)
                 assert not ' ' in typ
                 nL.append((LOrd, typ, None))
             
             elif len(i) == 1:
                 x = i[0]
-                if isinstance(x, basestring):
+                if isinstance(x, str):
                     codepoint, sep, value = x.partition(' ')
                     codepoint = convert(codepoint)
                     assert isinstance(codepoint, int), codepoint
                     nL.append(([codepoint], None, value))
                     
                 elif isinstance(x, list):
-                    assert(all(isinstance(j, (int, long)) for j in x))
+                    assert(all(isinstance(j, int) for j in x))
                     nL.append((x, None, None))
                     
         return nL
@@ -348,7 +347,7 @@ def longest(L):
     nL = []
     LRtn = []
     for i in L:
-        if isinstance(i, basestring):
+        if isinstance(i, str):
             nL.append(i)
         else:
             if nL:
@@ -377,7 +376,7 @@ def convert_hex(L):
         if ' ' in i or True:
             i_nL = [convert(j) for j in i.split(' ')]
             
-            if all(isinstance(j, (int, long)) for j in i_nL):
+            if all(isinstance(j, int) for j in i_nL):
                 nL.append(i_nL)
             else:
                 #nL.append(longest(i_nL))
@@ -389,4 +388,4 @@ def convert_hex(L):
 
 if __name__ == '__main__':
     for mode, D in NamesList(data_path('chardata', 'unidata/source/NamesList.txt')):
-        print(mode, D)
+        print((mode, D))

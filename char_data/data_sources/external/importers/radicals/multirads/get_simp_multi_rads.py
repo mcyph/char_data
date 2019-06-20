@@ -3,7 +3,7 @@ def get_simp_multi_rads():
     DTrad, DTradChars = get_trad_multi_rads()
     DSimp = {}
 
-    for rad, LChars in DTrad.items():
+    for rad, LChars in list(DTrad.items()):
         # Go through each radical and get the T-S conversion
         LRads = get_simp_chars(rad, None)  # Rads T-S
         for iRad in LRads:
@@ -17,7 +17,7 @@ def get_simp_multi_rads():
     # convert DChars Traditional-Simplfied
     DSimpChars = {}
 
-    for Char, LRads in DTradChars.items():
+    for Char, LRads in list(DTradChars.items()):
         LChars = get_simp_chars(Char, DTradChars)  # Chars T-S
         for iChar in LChars:
             for iRad in LRads:

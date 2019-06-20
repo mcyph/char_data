@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from tokenizer.UnicodeSetParse import RANGES, STRING, OPERATOR
-from tokenizer.UnicodeSetParse import get_unicode_set_ranges
+from .tokenizer.UnicodeSetParse import RANGES, STRING, OPERATOR
+from .tokenizer.UnicodeSetParse import get_unicode_set_ranges
 
 """
 This file contains an implementation of UnicodeSet in ICU.
@@ -57,7 +57,7 @@ class Ranges:
                 break
 
             if isinstance(i, (tuple, list)):
-                if isinstance(i[0], (int, long)):
+                if isinstance(i[0], int):
                     # A subitem
                     if i[0] == OPERATOR:
                         prev_item = LOut.pop()
@@ -93,7 +93,7 @@ class Ranges:
                     r = True
                     break
 
-            elif isinstance(i, basestring):
+            elif isinstance(i, str):
                 # A string (this can be more than a single char)
                 if i == c:
                     r = True
@@ -121,10 +121,10 @@ class Ranges:
                 from_ = ord(from_)
                 to = ord(to)
 
-                for x in xrange(from_, to+1): # CHECK ME!
-                    yield unichr(x)
+                for x in range(from_, to+1): # CHECK ME!
+                    yield chr(x)
 
-            elif isinstance(i, basestring):
+            elif isinstance(i, str):
                 # A string
                 yield i
 
@@ -167,10 +167,10 @@ if __name__ == '__main__':
         #u"[一 丁 七 丈-不]"
         #u"[[a-c]-[b]]"
         #u"[[a-c]&[bc]]"
-        u"[a-vx-zá é í ó ú ý ñ ã ẽ ĩ õ ũ ỹ {g\\u0303}]"
+        "[a-vx-zá é í ó ú ý ñ ã ẽ ĩ õ ũ ỹ {g\\u0303}]"
     )
     for i in r:
         print(i)
 
     for c in 'a^':
-        print(r.contains(c))
+        print((r.contains(c)))

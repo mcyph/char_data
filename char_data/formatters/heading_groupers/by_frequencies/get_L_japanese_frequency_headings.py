@@ -28,7 +28,7 @@ def get_L_japanese_frequency_headings(LRanges):
             DRanges[key] = []
         DRanges[key].append((frequency, ord_))
     
-    LKeys = DRanges.keys()
+    LKeys = list(DRanges.keys())
     LKeys.sort()
     
     LRtn = []
@@ -49,6 +49,6 @@ def get_L_japanese_frequency_headings(LRanges):
 
 if __name__ == '__main__':
     # TODO: Add a test here!!!!!! =========================================================================
-    print(get_L_japanese_frequency_headings(
-        [ord(u'感'), ord(u'心')]
-    ))
+    print((get_L_japanese_frequency_headings(
+        [ord('感'), ord('心')]
+    )))

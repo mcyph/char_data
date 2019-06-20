@@ -1,4 +1,3 @@
-import codecs
 from toolkit.encodings.DIPA import DIPA
 from toolkit.list_operations.rem_dupes import rem_dupes
 
@@ -22,7 +21,7 @@ def get_D_sup_scripts(DScripts, DBlockSubNames):
         if ToRange-FromRange > 1000:
             continue # HACK!
         
-        for i in xrange(FromRange, ToRange+1):
+        for i in range(FromRange, ToRange+1):
             if not ScriptName in DScriptChars:
                 DScriptChars[ScriptName] = {}
             DScriptChars[ScriptName][i] = None
@@ -39,7 +38,7 @@ def get_D_sup_scripts(DScripts, DBlockSubNames):
         if ToRange-FromRange > 1000:
             continue # HACK!
         
-        for i in xrange(FromRange, ToRange+1):
+        for i in range(FromRange, ToRange+1):
             if not BlockName in DBlockChars:
                 DBlockChars[BlockName] = {}
             DBlockChars[BlockName][i] = None
@@ -69,8 +68,8 @@ def get_D_sup_scripts(DScripts, DBlockSubNames):
     cScript = None
     import os
     os.chdir(r'E:\Dev\Flazzle') # HACK! ---------------------------------------------------------
-    print(os.getcwdu())
-    File = codecs.open('Chars/Import/SupScripts.txt', 'rb', 'utf-8')
+    print((os.getcwd()))
+    File = open('Chars/Import/SupScripts.txt', 'r', encoding='utf-8')
 
     for Line in File:
         if not Line.strip():
@@ -84,11 +83,11 @@ def get_D_sup_scripts(DScripts, DBlockSubNames):
             cScript = From
             continue
         
-        print('FROM:', From, 'TO:', To, 'cSCRIPT:', cScript)
+        print(('FROM:', From, 'TO:', To, 'cSCRIPT:', cScript))
         if cScript in ('Common', 'Inherited'):
             # Iterate through the script mappings in 
             # DSubBlocks and use alternative mappings
-            print(DMap[cScript].keys())
+            print((list(DMap[cScript].keys())))
 
             BlockSubName = From
             if BlockSubName[0] == '*':

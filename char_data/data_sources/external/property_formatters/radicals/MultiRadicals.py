@@ -17,7 +17,7 @@ class MultiRadicals(ExternalBaseClass):
         char = w_unichr(ord_)
         
         if char in DBothChars:
-            return ' '.join(tuple([i for i in DBothChars[char] if i != u'�']))
+            return ' '.join(tuple([i for i in DBothChars[char] if i != '�']))
         else:
             return None
 

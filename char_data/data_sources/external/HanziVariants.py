@@ -1,4 +1,4 @@
-from ExternalBase import ExternalBase
+from .ExternalBase import ExternalBase
 from char_data.data_sources.external.property_formatters.hanzi_variants import JaSimplified
 from char_data.data_sources.external.property_formatters.hanzi_variants import CEDictVariants
 

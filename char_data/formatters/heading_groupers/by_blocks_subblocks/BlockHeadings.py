@@ -1,5 +1,5 @@
 import sys
-print sys.modules.keys()
+print(list(sys.modules.keys()))
 
 from char_data import char_data
 from char_data.misc.get_font_script import get_font_script
@@ -26,7 +26,7 @@ class BlockHeadings:
         LRtn = []
         for ord_ in LRanges:
             if type(ord_) == tuple:
-                for i_ord in xrange(ord_[0], ord_[1]+1):
+                for i_ord in range(ord_[0], ord_[1]+1):
                     # HACK: Fix Arabic subblock comment/title issues
                     self._process_codepoint(LRtn, DState, i_ord)
                 #self._process_range(LRtn, DState, ord_)
@@ -50,7 +50,7 @@ class BlockHeadings:
             # based on the first character found with both a script and
             # a script which has a font class in CSS
 
-            for i_code in xrange(from_, to+1):
+            for i_code in range(from_, to+1):
                 #print 'TUPLE FALLBACK!'
                 new_font_script = get_font_script(i_code)
                 if new_font_script:
@@ -170,7 +170,7 @@ class BlockHeadings:
             # TODO: ADD RANGE SUPPORT!
             # TODO: ADD FROMBLOCK == TOBLOCK BREAKING FOR e.g. Hangul!
 
-            for ord_ in xrange(from_, to+1):
+            for ord_ in range(from_, to+1):
                 if flag == BLOCK_CHANGE:
                     block = char_data.formatted('block', ord_)
 
@@ -242,8 +242,8 @@ if __name__ == '__main__':
     from char_data import char_indexes, char_data
 
     from pprint import pprint
-    pprint(char_indexes.keys())
-    pprint(char_data.keys())
+    pprint(list(char_indexes.keys()))
+    pprint(list(char_data.keys()))
 
     pprint(get_L_block_headings(
         char_indexes.search('unicodedata.script', 'Arabic')

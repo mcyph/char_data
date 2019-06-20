@@ -39,7 +39,7 @@ class CEDictVariants(ExternalBaseClass):
         )
 
     def raw_data(self, ord_):
-        c = unichr(ord_)
+        c = chr(ord_)
 
         L = []
         for typ, key in self.LKeys:
@@ -53,7 +53,7 @@ class CEDictVariants(ExternalBaseClass):
         return L or None
 
     def _format_data(self, ord_, data):
-        c = unichr(ord_)
+        c = chr(ord_)
         L = self.raw_data(ord_)
         if not L:
             return None
@@ -82,4 +82,4 @@ if __name__ == '__main__':
 
     for key in sorted(hanzi_variants.LHanziVariantKeys):
         use_key = key.lower().replace(' ', '_')
-        print("self.%s = CEDictVariants(self, '%s')" % (use_key, key))
+        print(("self.%s = CEDictVariants(self, '%s')" % (use_key, key)))

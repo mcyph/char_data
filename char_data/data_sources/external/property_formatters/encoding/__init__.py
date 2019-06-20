@@ -1,1 +1,1 @@
-from Encoding import Encoding
+from .Encoding import Encoding

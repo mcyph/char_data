@@ -1,1 +1,1 @@
-from Definition import Definition
+from .Definition import Definition

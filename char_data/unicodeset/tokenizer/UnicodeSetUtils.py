@@ -1,4 +1,3 @@
-import codecs
 from char_data import char_indexes
 from char_data.data_paths import data_path
 
@@ -9,7 +8,7 @@ from char_data.data_paths import data_path
 
 def get_D_props():
     D = {}
-    for key in char_indexes.keys():
+    for key in list(char_indexes.keys()):
         D[key.partition('.')[-1]] = key
     return D
 
@@ -20,12 +19,12 @@ def get_D_prop_aliases():
     e.g. {'ccc': 'Canonical_Combining_Class', ...}
     """
     D = {}
-    with codecs.open(
+    with open(
         data_path(
             'chardata',
             'unidata/source/PropertyAliases.txt'),
-        'rb',
-        'utf-8'
+        'r',
+        encoding='utf-8'
     ) as f:
 
         for line in f:
@@ -52,7 +51,7 @@ def get_D_prop_aliases():
 
 def get_D_values():
     D = {}
-    for key in char_indexes.keys():
+    for key in list(char_indexes.keys()):
         D[key] = D[key.partition('.')[-1]] = _get_D_values(key)
     return D
 
@@ -71,7 +70,7 @@ def _get_D_values(key):
     
     D = {}
     for i in char_indexes.values(key):
-        k = unicode(i).lower()
+        k = str(i).lower()
         assert not k in D
         D[k] = i
     return D
@@ -83,13 +82,13 @@ def get_D_value_aliases():
 
 def get_D_general_cat_aliases():
     D = {}
-    with codecs.open(
+    with open(
         data_path(
             'chardata',
             'GeneralCatAliases.txt'
         ),
         'rb',
-        'utf-8'
+        encoding='utf-8'
     ) as f:
 
         for line in f:
@@ -136,10 +135,10 @@ def get_D_default_props():
     
     for idx_key in L:
         i_D = _get_D_values(idx_key)
-        for key, value in i_D.items():
+        for key, value in list(i_D.items()):
             D.setdefault(key, []).append((idx_key, value))
 
-    for key, value in get_D_general_cat_aliases().items():
+    for key, value in list(get_D_general_cat_aliases().items()):
         #print value
         if value == 'Cn':
             continue # UNASSIGNED HACK! ========================================

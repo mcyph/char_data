@@ -40,7 +40,7 @@ def get_disp_rads(Trad):
                 try:
                     strokes = DStrokeCounts[rad]
                 except:
-                    print('RAD STROKE ERROR in get_disp_rads:', rad.encode('utf-8'))
+                    print(('RAD STROKE ERROR in get_disp_rads:', rad.encode('utf-8')))
                     continue
             name = LNames[0].replace('fullwidth ', '').replace('katakana letter ', 'katakana ')
 
@@ -48,18 +48,18 @@ def get_disp_rads(Trad):
             if len(LNames) > 1: name = '%s; %s' % (name, LNames[1])
             LFound.append([strokes, rad, name])
 
-        if LFound[0][1] == u'尚':
+        if LFound[0][1] == '尚':
             # HACK: THIS CHARACTER DOESN'T SEEM TO BE ENCODED!
             # THIS RADICAL IS ASSIGNED WRONGLY/HAS THE WRONG MEANING!
             # It's actually 5 strokes (like a lid with three dots above)
-            LRtn.append([5, u'尚学', 'roof with three lines above, lid'])
-            LRtn.append([3, u'尚学', 'three lines above'])
+            LRtn.append([5, '尚学', 'roof with three lines above, lid'])
+            LRtn.append([3, '尚学', 'three lines above'])
         else:
             LRtn.append(LFound[0])
 
         # 辶 has multiple stroke values depending on Japanese/Chinese
         # (2/3/4 strokes), so add that as an alias
-        if rad == u'辶':
+        if rad == '辶':
             LRtn.append([2, rad, name])
             LRtn.append([3, rad, name])
 
@@ -94,7 +94,7 @@ def get_disp_rads(Trad):
             if not Found:
                 for RadChar in RadChars:
                     DAppended[RadChar] = None
-                print('APPENDRADS:', RadChar.encode('utf-8'))
+                print(('APPENDRADS:', RadChar.encode('utf-8')))
                 L.append((str(NumStrokes), RadChars, EngDef))
 
         nL = []
@@ -123,7 +123,7 @@ def get_disp_rads(Trad):
         try:
             nL.append([rad, '%s\t%s\t%s' % (strokes, rad, name)])
         except:
-            print('MULTIRAD ERROR:', [strokes, rad, name])
+            print(('MULTIRAD ERROR:', [strokes, rad, name]))
     return nL
 
 

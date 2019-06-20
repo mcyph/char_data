@@ -33,7 +33,7 @@ def get_L_chinese_frequency_headings(LRanges, LSortBy):
     
     # Group by secondary sort key
     LRtn = []
-    LKeys = DRanges.keys()
+    LKeys = list(DRanges.keys())
     if LSortBy[0] in DGrades or True:
         nLKeys = []
         for key in LKeys:
@@ -77,6 +77,6 @@ def get_L_chinese_frequency_headings(LRanges, LSortBy):
 if __name__ == '__main__':
     # TODO: Add a test here!!!!!! =========================================================================
     from char_data.importers.radicals.radical_processing import DRadTypes
-    print(get_L_chinese_frequency_headings(
-        [ord(u'感'), ord(u'心')], DRadTypes['Chinese Unified Radicals'][2]
-    ))
+    print((get_L_chinese_frequency_headings(
+        [ord('感'), ord('心')], DRadTypes['Chinese Unified Radicals'][2]
+    )))

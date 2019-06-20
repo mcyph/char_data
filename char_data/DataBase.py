@@ -1,4 +1,4 @@
-from DataSourceBase import DataSourceBase
+from .DataSourceBase import DataSourceBase
 from char_data.data_sources.get_key_name import get_key_name
 
 #=========================================================#

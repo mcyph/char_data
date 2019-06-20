@@ -20,10 +20,10 @@ class LinkDB:
         
         # Assign LKeys/LRevKeys (Defaulting if not supplied)
         if not LKeys: 
-            LKeys = DKeys['DFwd'].keys()
+            LKeys = list(DKeys['DFwd'].keys())
         
         if not LRevKeys: 
-            LRevKeys = DKeys['DRev'].keys()
+            LRevKeys = list(DKeys['DRev'].keys())
         
         self.LKeys = LKeys
         self.LRevKeys = LRevKeys
@@ -73,7 +73,7 @@ class LinkDB:
         # Where the forward explanation might be "Chinese variant"
         # and the reverse explanation might be "Japanese variant"
         def print_(search):
-            return ' '.join([unicode(i) for i in search]).encode('utf-8')
+            return ' '.join([str(i) for i in search]).encode('utf-8')
         
         LWords = tuple(LWords)
         for key in self.LKeys:
@@ -179,11 +179,11 @@ class LinkDB:
         LRtn1 = recurse(LWords[0], LWords[1], 0, 0, []) # Simplified
         LRtn2 = recurse(LWords[1], LWords[0], 0, 1, []) # Traditional
         LRtn = []
-        for i in xrange(len(LRtn1)):
+        for i in range(len(LRtn1)):
             try: 
                 LRtn.append((LRtn1[i], LRtn2[i]))
             except: 
-                print('LINKDB WARNING: %s' % ' '.join(LWords))
+                print(('LINKDB WARNING: %s' % ' '.join(LWords)))
                 return [] # WARNING!
         
         LRtn = [i for i in LRtn if i[0] != LWords[0] and i[1] != LWords[1]] # WARNING!
@@ -195,31 +195,31 @@ if __name__ == '__main__':
         if not trad: 
             trad = simp
         
-        print('Testing:', simp.encode('utf-8'), trad.encode('utf-8'))
+        print(('Testing:', simp.encode('utf-8'), trad.encode('utf-8')))
         
         for typ, opposite, variant in LinkDB.iter_variants((simp, trad)): # HACK!
-            print('\tVar - %s;'%typ, '%s;'%opposite, ' '.join([unicode(i) for i in variant]).encode('utf-8'))
+            print(('\tVar - %s;'%typ, '%s;'%opposite, ' '.join([str(i) for i in variant]).encode('utf-8')))
         
         for typ, LVariant in LinkDB.get_links((simp, trad)): # HACK!
             simp, trad = LVariant
-            print('\tLnk - %s:'%typ, simp.encode('utf-8'), trad.encode('utf-8'))
+            print(('\tLnk - %s:'%typ, simp.encode('utf-8'), trad.encode('utf-8')))
     
-    test(u'真是的') # Recommended variant
-    test(u'眞是的') # Other variant
-    test(u'戦争') # Japanese variant
-    test(u'平仮名') # Japanese variant
-    test(u'壌') # Japanese variant
-    test(u'座') # Classifiers
-    test(u'法論功') # Erronous Form
-    test(u'法轮功') # Correct Form
-    test(u'簹') # See Also
-    test(u'盧') # Korean variant
-    test(u'汉字査字法', u'漢字査字法') # Multiple Variants (but Should be One)
-    test(u'化學比色法', u'化學比色法') # WRONG!
-    test(u'美國獨立戰爭') # Has lots of very rarely used variants - PLEASE FIX ME!
+    test('真是的') # Recommended variant
+    test('眞是的') # Other variant
+    test('戦争') # Japanese variant
+    test('平仮名') # Japanese variant
+    test('壌') # Japanese variant
+    test('座') # Classifiers
+    test('法論功') # Erronous Form
+    test('法轮功') # Correct Form
+    test('簹') # See Also
+    test('盧') # Korean variant
+    test('汉字査字法', '漢字査字法') # Multiple Variants (but Should be One)
+    test('化學比色法', '化學比色法') # WRONG!
+    test('美國獨立戰爭') # Has lots of very rarely used variants - PLEASE FIX ME!
     
-    test(u'剣')
-    test(u'剣', u'劍')
-    test(u'剣', u'劍')
-    test(u'劍', u'剣')
-    test(u'剑', u'劍')
+    test('剣')
+    test('剣', '劍')
+    test('剣', '劍')
+    test('劍', '剣')
+    test('剑', '劍')

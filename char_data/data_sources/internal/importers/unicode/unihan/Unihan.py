@@ -2,7 +2,7 @@ import glob
 
 from char_data.data_paths import data_path
 
-from open_unihan import open_unihan
+from .open_unihan import open_unihan
 from char_data.importers.Write import WriteBase, add
 
 
@@ -30,7 +30,7 @@ class Unihan(WriteBase):
             self.Fenn(ord_, D)
             self.CheungBauer(ord_, D)
             
-            for key, value in D.items():
+            for key, value in list(D.items()):
                 if key == 'codepoint':
                     continue
                 

@@ -3,7 +3,7 @@ def filter_to_encoding(Encoding, LChars):
     LRtn = []
     for i in LChars:
         try:
-            if ord(unichr(i).encode(Encoding, 'ignore').decode(Encoding, 'ignore')) == i:
+            if ord(chr(i).encode(Encoding, 'ignore').decode(Encoding, 'ignore')) == i:
                 LRtn.append(i)
         except:
             pass

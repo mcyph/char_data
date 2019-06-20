@@ -1,7 +1,7 @@
 from lang_data import LangData, get_L_possible_isos
 from char_data.data_sources.external.property_formatters import ExternalBaseClass
 from char_data.data_sources.consts import HEADER_LANGUAGE_USAGE  # HACK!!!!
-from AlphabetIndex import AlphabetIndex
+from .AlphabetIndex import AlphabetIndex
 
 
 # TODO: Write me!

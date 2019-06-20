@@ -1,2 +1,2 @@
-from Indexes import DIndexReaders, DIndexWriters
+from .Indexes import DIndexReaders, DIndexWriters
 

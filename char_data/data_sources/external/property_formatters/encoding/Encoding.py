@@ -33,7 +33,7 @@ class Encoding(ExternalBaseClass):
             return None
     
     def _format_data(self, ord_, data):
-        if isinstance(data, basestring):
+        if isinstance(data, str):
             LHex = ['%s' % binascii.hexlify(i).upper() for i in data]
             return ' '.join(LHex)
         else:

@@ -1,5 +1,3 @@
-from __future__ import with_statement
-import codecs
 
 ALLOW_WIDE_CHARS = True
 
@@ -10,7 +8,7 @@ def open_unihan(LPaths, CCDict=False):
         if LLines: 
             LLines.append('') # HACK!
         
-        with codecs.open(path, 'rb', 'utf-8', 'replace') as f: # -> codecs.open???
+        with open(path, 'r', encoding='utf-8', errors='replace') as f:
             for line in f:
                 '''
                 HACK: CCDict sometimes trails lines, for example 
@@ -54,7 +52,7 @@ def open_unihan(LPaths, CCDict=False):
         try: 
             uni_hex, key, value = LLine
         except: 
-            print('ERROR ON LINE:', LLine)
+            print(('ERROR ON LINE:', LLine))
             continue
         
         if 'Unihan' in LPaths[0] and key[0] == 'k':

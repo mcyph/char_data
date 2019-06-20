@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from sys import maxint
+from sys import maxsize
 
 from char_data.data_sources.external.property_formatters import ExternalBaseClass
 from char_data.radicals.DataRadicals import DBothChars, DBothRads
@@ -55,7 +55,7 @@ class SimilarHanzi(ExternalBaseClass):
         # Get the difference in number of strokes. If there are 
         # multiple stroke counts for either character, then choose 
         # the smallest difference
-        stroke_diff = maxint
+        stroke_diff = maxsize
         
         #print unichr(ord_), char_data.raw_data('unihan.totalstrokes', ord_)
         from char_data import char_data
@@ -70,7 +70,7 @@ class SimilarHanzi(ExternalBaseClass):
         LFreqs = []
         for key in ('unihan.frequency', 'kanjidic.freq'):
             freq = char_data.raw_data(key, ord_)
-            freq = freq[0] if freq else maxint
+            freq = freq[0] if freq else maxsize
             LFreqs.append(freq)
         
         return (
@@ -81,7 +81,7 @@ class SimilarHanzi(ExternalBaseClass):
         )
     
     def get_rads(self, char):
-        return [i for i in DBothChars[char] if i != u'�'] # HACK!
+        return [i for i in DBothChars[char] if i != '�'] # HACK!
 
     def _format_data(self, ord_, data):
         return ' '.join(w_unichr(i_ord) for i_ord in data)

@@ -3,7 +3,7 @@ from toolkit.arrays import read_array, read_json
 from char_data.misc import get_adjusted_code_point
 from char_data.data_sources.internal.data.write import write_boolean
 
-from InternalBaseClass import InternalBaseClass, NO_DATA
+from .InternalBaseClass import InternalBaseClass, NO_DATA
 
 
 DBool = {

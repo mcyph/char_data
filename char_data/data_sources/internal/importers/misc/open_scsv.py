@@ -1,5 +1,5 @@
-from uni_open import uni_open
-from get_code_point import get_code_point
+from .uni_open import uni_open
+from .get_code_point import get_code_point
 
 
 def open_scsv(Path):

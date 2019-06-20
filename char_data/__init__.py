@@ -16,19 +16,19 @@ if False:
     char_indexes = Forward('_char_indexes')
 
     def init_me():
-        from CharData import CharData
-        from CharIndexes import CharIndexes
+        from .CharData import CharData
+        from .CharIndexes import CharIndexes
 
         global _char_data, _char_indexes
         _char_data = CharData()
         _char_indexes = CharIndexes()
-    import thread
-    thread.start_new_thread(init_me, ())
+    import _thread
+    _thread.start_new_thread(init_me, ())
 else:
-    from CharData import char_data
-    from CharIndexes import char_indexes
+    from .CharData import char_data
+    from .CharIndexes import char_indexes
 
-    from run_after_loaded import run_all
+    from .run_after_loaded import run_all
     run_all()
 
 

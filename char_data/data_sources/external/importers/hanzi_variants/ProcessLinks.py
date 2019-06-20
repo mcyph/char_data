@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
-import codecs
 from json import dumps
 from collections import defaultdict
 from toolkit.list_operations.rem_dupes import rem_dupes
 
 from dicts.chinese.cedict import OpenEdict
 
-from get_L_cedict_hanzi import get_L_cedict_hanzi, ZhWord
+from .get_L_cedict_hanzi import get_L_cedict_hanzi, ZhWord
 
 
 DReverseAlias = {
@@ -127,7 +126,7 @@ DStartsWith = {
 
 
 SAllowMulti = set(
-    i.strip() for i in u'''
+    i.strip() for i in '''
         CL:尊[zun1], 張|张[zhang1]
         abbr. for Beijing 北京[Bei1 jing1], Shanghai 上海[Shang4 hai3]
         CL:條|条[tiao2], 套[tao4], 個|个[ge4]
@@ -210,7 +209,7 @@ class ProcessLinks:
                     D[var][key][sub_key] = rem_dupes([tuple(i) for i 
                                                       in D[var][key][sub_key]])
 
-        with codecs.open(out_path, 'wb', 'utf-8') as f:
+        with codecs.open(out_path, 'w', encoding='utf-8') as f:
             f.write(dumps(D, ensure_ascii=False, indent=2))
 
 
@@ -226,7 +225,7 @@ class ProcessLinks:
 
     def append(self, zh_word, s):
         # TODO: MAKE SURE trad/simp VARIANTS REPRESENTED!
-        s = s.replace(u'成语 saw', '') # HACK!
+        s = s.replace('成语 saw', '') # HACK!
         s = s.replace('(', ' ')
         s = s.replace(')', ' ')
         s = s.strip()
@@ -254,13 +253,13 @@ class ProcessLinks:
                 added = True
 
             elif ' variant of ' in s.lower():
-                print('OTHER VARIANT WARNING:', s)
+                print(('OTHER VARIANT WARNING:', s))
                 self.add('DVariants', zh_word, s)
                 added = True
 
 
         if not added and ('variant' in s or '|' in s) and not any(i in s for i in ('county', 'township', 'district', 'town')):
-            print('VARIANT WARNING:', s.encode('utf-8'))
+            print(('VARIANT WARNING:', s.encode('utf-8')))
 
 
     def add(self, key, LWord, definition):
@@ -268,12 +267,12 @@ class ProcessLinks:
         # Process "VARIANT or VARIANT" multiple variant syntax
         LDefinitions = []
         definition = definition.replace(' and ', ' or ')
-        definition = definition.replace(u'鴕鳥 鸵鸟', u'鴕鳥|鸵鸟')
+        definition = definition.replace('鴕鳥 鸵鸟', '鴕鳥|鸵鸟')
 
 
         if ' or ' in definition:
             # Multiple variants!
-            print('MULTIPLE VARIANTS:', definition)
+            print(('MULTIPLE VARIANTS:', definition))
             definition = definition.replace(' or of ', ' or ')
             LDefinitions = definition.split(' or ')
         else:
@@ -286,7 +285,7 @@ class ProcessLinks:
             LExtend = get_L_cedict_hanzi(i)
             if len(LExtend) > 1 and not i in SAllowMulti and not definition.startswith('CL:'):
                 LExtend = [LExtend[0]]
-                print('MULTIPLE HANZI WARNING:', i)
+                print(('MULTIPLE HANZI WARNING:', i))
 
             LDefinitionHanzi.extend(LExtend)
 

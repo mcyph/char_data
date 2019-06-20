@@ -4,7 +4,7 @@ from char_data.data_paths import data_path
 from char_data.data_sources.internal.importers.misc import get_code_point
 from char_data.data_sources.internal.importers.misc import open_scsv, uni_open
 from char_data.data_sources.internal.data.write.write_encoding import get_L_encoding
-from char_data.data_sources.internal.importers.unicode.nameslist import NamesList
+from char_data.data_sources.internal.importers.str.nameslist import NamesList
 from char_data.data_sources.internal.importers.Write import WriteBase, add
 
 
@@ -184,7 +184,7 @@ class ImportUnicode(WriteBase):
                 DSubBlock = None
                 #print 'DBlock:', DBlock
                 
-                for key, value in D.items():
+                for key, value in list(D.items()):
                     if key in ['block description',
                                'block name']:
                         
@@ -206,7 +206,7 @@ class ImportUnicode(WriteBase):
                 for i in self._iter_D_sub_block(DSubBlock, D['codepoint']):
                     yield i
                 
-                for key, value in D.items():
+                for key, value in list(D.items()):
                     if key in ['name',
                                'also called',
                                'formally also called',
@@ -230,7 +230,7 @@ class ImportUnicode(WriteBase):
         inside the "U+2600-U+26FF Miscellaneous Symbols" range
         """
         if DSubBlock:
-            for key, value in DSubBlock.items():
+            for key, value in list(DSubBlock.items()):
                 if key in ['subblock heading',
                            'subblock technical notice',
                            'subblock see also']:

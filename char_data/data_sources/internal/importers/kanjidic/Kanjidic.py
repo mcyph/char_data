@@ -1,6 +1,6 @@
 from char_data.data_paths import data_path
 
-from Kanjidic2 import open_kanjidic_2
+from .Kanjidic2 import open_kanjidic_2
 from char_data.data_sources.internal.importers.Write import WriteBase, add
 
 
@@ -14,7 +14,7 @@ class Kanjidic(WriteBase):
         for D in open_kanjidic_2(path):
             ord_ = D['codepoint']
             
-            for key, value in D.items():
+            for key, value in list(D.items()):
                 if key == 'codepoint':
                     continue
                 

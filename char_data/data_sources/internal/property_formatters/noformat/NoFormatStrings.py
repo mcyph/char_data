@@ -1,5 +1,5 @@
 from char_data.data_sources.internal.data.read import StringData
-from DCangjie import DCangjie
+from .DCangjie import DCangjie
 
 
 class NoFormatStrings(StringData):  # WARNING! ============================================================

@@ -41,7 +41,7 @@ def write_string_keys_index(f, key, DData):
                 DStringKeys[value].append(ord_)
     
     if len(DStringKeys) > 1000:
-        print('StringKeys Ignored Because of Size:', key, len(DStringKeys))
+        print(('StringKeys Ignored Because of Size:', key, len(DStringKeys)))
         return
     
     LRangesOut = []

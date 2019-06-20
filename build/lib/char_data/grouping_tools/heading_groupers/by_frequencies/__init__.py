@@ -1,2 +1,0 @@
-from get_L_chinese_frequency_headings import get_L_chinese_frequency_headings
-from get_L_japanese_frequency_headings import get_L_japanese_frequency_headings

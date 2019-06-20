@@ -72,7 +72,7 @@ class AlphabetIndex:
     def get_value_info(self, value):
         from char_data.data_sources.internal.indexes.read.CharIndexValueInfo import CharIndexValueInfo
         pretty_printed = self.ld.prettify_lang(value)
-        return CharIndexValueInfo(value, unicode(pretty_printed))
+        return CharIndexValueInfo(value, str(pretty_printed))
 
     def search(self, search):
         ld = LangData(search)

@@ -1,1 +1,1 @@
-from get_short_char_definitions import get_short_char_definitions
+from .get_short_char_definitions import get_short_char_definitions

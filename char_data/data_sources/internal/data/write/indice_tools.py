@@ -136,7 +136,7 @@ def parse_indices(key, DOrds):
         value = DOrds[ord_]
         #print key, ord_, value
         
-        if isinstance(value, basestring):
+        if isinstance(value, str):
             value = value.split() # Kanjidic multiple values - NOTE ME!
         
         assert isinstance(value, (list, tuple))
@@ -156,11 +156,11 @@ def convert(key, value):
     o_val = value
     value = value.split()[0]
     if o_val != value: 
-        print('MultiVal warning:', key, o_val.encode('utf-8'))
+        print(('MultiVal warning:', key, o_val.encode('utf-8')))
     
     match = re_.search(value)
     if not match: 
-        print('INDICE WARNING:', key, value.encode('utf-8'))
+        print(('INDICE WARNING:', key, value.encode('utf-8')))
         return {}
     else: 
         DRtn = {}

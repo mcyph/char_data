@@ -137,9 +137,9 @@ kv = KeyValue
 
 char_data.kanjidic.freq['c']
 
-char_data.unihan.keys()
+list(char_data.unihan.keys())
 char_data.unihan.freq['c']
-char_data.unihan.freq.keys()
+list(char_data.unihan.freq.keys())
 char_data.unihan.freq.search(500)
 
 

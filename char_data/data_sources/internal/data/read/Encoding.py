@@ -3,7 +3,7 @@ from toolkit.arrays import read_array, read_json
 from char_data.misc import get_adjusted_code_point
 from char_data.data_sources.internal.data.write import write_encoding
 
-from InternalBaseClass import InternalBaseClass, NO_DATA
+from .InternalBaseClass import InternalBaseClass, NO_DATA
 
 
 class Encoding(InternalBaseClass):
@@ -31,7 +31,7 @@ class Encoding(InternalBaseClass):
         
     def get_L_by_flags(self, flags):
         LRtn = []
-        for pow_ in xrange(len(self.DFlags)):
+        for pow_ in range(len(self.DFlags)):
             flag = 2**pow_
             #print flag, flag& flags, self.DFlags[str(flag)]
             if flag& flags:

@@ -26,7 +26,7 @@ class _LatinAccents:
                 L = [L, L]
             from_, to = L
 
-            for ord_ in xrange(from_, to+1):
+            for ord_ in range(from_, to+1):
                 char = w_unichr(ord_)
 
                 # Find the relevant key
@@ -53,10 +53,10 @@ class _LatinAccents:
                     DLatin[char] = [i.lower() for i in DLatin[char]]
 
         # Spanish HACKS!
-        DLatin[u'!'] = [u'¡']
-        DLatin[u'?'] = [u'¿']
-        DLatin[u'¡'] = [u'!']
-        DLatin[u'¿'] = [u'?']
+        DLatin['!'] = ['¡']
+        DLatin['?'] = ['¿']
+        DLatin['¡'] = ['!']
+        DLatin['¿'] = ['?']
         return DLatin
     #get_D_latin = cache_funct('get_D_latin', get_D_latin)
 
@@ -93,7 +93,7 @@ class _LatinAccents:
 
     def _get_L_mappings(self, s):
         LRtn = []
-        for i_s in [s[:x] for x in xrange(1, len(s)+1)]:
+        for i_s in [s[:x] for x in range(1, len(s)+1)]:
             #print 'i_s:', i_s
             if all(_ in self.DLatin for _ in i_s):
                 key = ''
@@ -116,7 +116,7 @@ class _LatinAccents:
             if type(LRange) != tuple:
                 LRange = (LRange, LRange+1)
 
-            for ord_ in xrange(*LRange):
+            for ord_ in range(*LRange):
                 name = char_data.raw_data('name', ord_)
                 key = get_smallest_name(name).lower()
                 #print key, unichr(ord_).encode('utf-8'), name
@@ -133,17 +133,17 @@ LatinAccents = _LatinAccents()
 
 
 if __name__ == '__main__':
-    print(LatinAccents.get_D_latin())
+    print((LatinAccents.get_D_latin()))
 
-    print(LatinAccents.get_D_accents([
-        u"ü",
-        u"e"
-        u"á",
-        u"é",
-        u"í",
-        u"ñ",
-        u"ó",
-        u"ú"
-    ]))
+    print((LatinAccents.get_D_accents([
+        "ü",
+        "e"
+        "á",
+        "é",
+        "í",
+        "ñ",
+        "ó",
+        "ú"
+    ])))
 
 

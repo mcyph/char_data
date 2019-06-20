@@ -1,1 +1,1 @@
-from RadicalStrokes import RadicalStrokes
+from .RadicalStrokes import RadicalStrokes

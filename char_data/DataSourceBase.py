@@ -53,10 +53,10 @@ class DataSourceBase:
             # TODO: add specific handling for Booleans??
             if self.key in DEnum:
                 value = DEnum[self.key].get(
-                    unicode(value), value
+                    str(value), value
                 ).replace('_', ' ')
 
-            return E(unicode(value).strip()).replace('\n', '<br>')
+            return E(str(value).strip()).replace('\n', '<br>')
 
         else:
             if len(value) > 1:

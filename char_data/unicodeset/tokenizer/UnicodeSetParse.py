@@ -1,12 +1,12 @@
 from string import ascii_letters
 from toolkit.encodings.surrogates import w_unichr
 
-from UnicodeSetUtils import (
+from .UnicodeSetUtils import (
     get_D_default_props, get_D_prop_aliases, get_D_values, get_D_props
 )
 from char_data import char_indexes
 # Get various property/value aliases etc
-from ProcessRangeBase import ProcessRangeBase
+from .ProcessRangeBase import ProcessRangeBase
 
 DProps = get_D_props()
 DDefaultProps = get_D_default_props()
@@ -387,7 +387,7 @@ class UnicodeSetParse(ProcessRangeBase):
     def convert_value(self, typ, value):
         if not typ in DValues:
             return value # WARNING! ==============================================
-        return DValues[typ].get(unicode(value), value)
+        return DValues[typ].get(str(value), value)
 
 
 if __name__ == '__main__':

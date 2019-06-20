@@ -62,7 +62,7 @@ def write_indices(f, key, DOrds):
                         else: 
                             LArray.append(int(value)+1)
                     except:
-                        print('Error on value: %s key: %s typecode: %s' % (value, k, LArray.typecode))
+                        print(('Error on value: %s key: %s typecode: %s' % (value, k, LArray.typecode)))
                         raise
         else: 
             for k in DArrays:

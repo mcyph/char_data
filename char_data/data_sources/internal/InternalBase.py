@@ -26,7 +26,7 @@ class InternalBase:
             DKeys = load(output_path + '.json')
             f = open('%s.bin' % output_path, 'r+b')
 
-        for key, DJSON in DKeys.items():
+        for key, DJSON in list(DKeys.items()):
             set_key_to = get_key_name(key)
             assert not set_key_to in DRtn
             DRtn[set_key_to] = DJSON

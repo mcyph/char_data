@@ -11,8 +11,8 @@ def get_trad_ja_maps():
     Has keys of single Hanzi/Kanji, and values as multi-character
     Unicode strings
     """
-    DTradToJa = defaultdict(unicode)
-    DJaToTrad = defaultdict(unicode)
+    DTradToJa = defaultdict(str)
+    DJaToTrad = defaultdict(str)
 
     for line in open(
         data_path('chardata', 'j_simplified/JSimplified.txt'),

@@ -10,7 +10,7 @@ class Definition(SentenceData):
         if self.key == 'name' and ord_ >= 0xAC00 and ord_ <= 0xD7AF:
             # HACK: Use the unicodedata module for Hangul
             try:
-                r = unicodedata.name(unichr(ord_))
+                r = unicodedata.name(chr(ord_))
                 return (r,) if r else None
             except: 
                 return None

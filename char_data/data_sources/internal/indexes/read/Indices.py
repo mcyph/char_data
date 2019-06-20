@@ -1,6 +1,6 @@
 from toolkit.arrays import read_arrays
 
-from CharIndexValueInfo import CharIndexValueInfo
+from .CharIndexValueInfo import CharIndexValueInfo
 
 
 class IndicesIndex:
@@ -13,12 +13,12 @@ class IndicesIndex:
     
     def values(self):
         L = []
-        for value in self.DIndices.keys():
+        for value in list(self.DIndices.keys()):
             L.append(value)
         return L
 
     def get_value_info(self, value):
-        return CharIndexValueInfo(value, unicode(value))
+        return CharIndexValueInfo(value, str(value))
     
     def search(self, search):
         if search in self.DIndices:

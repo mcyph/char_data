@@ -1,4 +1,4 @@
-from get_adjusted_code_point import get_adjusted_code_point
+from .get_adjusted_code_point import get_adjusted_code_point
 
 
 def iter_ranges(LIgnoreRanges, max_):
@@ -23,7 +23,7 @@ def iter_ranges_1(LIgnoreRanges, max_):
     # print('MAX iter_ranges:', max_)
     lastadjCodePoint = -1
 
-    for ord_ in xrange(max_ + 1):
+    for ord_ in range(max_ + 1):
         # TODO: Make this line faster?
         adjCodePoint = get_adjusted_code_point(ord_, LIgnoreRanges)
 
@@ -54,7 +54,7 @@ def iter_ranges_2(LIgnoreRanges, max_):
     LRanges.append((low_range, max_))
 
     for from_, to in LRanges:
-        for i in xrange(from_, to + 1):
+        for i in range(from_, to + 1):
             # print(from_, to, i)
             yield i
 

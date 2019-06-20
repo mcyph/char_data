@@ -91,7 +91,7 @@ class FulltextWriter:
         LRtn = []
         for word in LWords:
             # Convert words to uppercased, decomposed (combining) form
-            word = normalize('NFD', unicode(word))
+            word = normalize('NFD', str(word))
             word = word.strip().upper()
             
             if not word:
@@ -134,7 +134,7 @@ class FulltextWriter:
             if not tokens: 
                 continue
             
-            tokens = normalize('NFD', unicode(tokens))            
+            tokens = normalize('NFD', str(tokens))            
             tokens = remove_tones(tokens)
             LRtn.extend(self.get_L_tokens(ord_, [tokens]))
         return LRtn

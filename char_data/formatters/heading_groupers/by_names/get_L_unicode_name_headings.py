@@ -27,7 +27,7 @@ def get_L_unicode_name_headings(LRanges, name=None):
             #        font_script = get_fallback(i_code)
             #        if font_script: break
             
-            for i_code in xrange(from_, to+1):
+            for i_code in range(from_, to+1):
                 name = char_data.formatted('unicodedata.name', i_code)
                 if not name:
                     name = '(Unknown)'
@@ -99,5 +99,5 @@ def get_L_unicode_name_headings(LRanges, name=None):
 
 
 if __name__ == '__main__':
-    print(get_L_unicode_name_headings([ord('e'), ord('c')]))
+    print((get_L_unicode_name_headings([ord('e'), ord('c')])))
 

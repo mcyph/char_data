@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-cangjie = u'''A	日 sun	
+cangjie = '''A	日 sun	
 B	月 moon	
 C	金 gold	
 D	木 wood	

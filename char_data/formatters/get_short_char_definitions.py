@@ -48,7 +48,7 @@ class _ShortCharDefinitions:
 
     def _range_processed(self, from_ord, to_ord):
         LRtn = []
-        for ord_ in xrange(from_ord, to_ord):
+        for ord_ in range(from_ord, to_ord):
             LRtn.append(self._codepoint_processed(ord_))
         return LRtn
 

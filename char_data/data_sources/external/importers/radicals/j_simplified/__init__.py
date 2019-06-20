@@ -1,1 +1,1 @@
-from get_trad_ja_maps import get_trad_ja_maps
+from .get_trad_ja_maps import get_trad_ja_maps

@@ -1,4 +1,4 @@
-from ExternalBase import ExternalBase
+from .ExternalBase import ExternalBase
 from char_data.data_sources.external.property_formatters.encoding import Encoding
 
 
@@ -304,17 +304,17 @@ if __name__ == '__main__':
 
     for for_lang, encoding in LEncodings:
         if prev_for_lang != for_lang:
-            print('''
+            print(('''
 #================================================================#
 #                      %s                      #
 #================================================================#
-''' % for_lang)
+''' % for_lang))
 
 
             prev_for_lang = for_lang
 
-        print("self.%s = Encoding(self, '%s', '%s')" % (
+        print(("self.%s = Encoding(self, '%s', '%s')" % (
             encoding, encoding, for_lang
-        ))
+        )))
 
 

@@ -72,7 +72,7 @@ REVERSE = 1
 def get_D_reverse_link_keys():
     DReverseLinkKeys = {}
 
-    for k, (from_key, to_key) in DLinkKeys.items():
+    for k, (from_key, to_key) in list(DLinkKeys.items()):
         DReverseLinkKeys.setdefault(from_key, []).append((NORMAL, k))
         DReverseLinkKeys.setdefault(to_key, []).append((REVERSE, k))
 

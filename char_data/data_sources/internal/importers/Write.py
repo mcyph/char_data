@@ -36,7 +36,7 @@ class WriteBase:
             if not isinstance(inst, DataSourceBase):
                 continue
 
-            print(key, inst)
+            print((key, inst))
             self.DKeys[key] = {}
             
             if inst.index_type and inst.index_type not in (None, 'FIXME'): # HACK!
@@ -59,9 +59,9 @@ class WriteBase:
         f_data = open('%s.bin' % path, 'wb')
         f_idx = open('%s-idx.bin' % path, 'wb')
         
-        for key, DOrds in self.DKeys.items():
+        for key, DOrds in list(self.DKeys.items()):
             formatter_class, index_fn = self.DCls[key]
-            print('writing:', key, formatter_class)#, DOrds
+            print(('writing:', key, formatter_class))#, DOrds
             
             fn = formatter_class.writer
             DJSON[key] = fn(f_data, key, DOrds)

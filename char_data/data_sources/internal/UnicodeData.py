@@ -9,7 +9,7 @@ from char_data.data_sources.consts import (
     HEADER_UNICODE_GENERAL, HEADER_CASING, HEADER_NORMALISATION,
     HEADER_UNICODE_LAYOUT, HEADER_SUBBLOCK_INFO, HEADER_SEE_ALSO
 )
-from InternalBase import InternalBase
+from .InternalBase import InternalBase
 
 
 class UnicodeData(InternalBase):

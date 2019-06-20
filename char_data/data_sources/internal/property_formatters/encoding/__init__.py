@@ -1,1 +1,1 @@
-from IRG import IRG
+from .IRG import IRG

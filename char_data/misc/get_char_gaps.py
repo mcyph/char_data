@@ -13,7 +13,7 @@ def get_char_gaps(LCodePoints):
     lowGap = 0
 
     if DCodePoints:
-        for hiGap in xrange(max(DCodePoints) + 2):
+        for hiGap in range(max(DCodePoints) + 2):
             if hiGap in DCodePoints:
                 if (hiGap - lowGap) > 70:
                     LRtn.append((lowGap, hiGap - 1))

@@ -20,7 +20,7 @@ class JaSimplified(ExternalBaseClass):
         L = []
 
         for i_ord, _ in ((ord_, 0),)+(char_data.raw_data('traditionalvariant', ord_) or ()):
-            i_c = unichr(i_ord)
+            i_c = chr(i_ord)
 
             if i_c in self.DOpposite:
                 L.extend(
@@ -34,7 +34,7 @@ class JaSimplified(ExternalBaseClass):
         L = []
 
         for i_ord, _ in ((ord_, 0),)+(char_data.raw_data('traditionalvariant', ord_) or ()):
-            i_c = unichr(i_ord)
+            i_c = chr(i_ord)
 
             if i_c in self.DOpposite:
                 L.extend(self.DOpposite[i_c]) # FIXME!

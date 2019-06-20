@@ -23,12 +23,12 @@ def get_simp_chars(Char, DTradChars=None):
                 LSubChars += [
                     w_unichr(i) for i in V
                 ]
-                print('Char:', Char.encode('utf-8'), 'LSubChars:', ''.join(LSubChars).encode('utf-8'), 'V:', V)
+                print(('Char:', Char.encode('utf-8'), 'LSubChars:', ''.join(LSubChars).encode('utf-8'), 'V:', V))
 
     # Use the transliteration system to convert from T-S,
     # only allowing if different and MultiRad data not
     # already available for that character
-    from multi_translit.translit.TranslitEngine import get_engine
+    from multi_translit.translit.my_engine.TranslitEngine import get_engine
     TradToSimp = get_engine('Chinese Traditional-Simplified')
     Conv = TradToSimp.convert(Char)
     LSubChars.append(Conv)

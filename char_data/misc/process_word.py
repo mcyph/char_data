@@ -11,21 +11,21 @@ from toolkit.encodings.surrogates import w_ord
 #CTones2PinYin = get_engine('Chinese Pinyin Accents-PinYin')
 
 DAlt = {
-    u'け': u'か',
-    u'せ': u'',
-    u'せ': u'せさ', # sense-/dasai (dasse-) HACK!
-    u'て': u'た',
+    'け': 'か',
+    'せ': '',
+    'せ': 'せさ', # sense-/dasai (dasse-) HACK!
+    'て': 'た',
     #u'げ': u'が',
-    u'げ': u'ご', # suge- (sugoi) HACK!
-    u'ぜ': u'ざ',
-    u'へ': u'は',
-    u'べ': u'ば',
-    u'ぺ': u'ぱ',
-    u'め': u'ま',
-    u'れ': u'ら',
-    u'ね': u'な',
-    u'え': u'わ', # koe- (kowai)
-    u'で': u'ど', # hide- (hidoi)
+    'げ': 'ご', # suge- (sugoi) HACK!
+    'ぜ': 'ざ',
+    'へ': 'は',
+    'べ': 'ば',
+    'ぺ': 'ぱ',
+    'め': 'ま',
+    'れ': 'ら',
+    'ね': 'な',
+    'え': 'わ', # koe- (kowai)
+    'で': 'ど', # hide- (hidoi)
 }
 
 #================================================================#
@@ -43,8 +43,8 @@ def remove_tones(Word):
     return Word
 
 
-bAccents = u'̣̉̀̃́'
-aAccents = u'̛̣́̀̃̂̆̉'
+bAccents = '̣̉̀̃́'
+aAccents = '̛̣́̀̃̂̆̉'
 DbAccents = {}
 for i in bAccents: DbAccents[i] = None
 DaAccents = {}
@@ -56,7 +56,7 @@ for i in aAccents: DaAccents[i] = None
 #    Word = ''.join([i for i in Word if i not in DNums])
 #    return Word
 
-tAccents = u'ก่ก้ก๊ก๋ก็ก์'.replace(u'ก', '')
+tAccents = 'ก่ก้ก๊ก๋ก็ก์'.replace('ก', '')
 DtAccents = {}
 for i in tAccents: DtAccents[i] = None
 def filter_thai_accents(Word):
@@ -85,7 +85,7 @@ def get_cat(S):
 def filter_accents(Word):
     # Remove accents for e.g. French
     # FIXME: convert e.g. LATIN LETTER L WITH HOOK to LATIN LETTER L!
-    Word = unicode(Word)
+    Word = str(Word)
     Word = Word.replace(' ', '')
     Word = ''.join([i for i in Word if not get_cat(i) in DIgnore])
     return Word
@@ -161,38 +161,38 @@ def get_L_words(fISOCode, fVariant, Word, Deinflect=False):
             # Converts "uzee" into "uzai" etc
             #print 'NoSpaces:', NoSpaces.encode('utf-8')
             
-            NoSpaces = unicodedata.normalize('NFC', unicode(NoSpaces)) # HACK!
-            Override = NoSpaces[-1] in u'ーぇ' or u'しぇ' in NoSpaces
+            NoSpaces = unicodedata.normalize('NFC', str(NoSpaces)) # HACK!
+            Override = NoSpaces[-1] in 'ーぇ' or 'しぇ' in NoSpaces
             
             # Fix shenshei (sensei) as used in Lucky Star (if I recall correctly) :-P
-            NoSpaces = NoSpaces.replace(u'しぇ', u'せ')
+            NoSpaces = NoSpaces.replace('しぇ', 'せ')
             
-            NoSpaces = NoSpaces.replace(u'ー', u'え')
-            NoSpaces = NoSpaces.replace(u'ぇ', u'え')
+            NoSpaces = NoSpaces.replace('ー', 'え')
+            NoSpaces = NoSpaces.replace('ぇ', 'え')
             # Koeeee (Kowai) HACK!
-            while NoSpaces[-3:] == u'えええ':
+            while NoSpaces[-3:] == 'えええ':
                 NoSpaces = NoSpaces[:-1]
             # Fix Sugeee (Sugoi) etc
-            while NoSpaces[-2:] == u'ええ' and NoSpaces[1] != u'え':
+            while NoSpaces[-2:] == 'ええ' and NoSpaces[1] != 'え':
                 NoSpaces = NoSpaces[:-1]
             
-            if len(NoSpaces) > 1 and ((NoSpaces[-1] == u'え' and NoSpaces[-2] in DAlt) or Override):
+            if len(NoSpaces) > 1 and ((NoSpaces[-1] == 'え' and NoSpaces[-2] in DAlt) or Override):
                 if NoSpaces[-2] in DAlt:
                     LAltChars = DAlt[NoSpaces[-2]]
                 else: LAltChars = NoSpaces[-2]
                 
                 for AltChar in LAltChars:
-                    Masculine = u'%s%s' % (NoSpaces[:-2], AltChar)
+                    Masculine = '%s%s' % (NoSpaces[:-2], AltChar)
                     Masculine = unicodedata.normalize('NFD', Masculine) # HACK!
-                    Masculine = Masculine.replace(u'っ', '') # Get rid of 'dekke-' (dekai) etc :-P
+                    Masculine = Masculine.replace('っ', '') # Get rid of 'dekke-' (dekai) etc :-P
                     
                     if is_hanzi(Masculine[0]):
                         # Fix [Ko]wai -> [Kowa]i when first character Kanji
                         KanjiForm = Masculine[0]+Masculine[2:]
-                        LRtn += (u'%sい' % Masculine, 
-                                 u'%sい' % KanjiForm)
+                        LRtn += ('%sい' % Masculine, 
+                                 '%sい' % KanjiForm)
                     else: 
-                        LRtn += (u'%sい' % Masculine,)
+                        LRtn += ('%sい' % Masculine,)
         
         if Deinflect and NoSpaces: 
             # In deinflect mode, look up possible stems in the character data
@@ -208,7 +208,7 @@ def get_L_words(fISOCode, fVariant, Word, Deinflect=False):
                     LExtend.sort(key=lambda x: -x[0])
                     LRtn += tuple([i[1] for i in LExtend])
         
-        print(';'.join(LRtn).encode('utf-8'))
+        print((';'.join(LRtn).encode('utf-8')))
         return LRtn
     else:
         Rtn = (Word, filter_accents(Word))
@@ -267,7 +267,7 @@ def get_deinflect_word(Word, fISOCode, fVariant, StripWhite=True):
     # convert to combining characters
     # This allows more accurate Latin-language, e.g. Vietnamese 
     # as the accent is separate to the other letters in similar searching
-    Word = unicodedata.normalize('NFD', unicode(Word))
+    Word = unicodedata.normalize('NFD', str(Word))
     #print 'Word:', Word.encode('utf-8'), fISOCode, fVariant
     
     # convert to the dictionary form of the word
@@ -329,7 +329,7 @@ def get_sub_word_internal(Word, fISOCode, fVariant, StripWhite=True):
     
     # convert to combining characters
     # This makes sure searches are processed correctly
-    Word = unicodedata.normalize('NFD', unicode(Word))
+    Word = unicodedata.normalize('NFD', str(Word))
     if StripWhite:
         return [i for i in rem_dupes(get_L_words(fISOCode, fVariant, Word, False)) if i.strip()]
     else: return Word
@@ -354,5 +354,5 @@ def get_sub_word_disp(Word, fISOCode, fVariant):
     
     # convert to noncombining characters
     # This makes sure people can view the word with most fonts
-    Word = unicodedata.normalize('NFC', unicode(Word))
+    Word = unicodedata.normalize('NFC', str(Word))
     return Word

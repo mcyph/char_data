@@ -1,6 +1,6 @@
 from toolkit.arrays import read_arrays
 
-from CharIndexValueInfo import CharIndexValueInfo
+from .CharIndexValueInfo import CharIndexValueInfo
 
 
 class IntegerKeyIndex:
@@ -14,12 +14,12 @@ class IntegerKeyIndex:
     
     def values(self):
         L = []
-        for value in self.DInts.keys():
+        for value in list(self.DInts.keys()):
             L.append(value)
         return L
 
     def get_value_info(self, value):
-        return CharIndexValueInfo(value, unicode(value))
+        return CharIndexValueInfo(value, str(value))
 
     def search(self, search):
         if search in self.DInts:

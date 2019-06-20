@@ -1,3 +1,3 @@
-from BooleanEnum import BooleanEnum
-from Enum import Enum
-from StringEnum import StringEnum
+from .BooleanEnum import BooleanEnum
+from .Enum import Enum
+from .StringEnum import StringEnum

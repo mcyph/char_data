@@ -1,4 +1,4 @@
-from ListBase import ListBase
+from .ListBase import ListBase
 
 
 class FlatList(ListBase):

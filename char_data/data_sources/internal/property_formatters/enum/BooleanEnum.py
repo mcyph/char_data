@@ -1,6 +1,6 @@
 from char_data.data_sources.internal.data.read import Boolean
 
-from Enum import Enum
+from .Enum import Enum
 
 
 class BooleanEnum(Enum, Boolean):

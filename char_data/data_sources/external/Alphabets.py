@@ -1,6 +1,6 @@
 from char_data.data_sources.consts import HEADER_UNICODE_GENERAL  # HACK!!!!
 from char_data.data_sources.external.property_formatters.alphabets.AlphabetData import AlphabetData
-from ExternalBase import ExternalBase
+from .ExternalBase import ExternalBase
 
 
 class Alphabets(ExternalBase):

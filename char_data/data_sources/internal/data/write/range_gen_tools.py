@@ -11,7 +11,7 @@ def uncompress_ranges(DOrds):
             # Note that the second value is [+0]
             data = DOrds[ord_]
             from_, to = ord_
-            for i_ord in xrange(from_, to+1):
+            for i_ord in range(from_, to+1):
                 #assert not i_ord in DOrds, (i_ord, data, DOrds[i_ord]) # WARNING! ==============================================
                 DRtn[i_ord] = data
             #LRanges.append(tuple(ord_)+(data,))
@@ -60,7 +60,7 @@ def compress_ord_ranges(DOrds):
         # a magic value as some values are `None`!
         last_value = 'NO_LAST_VALUE'
         
-        for ord_ in xrange(max(DOrds)+1):
+        for ord_ in range(max(DOrds)+1):
             if ord_ in DOrds:
                 same_as_last_time = last_value == DOrds[ord_]
                 is_next_ordinal = ord_-1 == LRange[1]

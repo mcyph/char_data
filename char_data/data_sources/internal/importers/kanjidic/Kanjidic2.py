@@ -42,21 +42,21 @@ def open_kanjidic_2(path):
         elif tag in SIgnored:
             # Only children useful - ignored
             # But make sure it actually IS blank!
-            if elem.keys() or (elem.text and elem.text.strip()):
-                print('tag Ignore Warning:', tag, elem.keys(), elem.text)
+            if list(elem.keys()) or (elem.text and elem.text.strip()):
+                print(('tag Ignore Warning:', tag, list(elem.keys()), elem.text))
         
         elif tag == 'database_version':
             # The Kanjidic database version
             # May as well print it
-            print('Kanjidic2 DB Version:', elem.text)
+            print(('Kanjidic2 DB Version:', elem.text))
             
         elif tag == 'date_of_creation':
             # Likewise
-            print('Kanjidic2 Date of Creation:', elem.text)
+            print(('Kanjidic2 Date of Creation:', elem.text))
             
         elif tag == 'file_version':
             # Likewise
-            print('f Version:', elem.text)
+            print(('f Version:', elem.text))
         
         elif tag == 'cp_value':
             # Codepoint values can be easily grabbed by str.encode('utf-8') 
@@ -105,7 +105,7 @@ def open_kanjidic_2(path):
             # I don't think Kanjidic differentiates between them *yet* though
             
             # Record the Japanese meaning
-            if 'm_lang' in elem.keys():
+            if 'm_lang' in list(elem.keys()):
                 # In English
                 key = 'meaning_%s' % elem.get('m_lang')
                 
@@ -198,7 +198,7 @@ def open_kanjidic_2(path):
             D['jlpt'].append(int(elem.text.strip()))
 
         else:
-            print('WARNING:', tag, elem)
+            print(('WARNING:', tag, elem))
     f.close()
 
 
@@ -215,5 +215,5 @@ if __name__ == '__main__':
     for key in LKeys:
         print(key)
     print()
-    print('LEN:', len)
+    print(('LEN:', len))
     

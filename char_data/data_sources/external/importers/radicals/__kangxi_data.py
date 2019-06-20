@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-_KANGXI_DATA = u'''
+_KANGXI_DATA = '''
 1 3 丶 dot
 1 6 亅 hook
 1 2 丨 line

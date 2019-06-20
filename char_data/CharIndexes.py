@@ -1,6 +1,6 @@
-from DataSourceBase import DataSourceBase
-from DataBase import DataBase
-from CharData import char_data
+from .DataSourceBase import DataSourceBase
+from .DataBase import DataBase
+from .CharData import char_data
 
 
 
@@ -16,7 +16,7 @@ class CharIndexKeyInfo:
         )
 
     def __str__(self):
-        return unicode(self).encode('utf-8')
+        return str(self).encode('utf-8')
 
 
 class CharIndexes(DataBase):
@@ -85,7 +85,7 @@ class CharIndexes(DataBase):
         key is the property name and key_type is e.g. "Fulltext" etc
         """
         inst = self.get_class_by_property(key)
-        return inst.index.values()
+        return list(inst.index.values())
 
     def get_value_info(self, key, value):
         # HACK: This really should perhaps be at a "formatter" level!!!
@@ -102,11 +102,11 @@ char_indexes = CharIndexes()
 
 
 if __name__ == '__main__':
-    from CharData import char_data
+    from .CharData import char_data
     from char_data.data_sources.consts import DHeaders
 
     LKeys = []
-    for key in char_indexes.keys():
+    for key in list(char_indexes.keys()):
         print(key)
         ciki = char_indexes.get_key_info(key)
         cdki = char_data.get_key_info(key)
@@ -117,7 +117,7 @@ if __name__ == '__main__':
     LKeys.sort()
 
     for header, key, inst in LKeys:
-        print(header, key, inst)
+        print((header, key, inst))
         continue
 
         LValues = char_indexes.values((source, key))
@@ -126,4 +126,4 @@ if __name__ == '__main__':
         
         print(LValues)
         for value in LValues:
-            print('KEY/VALUE:', (key, value), char_indexes.search((source, key), value))
+            print(('KEY/VALUE:', (key, value), char_indexes.search((source, key), value)))
