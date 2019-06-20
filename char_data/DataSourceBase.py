@@ -46,7 +46,6 @@ class DataSourceBase:
         """
         Get a pretty-printed HTML output version of the value
         """
-        from types import BooleanType
         from char_data.data_sources.internal.property_formatters.enum.DEnum import DEnum
 
         if not isinstance(value, (list, tuple)):

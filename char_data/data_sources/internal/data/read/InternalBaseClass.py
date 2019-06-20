@@ -47,9 +47,12 @@ class InternalBaseClass(DataSourceBase):
                     DIndexReaders[self.index](self.parent.f_index_data, D)
                 )
             except:
-                #from traceback import print_exc
-                print(("ERROR LOADING INDEX: %s with index type %s" % (self.key, self.index_type)))
-                #print_exc()
+                if self.index_type != 'StringKeys':
+                    # This is mainly for cangjie/fourcorner codes etc - I'm not
+                    # sure it's high priority to implement indexing for them for now.
+                    #from traceback import print_exc
+                    print(("ERROR LOADING INDEX: %s with index type %s" % (self.key, self.index_type)))
+                    #print_exc()
                 self.index = None
 
     def _load_data(self, key, f, DJSON):

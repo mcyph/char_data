@@ -47,4 +47,5 @@ class Boolean(InternalBaseClass):
             # that a character is/isn't common in East Asia
 
             value = self.LValues.get_ascii_char(ord_)
+            #print("BOOLEAN:", self.LValues, value)
             return DBool[value]
