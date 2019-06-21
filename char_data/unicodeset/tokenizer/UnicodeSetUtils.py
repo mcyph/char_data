@@ -87,8 +87,7 @@ def get_D_general_cat_aliases():
             'chardata',
             'GeneralCatAliases.txt'
         ),
-        'rb',
-        encoding='utf-8'
+        'r', encoding='utf-8'
     ) as f:
 
         for line in f:

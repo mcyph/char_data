@@ -16,8 +16,8 @@ HEADER_GRADES_FREQUENCIES = 14
 HEADER_TOTAL_STROKES = 15
 HEADER_RADICAL_STROKES = 16
 HEADER_INPUT = 17
-HEADER_ENCODING = 18
-HEADER_UNICODE_LAYOUT = 19
+HEADER_UNICODE_LAYOUT = 18
+HEADER_ENCODING = 19
 HEADER_INDICES = 20
 HEADER_PHONETIC_INDICES = 21
 HEADER_ADOBE = 22
@@ -57,11 +57,15 @@ DTwoLevelMappings = {
             'Lycian', 'Lydian'
         ]),
         ('East Asian Scripts', [
-            'Bopomofo', 'CJK_Symbols', 'Han', 'Hangul', 'Hiragana', 'Katakana', 'Yi'
+            'Bopomofo', 'Han', 'Hangul', 'Hiragana', 'Katakana', 'Miao', 'Tangut', 'Yi'
+        ]),
+        ('Indonesia and Oceania', [
+            'Balinese', 'Batak', 'Buginese', 'Buhid', 'Hanunoo', 'Nushu', 'Makasar', 'Javanese', 'Rejang',
+            'Sundanese', 'Tagalog', 'Tagbanwa'
         ]),
         ('South East Asian', [
-            'Balinese', 'Buginese', 'Cham', 'Javanese', 'Kayah_Li', 'Khmer', 'Lao', 'Lisu',
-            'Meetei_Mayek', 'Myanmar', 'New_Tai_Lue', 'Rejang', 'Sundanese', 'Tai_Le',
+            'Cham', 'Hanifi_Rohingya', 'Kayah_Li', 'Khmer', 'Lao', 'Lisu',
+            'Meetei_Mayek', 'Myanmar', 'New_Tai_Lue', 'Pahawh_Hmong', 'Tai_Le',
             'Tai_Tham', 'Tai_Viet', 'Thai'
         ]),
         #('Symbols and Punctuation', [
@@ -70,34 +74,40 @@ DTwoLevelMappings = {
         #    'Numbers', 'Pictures_and_Miscellaneous_Symbols', 'Spaces', 'Technical_Symbols'
         #]),
         ('Middle Eastern Scripts', [
-            'Arabic', 'Avestan', 'Hebrew', 'Imperial_Aramaic', 'Inscriptional_Pahlavi',
-            'Inscriptional_Parthian', 'Old_South_Arabian', 'Old_Turkic', 'Samaritan',
+            'Arabic', 'Avestan', 'Hatran', 'Hebrew',
+            'Imperial_Aramaic', 'Inscriptional_Pahlavi',
+            'Inscriptional_Parthian', 'Nabataean', 'Mandaic',
+            'Old_South_Arabian', 'Old_Turkic', 'Palmyrene', 'Samaritan',
             'Syriac', 'Thaana'
         ]),
-        ('Indic Scripts', [
-            'Bengali', 'Devanagari', 'Gujarati', 'Gurmukhi', 'Kaithi', 'Kannada', 'Limbu',
-            'Malayalam', 'Ol_Chiki', 'Oriya', 'Saurashtra', 'Sinhala', 'Syloti_Nagri',
-            'Tamil','Telugu'
+        ('South Asian Scripts', [
+            'Ahom',
+            'Bengali', 'Bhaiksuki', 'Brahmi', 'Chakma', 'Devanagari', 'Dogra',
+            'Gujarati', 'Gurmukhi', 'Grantha', 'Kaithi', 'Kannada',
+            'Khojki', 'Khudawadi', 'Limbu',
+            'Mahajani', 'Malayalam', 'Modi', 'Mro', 'Multani', 'Newa',
+            'Ol_Chiki', 'Oriya', 'Saurashtra', 'Siddham',
+            'Sinhala', 'Sharada', 'Syloti_Nagri', 'Takri',
+            'Tamil','Telugu', 'Tirhuta'
         ]),
         ('African Scripts', [
-            'Bamum', 'Egyptian_Hieroglyphs', 'Ethiopic', 'Nko', 'Tifinagh', 'Vai'
+            'Adlam', 'Bamum', 'Bassa_Vah', 'Egyptian_Hieroglyphs',
+            'Ethiopic', 'Medefaidrin', 'Mende_Kikakui', 'Nko', 'Tifinagh', 'Vai'
         ]),
         ('American Scripts', [
-            'Canadian_Aboriginal', 'Cherokee', 'Deseret'
+            'Canadian_Aboriginal', 'Cherokee', 'Deseret', 'Osage'
         ]),
         ('Central Asian Scripts', [
-            'Kharoshthi', 'Lepcha', 'Mongolian', 'Phags_Pa', 'Tibetan'
-        ]),
-        ('Phillipine Scripts', [
-            'Buhid', 'Hanunoo', 'Tagalog', 'Tagbanwa'
+            'Kharoshthi', 'Lepcha', 'Manichaean', 'Marchen', 'Mongolian', 'Phags_Pa', 'Sogdian', 'Soyombo', 'Tibetan'
         ]),
         ('Ancient Scripts', [
-            'Cuneiform', 'Cypriot', 'Gothic', 'Linear_B', 'Ogham', 'Old_Italic', 'Old_Persian',
-            'Phaistos_Disc', 'Phoenician', 'Runic', 'Ugaritic'
+            'Caucasian_Albanian',
+            'Cuneiform', 'Cypriot', 'Elbasan', 'Gothic', 'Linear_A', 'Linear_B', 'Ogham', 'Old_Italic', 'Old_Permic', 'Old_Persian',
+            'Phoenician', 'Runic', 'Ugaritic'
         ]),
         ('Miscellaneous', [
-            'Braille', 'Common', 'Control_Characters', 'Glagolitic', 'Inherited',
-            'Musical_Symbols', 'Osmanya','Shavian'
+            'Braille', 'Common', 'Duployan', 'Glagolitic', 'Inherited',
+            'Osmanya', 'Shavian', 'SignWriting'
         ])
     ]
 }

@@ -1,5 +1,5 @@
 import sys
-print(list(sys.modules.keys()))
+#print(list(sys.modules.keys()))
 
 from char_data import char_data
 from char_data.misc.get_font_script import get_font_script

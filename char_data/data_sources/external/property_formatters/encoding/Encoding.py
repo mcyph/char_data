@@ -29,12 +29,14 @@ class Encoding(ExternalBaseClass):
         
         try: 
             return char.encode(self.encoding)
-        except Exception: 
+        except Exception:
+            from traceback import print_exc
+            #print_exc()
             return None
     
     def _format_data(self, ord_, data):
-        if isinstance(data, str):
-            LHex = ['%s' % binascii.hexlify(i).upper() for i in data]
+        if isinstance(data, bytes):
+            LHex = [hex(i)[2:] for i in data]
             return ' '.join(LHex)
         else:
             return None

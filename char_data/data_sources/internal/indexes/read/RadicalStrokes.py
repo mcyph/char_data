@@ -26,7 +26,7 @@ class RadicalStrokesIndex:
         and this would return the stroke counts which 
         I think adds too many items so I've disabled it
         '''
-        return None
+        return self.DRS.keys()
 
     def get_value_info(self, value):
         return CharIndexValueInfo(FIXME)

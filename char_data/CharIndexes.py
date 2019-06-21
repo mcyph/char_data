@@ -96,8 +96,6 @@ class CharIndexes(DataBase):
         return CharIndexValueInfo(value, formatted, description=None)
 
 
-
-
 char_indexes = CharIndexes()
 
 

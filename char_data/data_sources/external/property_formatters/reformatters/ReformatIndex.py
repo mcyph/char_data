@@ -138,5 +138,5 @@ class ReformatIndex:
                 else:
                     raise Exception("Unknown value type: %s" % item[0])
 
-        print(('** SEARCH:', search, LOut))
+        #print(('** SEARCH:', search, LOut))
         return LOut
