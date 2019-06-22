@@ -6,7 +6,7 @@ from char_data.data_processors.get_key_name import get_key_name
 #=========================================================#
 
 
-class CharPropertyBase:
+class PropertyAccessBase:
     def __init__(self, o):
         """
         This is fed the data from get_D_indexes and get_D_data

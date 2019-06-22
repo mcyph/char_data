@@ -3,7 +3,7 @@ from toolkit.encodings.surrogates import w_ord
 from char_data.data_processors.DataSourceBase import DataSourceBase
 from char_data.data_processors.DataReader import DataReader
 
-from .CharPropertyBase import CharPropertyBase
+from .PropertyAccessBase import PropertyAccessBase
 from char_data.data_processors.consts import DHeaders
 
 
@@ -33,10 +33,10 @@ class CharDataKeyInfo:
 #=========================================================#
 
 
-class CharData(CharPropertyBase, DataReader):
+class CharData(PropertyAccessBase, DataReader):
     def __init__(self):
         DataReader.__init__(self)
-        CharPropertyBase.__init__(self, self)
+        PropertyAccessBase.__init__(self, self)
 
     def __getattr__(self, item):
         return getattr(self.data_reader, item)

@@ -1,5 +1,5 @@
 from char_data.data_processors.DataSourceBase import DataSourceBase
-from .CharPropertyBase import CharPropertyBase
+from .PropertyAccessBase import PropertyAccessBase
 from .CharData import char_data
 
 
@@ -18,13 +18,13 @@ class CharIndexKeyInfo:
         return str(self).encode('utf-8')
 
 
-class CharIndexes(CharPropertyBase):
+class CharIndexes(PropertyAccessBase):
     #=========================================================#
     #                        Indexes                          #
     #=========================================================#
 
     def __init__(self):
-        CharPropertyBase.__init__(self, char_data)
+        PropertyAccessBase.__init__(self, char_data)
 
     #==================================================================#
     #                           Key-Related                            #
