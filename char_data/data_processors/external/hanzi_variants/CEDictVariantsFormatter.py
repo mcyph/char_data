@@ -4,10 +4,10 @@ from char_data.data_paths import data_path
 
 
 # HACK!
-from char_data.data_processors.external.importers.hanzi_variants import (
+from char_data.data_processors.external.hanzi_variants.import_data.DLinkKeys import (
     DReverseLinkKeys, REVERSE
 )
-from char_data.data_processors.external.property_formatters import ExternalFormatterBase
+from char_data.data_processors.external.ExternalFormatterBase import ExternalFormatterBase
 from char_data.data_processors.consts import HEADER_VARIANTS
 
 #from warnings import warn

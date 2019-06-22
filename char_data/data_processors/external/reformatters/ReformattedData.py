@@ -1,6 +1,6 @@
 
-from char_data.data_processors.external.reformatters import ReformatDataFormatter
-from char_data.data_processors.external.reformatters import DCommonMappings
+from char_data.data_processors.external.reformatters.ReformatDataFormatter import ReformatDataFormatter
+from char_data.data_processors.external.reformatters.DCommonMappings import DCommonMappings
 from char_data.data_processors.consts import HEADER_OTHER_SYMBOLS  # HACK!!!!
 
 from char_data.data_processors.external.ExternalSourceBase import ExternalBase

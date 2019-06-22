@@ -1,4 +1,4 @@
-from char_data.data_processors.external.alphabets import AlphabetFormatter
+from char_data.data_processors.external.alphabets.AlphabetFormatter import AlphabetFormatter
 from char_data.data_processors.external.ExternalSourceBase import ExternalBase
 
 

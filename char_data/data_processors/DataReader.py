@@ -1,5 +1,8 @@
 from char_data.data_processors.internal import CCDict, Kanjidic, UnicodeData, Unihan
-from char_data.data_processors.external import HanziVariants, StandardEncodings, ReformattedData, Alphabets
+from char_data.data_processors.external.hanzi_variants.HanziVariants import HanziVariants
+from char_data.data_processors.external.encoding.StandardEncodings import StandardEncodings
+from char_data.data_processors.external.reformatters.ReformattedData import ReformattedData
+from char_data.data_processors.external.alphabets.Alphabets import Alphabets
 
 
 class DataReader:

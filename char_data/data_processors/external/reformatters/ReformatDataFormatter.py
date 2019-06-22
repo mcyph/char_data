@@ -1,4 +1,4 @@
-from char_data.data_processors.external.property_formatters import ExternalFormatterBase
+from char_data.data_processors.external.ExternalFormatterBase import ExternalFormatterBase
 
 from .ReformatIndex import ReformatIndex
 

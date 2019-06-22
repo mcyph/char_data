@@ -1,5 +1,5 @@
 from lang_data import LangData, get_L_possible_isos
-from char_data.data_processors.external.property_formatters import ExternalFormatterBase
+from char_data.data_processors.external.ExternalFormatterBase import ExternalFormatterBase
 from char_data.data_processors.consts import HEADER_LANGUAGE_USAGE  # HACK!!!!
 from .AlphabetIndex import AlphabetIndex
 

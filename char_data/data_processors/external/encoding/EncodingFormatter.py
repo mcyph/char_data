@@ -2,7 +2,7 @@ import binascii
 from toolkit.encodings.surrogates import w_unichr
 #from Dicts.Other.Import.DelimText import Encodings
 
-from char_data.data_processors.external.property_formatters import ExternalFormatterBase
+from char_data.data_processors.external.ExternalFormatterBase import ExternalFormatterBase
 from char_data.data_processors.consts import HEADER_ENCODING
 
 
