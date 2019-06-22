@@ -1,10 +1,10 @@
 from toolkit.encodings.surrogates import w_ord
 
 from .DataSourceBase import DataSourceBase
-from char_data.data_sources.DataReader import DataReader
+from char_data.data_processors.DataReader import DataReader
 
 from .DataBase import DataBase
-from char_data.data_sources.consts import DHeaders
+from char_data.data_processors.consts import DHeaders
 
 
 class CharDataKeyInfo:

@@ -91,7 +91,7 @@ class CharIndexes(DataBase):
 
         inst = self.get_class_by_property(key)
         formatted = inst._format_data(0, value)  # HACK HACK HACK!
-        from char_data.data_sources.internal.indexes.read.CharIndexValueInfo import CharIndexValueInfo
+        from char_data.data_processors.internal.index_types.read.CharIndexValueInfo import CharIndexValueInfo
         return CharIndexValueInfo(value, formatted, description=None)
 
 
@@ -100,7 +100,7 @@ char_indexes = CharIndexes()
 
 if __name__ == '__main__':
     from .CharData import char_data
-    from char_data.data_sources.consts import DHeaders
+    from char_data.data_processors.consts import DHeaders
 
     print(CharIndexes.search('general name', 'smile'))
 

@@ -17,7 +17,7 @@ class DataSourceBase:
         self.header_const = header_const
         self.original_name = original_name
 
-        from char_data.data_sources.get_key_name import get_key_name
+        from char_data.data_processors.get_key_name import get_key_name
 
         self.key = get_key_name(original_name)
         self.short_desc = short_desc
@@ -46,7 +46,7 @@ class DataSourceBase:
         """
         Get a pretty-printed HTML output version of the value
         """
-        from char_data.data_sources.internal.property_formatters.enum.DEnum import DEnum
+        from char_data.data_processors.internal.property_formatters.enum.DEnum import DEnum
 
         if not isinstance(value, (list, tuple)):
             # TODO: add specific handling for Booleans??

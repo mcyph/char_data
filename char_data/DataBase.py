@@ -1,5 +1,5 @@
 from .DataSourceBase import DataSourceBase
-from char_data.data_sources.get_key_name import get_key_name
+from char_data.data_processors.get_key_name import get_key_name
 
 #=========================================================#
 #                 Get Class by Property                   #
@@ -63,6 +63,7 @@ class DataBase:
                 'hanzi_variants'
             ):
                 key = get_key_name(s)
+
                 if data_source in self.SPossible:
                     o = getattr(self.o, data_source)
                     if hasattr(o, key) and isinstance(getattr(o, key), DataSourceBase):
