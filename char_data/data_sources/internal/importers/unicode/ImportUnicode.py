@@ -4,7 +4,7 @@ from char_data.data_paths import data_path
 from char_data.data_sources.internal.importers.misc import get_code_point
 from char_data.data_sources.internal.importers.misc import open_scsv, uni_open
 from char_data.data_sources.internal.data.write.write_encoding import get_L_encoding
-from char_data.data_sources.internal.importers.str.nameslist import NamesList
+from char_data.data_sources.internal.importers.unicode.nameslist import NamesList
 from char_data.data_sources.internal.importers.Write import WriteBase, add
 
 

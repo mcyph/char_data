@@ -3,7 +3,6 @@ from .DataBase import DataBase
 from .CharData import char_data
 
 
-
 class CharIndexKeyInfo:
     def __init__(self, key, display_key, key_type):
         self.key = key
@@ -102,6 +101,8 @@ char_indexes = CharIndexes()
 if __name__ == '__main__':
     from .CharData import char_data
     from char_data.data_sources.consts import DHeaders
+
+    print(CharIndexes.search('general name', 'smile'))
 
     LKeys = []
     for key in list(char_indexes.keys()):

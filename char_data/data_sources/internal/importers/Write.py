@@ -13,6 +13,7 @@ def add(old_fn):
     def new_fn(self, *args, **kw):
         # use iterator `old_fn` and add character information
         for key, ord_, value in old_fn(self, *args, **kw):
+            #print(self.DKeys)
             D = self.DKeys[get_key_name(key)]  # PERFORMANCE WARNING!!! =============================================
 
             if ord_ in D:
@@ -76,7 +77,7 @@ class WriteBase:
 
 
 if __name__ == '__main__':
-    from char_data.importers import Unihan, Kanjidic, CCDict, Unicode
+    from char_data.data_sources.internal.importers import Unihan, Kanjidic, CCDict, Unicode
     CCDict.run()
     Kanjidic.run()
     #MultiRads.run()

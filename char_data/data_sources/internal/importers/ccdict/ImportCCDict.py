@@ -1,12 +1,13 @@
 from char_data.data_paths import data_path
 
-from char_data.data_sources.internal.importers.str.unihan import open_unihan
+from char_data.data_sources.internal.importers.unicode.unihan.open_unihan import open_unihan
 from char_data.data_sources.internal.importers.Write import WriteBase, add
 
 
 class ImportCCDict(WriteBase):
     def __init__(self):
-        WriteBase.__init__(self, 'ccdict/ccdict.pyini')
+        from char_data.data_sources.internal.CCDict import CCDict
+        WriteBase.__init__(self, CCDict())
         self.open_ccdict()
     
     @add
@@ -15,7 +16,7 @@ class ImportCCDict(WriteBase):
         #                      CCDict Data                      #
         #=======================================================#
         
-        for D in open_unihan([data_path('chardata', 'ccdict/src/ccdict.txt')]):
+        for D in open_unihan([data_path('chardata', 'ccdict/source/ccdict.txt')]):
             ord_ = D['codepoint']
             
             for key, value in list(D.items()):

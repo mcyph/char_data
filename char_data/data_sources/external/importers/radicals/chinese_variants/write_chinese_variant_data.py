@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from toolkit.json_tools import loads
-from flazzle.dicts.Edict.CEDict.JSimplified import DTradToSimp, DSimpToTrad
+from langlynx.dicts.Edict.CEDict.JSimplified import DTradToSimp, DSimpToTrad
 
 
 def get_D_variants():

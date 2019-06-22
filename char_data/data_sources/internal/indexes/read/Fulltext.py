@@ -22,7 +22,7 @@ class FulltextIndex:
         
         # None for no deinflection
         # [ISO, variant] to use with the stemmer
-        self.LDeinflect = None #DJSON['LDeinflect'] # FIXME! ====================================
+        self.deinflect_iso = DJSON['deinflect_iso']
         
         self.LSpell = read_json(f, DJSON['LSpell'])
         self.LHash = read_array(f, DJSON['LHash'])
@@ -47,11 +47,13 @@ class FulltextIndex:
         """
         Search for a specific value
         """
-        return self.fulltext(search)  #hack
+        return self.fulltext(search)  # hack
 
-        LSearch = [i.strip().upper() 
-                   for i in search.split() 
-                   if i.strip()]
+        LSearch = [
+            i.strip().upper()
+            for i in search.split()
+            if i.strip()
+        ]
         
         SPrev = None
         for search in LSearch:
@@ -67,6 +69,7 @@ class FulltextIndex:
             value = char_data.raw_data(FIXME, search) # FIXME! ==============================
             if value.upper() == search.upper():
                 return (ord_,)
+
         raise KeyError(search)
     
     #======================================================#
@@ -81,9 +84,9 @@ class FulltextIndex:
         Try in each of the words, removing possibilities 
         if there aren't any of that name
         """
-        LSearch = [i.strip().upper() 
-                   for i in search.split() 
-                   if i.strip()]
+        LSearch = [
+            i.strip().upper() for i in search.split() if i.strip()
+        ]
         
         SPrev = None
         for search in LSearch:
@@ -101,10 +104,9 @@ class FulltextIndex:
         return LOrds
     
     def _find(self, SPrev, SPossible, search):
-        LDeinflect = self.LDeinflect
-        if LDeinflect:
+        if self.deinflect_iso:
             from title_idx.language_support.Stem import get_L_stemmed
-            search = get_L_stemmed(search.lower(), *LDeinflect)[0].upper()
+            search = get_L_stemmed(search.lower(), self.deinflect_iso)[0].upper()
             #print 'STEMMED SEARCH:', LDeinflect, search.encode('utf-8')
         
         Hash = fast_hash(search)

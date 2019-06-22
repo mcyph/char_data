@@ -59,6 +59,10 @@ setup(
     packages=find_packages(),
 
     install_requires=[
+        'zhon',
+        'cython',
+        'PyStemmer',
+        #'py-editdist'
     ],
 
     data_files=get_L_data_dir('char_data/data'),

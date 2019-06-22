@@ -2,13 +2,14 @@ import glob
 
 from char_data.data_paths import data_path
 
-from .open_unihan import open_unihan
-from char_data.importers.Write import WriteBase, add
+from char_data.data_sources.internal.importers.unicode.unihan.open_unihan import open_unihan
+from char_data.data_sources.internal.importers.Write import WriteBase, add
 
 
 class Unihan(WriteBase):
     def __init__(self):
-        WriteBase.__init__(self, 'unihan/unihan.pyini')
+        from char_data.data_sources.internal.Unihan import Unihan
+        WriteBase.__init__(self, Unihan())
         self.open_unihan()
     
     @add
@@ -17,7 +18,7 @@ class Unihan(WriteBase):
         #                      Unihan Data                      #
         #=======================================================#
         
-        path = data_path('chardata', 'unihan/src/*.txt')
+        path = data_path('chardata', 'unihan/source/*.txt')
         LUni = glob.glob(path)
         assert LUni, path
         

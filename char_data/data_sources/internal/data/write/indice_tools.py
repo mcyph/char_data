@@ -50,7 +50,7 @@ for Line in Indicies.split('\n'):
     Line = Line.strip()
     if Line: 
         key, value = Line.split('    ')
-        DIndicies[key] = value
+        DIndicies[key.lower()] = value
 
 
 def create_re_object(key):

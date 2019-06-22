@@ -26,7 +26,7 @@ def open_kanjidic_2(path):
     if ext == 'gz': 
         f = gzip.open(path)
     else: 
-        f = file(path, 'rb')
+        f = open(path, 'rb')
     
     # get an iterable
     iter_ = iterparse(f, events=("end",))
