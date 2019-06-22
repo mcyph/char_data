@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
 from char_data.data_processors.internal.data_types.read import StringData
-from char_data.data_processors.external.importers.radicals import DRadTypes, kangxi_data
-from char_data.data_processors.external.importers.radicals import (
-    KANGXI_TRADITIONAL, KANGXI_SIMPLIFIED, KANGXI_BOTH
-)
 from char_data.data_processors.internal.data_types.read.InternalBaseClass import InternalBaseClass
 
 

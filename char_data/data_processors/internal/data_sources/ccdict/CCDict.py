@@ -5,12 +5,12 @@ from char_data.data_processors.consts import (
     HEADER_FIXME, HEADER_DEFINITION, HEADER_READINGS,
     HEADER_TOTAL_STROKES, HEADER_RADICAL_STROKES, HEADER_INPUT
 )
-from char_data.data_processors.internal.InternalBase import InternalBase
+from char_data.data_processors.internal.InternalSourceBase import InternalSourceBase
 
 
-class CCDict(InternalBase):
+class CCDict(InternalSourceBase):
     def __init__(self):
-        InternalBase.__init__(self, 'ccdict')
+        InternalSourceBase.__init__(self, 'ccdict')
 
         #====================================================================#
         #                            Definitions                             #

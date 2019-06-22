@@ -1,4 +1,4 @@
-from char_data.data_processors.internal.data_sources.Write import WriteBase, add
+from char_data.data_processors.internal.data_sources.WriteBase import WriteBase, add
 from char_data.data_paths import data_path
 
 from .NamesList import NamesList

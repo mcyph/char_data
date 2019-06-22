@@ -9,12 +9,12 @@ from char_data.data_processors.consts import (
     HEADER_UNICODE_GENERAL, HEADER_CASING, HEADER_NORMALISATION,
     HEADER_UNICODE_LAYOUT, HEADER_SUBBLOCK_INFO, HEADER_SEE_ALSO
 )
-from char_data.data_processors.internal.InternalBase import InternalBase
+from char_data.data_processors.internal.InternalSourceBase import InternalSourceBase
 
 
-class UnicodeData(InternalBase):
+class UnicodeData(InternalSourceBase):
     def __init__(self):
-        InternalBase.__init__(self, 'unidata')
+        InternalSourceBase.__init__(self, 'unidata')
 
         #====================================================================#
         #                            Definitions                             #

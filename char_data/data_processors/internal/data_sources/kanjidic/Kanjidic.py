@@ -9,12 +9,12 @@ from char_data.data_processors.consts import (
     HEADER_TOTAL_STROKES, HEADER_RADICAL_STROKES, HEADER_INPUT,
     HEADER_ENCODING, HEADER_INDICES
 )
-from char_data.data_processors.internal.InternalBase import InternalBase
+from char_data.data_processors.internal.InternalSourceBase import InternalSourceBase
 
 
-class Kanjidic(InternalBase):
+class Kanjidic(InternalSourceBase):
     def __init__(self, load_db=True):
-        InternalBase.__init__(self, 'kanjidic')
+        InternalSourceBase.__init__(self, 'kanjidic')
 
         #====================================================================#
         #                            Definitions                             #

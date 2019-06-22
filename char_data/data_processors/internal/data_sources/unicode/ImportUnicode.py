@@ -5,7 +5,7 @@ from char_data.data_processors.internal.data_sources.misc import get_code_point
 from char_data.data_processors.internal.data_sources.misc import open_scsv, uni_open
 from char_data.data_processors.internal.data_types.write.write_encoding import get_L_encoding
 from char_data.data_processors.internal.data_sources.unicode.nameslist import NamesList
-from char_data.data_processors.internal.data_sources.Write import WriteBase, add
+from char_data.data_processors.internal.data_sources.WriteBase import WriteBase, add
 
 
 class ImportUnicode(WriteBase):

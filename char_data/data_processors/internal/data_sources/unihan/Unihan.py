@@ -9,12 +9,12 @@ from char_data.data_processors.consts import (
     HEADER_ENCODING, HEADER_INDICES, HEADER_PHONETIC_INDICES,
     HEADER_ADOBE
 )
-from char_data.data_processors.internal.InternalBase import InternalBase
+from char_data.data_processors.internal.InternalSourceBase import InternalSourceBase
 
 
-class Unihan(InternalBase):
+class Unihan(InternalSourceBase):
     def __init__(self):
-        InternalBase.__init__(self, 'unihan')
+        InternalSourceBase.__init__(self, 'unihan')
 
         #====================================================================#
         #                            Definitions                             #
