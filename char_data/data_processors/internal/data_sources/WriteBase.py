@@ -3,9 +3,8 @@ from json import dumps
 
 from toolkit.io.file_tools import file_write
 
-from char_data.data_paths import data_path
 from char_data.data_processors.internal.index_types import DIndexWriters
-from char_data.DataSourceBase import DataSourceBase
+from char_data.data_processors.DataSourceBase import DataSourceBase
 from char_data.data_processors.get_key_name import get_key_name
 
 

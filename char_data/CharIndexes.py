@@ -1,5 +1,5 @@
-from .DataSourceBase import DataSourceBase
-from .DataBase import DataBase
+from char_data.data_processors.DataSourceBase import DataSourceBase
+from .CharPropertyBase import CharPropertyBase
 from .CharData import char_data
 
 
@@ -18,13 +18,13 @@ class CharIndexKeyInfo:
         return str(self).encode('utf-8')
 
 
-class CharIndexes(DataBase):
+class CharIndexes(CharPropertyBase):
     #=========================================================#
     #                        Indexes                          #
     #=========================================================#
 
     def __init__(self):
-        DataBase.__init__(self, char_data)
+        CharPropertyBase.__init__(self, char_data)
 
     #==================================================================#
     #                           Key-Related                            #
@@ -100,7 +100,6 @@ char_indexes = CharIndexes()
 
 if __name__ == '__main__':
     from .CharData import char_data
-    from char_data.data_processors.consts import DHeaders
 
     print(CharIndexes.search('general name', 'smile'))
 

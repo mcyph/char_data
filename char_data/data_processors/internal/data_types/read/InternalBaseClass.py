@@ -1,4 +1,4 @@
-from char_data.DataSourceBase import DataSourceBase
+from char_data.data_processors.DataSourceBase import DataSourceBase
 
 
 class NO_DATA: pass
