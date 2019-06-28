@@ -1,10 +1,10 @@
-from char_data.data_processors.external.ExternalSourceBase import ExternalBase
+from char_data.data_processors.external.ExternalSourceBase import ExternalSourceBase
 from char_data.data_processors.external.encoding import EncodingFormatter
 
 
-class StandardEncodings(ExternalBase):
+class StandardEncodings(ExternalSourceBase):
     def __init__(self):
-        ExternalBase.__init__(self, 'standard_encodings')
+        ExternalSourceBase.__init__(self, 'standard_encodings')
 
         #================================================================#
         #                         all languages                          #

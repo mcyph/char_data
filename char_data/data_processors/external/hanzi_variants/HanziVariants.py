@@ -1,11 +1,11 @@
-from char_data.data_processors.external.ExternalSourceBase import ExternalBase
+from char_data.data_processors.external.ExternalSourceBase import ExternalSourceBase
 from char_data.data_processors.external.hanzi_variants import JaSimplified
 from char_data.data_processors.external.hanzi_variants import CEDictVariantsFormatter
 
 
-class HanziVariants(ExternalBase):
+class HanziVariants(ExternalSourceBase):
     def __init__(self):
-        ExternalBase.__init__(self, 'hanzi_variants')
+        ExternalSourceBase.__init__(self, 'hanzi_variants')
 
         self.japanese_simplified = JaSimplified(self, 'japanese_simplified')
         self.chinese_traditional = JaSimplified(self, 'chinese_traditional')   ## ??? What should I call these variants???

@@ -47,7 +47,7 @@ class InternalBaseClass(DataSourceBase):
                     DIndexReaders[self.index](self.parent.f_index_data, D)
                 )
             except:
-                if self.index_type != 'StringKeys':
+                if self.index_type != 'StringKeys' or True:
                     # This is mainly for cangjie/fourcorner codes etc - I'm not
                     # sure it's high priority to implement indexing for them for now.
                     print(D)

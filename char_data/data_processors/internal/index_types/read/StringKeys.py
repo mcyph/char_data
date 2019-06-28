@@ -14,7 +14,12 @@ class StringKeyIndex:
         
         D = self.DRanges = {}
         for from_, to, value in read_json(f, DJSON['LRanges']):
-            D.setdefault(value, []).append((from_, to))
+            if isinstance(value, list):
+                for i_value in value:
+                    if isinstance(i_value, str):
+                        D.setdefault(i_value, []).append((from_, to))
+            else:
+                D.setdefault(value, []).append((from_, to))
     
     def values(self):
         LKeys = list(self.DStringKeys.keys()) + list(self.DRanges.keys())

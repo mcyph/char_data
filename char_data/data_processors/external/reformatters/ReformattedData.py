@@ -3,10 +3,10 @@ from char_data.data_processors.external.reformatters.ReformatDataFormatter impor
 from char_data.data_processors.external.reformatters.DCommonMappings import DCommonMappings
 from char_data.data_processors.consts import HEADER_OTHER_SYMBOLS  # HACK!!!!
 
-from char_data.data_processors.external.ExternalSourceBase import ExternalBase
+from char_data.data_processors.external.ExternalSourceBase import ExternalSourceBase
 
 
-class ReformattedData(ExternalBase):
+class ReformattedData(ExternalSourceBase):
     def __init__(self):
         def get_filter_fn(L):
             def fn():
@@ -28,7 +28,8 @@ class ReformattedData(ExternalBase):
             self, header_const=HEADER_OTHER_SYMBOLS,
             original_name='emoji and other symbols',
             short_desc="Emoji and Other Symbols",
-            get_L_data=get_filter_fn([mapping, DCommonMappings[mapping]] for mapping in sorted(DCommonMappings.keys()))
+            # Note that DCommonMappings is a SortedDict, so the keys are in order as defined in DCommonMappings.py
+            get_L_data=get_filter_fn([mapping, DCommonMappings[mapping]] for mapping in DCommonMappings.keys())
         )
 
         self.inherited = ReformatDataFormatter(
@@ -47,7 +48,7 @@ class ReformattedData(ExternalBase):
         #    LData=self.__get_by_L_block_headings(FIXME)
         #)
 
-        ExternalBase.__init__(self, 'reformatted')
+        ExternalSourceBase.__init__(self, 'reformatted')
 
     def __get_by_L_block_headings(self, key, value, LUseOnly=None):
         from char_data import char_indexes

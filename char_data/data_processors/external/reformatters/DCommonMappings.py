@@ -1,5 +1,15 @@
-DCommonMappings = {
-    'General Mathematic Symbols, Punctuation, Currency etc': [
+from collections import OrderedDict
+
+
+DCommonMappings = OrderedDict([
+    ('Emoji and Kaomoji', [
+        'Emoticons',
+        'Supplemental Symbols and Pictographs',
+        'Miscellaneous Symbols and Pictographs',
+        'Transport and Map Symbols',
+        'Miscellaneous Symbols',
+    ]),
+    ('General Mathematic Symbols, Punctuation, Currency etc', [
         'Basic Latin',
         'Latin-1 Supplement',
         'Spacing Modifier Letters',
@@ -20,23 +30,16 @@ DCommonMappings = {
         'Currency Symbols',
         'Letterlike Symbols',
         'Common Indic Number Forms',
-    ],
-    'Emoji and Kaomoji': [
-        'Emoticons',
-        'Supplemental Symbols and Pictographs',
-        'Miscellaneous Symbols and Pictographs',
-        'Transport and Map Symbols',
-        'Miscellaneous Symbols',
-    ],
-    'Other Mathematic Symbols': [
+    ]),
+    ('Other Mathematic Symbols', [
         'Number Forms',
         'Mathematical Operators',
         'Miscellaneous Mathematical Symbols-A',
         'Miscellaneous Mathematical Symbols-B',
         'Supplemental Mathematical Operators',
         'Mathematical Alphanumeric Symbols',
-    ],
-    'Box Drawing, Shapes and Arrows': [
+    ]),
+    ('Box Drawing, Shapes and Arrows', [
         'Box Drawing',
         'Block Elements',
         'Geometric Shapes',
@@ -46,8 +49,8 @@ DCommonMappings = {
         'Miscellaneous Symbols and Arrows',
         'Geometric Shapes Extended',
         'Supplemental Arrows-C',
-    ],
-    'Other Punctuation': [
+    ]),
+    ('Other Punctuation', [
         'Supplemental Punctuation',
         'Modifier Tone Letters',
         'Latin Extended-D',
@@ -56,8 +59,8 @@ DCommonMappings = {
         'Latin Extended-E',
         'Arabic Presentation Forms-A',
         'Specials',
-    ],
-    'CJK Punctuation and Symbols': [
+    ]),
+    ('CJK Punctuation and Symbols', [
         'CJK Strokes',
         'CJK Symbols and Punctuation',
         'Hiragana',
@@ -67,34 +70,34 @@ DCommonMappings = {
         'CJK Compatibility Forms',
         'Vertical Forms',
         'Halfwidth and Fullwidth Forms',
-    ],
-    'Technical': [
+    ]),
+    ('Technical', [
         'Miscellaneous Technical',
         'Control Pictures',
         'Optical Character Recognition',
         'Ideographic Description Characters',
         'Alchemical Symbols',
-    ],
-    'Enclosed Characters and Words': [
+    ]),
+    ('Enclosed Characters and Words', [
         'Enclosed Alphanumerics',
         'Enclosed Alphanumeric Supplement',
         'Enclosed Ideographic Supplement',
-    ],
-    'Dingbats': [
+    ]),
+    ('Dingbats', [
         'Dingbats',
         'Ornamental Dingbats',
-    ],
-    'Musical Symbols': [
+    ]),
+    ('Musical Symbols', [
         'Byzantine Musical Symbols',
         'Musical Symbols',
-    ],
-    'Tiles, Cards and Chess Symbols': [
+    ]),
+    ('Tiles, Cards and Chess Symbols', [
         'Mahjong Tiles',
         'Domino Tiles',
         'Playing Cards',
         'Chess Symbols',
-    ],
-    'Historic or Other Uncategorised': [
+    ]),
+    ('Historic or Other Uncategorised', [
         'Yijing Hexagram Symbols',
         'Small Form Variants',
         'Arabic Presentation Forms-B',
@@ -107,5 +110,5 @@ DCommonMappings = {
         'Counting Rod Numerals',
         'Indic Siyaq Numbers',
         'Tags',
-    ]
-}
+    ])
+])

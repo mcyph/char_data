@@ -102,11 +102,11 @@ class UnicodeData(InternalSourceBase):
 
         self.subblock_heading = Definition(
             self, HEADER_SUBBLOCK_INFO, 'subblock heading', 'Subblock Heading',
-            LISOs=None, index_type='FIXME'
+            LISOs=None, index_type='StringKeys'
         )
         self.subblock_technical_notice = Definition(
             self, HEADER_SUBBLOCK_INFO, 'subblock technical notice', 'Subblock Technical Notice',
-            LISOs=None, index_type='FIXME'
+            LISOs=None, index_type='StringKeys'
         )
 
         #====================================================================#
