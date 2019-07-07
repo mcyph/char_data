@@ -19,7 +19,10 @@ class Enum:
 
         if self.key in DEnum and str(data) in DEnum[self.key]:
             return DEnum[self.key][str(data)]
-        else: 
+        else:
+            if isinstance(data, str):
+                data = data.replace('_', ' ')
+
             return data # HACK!
 
 

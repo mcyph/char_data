@@ -3,7 +3,7 @@ import os
 from pprint import pprint
 from char_data.formatters.radicals import SimilarHanzi
 
-from char_data.CharInfo import formatted, char_data.raw_data, keys, idx_keys, idx_values, char_indexes.search
+from char_data import formatted, raw_data, keys, idx_keys, idx_values, search
 
 #pprint(keys())
 #pprint(idx_keys())

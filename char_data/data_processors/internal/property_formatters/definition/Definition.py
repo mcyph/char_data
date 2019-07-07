@@ -22,11 +22,31 @@ class Definition(SentenceData):
         if data:
             # prevent ALL CAPS!
             L = []
+
             for i in data:
-                if i.isupper():
+                if self.key == 'comments' and i and i[0] == '*':
+                    if i.count('*') == 1:
+                        i = i.strip('*')
+                        if i:
+                            L.append(i)
+                    else:
+                        L.extend([
+                            j.strip() for j in
+                            i.replace('\n', ' ').split('*')
+                            if j.strip()
+                        ])
+
+                elif i.isupper():
                     i = i.lower()
-                L.append(i)
-            data = tuple(L)
+                    if i:
+                        L.append(i)
+
+            data = tuple(L) if L else None
+
+        # Provide better formatting for "Comment" fields like e.g.
+        #  * intended to surround a diacritic above
+        # parsing asterisks, etc as needed
+
 
         return data # HACK! =====================================================
 

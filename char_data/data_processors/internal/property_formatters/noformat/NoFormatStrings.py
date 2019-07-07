@@ -9,11 +9,17 @@ class NoFormatStrings(StringData):  # WARNING! =================================
             # CANGJIE HACK!
             # TODO: Move to a separate type :-P
             LRtn = []
+
             for c in data:
                 if c in DCangjie:
                     LRtn.append(DCangjie[c][0])
                 else:
                     LRtn.append('?')
+
             return '%s (%s)' % (data, ''.join(LRtn))
+
+        elif isinstance(data, str):
+            data = data.replace('_', ' ')
+
         return data
 

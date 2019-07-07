@@ -68,6 +68,9 @@ class _ShortCharDefinitions:
             return ord_
 
     def _get_L_tokens(self, s):
+        if s is None:
+            return []  # CHECK ME!!
+
         s = s.lower()
         LTokens = [
             self._stemmed(i.strip()) for i in s.split()
