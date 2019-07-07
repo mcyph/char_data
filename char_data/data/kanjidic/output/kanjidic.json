@@ -1,0 +1,1286 @@
+{
+    "crossref_deroo": {
+        "LRanges": [
+            0,
+            4
+        ],
+        "LSeek": [
+            "uint8",
+            4,
+            208
+        ],
+        "LAmount": [
+            "uint8",
+            212,
+            208
+        ],
+        "LWords": [
+            "utf-8",
+            420,
+            96
+        ],
+        "LIgnoreRanges": [
+            516,
+            414
+        ]
+    },
+    "crossref_jis208": {
+        "LRanges": [
+            930,
+            4
+        ],
+        "LSeek": [
+            "uint16",
+            934,
+            19983
+        ],
+        "LAmount": [
+            "uint8",
+            40900,
+            19983
+        ],
+        "LWords": [
+            "utf-8",
+            60883,
+            8712
+        ],
+        "LIgnoreRanges": [
+            69595,
+            271
+        ]
+    },
+    "crossref_jis212": {
+        "LRanges": [
+            69866,
+            4
+        ],
+        "LSeek": [
+            "uint16",
+            69870,
+            17422
+        ],
+        "LAmount": [
+            "uint8",
+            104714,
+            17422
+        ],
+        "LWords": [
+            "utf-8",
+            122136,
+            4788
+        ],
+        "LIgnoreRanges": [
+            126924,
+            558
+        ]
+    },
+    "crossref_jis213": {
+        "LRanges": [
+            127482,
+            4
+        ],
+        "LSeek": [
+            "uint8",
+            127486,
+            1
+        ],
+        "LAmount": [
+            "uint8",
+            127487,
+            1
+        ],
+        "LWords": [
+            "utf-8",
+            127488,
+            5
+        ],
+        "LIgnoreRanges": [
+            127493,
+            14
+        ]
+    },
+    "crossref_nelson_c": {
+        "LRanges": [
+            127507,
+            4
+        ],
+        "LSeek": [
+            "uint16",
+            127511,
+            14281
+        ],
+        "LAmount": [
+            "uint8",
+            156073,
+            14281
+        ],
+        "LWords": [
+            "utf-8",
+            170354,
+            2912
+        ],
+        "LIgnoreRanges": [
+            173266,
+            1006
+        ]
+    },
+    "crossref_njecd": {
+        "LRanges": [
+            174272,
+            4
+        ],
+        "LSeek": [
+            "uint8",
+            174276,
+            15
+        ],
+        "LAmount": [
+            "uint8",
+            174291,
+            15
+        ],
+        "LWords": [
+            "utf-8",
+            174306,
+            55
+        ],
+        "LIgnoreRanges": [
+            174361,
+            222
+        ]
+    },
+    "crossref_oneill": {
+        "LRanges": [
+            174583,
+            4
+        ],
+        "LSeek": [
+            "uint8",
+            174587,
+            13
+        ],
+        "LAmount": [
+            "uint8",
+            174600,
+            13
+        ],
+        "LWords": [
+            "utf-8",
+            174613,
+            50
+        ],
+        "LIgnoreRanges": [
+            174663,
+            206
+        ]
+    },
+    "crossref_s_h": {
+        "LRanges": [
+            174869,
+            4
+        ],
+        "LSeek": [
+            "uint8",
+            174873,
+            1
+        ],
+        "LAmount": [
+            "uint8",
+            174874,
+            1
+        ],
+        "LWords": [
+            "utf-8",
+            174875,
+            5
+        ],
+        "LIgnoreRanges": [
+            174880,
+            14
+        ]
+    },
+    "crossref_ucs": {
+        "LRanges": [
+            174894,
+            4
+        ],
+        "LSeek": [
+            "uint16",
+            174898,
+            942
+        ],
+        "LAmount": [
+            "uint8",
+            176782,
+            942
+        ],
+        "LWords": [
+            "utf-8",
+            177724,
+            384
+        ],
+        "LIgnoreRanges": [
+            178108,
+            974
+        ]
+    },
+    "dicref_busy_people": {
+        "DArrays": [
+            [
+                "volume",
+                [
+                    "uint8",
+                    179082,
+                    5473
+                ]
+            ],
+            [
+                "chapter",
+                [
+                    "uint8",
+                    184555,
+                    5473
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            190028,
+            1182
+        ],
+        "LRanges": [
+            191210,
+            4
+        ],
+        "DMultiVals": [
+            191214,
+            4
+        ]
+    },
+    "dicref_crowley": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    191218,
+                    7235
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            205688,
+            1166
+        ],
+        "LRanges": [
+            206854,
+            4
+        ],
+        "DMultiVals": [
+            206858,
+            4
+        ]
+    },
+    "dicref_gakken": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    206862,
+                    17229
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            241320,
+            510
+        ],
+        "LRanges": [
+            241830,
+            4
+        ],
+        "DMultiVals": [
+            241834,
+            4
+        ]
+    },
+    "dicref_halpern_kkld": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    241838,
+                    18113
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            278064,
+            366
+        ],
+        "LRanges": [
+            278430,
+            4
+        ],
+        "DMultiVals": [
+            278434,
+            4
+        ]
+    },
+    "dicref_halpern_njecd": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    278438,
+                    19383
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            317204,
+            190
+        ],
+        "LRanges": [
+            317394,
+            4
+        ],
+        "DMultiVals": [
+            317398,
+            4
+        ]
+    },
+    "dicref_heisig": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    317402,
+                    19831
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            357064,
+            142
+        ],
+        "LRanges": [
+            357206,
+            4
+        ],
+        "DMultiVals": [
+            357210,
+            4
+        ]
+    },
+    "dicref_henshall": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    357214,
+                    16683
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            390580,
+            558
+        ],
+        "LRanges": [
+            391138,
+            4
+        ],
+        "DMultiVals": [
+            391142,
+            4
+        ]
+    },
+    "dicref_henshall3": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    391146,
+                    11869
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            414884,
+            1006
+        ],
+        "LRanges": [
+            415890,
+            4
+        ],
+        "DMultiVals": [
+            415894,
+            4
+        ]
+    },
+    "dicref_jf_cards": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    415898,
+                    16664
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            449226,
+            558
+        ],
+        "LRanges": [
+            449784,
+            4
+        ],
+        "DMultiVals": [
+            449788,
+            4
+        ]
+    },
+    "dicref_kanji_in_context": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    449792,
+                    16683
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            483158,
+            558
+        ],
+        "LRanges": [
+            483716,
+            4
+        ],
+        "DMultiVals": [
+            483720,
+            4
+        ]
+    },
+    "dicref_kodansha_compact": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    483724,
+                    16683
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            517090,
+            558
+        ],
+        "LRanges": [
+            517648,
+            4
+        ],
+        "DMultiVals": [
+            517652,
+            4
+        ]
+    },
+    "dicref_maniette": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    517656,
+                    17234
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            552124,
+            494
+        ],
+        "LRanges": [
+            552618,
+            4
+        ],
+        "DMultiVals": [
+            552622,
+            4
+        ]
+    },
+    "dicref_moro": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    552626,
+                    20332
+                ]
+            ],
+            [
+                "P",
+                [
+                    "utf-8",
+                    593290,
+                    20332
+                ]
+            ],
+            [
+                "X",
+                [
+                    "utf-8",
+                    613622,
+                    20332
+                ]
+            ],
+            [
+                "volume",
+                [
+                    "uint8",
+                    633954,
+                    20332
+                ]
+            ],
+            [
+                "volume page",
+                [
+                    "uint16",
+                    654286,
+                    20332
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            694950,
+            142
+        ],
+        "LRanges": [
+            695092,
+            4
+        ],
+        "DMultiVals": [
+            695096,
+            4
+        ]
+    },
+    "dicref_nelson_c": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    695100,
+                    20174
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            735448,
+            275
+        ],
+        "LRanges": [
+            735723,
+            4
+        ],
+        "DMultiVals": [
+            735727,
+            4
+        ]
+    },
+    "dicref_nelson_n": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    735731,
+                    20311
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            776353,
+            142
+        ],
+        "LRanges": [
+            776495,
+            4
+        ],
+        "DMultiVals": [
+            776499,
+            89
+        ]
+    },
+    "dicref_oneill_kk": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    776588,
+                    16957
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            810502,
+            526
+        ],
+        "LRanges": [
+            811028,
+            4
+        ],
+        "DMultiVals": [
+            811032,
+            4
+        ]
+    },
+    "dicref_oneill_names": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    811036,
+                    19499
+                ]
+            ],
+            [
+                "position",
+                [
+                    "utf-8",
+                    850034,
+                    19499
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            869533,
+            190
+        ],
+        "LRanges": [
+            869723,
+            4
+        ],
+        "DMultiVals": [
+            869727,
+            47
+        ]
+    },
+    "dicref_sakade": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    869774,
+                    10936
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            891646,
+            1054
+        ],
+        "LRanges": [
+            892700,
+            4
+        ],
+        "DMultiVals": [
+            892704,
+            4
+        ]
+    },
+    "dicref_sh_kk": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    892708,
+                    18113
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            928934,
+            366
+        ],
+        "LRanges": [
+            929300,
+            4
+        ],
+        "DMultiVals": [
+            929304,
+            4
+        ]
+    },
+    "dicref_tutt_cards": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    929308,
+                    16683
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            962674,
+            558
+        ],
+        "LRanges": [
+            963232,
+            4
+        ],
+        "DMultiVals": [
+            963236,
+            4
+        ]
+    },
+    "freq": {
+        "LShort": [
+            "uint16",
+            963240,
+            19326
+        ],
+        "LIgnoreRanges": [
+            1001892,
+            206
+        ],
+        "LRanges": [
+            1002098,
+            4
+        ],
+        "DMultiVals": [
+            1002102,
+            4
+        ]
+    },
+    "grade": {
+        "LShort": [
+            "uint8",
+            1002106,
+            19855
+        ],
+        "LIgnoreRanges": [
+            1021961,
+            190
+        ],
+        "LRanges": [
+            1022151,
+            4
+        ],
+        "DMultiVals": [
+            1022155,
+            4
+        ]
+    },
+    "jlpt": {
+        "LShort": [
+            "uint8",
+            1022159,
+            18113
+        ],
+        "LIgnoreRanges": [
+            1040272,
+            366
+        ],
+        "LRanges": [
+            1040638,
+            4
+        ],
+        "DMultiVals": [
+            1040642,
+            4
+        ]
+    },
+    "meaning": {
+        "LSeek": [
+            "uint16",
+            1040646,
+            22960
+        ],
+        "LWordLinks": [
+            "uint16",
+            1086566,
+            57654
+        ],
+        "LAmount": [
+            "uint8",
+            1201874,
+            57654
+        ],
+        "LWords": [
+            "utf-8",
+            1259528,
+            62574
+        ],
+        "LIgnoreRanges": [
+            1322102,
+            671
+        ],
+        "LRanges": [
+            1322773,
+            4
+        ]
+    },
+    "meaning_es": {
+        "LSeek": [
+            "uint16",
+            1322777,
+            18783
+        ],
+        "LWordLinks": [
+            "uint16",
+            1360343,
+            19203
+        ],
+        "LAmount": [
+            "uint8",
+            1398749,
+            19203
+        ],
+        "LWords": [
+            "utf-8",
+            1417952,
+            36720
+        ],
+        "LIgnoreRanges": [
+            1454672,
+            302
+        ],
+        "LRanges": [
+            1454974,
+            4
+        ]
+    },
+    "meaning_fr": {
+        "LSeek": [
+            "uint16",
+            1454978,
+            17234
+        ],
+        "LWordLinks": [
+            "uint16",
+            1489446,
+            17388
+        ],
+        "LAmount": [
+            "uint8",
+            1524222,
+            17388
+        ],
+        "LWords": [
+            "utf-8",
+            1541610,
+            37169
+        ],
+        "LIgnoreRanges": [
+            1578779,
+            494
+        ],
+        "LRanges": [
+            1579273,
+            4
+        ]
+    },
+    "meaning_pt": {
+        "LSeek": [
+            "uint16",
+            1579277,
+            16683
+        ],
+        "LWordLinks": [
+            "uint16",
+            1612643,
+            15416
+        ],
+        "LAmount": [
+            "uint8",
+            1643475,
+            15416
+        ],
+        "LWords": [
+            "utf-8",
+            1658891,
+            32721
+        ],
+        "LIgnoreRanges": [
+            1691612,
+            558
+        ],
+        "LRanges": [
+            1692170,
+            4
+        ]
+    },
+    "querycode_deroo": {
+        "LRanges": [
+            1692174,
+            4
+        ],
+        "LSeek": [
+            "uint16",
+            1692178,
+            17238
+        ],
+        "LAmount": [
+            "uint8",
+            1726654,
+            17238
+        ],
+        "LWords": [
+            "utf-8",
+            1743892,
+            3563
+        ],
+        "LIgnoreRanges": [
+            1747455,
+            478
+        ]
+    },
+    "querycode_four_corner": {
+        "LRanges": [
+            1747933,
+            4
+        ],
+        "LSeek": [
+            "uint16",
+            1747937,
+            20351
+        ],
+        "LAmount": [
+            "uint8",
+            1788639,
+            20351
+        ],
+        "LWords": [
+            "utf-8",
+            1808990,
+            24516
+        ],
+        "LIgnoreRanges": [
+            1833506,
+            110
+        ]
+    },
+    "querycode_sh_desc": {
+        "LRanges": [
+            1833616,
+            4
+        ],
+        "LSeek": [
+            "uint16",
+            1833620,
+            20072
+        ],
+        "LAmount": [
+            "uint8",
+            1873764,
+            20072
+        ],
+        "LWords": [
+            "utf-8",
+            1893836,
+            32726
+        ],
+        "LIgnoreRanges": [
+            1926562,
+            110
+        ]
+    },
+    "rad_classical": {
+        "LRanges": [
+            1926672,
+            303
+        ],
+        "LSeek": [
+            "uint16",
+            1926975,
+            27611
+        ],
+        "LAmount": [
+            "uint8",
+            1982197,
+            27611
+        ],
+        "LWords": [
+            "utf-8",
+            2009808,
+            534
+        ],
+        "LIgnoreRanges": [
+            2010342,
+            3365
+        ]
+    },
+    "rad_name": {
+        "LSeek": [
+            "uint16",
+            2013707,
+            1407
+        ],
+        "LWordLinks": [
+            "uint16",
+            2016521,
+            282
+        ],
+        "LAmount": [
+            "uint8",
+            2017085,
+            282
+        ],
+        "LWords": [
+            "utf-8",
+            2017367,
+            1740
+        ],
+        "LIgnoreRanges": [
+            2019107,
+            702
+        ],
+        "LRanges": [
+            2019809,
+            4
+        ]
+    },
+    "rad_nelson_c": {
+        "LRanges": [
+            2019813,
+            4
+        ],
+        "LSeek": [
+            "uint16",
+            2019817,
+            7512
+        ],
+        "LAmount": [
+            "uint8",
+            2034841,
+            7512
+        ],
+        "LWords": [
+            "utf-8",
+            2042353,
+            285
+        ],
+        "LIgnoreRanges": [
+            2042638,
+            1006
+        ]
+    },
+    "reading_ja_kun": {
+        "LSeek": [
+            "uint16",
+            2043644,
+            20185
+        ],
+        "LWordLinks": [
+            "uint16",
+            2084014,
+            22058
+        ],
+        "LAmount": [
+            "uint8",
+            2128130,
+            22058
+        ],
+        "LWords": [
+            "utf-8",
+            2150188,
+            61576
+        ],
+        "LIgnoreRanges": [
+            2211764,
+            177
+        ],
+        "LRanges": [
+            2211941,
+            4
+        ]
+    },
+    "reading_ja_on": {
+        "LSeek": [
+            "uint16",
+            2211945,
+            20190
+        ],
+        "LWordLinks": [
+            "uint16",
+            2252325,
+            16862
+        ],
+        "LAmount": [
+            "uint8",
+            2286049,
+            16862
+        ],
+        "LWords": [
+            "utf-8",
+            2302911,
+            2958
+        ],
+        "LIgnoreRanges": [
+            2305869,
+            213
+        ],
+        "LRanges": [
+            2306082,
+            4
+        ]
+    },
+    "reading_korean_h": {
+        "LSeek": [
+            "uint16",
+            2306086,
+            20072
+        ],
+        "LWordLinks": [
+            "uint16",
+            2346230,
+            3430
+        ],
+        "LAmount": [
+            "uint8",
+            2353090,
+            3430
+        ],
+        "LWords": [
+            "utf-8",
+            2356520,
+            1440
+        ],
+        "LIgnoreRanges": [
+            2357960,
+            110
+        ],
+        "LRanges": [
+            2358070,
+            4
+        ]
+    },
+    "reading_korean_r": {
+        "LSeek": [
+            "uint16",
+            2358074,
+            20089
+        ],
+        "LWordLinks": [
+            "uint16",
+            2398252,
+            3728
+        ],
+        "LAmount": [
+            "uint8",
+            2405708,
+            3728
+        ],
+        "LWords": [
+            "utf-8",
+            2409436,
+            1733
+        ],
+        "LIgnoreRanges": [
+            2411169,
+            110
+        ],
+        "LRanges": [
+            2411279,
+            4
+        ]
+    },
+    "reading_nanori": {
+        "LSeek": [
+            "uint16",
+            2411283,
+            15906
+        ],
+        "LWordLinks": [
+            "uint16",
+            2443095,
+            6390
+        ],
+        "LAmount": [
+            "uint8",
+            2455875,
+            6390
+        ],
+        "LWords": [
+            "utf-8",
+            2462265,
+            6729
+        ],
+        "LIgnoreRanges": [
+            2468994,
+            654
+        ],
+        "LRanges": [
+            2469648,
+            4
+        ]
+    },
+    "reading_pinyin": {
+        "LSeek": [
+            "uint16",
+            2469652,
+            22551
+        ],
+        "LWordLinks": [
+            "uint16",
+            2514754,
+            8506
+        ],
+        "LAmount": [
+            "uint8",
+            2531766,
+            8506
+        ],
+        "LWords": [
+            "utf-8",
+            2540272,
+            5573
+        ],
+        "LIgnoreRanges": [
+            2545845,
+            749
+        ],
+        "LRanges": [
+            2546594,
+            4
+        ]
+    },
+    "stroke_count": {
+        "LShort": [
+            "uint8",
+            2546598,
+            27611
+        ],
+        "LIgnoreRanges": [
+            2574209,
+            3365
+        ],
+        "LRanges": [
+            2577574,
+            110
+        ],
+        "DMultiVals": [
+            2577684,
+            7203
+        ]
+    }
+}

@@ -1,0 +1,2341 @@
+{
+    "accountingnumeric": {
+        "LRanges": [
+            0,
+            4
+        ],
+        "LSeek": [
+            "uint8",
+            4,
+            167
+        ],
+        "LAmount": [
+            "uint8",
+            171,
+            167
+        ],
+        "LWords": [
+            "utf-8",
+            338,
+            23
+        ],
+        "LIgnoreRanges": [
+            361,
+            238
+        ]
+    },
+    "bigfive": {
+        "LSeek": [
+            "uint16",
+            599,
+            20092
+        ],
+        "LValues": [
+            "uint16",
+            40783,
+            26126
+        ],
+        "LIgnoreRanges": [
+            93035,
+            126
+        ],
+        "LRanges": [
+            93161,
+            4
+        ]
+    },
+    "cangjie": {
+        "LRanges": [
+            93165,
+            4
+        ],
+        "LSeek": [
+            "uint32",
+            93169,
+            52075
+        ],
+        "LAmount": [
+            "uint8",
+            301469,
+            52075
+        ],
+        "LWords": [
+            "utf-8",
+            353544,
+            113822
+        ],
+        "LIgnoreRanges": [
+            467366,
+            2599
+        ]
+    },
+    "cantonese": {
+        "LSeek": [
+            "uint16",
+            469965,
+            33991
+        ],
+        "LWordLinks": [
+            "uint16",
+            537947,
+            15470
+        ],
+        "LAmount": [
+            "uint8",
+            568887,
+            15470
+        ],
+        "LWords": [
+            "utf-8",
+            584357,
+            10038
+        ],
+        "LIgnoreRanges": [
+            594395,
+            3031
+        ],
+        "LRanges": [
+            597426,
+            4
+        ]
+    },
+    "cccii": {
+        "LSeek": [
+            "uint16",
+            597430,
+            20902
+        ],
+        "LValues": [
+            "uint32",
+            639234,
+            39396
+        ],
+        "LIgnoreRanges": [
+            796818,
+            14
+        ],
+        "LRanges": [
+            796832,
+            4
+        ]
+    },
+    "cheungbauer": {
+        "LSeek": [
+            "uint8",
+            796836,
+            0
+        ],
+        "LWordLinks": [
+            "uint8",
+            796836,
+            0
+        ],
+        "LAmount": [
+            "uint8",
+            796836,
+            0
+        ],
+        "LWords": [
+            "utf-8",
+            796836,
+            0
+        ],
+        "LIgnoreRanges": [
+            796836,
+            4
+        ],
+        "LRanges": [
+            796840,
+            4
+        ]
+    },
+    "cheungbauerindex": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    796844,
+                    11049
+                ]
+            ],
+            [
+                "position",
+                [
+                    "uint8",
+                    818942,
+                    11049
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            829991,
+            3405
+        ],
+        "LRanges": [
+            833396,
+            4
+        ],
+        "DMultiVals": [
+            833400,
+            7514
+        ]
+    },
+    "cihait": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    840914,
+                    39442
+                ]
+            ],
+            [
+                "row",
+                [
+                    "uint8",
+                    919798,
+                    39442
+                ]
+            ],
+            [
+                "position",
+                [
+                    "uint8",
+                    959240,
+                    39442
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            998682,
+            4025
+        ],
+        "LRanges": [
+            1002707,
+            4
+        ],
+        "DMultiVals": [
+            1002711,
+            118
+        ]
+    },
+    "cns1986": {
+        "LSeek": [
+            "uint16",
+            1002829,
+            20096
+        ],
+        "LWordLinks": [
+            "uint32",
+            1043021,
+            34516
+        ],
+        "LAmount": [
+            "uint8",
+            1181085,
+            34516
+        ],
+        "LWords": [
+            "utf-8",
+            1215601,
+            103548
+        ],
+        "LIgnoreRanges": [
+            1319149,
+            110
+        ],
+        "LRanges": [
+            1319259,
+            4
+        ]
+    },
+    "cns1992": {
+        "LSeek": [
+            "uint16",
+            1319263,
+            20096
+        ],
+        "LWordLinks": [
+            "uint32",
+            1359455,
+            34516
+        ],
+        "LAmount": [
+            "uint8",
+            1497519,
+            34516
+        ],
+        "LWords": [
+            "utf-8",
+            1532035,
+            103548
+        ],
+        "LIgnoreRanges": [
+            1635583,
+            110
+        ],
+        "LRanges": [
+            1635693,
+            4
+        ]
+    },
+    "compatibilityvariant": {
+        "LSeek": [
+            "uint16",
+            1635697,
+            1016
+        ],
+        "LValues": [
+            "uint32",
+            1637729,
+            2000
+        ],
+        "LIgnoreRanges": [
+            1645729,
+            31
+        ],
+        "LRanges": [
+            1645760,
+            4
+        ]
+    },
+    "cowles": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    1645764,
+                    22272
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            1690308,
+            1641
+        ],
+        "LRanges": [
+            1691949,
+            4
+        ],
+        "DMultiVals": [
+            1691953,
+            11850
+        ]
+    },
+    "daejaweon": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    1703803,
+                    20096
+                ]
+            ],
+            [
+                "character number",
+                [
+                    "uint8",
+                    1743995,
+                    20096
+                ]
+            ],
+            [
+                "status",
+                [
+                    "uint8",
+                    1764091,
+                    20096
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            1784187,
+            126
+        ],
+        "LRanges": [
+            1784313,
+            4
+        ],
+        "DMultiVals": [
+            1784317,
+            4
+        ]
+    },
+    "definition": {
+        "LSeek": [
+            "uint32",
+            1784321,
+            38020
+        ],
+        "LWordLinks": [
+            "uint32",
+            1936401,
+            124714
+        ],
+        "LAmount": [
+            "uint8",
+            2435257,
+            124714
+        ],
+        "LWords": [
+            "utf-8",
+            2559971,
+            156463
+        ],
+        "LIgnoreRanges": [
+            2716434,
+            3573
+        ],
+        "LRanges": [
+            2720007,
+            4
+        ]
+    },
+    "eacc": {
+        "LSeek": [
+            "uint16",
+            2720011,
+            20933
+        ],
+        "LValues": [
+            "uint32",
+            2761877,
+            26488
+        ],
+        "LIgnoreRanges": [
+            2867829,
+            62
+        ],
+        "LRanges": [
+            2867891,
+            4
+        ]
+    },
+    "fenn": {
+        "LSeek": [
+            "uint8",
+            2867895,
+            0
+        ],
+        "LWordLinks": [
+            "uint8",
+            2867895,
+            0
+        ],
+        "LAmount": [
+            "uint8",
+            2867895,
+            0
+        ],
+        "LWords": [
+            "utf-8",
+            2867895,
+            0
+        ],
+        "LIgnoreRanges": [
+            2867895,
+            4
+        ],
+        "LRanges": [
+            2867899,
+            4
+        ]
+    },
+    "fennindex": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    2867903,
+                    21990
+                ]
+            ],
+            [
+                "position",
+                [
+                    "uint8",
+                    2911883,
+                    21990
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            2933873,
+            2287
+        ],
+        "LRanges": [
+            2936160,
+            4
+        ],
+        "DMultiVals": [
+            2936164,
+            42873
+        ]
+    },
+    "fourcornercode": {
+        "LRanges": [
+            2979037,
+            4
+        ],
+        "LSeek": [
+            "uint16",
+            2979041,
+            20901
+        ],
+        "LAmount": [
+            "uint8",
+            3020843,
+            20901
+        ],
+        "LWords": [
+            "utf-8",
+            3041744,
+            47620
+        ],
+        "LIgnoreRanges": [
+            3089364,
+            14
+        ]
+    },
+    "frequency": {
+        "LShort": [
+            "uint8",
+            3089378,
+            20896
+        ],
+        "LIgnoreRanges": [
+            3110274,
+            14
+        ],
+        "LRanges": [
+            3110288,
+            4
+        ],
+        "DMultiVals": [
+            3110292,
+            4
+        ]
+    },
+    "gb0": {
+        "LSeek": [
+            "uint16",
+            3110296,
+            18837
+        ],
+        "LValues": [
+            "uint16",
+            3147970,
+            13526
+        ],
+        "LIgnoreRanges": [
+            3175022,
+            222
+        ],
+        "LRanges": [
+            3175244,
+            4
+        ]
+    },
+    "gb1": {
+        "LSeek": [
+            "uint16",
+            3175248,
+            20082
+        ],
+        "LValues": [
+            "uint16",
+            3215412,
+            13732
+        ],
+        "LIgnoreRanges": [
+            3242876,
+            110
+        ],
+        "LRanges": [
+            3242986,
+            4
+        ]
+    },
+    "gb3": {
+        "LSeek": [
+            "uint16",
+            3242990,
+            19864
+        ],
+        "LValues": [
+            "uint16",
+            3282718,
+            9672
+        ],
+        "LIgnoreRanges": [
+            3302062,
+            142
+        ],
+        "LRanges": [
+            3302204,
+            4
+        ]
+    },
+    "gb5": {
+        "LSeek": [
+            "uint16",
+            3302208,
+            19759
+        ],
+        "LValues": [
+            "uint16",
+            3341726,
+            5684
+        ],
+        "LIgnoreRanges": [
+            3353094,
+            158
+        ],
+        "LRanges": [
+            3353252,
+            4
+        ]
+    },
+    "gb7": {
+        "LSeek": [
+            "uint8",
+            3353256,
+            244
+        ],
+        "LValues": [
+            "uint16",
+            3353500,
+            84
+        ],
+        "LIgnoreRanges": [
+            3353668,
+            270
+        ],
+        "LRanges": [
+            3353938,
+            4
+        ]
+    },
+    "gb8": {
+        "LSeek": [
+            "uint16",
+            3353942,
+            12626
+        ],
+        "LValues": [
+            "uint16",
+            3379194,
+            1570
+        ],
+        "LIgnoreRanges": [
+            3382334,
+            974
+        ],
+        "LRanges": [
+            3383308,
+            4
+        ]
+    },
+    "gradelevel": {
+        "LShort": [
+            "uint8",
+            3383312,
+            19056
+        ],
+        "LIgnoreRanges": [
+            3402368,
+            270
+        ],
+        "LRanges": [
+            3402638,
+            4
+        ],
+        "DMultiVals": [
+            3402642,
+            4
+        ]
+    },
+    "gsr": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    3402646,
+                    25378
+                ]
+            ],
+            [
+                "position",
+                [
+                    "utf-8",
+                    3453402,
+                    25378
+                ]
+            ],
+            [
+                "offset",
+                [
+                    "utf-8",
+                    3478780,
+                    25378
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            3504158,
+            3063
+        ],
+        "LRanges": [
+            3507221,
+            4
+        ],
+        "DMultiVals": [
+            3507225,
+            1322
+        ]
+    },
+    "hangul": {
+        "LSeek": [
+            "uint16",
+            3508547,
+            20355
+        ],
+        "LWordLinks": [
+            "uint16",
+            3549257,
+            1267
+        ],
+        "LAmount": [
+            "uint8",
+            3551791,
+            1267
+        ],
+        "LWords": [
+            "utf-8",
+            3553058,
+            1449
+        ],
+        "LIgnoreRanges": [
+            3554507,
+            126
+        ],
+        "LRanges": [
+            3554633,
+            4
+        ]
+    },
+    "hanyu": {
+        "DArrays": [
+            [
+                "volume number",
+                [
+                    "uint8",
+                    3554637,
+                    70225
+                ]
+            ],
+            [
+                "page",
+                [
+                    "uint16",
+                    3624862,
+                    70225
+                ]
+            ],
+            [
+                "character number",
+                [
+                    "uint8",
+                    3765312,
+                    70225
+                ]
+            ],
+            [
+                "in dictionary",
+                [
+                    "uint8",
+                    3835537,
+                    70225
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            3905762,
+            47
+        ],
+        "LRanges": [
+            3905809,
+            4
+        ],
+        "DMultiVals": [
+            3905813,
+            27807
+        ]
+    },
+    "hanyupinlu": {
+        "LSeek": [
+            "uint16",
+            3933620,
+            20522
+        ],
+        "LWordLinks": [
+            "uint16",
+            3974664,
+            6007
+        ],
+        "LAmount": [
+            "uint8",
+            3986678,
+            6007
+        ],
+        "LWords": [
+            "utf-8",
+            3992685,
+            27719
+        ],
+        "LIgnoreRanges": [
+            4020404,
+            78
+        ],
+        "LRanges": [
+            4020482,
+            4
+        ]
+    },
+    "hanyupinyin": {
+        "LSeek": [
+            "uint32",
+            4020486,
+            69562
+        ],
+        "LWordLinks": [
+            "uint32",
+            4298734,
+            68290
+        ],
+        "LAmount": [
+            "uint8",
+            4571894,
+            68290
+        ],
+        "LWords": [
+            "utf-8",
+            4640184,
+            535453
+        ],
+        "LIgnoreRanges": [
+            5175637,
+            127
+        ],
+        "LRanges": [
+            5175764,
+            4
+        ]
+    },
+    "hdzradbreak": {
+        "LSeek": [
+            "uint8",
+            5175768,
+            0
+        ],
+        "LWordLinks": [
+            "uint8",
+            5175768,
+            0
+        ],
+        "LAmount": [
+            "uint8",
+            5175768,
+            0
+        ],
+        "LWords": [
+            "utf-8",
+            5175768,
+            0
+        ],
+        "LIgnoreRanges": [
+            5175768,
+            4
+        ],
+        "LRanges": [
+            5175772,
+            4
+        ]
+    },
+    "hkglyph": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    5175776,
+                    20072
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            5215920,
+            127
+        ],
+        "LRanges": [
+            5216047,
+            4
+        ],
+        "DMultiVals": [
+            5216051,
+            31
+        ]
+    },
+    "hkscs": {
+        "LSeek": [
+            "uint16",
+            5216082,
+            51557
+        ],
+        "LValues": [
+            "uint16",
+            5319196,
+            9024
+        ],
+        "LIgnoreRanges": [
+            5337244,
+            2761
+        ],
+        "LRanges": [
+            5340005,
+            4
+        ]
+    },
+    "ibmjapan": {
+        "LSeek": [
+            "uint16",
+            5340009,
+            5602
+        ],
+        "LValues": [
+            "uint16",
+            5351213,
+            720
+        ],
+        "LIgnoreRanges": [
+            5352653,
+            1406
+        ],
+        "LRanges": [
+            5354059,
+            4
+        ]
+    },
+    "iicore": {
+        "LValues": [
+            "utf-8",
+            5354063,
+            0
+        ],
+        "LIgnoreRanges": [
+            5354063,
+            4
+        ],
+        "LRanges": [
+            5354067,
+            194
+        ]
+    },
+    "irg_gsource": {
+        "LRanges": [
+            5354261,
+            64
+        ],
+        "LSeek": [
+            "uint32",
+            5354325,
+            74647
+        ],
+        "LAmount": [
+            "uint8",
+            5652913,
+            74647
+        ],
+        "LWords": [
+            "utf-8",
+            5727560,
+            540613
+        ],
+        "LIgnoreRanges": [
+            6268173,
+            47
+        ]
+    },
+    "irg_hsource": {
+        "LRanges": [
+            6268220,
+            4
+        ],
+        "LSeek": [
+            "uint16",
+            6268224,
+            51682
+        ],
+        "LAmount": [
+            "uint8",
+            6371588,
+            51682
+        ],
+        "LWords": [
+            "utf-8",
+            6423270,
+            27474
+        ],
+        "LIgnoreRanges": [
+            6450744,
+            2797
+        ]
+    },
+    "irg_jsource": {
+        "LRanges": [
+            6453541,
+            4
+        ],
+        "LSeek": [
+            "uint32",
+            6453545,
+            34738
+        ],
+        "LAmount": [
+            "uint8",
+            6592497,
+            34738
+        ],
+        "LWords": [
+            "utf-8",
+            6627235,
+            99756
+        ],
+        "LIgnoreRanges": [
+            6726991,
+            3105
+        ]
+    },
+    "irg_kpsource": {
+        "LRanges": [
+            6730096,
+            4
+        ],
+        "LSeek": [
+            "uint32",
+            6730100,
+            65692
+        ],
+        "LAmount": [
+            "uint8",
+            6992868,
+            65692
+        ],
+        "LWords": [
+            "utf-8",
+            7058560,
+            193048
+        ],
+        "LIgnoreRanges": [
+            7251608,
+            1021
+        ]
+    },
+    "irg_ksource": {
+        "LRanges": [
+            7252629,
+            4
+        ],
+        "LSeek": [
+            "uint32",
+            7252633,
+            32448
+        ],
+        "LAmount": [
+            "uint8",
+            7382425,
+            32448
+        ],
+        "LWords": [
+            "utf-8",
+            7414873,
+            126448
+        ],
+        "LIgnoreRanges": [
+            7541321,
+            2319
+        ]
+    },
+    "irg_msource": {
+        "LRanges": [
+            7543640,
+            4
+        ],
+        "LSeek": [
+            "uint8",
+            7543644,
+            142
+        ],
+        "LAmount": [
+            "uint8",
+            7543786,
+            142
+        ],
+        "LWords": [
+            "utf-8",
+            7543928,
+            144
+        ],
+        "LIgnoreRanges": [
+            7544072,
+            213
+        ]
+    },
+    "irg_tsource": {
+        "LRanges": [
+            7544285,
+            4
+        ],
+        "LSeek": [
+            "uint32",
+            7544289,
+            74384
+        ],
+        "LAmount": [
+            "uint8",
+            7841825,
+            74384
+        ],
+        "LWords": [
+            "utf-8",
+            7916209,
+            397355
+        ],
+        "LIgnoreRanges": [
+            8313564,
+            177
+        ]
+    },
+    "irg_usource": {
+        "LRanges": [
+            8313741,
+            4
+        ],
+        "LSeek": [
+            "uint16",
+            8313745,
+            1394
+        ],
+        "LAmount": [
+            "uint8",
+            8316533,
+            1394
+        ],
+        "LWords": [
+            "utf-8",
+            8317927,
+            1260
+        ],
+        "LIgnoreRanges": [
+            8319187,
+            389
+        ]
+    },
+    "irg_vsource": {
+        "LRanges": [
+            8319576,
+            4
+        ],
+        "LSeek": [
+            "uint32",
+            8319580,
+            60795
+        ],
+        "LAmount": [
+            "uint8",
+            8562760,
+            60795
+        ],
+        "LWords": [
+            "utf-8",
+            8623555,
+            70574
+        ],
+        "LIgnoreRanges": [
+            8694129,
+            1955
+        ]
+    },
+    "irgdaejaweon": {
+        "LRanges": [
+            8696084,
+            4
+        ],
+        "LSeek": [
+            "uint32",
+            8696088,
+            20095
+        ],
+        "LAmount": [
+            "uint8",
+            8776468,
+            20095
+        ],
+        "LWords": [
+            "utf-8",
+            8796563,
+            127760
+        ],
+        "LIgnoreRanges": [
+            8924323,
+            110
+        ]
+    },
+    "irgdaikanwaziten": {
+        "LRanges": [
+            8924433,
+            4
+        ],
+        "LSeek": [
+            "uint32",
+            8924437,
+            20167
+        ],
+        "LAmount": [
+            "uint8",
+            9005105,
+            20167
+        ],
+        "LWords": [
+            "utf-8",
+            9025272,
+            89522
+        ],
+        "LIgnoreRanges": [
+            9114794,
+            94
+        ]
+    },
+    "irghanyudazidian": {
+        "LRanges": [
+            9114888,
+            4
+        ],
+        "LSeek": [
+            "uint32",
+            9114892,
+            70225
+        ],
+        "LAmount": [
+            "uint8",
+            9395792,
+            70225
+        ],
+        "LWords": [
+            "utf-8",
+            9466017,
+            500751
+        ],
+        "LIgnoreRanges": [
+            9966768,
+            47
+        ]
+    },
+    "irgkangxi": {
+        "LRanges": [
+            9966815,
+            12290
+        ],
+        "LSeek": [
+            "uint32",
+            9979105,
+            68087
+        ],
+        "LAmount": [
+            "uint8",
+            10251453,
+            68087
+        ],
+        "LWords": [
+            "utf-8",
+            10319540,
+            347216
+        ],
+        "LIgnoreRanges": [
+            10666756,
+            501
+        ]
+    },
+    "japanesekun": {
+        "LSeek": [
+            "uint16",
+            10667257,
+            20769
+        ],
+        "LWordLinks": [
+            "uint16",
+            10708795,
+            18198
+        ],
+        "LAmount": [
+            "uint8",
+            10745191,
+            18198
+        ],
+        "LWords": [
+            "utf-8",
+            10763389,
+            35656
+        ],
+        "LIgnoreRanges": [
+            10799045,
+            363
+        ],
+        "LRanges": [
+            10799408,
+            4
+        ]
+    },
+    "japaneseon": {
+        "LSeek": [
+            "uint16",
+            10799412,
+            20772
+        ],
+        "LWordLinks": [
+            "uint16",
+            10840956,
+            13719
+        ],
+        "LAmount": [
+            "uint8",
+            10868394,
+            13719
+        ],
+        "LWords": [
+            "utf-8",
+            10882113,
+            2086
+        ],
+        "LIgnoreRanges": [
+            10884199,
+            417
+        ],
+        "LRanges": [
+            10884616,
+            4
+        ]
+    },
+    "jis0": {
+        "LSeek": [
+            "uint16",
+            10884620,
+            20072
+        ],
+        "LValues": [
+            "uint16",
+            10924764,
+            12712
+        ],
+        "LIgnoreRanges": [
+            10950188,
+            110
+        ],
+        "LRanges": [
+            10950298,
+            4
+        ]
+    },
+    "jis0213": {
+        "LSeek": [
+            "uint16",
+            10950302,
+            27398
+        ],
+        "LWordLinks": [
+            "uint16",
+            11005098,
+            7390
+        ],
+        "LAmount": [
+            "uint8",
+            11019878,
+            7390
+        ],
+        "LWords": [
+            "utf-8",
+            11027268,
+            25863
+        ],
+        "LIgnoreRanges": [
+            11053131,
+            3397
+        ],
+        "LRanges": [
+            11056528,
+            4
+        ]
+    },
+    "jis1": {
+        "LSeek": [
+            "uint16",
+            11056532,
+            20002
+        ],
+        "LValues": [
+            "uint16",
+            11096536,
+            11602
+        ],
+        "LIgnoreRanges": [
+            11119740,
+            126
+        ],
+        "LRanges": [
+            11119866,
+            4
+        ]
+    },
+    "kangxi": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    11119870,
+                    21590
+                ]
+            ],
+            [
+                "character number",
+                [
+                    "uint8",
+                    11163050,
+                    21590
+                ]
+            ],
+            [
+                "status",
+                [
+                    "uint8",
+                    11184640,
+                    21590
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            11206230,
+            497
+        ],
+        "LRanges": [
+            11206727,
+            2389
+        ],
+        "DMultiVals": [
+            11209116,
+            4
+        ]
+    },
+    "karlgren": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    11209120,
+                    20218
+                ]
+            ],
+            [
+                "interpolated",
+                [
+                    "utf-8",
+                    11249556,
+                    20218
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            11269774,
+            1437
+        ],
+        "LRanges": [
+            11271211,
+            4
+        ],
+        "DMultiVals": [
+            11271215,
+            4
+        ]
+    },
+    "korean": {
+        "LSeek": [
+            "uint16",
+            11271219,
+            20770
+        ],
+        "LWordLinks": [
+            "uint16",
+            11312759,
+            2777
+        ],
+        "LAmount": [
+            "uint8",
+            11318313,
+            2777
+        ],
+        "LWords": [
+            "utf-8",
+            11321090,
+            1760
+        ],
+        "LIgnoreRanges": [
+            11322850,
+            94
+        ],
+        "LRanges": [
+            11322944,
+            4
+        ]
+    },
+    "kps0": {
+        "LSeek": [
+            "uint16",
+            11322948,
+            20034
+        ],
+        "LValues": [
+            "uint16",
+            11363016,
+            9306
+        ],
+        "LIgnoreRanges": [
+            11381628,
+            126
+        ],
+        "LRanges": [
+            11381754,
+            4
+        ]
+    },
+    "kps1": {
+        "LSeek": [
+            "uint16",
+            11381758,
+            64595
+        ],
+        "LValues": [
+            "uint16",
+            11510948,
+            38602
+        ],
+        "LIgnoreRanges": [
+            11588152,
+            935
+        ],
+        "LRanges": [
+            11589087,
+            4
+        ]
+    },
+    "ksc0": {
+        "LSeek": [
+            "uint16",
+            11589091,
+            20301
+        ],
+        "LValues": [
+            "uint16",
+            11629693,
+            9776
+        ],
+        "LIgnoreRanges": [
+            11649245,
+            126
+        ],
+        "LRanges": [
+            11649371,
+            4
+        ]
+    },
+    "ksc1": {
+        "LSeek": [
+            "uint16",
+            11649375,
+            19930
+        ],
+        "LValues": [
+            "uint16",
+            11689235,
+            5712
+        ],
+        "LIgnoreRanges": [
+            11700659,
+            126
+        ],
+        "LRanges": [
+            11700785,
+            4
+        ]
+    },
+    "lau": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    11700789,
+                    20740
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            11742269,
+            1299
+        ],
+        "LRanges": [
+            11743568,
+            4
+        ],
+        "DMultiVals": [
+            11743572,
+            15674
+        ]
+    },
+    "mainlandtelegraph": {
+        "LSeek": [
+            "uint16",
+            11759246,
+            18892
+        ],
+        "LValues": [
+            "uint16",
+            11797030,
+            14170
+        ],
+        "LIgnoreRanges": [
+            11825370,
+            206
+        ],
+        "LRanges": [
+            11825576,
+            4
+        ]
+    },
+    "mandarin": {
+        "LSeek": [
+            "uint16",
+            11825580,
+            70924
+        ],
+        "LWordLinks": [
+            "uint16",
+            11967428,
+            3216
+        ],
+        "LAmount": [
+            "uint8",
+            11973860,
+            3216
+        ],
+        "LWords": [
+            "utf-8",
+            11977076,
+            6550
+        ],
+        "LIgnoreRanges": [
+            11983626,
+            317
+        ],
+        "LRanges": [
+            11983943,
+            4
+        ]
+    },
+    "matthews": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    11983947,
+                    24435
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            12032817,
+            1895
+        ],
+        "LRanges": [
+            12034712,
+            4
+        ],
+        "DMultiVals": [
+            12034716,
+            4
+        ]
+    },
+    "meyerwempe": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    12034720,
+                    23636
+                ]
+            ],
+            [
+                "subsidiary",
+                [
+                    "utf-8",
+                    12081992,
+                    23636
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            12105628,
+            2347
+        ],
+        "LRanges": [
+            12107975,
+            4
+        ],
+        "DMultiVals": [
+            12107979,
+            23915
+        ]
+    },
+    "morohashi": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    12131894,
+                    20168
+                ]
+            ],
+            [
+                "simplified",
+                [
+                    "utf-8",
+                    12172230,
+                    20168
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            12192398,
+            110
+        ],
+        "LRanges": [
+            12192508,
+            57
+        ],
+        "DMultiVals": [
+            12192565,
+            4
+        ]
+    },
+    "nelson": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    12192569,
+                    20489
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            12233547,
+            791
+        ],
+        "LRanges": [
+            12234338,
+            4
+        ],
+        "DMultiVals": [
+            12234342,
+            8656
+        ]
+    },
+    "othernumeric": {
+        "LRanges": [
+            12242998,
+            4
+        ],
+        "LSeek": [
+            "uint8",
+            12243002,
+            246
+        ],
+        "LAmount": [
+            "uint8",
+            12243248,
+            246
+        ],
+        "LWords": [
+            "utf-8",
+            12243494,
+            16
+        ],
+        "LIgnoreRanges": [
+            12243510,
+            337
+        ]
+    },
+    "phonetic": {
+        "LRanges": [
+            12243847,
+            4
+        ],
+        "LSeek": [
+            "uint16",
+            12243851,
+            28372
+        ],
+        "LAmount": [
+            "uint8",
+            12300595,
+            28372
+        ],
+        "LWords": [
+            "utf-8",
+            12328967,
+            16533
+        ],
+        "LIgnoreRanges": [
+            12345500,
+            3627
+        ]
+    },
+    "primarynumeric": {
+        "LRanges": [
+            12349127,
+            4
+        ],
+        "LSeek": [
+            "uint8",
+            12349131,
+            221
+        ],
+        "LAmount": [
+            "uint8",
+            12349352,
+            221
+        ],
+        "LWords": [
+            "utf-8",
+            12349573,
+            46
+        ],
+        "LIgnoreRanges": [
+            12349619,
+            110
+        ]
+    },
+    "pseudogb1": {
+        "LSeek": [
+            "uint16",
+            12349729,
+            1896
+        ],
+        "LValues": [
+            "uint16",
+            12353521,
+            306
+        ],
+        "LIgnoreRanges": [
+            12354133,
+            1022
+        ],
+        "LRanges": [
+            12355155,
+            4
+        ]
+    },
+    "rsadobe_japan1_6": {
+        "LSeek": [
+            "uint16",
+            12355159,
+            30075
+        ],
+        "LWordLinks": [
+            "uint32",
+            12415309,
+            30560
+        ],
+        "LAmount": [
+            "uint8",
+            12537549,
+            30560
+        ],
+        "LWords": [
+            "utf-8",
+            12568109,
+            245789
+        ],
+        "LIgnoreRanges": [
+            12813898,
+            3521
+        ],
+        "LRanges": [
+            12817419,
+            4
+        ]
+    },
+    "rsjapanese": {
+        "LRanges": [
+            12817423,
+            4
+        ],
+        "LSeek": [
+            "uint16",
+            12817427,
+            3470
+        ],
+        "LAmount": [
+            "uint8",
+            12824367,
+            3470
+        ],
+        "LWords": [
+            "utf-8",
+            12827837,
+            824
+        ],
+        "LIgnoreRanges": [
+            12828661,
+            1454
+        ]
+    },
+    "rskangxi": {
+        "LRanges": [
+            12830115,
+            29967
+        ],
+        "LSeek": [
+            "uint16",
+            12860082,
+            36914
+        ],
+        "LAmount": [
+            "uint8",
+            12933910,
+            36914
+        ],
+        "LWords": [
+            "utf-8",
+            12970824,
+            20496
+        ],
+        "LIgnoreRanges": [
+            12991320,
+            3087
+        ]
+    },
+    "rskanwa": {
+        "LRanges": [
+            12994407,
+            4
+        ],
+        "LSeek": [
+            "uint16",
+            12994411,
+            2419
+        ],
+        "LAmount": [
+            "uint8",
+            12999249,
+            2419
+        ],
+        "LWords": [
+            "utf-8",
+            13001668,
+            723
+        ],
+        "LIgnoreRanges": [
+            13002391,
+            1425
+        ]
+    },
+    "rskorean": {
+        "LRanges": [
+            13003816,
+            4
+        ],
+        "LSeek": [
+            "uint8",
+            13003820,
+            52
+        ],
+        "LAmount": [
+            "uint8",
+            13003872,
+            52
+        ],
+        "LWords": [
+            "utf-8",
+            13003924,
+            90
+        ],
+        "LIgnoreRanges": [
+            13004014,
+            302
+        ]
+    },
+    "rsunicode": {
+        "LRanges": [
+            13004316,
+            31448
+        ],
+        "LSeek": [
+            "uint16",
+            13035764,
+            45454
+        ],
+        "LAmount": [
+            "uint8",
+            13126672,
+            45454
+        ],
+        "LWords": [
+            "utf-8",
+            13172126,
+            22910
+        ],
+        "LIgnoreRanges": [
+            13195036,
+            3207
+        ]
+    },
+    "sbgy": {
+        "DArrays": [
+            [
+                "page",
+                [
+                    "uint16",
+                    13198243,
+                    66414
+                ]
+            ],
+            [
+                "position",
+                [
+                    "uint8",
+                    13331071,
+                    66414
+                ]
+            ]
+        ],
+        "LIgnoreRanges": [
+            13397485,
+            755
+        ],
+        "LRanges": [
+            13398240,
+            4
+        ],
+        "DMultiVals": [
+            13398244,
+            252889
+        ]
+    },
+    "semanticvariant": {
+        "LSeek": [
+            "uint16",
+            13651133,
+            24408
+        ],
+        "LValues": [
+            "uint32",
+            13699949,
+            7048
+        ],
+        "LIgnoreRanges": [
+            13728141,
+            2499
+        ],
+        "LRanges": [
+            13730640,
+            4
+        ],
+        "DFlags": [
+            13730644,
+            278
+        ],
+        "LFlags": [
+            "uint16",
+            13730922,
+            7048
+        ]
+    },
+    "simplifiedvariant": {
+        "LSeek": [
+            "uint16",
+            13745018,
+            20743
+        ],
+        "LValues": [
+            "uint32",
+            13786504,
+            6072
+        ],
+        "LIgnoreRanges": [
+            13810792,
+            2183
+        ],
+        "LRanges": [
+            13812975,
+            4
+        ]
+    },
+    "specializedsemanticvariant": {
+        "LSeek": [
+            "uint16",
+            13812979,
+            8131
+        ],
+        "LValues": [
+            "uint32",
+            13829241,
+            1006
+        ],
+        "LIgnoreRanges": [
+            13833265,
+            1697
+        ],
+        "LRanges": [
+            13834962,
+            4
+        ],
+        "DFlags": [
+            13834966,
+            68
+        ],
+        "LFlags": [
+            "uint8",
+            13835034,
+            1006
+        ]
+    },
+    "taiwantelegraph": {
+        "LSeek": [
+            "uint16",
+            13836040,
+            20088
+        ],
+        "LValues": [
+            "uint16",
+            13876216,
+            18082
+        ],
+        "LIgnoreRanges": [
+            13912380,
+            110
+        ],
+        "LRanges": [
+            13912490,
+            4
+        ]
+    },
+    "tang": {
+        "LSeek": [
+            "uint16",
+            13912494,
+            19980
+        ],
+        "LWordLinks": [
+            "uint16",
+            13952454,
+            6136
+        ],
+        "LAmount": [
+            "uint8",
+            13964726,
+            6136
+        ],
+        "LWords": [
+            "utf-8",
+            13970862,
+            16602
+        ],
+        "LIgnoreRanges": [
+            13987464,
+            573
+        ],
+        "LRanges": [
+            13988037,
+            4
+        ]
+    },
+    "totalstrokes": {
+        "LShort": [
+            "uint8",
+            13988041,
+            49592
+        ],
+        "LIgnoreRanges": [
+            14037633,
+            2487
+        ],
+        "LRanges": [
+            14040120,
+            23465
+        ],
+        "DMultiVals": [
+            14063585,
+            4
+        ]
+    },
+    "traditionalvariant": {
+        "LSeek": [
+            "uint16",
+            14063589,
+            17975
+        ],
+        "LValues": [
+            "uint32",
+            14099539,
+            6047
+        ],
+        "LIgnoreRanges": [
+            14123727,
+            2837
+        ],
+        "LRanges": [
+            14126564,
+            4
+        ]
+    },
+    "vietnamese": {
+        "LSeek": [
+            "uint16",
+            14126568,
+            55094
+        ],
+        "LWordLinks": [
+            "uint16",
+            14236756,
+            9552
+        ],
+        "LAmount": [
+            "uint8",
+            14255860,
+            9552
+        ],
+        "LWords": [
+            "utf-8",
+            14265412,
+            22845
+        ],
+        "LIgnoreRanges": [
+            14288257,
+            1999
+        ],
+        "LRanges": [
+            14290256,
+            4
+        ]
+    },
+    "xerox": {
+        "LSeek": [
+            "uint16",
+            14290260,
+            20089
+        ],
+        "LWordLinks": [
+            "uint32",
+            14330438,
+            19494
+        ],
+        "LAmount": [
+            "uint8",
+            14408414,
+            19494
+        ],
+        "LWords": [
+            "utf-8",
+            14427908,
+            68229
+        ],
+        "LIgnoreRanges": [
+            14496137,
+            126
+        ],
+        "LRanges": [
+            14496263,
+            4
+        ]
+    },
+    "xhc1983": {
+        "LSeek": [
+            "uint16",
+            14496267,
+            26479
+        ],
+        "LWordLinks": [
+            "uint32",
+            14549225,
+            23421
+        ],
+        "LAmount": [
+            "uint8",
+            14642909,
+            23421
+        ],
+        "LWords": [
+            "utf-8",
+            14666330,
+            164044
+        ],
+        "LIgnoreRanges": [
+            14830374,
+            2397
+        ],
+        "LRanges": [
+            14832771,
+            4
+        ]
+    },
+    "zvariant": {
+        "LSeek": [
+            "uint16",
+            14832775,
+            20750
+        ],
+        "LValues": [
+            "uint32",
+            14874275,
+            5132
+        ],
+        "LIgnoreRanges": [
+            14894803,
+            279
+        ],
+        "LRanges": [
+            14895082,
+            4
+        ],
+        "DFlags": [
+            14895086,
+            19
+        ],
+        "LFlags": [
+            "uint8",
+            14895105,
+            5132
+        ]
+    }
+}
