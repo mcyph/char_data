@@ -1,6 +1,4 @@
-from json import loads
 from toolkit.escape import E
-from toolkit.encodings.hex_padding import get_uni_point
 
 
 class DataSourceBase:
@@ -59,58 +57,6 @@ class DataSourceBase:
                     str(value), value
                 ).replace('_', ' ')
 
-            elif isinstance(value, str) and value.startswith('[') and value.endswith(']'):
-
-                # HACK: The fact this is a JSON-parsable value means
-                # this should be handled in the formatters at a higher
-                # level - this logic should be moved (when I have time!) =================================================================
-                value = loads(value)
-
-                LOut = []
-
-                def add_list_item(s):
-                    if len(value) == 1:
-                        LOut.append(s)
-                    else:
-                        LOut.append(f'<li>{ s }</li>')
-
-                for i_tuple in value:
-                    assert isinstance(i_tuple, (list, tuple))
-
-                    if len(i_tuple) == 2:
-                        # See also, e.g. [96, "grave accent"]
-                        # for combining grave accents
-                        add_list_item(
-                            f'{ get_uni_point(i_tuple[0]) } '
-                            f'&#{ int(i_tuple[0]) }; '
-                            f'{ E(i_tuple[1]) }'
-                        )
-
-                    elif len(i_tuple) == 3:
-                        if isinstance(i_tuple[0], (list, tuple)):
-                            # e.g. [[[65, 769], null, null]] as in combining char decompositions
-                            codepoints = ''
-                            uni_chars = ''
-
-                            for codepoint in i_tuple[0]:
-                                codepoints += f"{ get_uni_point(codepoint) } "
-                                uni_chars += f"&#{ int(codepoint) };"
-
-                            add_list_item(
-                                f'{ codepoints.strip() } { uni_chars } ' 
-                                f'{ E(str(i_tuple[1])) if i_tuple[1] else "" } ' 
-                                f'{ E(str(i_tuple[2])) if i_tuple[2] else "" }'
-                            )
-                        else:
-                            # ???
-                            add_list_item(
-                                f'{ get_uni_point(i_tuple[0]) } '
-                                f'&#{ int(i_tuple[0]) }; '
-                                f'{ E(str(i_tuple[1:])) }'
-                            )
-
-                if LOut:
-                    return '<ul>' + "\n".join(LOut) + '</ul>'
             #else:
             #    print(repr(value))
 
