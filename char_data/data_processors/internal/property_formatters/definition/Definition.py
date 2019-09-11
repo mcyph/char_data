@@ -41,12 +41,14 @@ class Definition(SentenceData):
                     if i:
                         L.append(i)
 
+                elif i:
+                    L.append(i)
+
             data = tuple(L) if L else None
 
         # Provide better formatting for "Comment" fields like e.g.
         #  * intended to surround a diacritic above
         # parsing asterisks, etc as needed
-
 
         return data # HACK! =====================================================
 

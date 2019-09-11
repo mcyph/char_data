@@ -1,4 +1,5 @@
 from lang_data import LangData
+from iso_tools.ISOTools import ISOTools
 
 
 def get_L_alphabet_headings(search):
@@ -7,12 +8,13 @@ def get_L_alphabet_headings(search):
     so if using the alphabet key, grab directly from the original source!
     """
     ld = LangData(search)
+    script = ISOTools.split(ISOTools.guess_omitted_info(search)).script
     from char_data.unicodeset import unicodeset_from_range
 
     LRtn = []
-    for heading, ranges in ld.get_L_alpha():
+    for heading, ranges_string in ld.get_L_alpha():
         LOut = []
-        for i_s in unicodeset_from_range(ranges):
+        for i_s in unicodeset_from_range(ranges_string):
             LOut.extend([ord(i) for i in i_s])
         #LRtn.extend(LOut)
 
@@ -28,6 +30,14 @@ def get_L_alphabet_headings(search):
 
             if typ1:
                 heading = '%s %s' % (typ1, heading)
+
+            if heading.startswith("latn") and script != 'Latn':
+                # Ignore Latin perMille etc for langauge which don't use Latin scripts
+                continue
+
+            if heading.startswith('arab') and script != 'Arab':
+                # Ignore arabic group, etc for languages which don't use the Arabic script
+                continue
 
             LExtend = [ord(i) for i in chars]
             LRtn.append(('block', (heading, '')))

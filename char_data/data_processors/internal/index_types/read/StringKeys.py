@@ -6,21 +6,37 @@ from char_data.data_processors.internal.property_formatters.enum.DEnum import DE
 from .CharIndexValueInfo import CharIndexValueInfo
 
 
+def init_me(fn):
+    def return_me(self, *args, **kw):
+        if not self._initd:
+            # This uses a fair amount of resources, so only load on-demand
+            # TODO: Rewrite this entirely, to make me more memory-efficient!! ============================================
+            self._initd = True
+
+            _, self.DStringKeys = read_arrays(self.f, self.DJSON['DStringKeys'])
+
+            D = self.DRanges = {}
+            for from_, to, value in read_json(self.f, self.DJSON['LRanges']):
+                if isinstance(value, list):
+                    for i_value in value:
+                        if isinstance(i_value, str):
+                            D.setdefault(i_value, []).append((from_, to))
+                else:
+                    D.setdefault(value, []).append((from_, to))
+
+        return fn(self, *args, **kw)
+    return return_me
+
+
 class StringKeyIndex:
     typ = 'string_keys'
     
     def __init__(self, f, DJSON):
-        _, self.DStringKeys = read_arrays(f, DJSON['DStringKeys'])
-        
-        D = self.DRanges = {}
-        for from_, to, value in read_json(f, DJSON['LRanges']):
-            if isinstance(value, list):
-                for i_value in value:
-                    if isinstance(i_value, str):
-                        D.setdefault(i_value, []).append((from_, to))
-            else:
-                D.setdefault(value, []).append((from_, to))
-    
+        self._initd = False
+        self.f = f
+        self.DJSON = DJSON
+
+    @init_me
     def values(self):
         LKeys = list(self.DStringKeys.keys()) + list(self.DRanges.keys())
         LKeys = fast_rem_dupes(LKeys)
@@ -30,6 +46,7 @@ class StringKeyIndex:
             L.append(value)
         return L
 
+    #@init_me
     def get_value_info(self, value):
         if self.key in DEnum:
             display_value = DEnum[self.key].get(str(value), value)
@@ -37,7 +54,8 @@ class StringKeyIndex:
             display_value = value
 
         return CharIndexValueInfo(value, display_value)
-    
+
+    @init_me
     def search(self, search):
         # TODO: How will codepoint subdividers be added?
         LRtn = []

@@ -526,5 +526,20 @@ DEnum = {
         'M': 'Maybe',
         'N': 'No',
         'Y': 'Yes'
+    },
+    "nfkc_quick_check": {
+        'M': 'Maybe',
+        'N': 'No',
+        'Y': 'Yes'
+    },
+    "nfd_quick_check": {
+        'M': 'Maybe',
+        'N': 'No',
+        'Y': 'Yes'
+    },
+    "nfkd_quick_check": {
+        'M': 'Maybe',
+        'N': 'No',
+        'Y': 'Yes'
     }
 }

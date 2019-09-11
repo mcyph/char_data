@@ -1,5 +1,6 @@
 def are_there_too_many_chars(L):
     Total = 0
+
     for i in L:
         if type(i) == tuple:
             From, To = i
@@ -9,4 +10,5 @@ def are_there_too_many_chars(L):
 
         if Total > 15000:
             return True
+
     return False
