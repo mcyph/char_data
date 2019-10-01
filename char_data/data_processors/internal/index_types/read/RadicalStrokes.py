@@ -1,6 +1,6 @@
 from toolkit.arrays import read_arrays
 
-from .CharIndexValueInfo import CharIndexValueInfo
+from char_data.CharIndexValueInfo import CharIndexValueInfo
 
 
 class RadicalStrokesIndex:

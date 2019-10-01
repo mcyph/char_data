@@ -1,13 +1,12 @@
-from json import dumps
 from lang_data import LangData, get_L_possible_isos as _get_L_possible_isos
-from iso_tools import ISOTools, NONE, TERRITORY, VARIANT
+from iso_tools import ISOTools
 from iso_tools.iso_codes import ISOCodes
 
 
 def get_L_possible_isos():
     # NOTE ME: The below get_L_possible_isos is **really** slow, so this is the cached output
-    from warnings import warn
-    warn("Please add a better caching solution to get_L_possible_isos")
+    #from warnings import warn
+    #warn("Please add a better caching solution to get_L_possible_isos")
 
     return ['aa', 'af', 'agq', 'ak', 'am', 'ar', 'as', 'asa', 'az', 'az_Cyrl', 'az_Latn', 'bas', 'be', 'bem', 'bez', 'bg',
      'bm', 'bn', 'bo', 'br', 'brx', 'bs', 'byn', 'ca', 'cch', 'cgg', 'chr', 'cs', 'cy', 'da', 'dav', 'de', 'de-CH',
@@ -96,7 +95,7 @@ class AlphabetIndex:
         return get_L_possible_isos()
 
     def get_value_info(self, value):
-        from char_data.data_processors.internal.index_types.read.CharIndexValueInfo import CharIndexValueInfo
+        from char_data.CharIndexValueInfo import CharIndexValueInfo
         pretty_printed = self.ld.prettify_lang(value)
         return CharIndexValueInfo(value, str(pretty_printed))
 

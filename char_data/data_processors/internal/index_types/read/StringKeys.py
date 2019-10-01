@@ -3,7 +3,7 @@ from toolkit.arrays import read_arrays, read_json
 
 from char_data.data_processors.internal.property_formatters.enum.DEnum import DEnum
 
-from .CharIndexValueInfo import CharIndexValueInfo
+from char_data.CharIndexValueInfo import CharIndexValueInfo
 
 
 def init_me(fn):

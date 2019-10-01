@@ -6,7 +6,7 @@ from unicodedata import normalize
 from toolkit.arrays import read_json, read_array
 from toolkit.hashes.fast_hash import fast_hash
 
-from .CharIndexValueInfo import CharIndexValueInfo
+from char_data.CharIndexValueInfo import CharIndexValueInfo
 
 
 class FulltextIndex:
