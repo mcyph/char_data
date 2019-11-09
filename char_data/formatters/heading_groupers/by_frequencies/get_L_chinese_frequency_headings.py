@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from char_data import char_data
-
 
 DGrades = {
     'unihan.grade': 'Hong Kong Grade',
@@ -12,6 +10,9 @@ def get_L_chinese_frequency_headings(LRanges, LSortBy):
     """
     Group by frequencys/grade etc under subheadings
     """
+
+    from char_data import char_data
+
     DRanges = {}
     for ord_ in LRanges:
         freq = char_data.formatted(LSortBy[0], ord_)

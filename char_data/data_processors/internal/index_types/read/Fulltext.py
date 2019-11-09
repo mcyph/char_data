@@ -65,7 +65,7 @@ class FulltextIndex:
             SPrev = SPossible
         
         for ord_ in SPrev:
-            from char_data import char_data
+            from char_data.CharData import char_data
             value = char_data.raw_data(FIXME, search) # FIXME! ==============================
             if value.upper() == search.upper():
                 return (ord_,)

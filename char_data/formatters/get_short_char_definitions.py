@@ -1,5 +1,3 @@
-from char_data import char_data
-
 
 class _ShortCharDefinitions:
     def __init__(self, key='unicodedata.name'):
@@ -54,6 +52,7 @@ class _ShortCharDefinitions:
 
     def _codepoint_processed(self, ord_):
         # TODO: add su
+        from char_data import char_data
 
         value = char_data.formatted(self.key, ord_)
         if value:

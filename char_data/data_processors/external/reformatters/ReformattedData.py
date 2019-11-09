@@ -51,7 +51,7 @@ class ReformattedData(ExternalSourceBase):
         ExternalSourceBase.__init__(self, 'reformatted')
 
     def __get_by_L_block_headings(self, key, value, LUseOnly=None):
-        from char_data import char_indexes
+        from char_data.CharIndexes import char_indexes
         from char_data.formatters.heading_groupers.by_blocks_subblocks.BlockHeadings import get_L_block_headings
 
         r = get_L_block_headings(

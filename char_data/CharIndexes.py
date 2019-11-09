@@ -85,8 +85,6 @@ char_indexes = CharIndexes()
 
 
 if __name__ == '__main__':
-    from .CharData import char_data
-
     print(CharIndexes.search('general name', 'smile'))
 
     LKeys = []

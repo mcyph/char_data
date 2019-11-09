@@ -1,4 +1,4 @@
-from char_data import char_data
+from char_data.CharData import char_data
 from toolkit.encodings.surrogates import w_unichr, w_ord
 
 
