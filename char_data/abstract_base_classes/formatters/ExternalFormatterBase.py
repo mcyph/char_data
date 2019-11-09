@@ -1,9 +1,16 @@
-from char_data.data_processors.DataSourceBase import DataSourceBase
+from abc import ABC, abstractmethod
+from char_data.abstract_base_classes.formatters.PropertyFormatterBase import PropertyFormatterBase
 
 
-class ExternalFormatterBase(DataSourceBase):
-    def __init__(self, parent, header_const, original_name, short_desc,
-                 long_desc=None, LISOs=None, index=None):
+class ExternalFormatterBase(PropertyFormatterBase, ABC):
+    def __init__(self,
+                 parent,
+                 header_const,
+                 original_name,
+                 short_desc,
+                 long_desc=None,
+                 LISOs=None,
+                 index=None):
         """
         A class similar to BaseClass in storage/data/read/BaseClass.py,
         but used for data held in external databases/retrieved or
@@ -20,8 +27,16 @@ class ExternalFormatterBase(DataSourceBase):
               with `keys()` and `search(s)` methods
         """
 
-        DataSourceBase.__init__(
+        PropertyFormatterBase.__init__(
             self, parent=parent, header_const=header_const,
             original_name=original_name, short_desc=short_desc,
             long_desc=long_desc, LISOs=LISOs, index=index
         )
+
+    @abstractmethod
+    def raw_data(self, ordinal):
+        pass
+
+    @abstractmethod
+    def _format_data(self, ordinal, data):
+        pass

@@ -9,7 +9,7 @@ from char_data.data_processors.consts import (
     HEADER_TOTAL_STROKES, HEADER_RADICAL_STROKES, HEADER_INPUT,
     HEADER_ENCODING, HEADER_INDICES
 )
-from char_data.data_processors.internal.InternalSourceBase import InternalSourceBase
+from char_data.abstract_base_classes.data_sources.InternalSourceBase import InternalSourceBase
 
 
 class Kanjidic(InternalSourceBase):

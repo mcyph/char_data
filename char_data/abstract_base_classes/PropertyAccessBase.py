@@ -1,4 +1,4 @@
-from char_data.data_processors.DataSourceBase import DataSourceBase
+from char_data.abstract_base_classes.formatters.PropertyFormatterBase import PropertyFormatterBase
 from char_data.data_processors.get_key_name import get_key_name
 
 #=========================================================#
@@ -50,7 +50,7 @@ class PropertyAccessBase:
                 raise KeyError("invalid data source: %s" % data_source)
 
             o = getattr(getattr(self.o, data_source), key)
-            assert isinstance(o, DataSourceBase)
+            assert isinstance(o, PropertyFormatterBase)
             return o
         else:
             # e.g. 'Name' (try in all of the sources)
@@ -66,7 +66,7 @@ class PropertyAccessBase:
 
                 if data_source in self.SPossible:
                     o = getattr(self.o, data_source)
-                    if hasattr(o, key) and isinstance(getattr(o, key), DataSourceBase):
+                    if hasattr(o, key) and isinstance(getattr(o, key), PropertyFormatterBase):
                         return getattr(getattr(self.o, data_source), key)
                 else:
                     raise KeyError("invalid data source: %s" % data_source)

@@ -9,7 +9,7 @@ from char_data.data_processors.consts import (
     HEADER_ENCODING, HEADER_INDICES, HEADER_PHONETIC_INDICES,
     HEADER_ADOBE
 )
-from char_data.data_processors.internal.InternalSourceBase import InternalSourceBase
+from char_data.abstract_base_classes.data_sources.InternalSourceBase import InternalSourceBase
 
 
 class Unihan(InternalSourceBase):

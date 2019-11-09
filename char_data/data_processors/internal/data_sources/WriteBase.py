@@ -4,7 +4,7 @@ from json import dumps
 from toolkit.io.file_tools import file_write
 
 from char_data.data_processors.internal.index_types import DIndexWriters
-from char_data.data_processors.DataSourceBase import DataSourceBase
+from char_data.abstract_base_classes.formatters.PropertyFormatterBase import PropertyFormatterBase
 from char_data.data_processors.get_key_name import get_key_name
 
 
@@ -33,7 +33,7 @@ class WriteBase:
         for key in dir(internal_data_source):
             inst = getattr(internal_data_source, key)
             print(inst)
-            if not isinstance(inst, DataSourceBase):
+            if not isinstance(inst, PropertyFormatterBase):
                 continue
 
             print((key, inst))

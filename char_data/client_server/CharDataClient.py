@@ -1,4 +1,4 @@
-from char_data.CharDataKeyInfo import CharDataKeyInfo
+from char_data.data_info_types.CharDataKeyInfo import CharDataKeyInfo
 from network_tools.mmap_sockets.MMapClient import MMapClient
 
 

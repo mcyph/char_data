@@ -3,7 +3,7 @@ from char_data.data_processors.external.reformatters.ReformatDataFormatter impor
 from char_data.data_processors.external.reformatters.DCommonMappings import DCommonMappings
 from char_data.data_processors.consts import HEADER_OTHER_SYMBOLS  # HACK!!!!
 
-from char_data.data_processors.external.ExternalSourceBase import ExternalSourceBase
+from char_data.abstract_base_classes.data_sources.ExternalSourceBase import ExternalSourceBase
 
 
 class ReformattedData(ExternalSourceBase):

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from char_data.data_processors.internal.data_types.read import StringData
-from char_data.data_processors.internal.data_types.read.InternalBaseClass import InternalBaseClass
+from char_data.abstract_base_classes.formatters.InternalBaseClass import InternalBaseClass
 
 
 class RadicalStrokes(StringData):

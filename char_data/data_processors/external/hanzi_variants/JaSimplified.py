@@ -1,5 +1,5 @@
 from char_data.data_processors.external.radicals.import_data.j_simplified import get_trad_ja_maps
-from char_data.data_processors.external.ExternalFormatterBase import ExternalFormatterBase
+from char_data.abstract_base_classes.formatters.ExternalFormatterBase import ExternalFormatterBase
 from char_data.data_processors.consts import HEADER_VARIANTS
 
 DTradToJa, DJaToTrad = get_trad_ja_maps()

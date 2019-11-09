@@ -100,7 +100,7 @@ class ReformatIndex:
         return L
 
     def get_value_info(self, value):
-        from char_data.CharIndexValueInfo import CharIndexValueInfo
+        from char_data.data_info_types.CharIndexValueInfo import CharIndexValueInfo
         return CharIndexValueInfo(value, value)  # FIXME!!!! ==========================================
 
     def search(self, search):

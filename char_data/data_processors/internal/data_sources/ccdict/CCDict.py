@@ -5,7 +5,7 @@ from char_data.data_processors.consts import (
     HEADER_FIXME, HEADER_DEFINITION, HEADER_READINGS,
     HEADER_TOTAL_STROKES, HEADER_RADICAL_STROKES, HEADER_INPUT
 )
-from char_data.data_processors.internal.InternalSourceBase import InternalSourceBase
+from char_data.abstract_base_classes.data_sources.InternalSourceBase import InternalSourceBase
 
 
 class CCDict(InternalSourceBase):

@@ -1,4 +1,4 @@
-from char_data.data_processors.external.ExternalSourceBase import ExternalSourceBase
+from char_data.abstract_base_classes.data_sources.ExternalSourceBase import ExternalSourceBase
 from char_data.data_processors.external.hanzi_variants import JaSimplified
 from char_data.data_processors.external.hanzi_variants import CEDictVariantsFormatter
 

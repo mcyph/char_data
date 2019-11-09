@@ -7,7 +7,7 @@ from char_data.data_paths import data_path
 from char_data.data_processors.external.hanzi_variants.import_data.DLinkKeys import (
     DReverseLinkKeys, REVERSE
 )
-from char_data.data_processors.external.ExternalFormatterBase import ExternalFormatterBase
+from char_data.abstract_base_classes.formatters.ExternalFormatterBase import ExternalFormatterBase
 from char_data.data_processors.consts import HEADER_VARIANTS
 
 #from warnings import warn

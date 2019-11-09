@@ -1,6 +1,6 @@
-from char_data.CharIndexKeyInfo import CharIndexKeyInfo
+from char_data.data_info_types.CharIndexKeyInfo import CharIndexKeyInfo
 from network_tools.mmap_sockets.MMapClient import MMapClient
-from char_data.CharIndexValueInfo import CharIndexValueInfo
+from char_data.data_info_types.CharIndexValueInfo import CharIndexValueInfo
 
 
 class CharIndexClient:

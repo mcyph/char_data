@@ -95,7 +95,7 @@ class AlphabetIndex:
         return get_L_possible_isos()
 
     def get_value_info(self, value):
-        from char_data.CharIndexValueInfo import CharIndexValueInfo
+        from char_data.data_info_types.CharIndexValueInfo import CharIndexValueInfo
         pretty_printed = self.ld.prettify_lang(value)
         return CharIndexValueInfo(value, str(pretty_printed))
 

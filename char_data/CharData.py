@@ -1,10 +1,10 @@
 from toolkit.encodings.surrogates import w_ord
 
-from char_data.data_processors.DataSourceBase import DataSourceBase
+from char_data.abstract_base_classes.formatters.PropertyFormatterBase import PropertyFormatterBase
 from char_data.data_processors.DataReader import DataReader
 
-from .PropertyAccessBase import PropertyAccessBase
-from .CharDataKeyInfo import CharDataKeyInfo
+from char_data.abstract_base_classes.PropertyAccessBase import PropertyAccessBase
+from char_data.data_info_types.CharDataKeyInfo import CharDataKeyInfo
 
 
 #=========================================================#
@@ -39,7 +39,7 @@ class CharData(PropertyAccessBase, DataReader):
 
             for property in dir(o):
                 i_o = getattr(o, property)
-                if not isinstance(i_o, DataSourceBase):  # TODO: SUPPORT EXTERNAL BASES HERE!!! =====================
+                if not isinstance(i_o, PropertyFormatterBase):  # TODO: SUPPORT EXTERNAL BASES HERE!!! =====================
                     #print('CONTINUE 2:', key, o)
                     continue
 

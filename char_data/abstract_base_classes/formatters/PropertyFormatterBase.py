@@ -1,9 +1,16 @@
+from abc import ABC, abstractmethod
 from toolkit.escape import E
 
 
-class DataSourceBase:
-    def __init__(self, parent, header_const, original_name, short_desc,
-                 long_desc=None, LISOs=None, index=None):
+class PropertyFormatterBase(ABC):
+    def __init__(self,
+                 parent,
+                 header_const,
+                 original_name,
+                 short_desc,
+                 long_desc=None,
+                 LISOs=None,
+                 index=None):
         """
         The base class for both internal and external data sources.
         (data_sources/internal/data/read/InternalBaseClass and
@@ -25,15 +32,17 @@ class DataSourceBase:
         self.LISOs = LISOs or []
         self.index = index
 
+    @abstractmethod
     def raw_data(self, ord_):
-        raise NotImplementedError
+        pass
 
     def formatted(self, ord_):
         data = self.raw_data(ord_)
         return self._format_data(ord_, data)
 
+    @abstractmethod
     def _format_data(self, ord_, data):
-        raise NotImplementedError
+        pass
 
     def html_formatted(self, ord_):
         value = self.formatted(ord_)

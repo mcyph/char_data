@@ -1,6 +1,6 @@
 from toolkit.arrays import read_arrays
 
-from char_data.CharIndexValueInfo import CharIndexValueInfo
+from char_data.data_info_types.CharIndexValueInfo import CharIndexValueInfo
 
 
 class IntegerKeyIndex:

@@ -1,12 +1,19 @@
-from char_data.data_processors.DataSourceBase import DataSourceBase
+from abc import ABC, abstractmethod
+from char_data.abstract_base_classes.formatters.PropertyFormatterBase import PropertyFormatterBase
 
 
 class NO_DATA: pass
 
 
-class InternalBaseClass(DataSourceBase):
-    def __init__(self, parent, header_const, original_name, short_desc,
-                 long_desc=None, LISOs=None, index_type=None):
+class InternalBaseClass(PropertyFormatterBase, ABC):
+    def __init__(self,
+                 parent,
+                 header_const,
+                 original_name,
+                 short_desc,
+                 long_desc=None,
+                 LISOs=None,
+                 index_type=None):
         """
         The base class for internal datatype readers
         (e.g. Boolean/IntegerList etc)
@@ -20,10 +27,15 @@ class InternalBaseClass(DataSourceBase):
         self.data_loaded = False
         self.index_type = index_type if index_type != 'FIXME' else None  # HACK HACK HACK!!!!!
 
-        DataSourceBase.__init__(
-            self, parent=parent, header_const=header_const,
-            original_name=original_name, short_desc=short_desc,
-            long_desc=long_desc, LISOs=LISOs, index=self.index_type
+        PropertyFormatterBase.__init__(
+            self,
+            parent=parent,
+            header_const=header_const,
+            original_name=original_name,
+            short_desc=short_desc,
+            long_desc=long_desc,
+            LISOs=LISOs,
+            index=self.index_type
         )
 
         self._ensure_data_loaded()
@@ -52,14 +64,18 @@ class InternalBaseClass(DataSourceBase):
                     # sure it's high priority to implement indexing for them for now.
                     print(D)
                     from traceback import print_exc
-                    print(("ERROR LOADING INDEX: %s with index type %s" % (self.key, self.index_type)))
+                    print("ERROR LOADING INDEX: %s with index type %s" % (
+                        self.key, self.index_type
+                    ))
                     print_exc()
+
                 self.index = None
 
+    @abstractmethod
     def _load_data(self, key, f, DJSON):
         # Needs to be implemented in subclasses of this base class,
         # instantiating any data arrays
-        raise NotImplementedError
+        pass
 
     def get_range_data(self, ord_):
         for from_, to, value in self.LRanges:
