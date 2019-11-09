@@ -6,7 +6,7 @@ from unicodedata import normalize
 from toolkit.arrays import read_json, read_array
 from toolkit.hashes.fast_hash import fast_hash
 
-from char_data.data_info_types.CharIndexValueInfo import CharIndexValueInfo
+from char_data.CharIndexValueInfo import CharIndexValueInfo
 
 
 class FulltextIndex:
@@ -65,7 +65,7 @@ class FulltextIndex:
             SPrev = SPossible
         
         for ord_ in SPrev:
-            from char_data import char_data
+            from char_data.CharData import char_data
             value = char_data.raw_data(FIXME, search) # FIXME! ==============================
             if value.upper() == search.upper():
                 return (ord_,)

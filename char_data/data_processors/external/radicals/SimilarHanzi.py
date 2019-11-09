@@ -19,7 +19,7 @@ class SimilarHanzi(ExternalFormatterBase):
         Return similar Hanzi/Kanji etc characters 
         using the MultiRadicals database
         """
-        from char_data import char_data
+        from char_data.CharData import char_data
         char = w_unichr(ord_)
         
         if char in DBothChars:
@@ -58,7 +58,7 @@ class SimilarHanzi(ExternalFormatterBase):
         stroke_diff = maxsize
         
         #print unichr(ord_), char_data.raw_data('unihan.totalstrokes', ord_)
-        from char_data import char_data
+        from char_data.CharData import char_data
         for num_strokes in char_data.raw_data('unihan.totalstrokes', ord_) or []:
             for i_num_strokes in LNumStrokes:
                 x = abs(i_num_strokes-num_strokes)

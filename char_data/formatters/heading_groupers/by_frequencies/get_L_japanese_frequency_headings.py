@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from char_data import char_data
-
 
 # Please DON'T fiddle - it may make some queries
 # nicer, but there are *always* exceptions :-) 
@@ -8,6 +6,8 @@ JFREQ_AMOUNT = 500
 
 
 def get_L_japanese_frequency_headings(LRanges):
+    from char_data import char_data
+
     # Group by frequency/grade etc under subheadings
     DRanges = {}
     for ord_ in LRanges:

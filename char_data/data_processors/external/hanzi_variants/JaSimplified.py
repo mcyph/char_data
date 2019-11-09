@@ -16,7 +16,7 @@ class JaSimplified(ExternalFormatterBase):
         )
 
     def raw_data(self, ord_):
-        from char_data import char_data
+        from char_data.CharData import char_data
         L = []
 
         for i_ord, _ in ((ord_, 0),)+(char_data.raw_data('traditionalvariant', ord_) or ()):
@@ -30,7 +30,7 @@ class JaSimplified(ExternalFormatterBase):
         return L or None
 
     def _format_data(self, ord_, data):
-        from char_data import char_data
+        from char_data.CharData import char_data
         L = []
 
         for i_ord, _ in ((ord_, 0),)+(char_data.raw_data('traditionalvariant', ord_) or ()):

@@ -1,8 +1,8 @@
-from char_data.abstract_base_classes.formatters.PropertyFormatterBase import PropertyFormatterBase
-from char_data.abstract_base_classes.PropertyAccessBase import PropertyAccessBase
-from char_data.data_info_types.CharIndexKeyInfo import CharIndexKeyInfo
-from char_data.data_info_types.CharIndexValueInfo import CharIndexValueInfo
+from char_data.data_processors.DataSourceBase import DataSourceBase
 from .CharData import char_data
+from .PropertyAccessBase import PropertyAccessBase
+from .CharIndexKeyInfo import CharIndexKeyInfo
+from .CharIndexValueInfo import CharIndexValueInfo
 
 
 class CharIndexes(PropertyAccessBase):
@@ -39,7 +39,7 @@ class CharIndexes(PropertyAccessBase):
 
             for property in dir(o):
                 i_o = getattr(o, property)
-                if not isinstance(i_o, PropertyFormatterBase):  # TODO: SUPPORT EXTERNAL BASES HERE!!! =====================
+                if not isinstance(i_o, DataSourceBase):  # TODO: SUPPORT EXTERNAL BASES HERE!!! =====================
                     continue
                 elif not i_o.index:
                     continue
@@ -85,8 +85,6 @@ char_indexes = CharIndexes()
 
 
 if __name__ == '__main__':
-    from .CharData import char_data
-
     print(CharIndexes.search('general name', 'smile'))
 
     LKeys = []

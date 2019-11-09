@@ -2,6 +2,8 @@ README.rst
 setup.py
 char_data/CharData.py
 char_data/CharIndexes.py
+char_data/LatinAccents.py
+char_data/PropertyAccessBase.py
 char_data/Tests.py
 char_data/__init__.py
 char_data/data_paths.py
@@ -12,24 +14,6 @@ char_data.egg-info/dependency_links.txt
 char_data.egg-info/not-zip-safe
 char_data.egg-info/requires.txt
 char_data.egg-info/top_level.txt
-char_data/abstract_base_classes/PropertyAccessBase.py
-char_data/abstract_base_classes/__init__.py
-char_data/abstract_base_classes/data_sources/ExternalSourceBase.py
-char_data/abstract_base_classes/data_sources/InternalSourceBase.py
-char_data/abstract_base_classes/data_sources/__init__.py
-char_data/abstract_base_classes/formatters/ExternalFormatterBase.py
-char_data/abstract_base_classes/formatters/InternalBaseClass.py
-char_data/abstract_base_classes/formatters/PropertyFormatterBase.py
-char_data/abstract_base_classes/formatters/__init__.py
-char_data/abstract_base_classes/indexes/ExternalIndexBase.py
-char_data/abstract_base_classes/indexes/IndexBase.py
-char_data/abstract_base_classes/indexes/InternalIndexBase.py
-char_data/abstract_base_classes/indexes/__init__.py
-char_data/client_server/CharDataClient.py
-char_data/client_server/CharDataServer.py
-char_data/client_server/CharIndexClient.py
-char_data/client_server/CharIndexServer.py
-char_data/client_server/__init__.py
 char_data/data/GeneralCatAliases.txt
 char_data/data/demo.htmlini
 char_data/data/ccdict/ccdict_keys.json
@@ -248,15 +232,14 @@ char_data/data/unihan/source/Unihan_RadicalStrokeCounts.txt
 char_data/data/unihan/source/Unihan_Readings.txt
 char_data/data/unihan/source/Unihan_Variants.txt
 char_data/data/unihan/source/New folder/Unihan_Readings.txt
-char_data/data_info_types/CharDataKeyInfo.py
-char_data/data_info_types/CharIndexKeyInfo.py
-char_data/data_info_types/CharIndexValueInfo.py
-char_data/data_info_types/__init__.py
 char_data/data_processors/DataReader.py
+char_data/data_processors/DataSourceBase.py
 char_data/data_processors/__init__.py
 char_data/data_processors/consts.py
 char_data/data_processors/get_key_name.py
 char_data/data_processors/get_select.py
+char_data/data_processors/external/ExternalFormatterBase.py
+char_data/data_processors/external/ExternalSourceBase.py
 char_data/data_processors/external/__init__.py
 char_data/data_processors/external/!MAYBE_DEPRECATE/Normalisation.py
 char_data/data_processors/external/!MAYBE_DEPRECATE/StringOperations.py
@@ -326,6 +309,7 @@ char_data/data_processors/external/transliteration/Translit.py
 char_data/data_processors/external/transliteration/TranslitFormatter.py
 char_data/data_processors/external/transliteration/TranslitMap_Old.py
 char_data/data_processors/external/transliteration/__init__.py
+char_data/data_processors/internal/InternalSourceBase.py
 char_data/data_processors/internal/__init__.py
 char_data/data_processors/internal/!DEPRECATED/NamesList.py
 char_data/data_processors/internal/!DEPRECATED/__init__.py
@@ -360,6 +344,7 @@ char_data/data_processors/internal/data_types/read/Boolean.py
 char_data/data_processors/internal/data_types/read/Encoding.py
 char_data/data_processors/internal/data_types/read/Indices.py
 char_data/data_processors/internal/data_types/read/IntegerList.py
+char_data/data_processors/internal/data_types/read/InternalBaseClass.py
 char_data/data_processors/internal/data_types/read/SentenceData.py
 char_data/data_processors/internal/data_types/read/StringData.py
 char_data/data_processors/internal/data_types/read/__init__.py
@@ -374,6 +359,7 @@ char_data/data_processors/internal/data_types/write/write_sentence_data.py
 char_data/data_processors/internal/data_types/write/write_string_data.py
 char_data/data_processors/internal/index_types/Indexes.py
 char_data/data_processors/internal/index_types/__init__.py
+char_data/data_processors/internal/index_types/read/CharIndexValueInfo.py
 char_data/data_processors/internal/index_types/read/Fulltext.py
 char_data/data_processors/internal/index_types/read/Indices.py
 char_data/data_processors/internal/index_types/read/IntegerKeys.py
@@ -436,7 +422,6 @@ char_data/formatters/property_mappings/classes/ThreeLevelList.py
 char_data/formatters/property_mappings/classes/TreeList.py
 char_data/formatters/property_mappings/classes/TwoLevelList.py
 char_data/formatters/property_mappings/classes/__init__.py
-char_data/misc/LatinAccents.py
 char_data/misc/__init__.py
 char_data/misc/are_there_too_many_chars.py
 char_data/misc/filter_to_encoding.py

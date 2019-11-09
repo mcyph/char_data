@@ -1,10 +1,4 @@
-import sys
-#print(list(sys.modules.keys()))
-
-from char_data import char_data
 from char_data.misc.get_font_script import get_font_script
-from char_data.data_paths import data_path
-
 
 
 BLOCK_CHANGE = 0
@@ -17,6 +11,9 @@ class BlockHeadings:
     #=============================================================================#
 
     def get_L_block_headings(self, LRanges):
+        global char_data
+        from char_data import char_data
+
         DState = {
             'font_script': None,
             'last_block': -1,
@@ -239,7 +236,7 @@ get_L_block_headings = block_headings.get_L_block_headings
 
 
 if __name__ == '__main__':
-    from char_data import char_indexes, char_data
+    #from char_data.CharIndexes import char_indexes, char_data
 
     from pprint import pprint
     pprint(list(char_indexes.keys()))

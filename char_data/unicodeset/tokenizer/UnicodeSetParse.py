@@ -4,7 +4,7 @@ from toolkit.encodings.surrogates import w_unichr
 from .UnicodeSetUtils import (
     get_D_default_props, get_D_prop_aliases, get_D_values, get_D_props
 )
-from char_data import char_indexes
+from char_data.CharIndexes import char_indexes
 # Get various property/value aliases etc
 from .ProcessRangeBase import ProcessRangeBase
 

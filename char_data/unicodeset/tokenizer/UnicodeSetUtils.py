@@ -1,4 +1,4 @@
-from char_data import char_indexes
+from char_data.CharIndexes import char_indexes
 from char_data.data_paths import data_path
 
 #=========================================================#
