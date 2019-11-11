@@ -4,11 +4,11 @@ from char_data.data_processors.external.hanzi_variants import CEDictVariantsForm
 
 
 class HanziVariants(ExternalSourceBase):
-    def __init__(self):
-        ExternalSourceBase.__init__(self, 'hanzi_variants')
+    def __init__(self, char_data):
+        ExternalSourceBase.__init__(self, char_data, 'hanzi_variants')
 
-        self.japanese_simplified = JaSimplified(self, 'japanese_simplified')
-        self.chinese_traditional = JaSimplified(self, 'chinese_traditional')   ## ??? What should I call these variants???
+        self.japanese_simplified = JaSimplified(self, char_data, 'japanese_simplified')
+        self.chinese_traditional = JaSimplified(self, char_data, 'chinese_traditional')   ## ??? What should I call these variants???
 
         self.erhua_variant = CEDictVariantsFormatter(self, 'Erhua variant')
         self.non_erhua_variant = CEDictVariantsFormatter(self, 'non-Erhua variant')

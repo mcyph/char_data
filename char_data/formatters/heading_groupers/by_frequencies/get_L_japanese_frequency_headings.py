@@ -5,9 +5,7 @@
 JFREQ_AMOUNT = 500
 
 
-def get_L_japanese_frequency_headings(LRanges):
-    from char_data import char_data
-
+def get_L_japanese_frequency_headings(char_data, LRanges):
     # Group by frequency/grade etc under subheadings
     DRanges = {}
     for ord_ in LRanges:

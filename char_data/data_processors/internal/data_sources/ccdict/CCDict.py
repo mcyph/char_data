@@ -9,8 +9,8 @@ from char_data.abstract_base_classes.data_sources.InternalSourceBase import Inte
 
 
 class CCDict(InternalSourceBase):
-    def __init__(self):
-        InternalSourceBase.__init__(self, 'ccdict')
+    def __init__(self, char_data):
+        InternalSourceBase.__init__(self, char_data, 'ccdict')
 
         #====================================================================#
         #                            Definitions                             #

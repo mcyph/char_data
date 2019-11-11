@@ -3,10 +3,10 @@ from toolkit.arrays import read_arrays, read_json
 from char_data.misc import get_adjusted_code_point
 from char_data.data_processors.internal.data_types.write import write_indices
 
-from char_data.abstract_base_classes.formatters.InternalBaseClass import InternalBaseClass, NO_DATA
+from char_data.abstract_base_classes.formatters.InternalFormatterBase import InternalFormatterBase, NO_DATA
 
 
-class Indices(InternalBaseClass):
+class Indices(InternalFormatterBase):
     writer = staticmethod(write_indices)
     
     def _load_data(self, key, f, DJSON):

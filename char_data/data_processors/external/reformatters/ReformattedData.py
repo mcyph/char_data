@@ -1,4 +1,4 @@
-
+from char_data.formatters.heading_groupers.by_blocks_subblocks.BlockHeadings import BlockHeadings
 from char_data.data_processors.external.reformatters.ReformatDataFormatter import ReformatDataFormatter
 from char_data.data_processors.external.reformatters.DCommonMappings import DCommonMappings
 from char_data.data_processors.consts import HEADER_OTHER_SYMBOLS  # HACK!!!!
@@ -7,7 +7,7 @@ from char_data.abstract_base_classes.data_sources.ExternalSourceBase import Exte
 
 
 class ReformattedData(ExternalSourceBase):
-    def __init__(self):
+    def __init__(self, char_data, char_indexes=None):
         def get_filter_fn(L):
             def fn():
                 if not hasattr(self, 'LCommon'):
@@ -48,14 +48,17 @@ class ReformattedData(ExternalSourceBase):
         #    LData=self.__get_by_L_block_headings(FIXME)
         #)
 
-        ExternalSourceBase.__init__(self, 'reformatted')
+        ExternalSourceBase.__init__(self, char_data, 'reformatted')
+
+        if char_indexes is None:
+            from char_data.CharIndexes import CharIndexes
+            char_indexes = CharIndexes(char_data=char_data)
+        self.char_indexes = char_indexes
+        self.block_headings = BlockHeadings(char_data=char_data)
 
     def __get_by_L_block_headings(self, key, value, LUseOnly=None):
-        from char_data.CharIndexes import char_indexes
-        from char_data.formatters.heading_groupers.by_blocks_subblocks.BlockHeadings import get_L_block_headings
-
-        r = get_L_block_headings(
-            char_indexes.search(key, value)
+        r = self.block_headings.get_L_block_headings(
+            self.char_indexes.search(key, value)
         )[-1]
 
         if LUseOnly:

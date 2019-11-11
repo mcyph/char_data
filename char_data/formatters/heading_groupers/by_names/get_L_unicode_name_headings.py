@@ -1,9 +1,7 @@
 from char_data.misc import get_font_script, get_smallest_name
 
 
-def get_L_unicode_name_headings(LRanges, name=None):
-    from char_data import char_data
-
+def get_L_unicode_name_headings(char_data, LRanges, name=None):
     if name is None:
         first_ord = LRanges[0]
         if type(first_ord) == tuple:

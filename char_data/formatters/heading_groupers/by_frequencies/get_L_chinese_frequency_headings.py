@@ -6,12 +6,10 @@ DGrades = {
 }
 
 
-def get_L_chinese_frequency_headings(LRanges, LSortBy):
+def get_L_chinese_frequency_headings(char_data, LRanges, LSortBy):
     """
     Group by frequencys/grade etc under subheadings
     """
-
-    from char_data import char_data
 
     DRanges = {}
     for ord_ in LRanges:

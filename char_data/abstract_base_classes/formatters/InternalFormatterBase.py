@@ -1,11 +1,11 @@
 from abc import ABC, abstractmethod
-from char_data.abstract_base_classes.formatters.PropertyFormatterBase import PropertyFormatterBase
+from char_data.abstract_base_classes.formatters.FormatterBase import PropertyFormatterBase
 
 
 class NO_DATA: pass
 
 
-class InternalBaseClass(PropertyFormatterBase, ABC):
+class InternalFormatterBase(PropertyFormatterBase, ABC):
     def __init__(self,
                  parent,
                  header_const,

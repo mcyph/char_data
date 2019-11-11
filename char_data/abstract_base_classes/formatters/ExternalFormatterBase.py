@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from char_data.abstract_base_classes.formatters.PropertyFormatterBase import PropertyFormatterBase
+from char_data.abstract_base_classes.formatters.FormatterBase import PropertyFormatterBase
 
 
 class ExternalFormatterBase(PropertyFormatterBase, ABC):

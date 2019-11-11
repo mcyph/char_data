@@ -101,12 +101,12 @@ class AlphabetIndex:
 
     def search(self, search):
         ld = LangData(search)
-        from char_data.unicodeset import unicodeset_from_range
+        from char_data.unicodeset import UnicodeSet
 
         LRtn = []
         for heading, ranges in ld.get_L_alpha():
             LOut = []
-            for i_s in unicodeset_from_range(ranges):
+            for i_s in UnicodeSet(ranges):
                 LOut.extend([ord(i) for i in i_s])
             LRtn.extend(LOut)
             #LRtn.append((heading, LOut))

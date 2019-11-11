@@ -13,8 +13,8 @@ from char_data.abstract_base_classes.data_sources.InternalSourceBase import Inte
 
 
 class Kanjidic(InternalSourceBase):
-    def __init__(self, load_db=True):
-        InternalSourceBase.__init__(self, 'kanjidic')
+    def __init__(self, char_data, load_db=True):
+        InternalSourceBase.__init__(self, char_data, 'kanjidic')
 
         #====================================================================#
         #                            Definitions                             #

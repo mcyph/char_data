@@ -12,7 +12,7 @@ from char_data.data_info_types.CharIndexValueInfo import CharIndexValueInfo
 class FulltextIndex:
     typ = 'fulltext'
     
-    def __init__(self, f, DJSON):
+    def __init__(self, f, DJSON, char_data=None):
         """
         Provides a basic fulltext index for searching through
         characters.
@@ -27,6 +27,10 @@ class FulltextIndex:
         self.LSpell = read_json(f, DJSON['LSpell'])
         self.LHash = read_array(f, DJSON['LHash'])
         self.LOrds = read_array(f, DJSON['LOrds'])
+
+        #if char_data is None:
+        #    char_data = CharData()
+        #self.char_data = char_data
         
     #======================================================#
     #                    Exact Searching                   #
@@ -49,6 +53,7 @@ class FulltextIndex:
         """
         return self.fulltext(search)  # hack
 
+        """
         LSearch = [
             i.strip().upper()
             for i in search.split()
@@ -65,12 +70,12 @@ class FulltextIndex:
             SPrev = SPossible
         
         for ord_ in SPrev:
-            from char_data.CharData import char_data
-            value = char_data.raw_data(FIXME, search) # FIXME! ==============================
+            value = self.char_data.raw_data(FIXME, search) # FIXME! ==============================
             if value.upper() == search.upper():
                 return (ord_,)
 
         raise KeyError(search)
+        """
     
     #======================================================#
     #                  Fulltext Searching                  #

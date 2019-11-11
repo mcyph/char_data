@@ -7,9 +7,10 @@ class ProcessRangeBase:
         
         Doesn't convert unicode backslashes 
         as I intend to do that later.
-        
-        TODO: Check this catches all cases! =============================================
         """
+
+        # TODO: Check this catches all cases! =============================================
+
         L = []
         backslash_mode = False
         level = 0

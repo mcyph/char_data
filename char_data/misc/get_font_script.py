@@ -7,12 +7,10 @@ DFallbackExc = {
 }
 
 
-def get_font_script(ord_):
+def get_font_script(char_data, ord_):
     """
     HACK: Get the fallback from the first character
     """
-    from char_data.CharData import char_data
-
     try:
         font_script = char_data.formatted('script', ord_)
     except KeyError:

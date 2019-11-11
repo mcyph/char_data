@@ -1,6 +1,11 @@
+from char_data.CharData import CharData
+
 
 class _ShortCharDefinitions:
-    def __init__(self, key='unicodedata.name'):
+    def __init__(self,
+                 key='unicodedata.name',
+                 char_data=None):
+
         self.key = key
 
         self.cur_block = None
@@ -8,6 +13,10 @@ class _ShortCharDefinitions:
 
         self.SCurSubblockTokens = set()
         self.SCurBlockTokens = set()
+
+        if char_data is None:
+            char_data = CharData()
+        self.char_data = char_data
 
     def get_short_char_definitions(self, LChars):
         LOut = []
@@ -52,9 +61,8 @@ class _ShortCharDefinitions:
 
     def _codepoint_processed(self, ord_):
         # TODO: add su
-        from char_data import char_data
+        value = self.char_data.formatted(self.key, ord_)
 
-        value = char_data.formatted(self.key, ord_)
         if value:
             value = ' '.join(
                 i for i in value[0].split() if not (  # CHECK if there's other values here!!!!! =============================
@@ -88,7 +96,7 @@ class _ShortCharDefinitions:
             return s
 
 
-def get_short_char_definitions(LChars):
-    inst = _ShortCharDefinitions()
+def get_short_char_definitions(LChars, char_data=None):
+    inst = _ShortCharDefinitions(char_data=char_data)
     return inst.get_short_char_definitions(LChars)
 

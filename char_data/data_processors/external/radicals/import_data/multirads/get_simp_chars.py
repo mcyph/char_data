@@ -1,8 +1,7 @@
-from char_data.CharData import char_data
 from toolkit.encodings.surrogates import w_unichr, w_ord
 
 
-def get_simp_chars(Char, DTradChars=None):
+def get_simp_chars(char_data, Char, DTradChars=None):
     if type(Char) == int:
         Char = w_unichr(Char)
 

@@ -6,14 +6,17 @@ NO_BLOCK_CHANGE = 1
 
 
 class BlockHeadings:
+    def __init__(self, char_data=None):
+        if char_data is None:
+            from char_data.CharData import CharData
+            char_data = CharData()
+        self.char_data = char_data
+
     #=============================================================================#
     #                           Iterate Through Ranges                            #
     #=============================================================================#
 
     def get_L_block_headings(self, LRanges):
-        global char_data
-        from char_data import char_data
-
         DState = {
             'font_script': None,
             'last_block': -1,
@@ -54,8 +57,8 @@ class BlockHeadings:
                     DState['font_script'] = new_font_script
                     break
 
-        from_block = char_data.formatted('block', from_)
-        to_block = char_data.formatted('block', to)
+        from_block = self.char_data.formatted('block', from_)
+        to_block = self.char_data.formatted('block', to)
 
         # Define various conditionals
         last_equal = DState['last_block'] == from_block
@@ -84,19 +87,19 @@ class BlockHeadings:
         """
         A codepoint, only one SubName required
         """
-        block = char_data.formatted('block', ord_)
+        block = self.char_data.formatted('block', ord_)
         sub_block = None
         #print DState['last_sub_block']
 
         if block and not 'CJK' in block:
-            sub_block = char_data.formatted('subblock heading', ord_)
+            sub_block = self.char_data.formatted('subblock heading', ord_)
 
         if (
             DState['font_script'] is None or
             DState['font_script'] in ('Common', 'Inherited')
         ):
             #print 'SINGLE FALLBACK!'
-            new_font_script = get_font_script(ord_)
+            new_font_script = get_font_script(self.char_data, ord_)
             if new_font_script:
                 DState['font_script'] = new_font_script
 
@@ -118,7 +121,7 @@ class BlockHeadings:
         """
         Append a block, including block description if it exists
         """
-        desc = char_data.formatted('block description', ord_)
+        desc = self.char_data.formatted('block description', ord_)
 
         if desc:
             LRtn.append(
@@ -135,8 +138,8 @@ class BlockHeadings:
 
     def iter_sub_range(self, LRtn, LRange, DState, flag):
         from_, to = LRange
-        from_sub_block = char_data.formatted('subblock heading', from_)
-        to_sub_block = char_data.formatted('subblock heading', to)
+        from_sub_block = self.char_data.formatted('subblock heading', from_)
+        to_sub_block = self.char_data.formatted('subblock heading', to)
 
         # Define various conditionals
         last_equal = DState['last_sub_block'] == from_sub_block
@@ -169,7 +172,7 @@ class BlockHeadings:
 
             for ord_ in range(from_, to+1):
                 if flag == BLOCK_CHANGE:
-                    block = char_data.formatted('block', ord_)
+                    block = self.char_data.formatted('block', ord_)
 
                     if block != DState['last_block']:
                         # Change block, but only if changed as this code
@@ -178,7 +181,7 @@ class BlockHeadings:
                         self.append_block(LRtn, block, ord_)
                         DState['last_block'] = block
 
-                sub_block = char_data.formatted('subblock heading', ord_)
+                sub_block = self.char_data.formatted('subblock heading', ord_)
 
                 if sub_block != DState['last_sub_block']:
                     self.append_sub_block(LRtn, sub_block, ord_)
@@ -197,8 +200,8 @@ class BlockHeadings:
         * subblock see also
         if that information is available, along with the subblock
         """
-        tech_notice = char_data.formatted('subblock technical notice', ord_)
-        see_also = char_data.raw_data('subblock see also', ord_)
+        tech_notice = self.char_data.formatted('subblock technical notice', ord_)
+        see_also = self.char_data.raw_data('subblock see also', ord_)
 
         if tech_notice:
             tech_notice = '. '.join(i.strip('.') for i in tech_notice)
@@ -231,18 +234,24 @@ class BlockHeadings:
             )
 
 
-block_headings = BlockHeadings()
-get_L_block_headings = block_headings.get_L_block_headings
+#block_headings = BlockHeadings()
+#get_L_block_headings = block_headings.get_L_block_headings
 
 
 if __name__ == '__main__':
-    #from char_data.CharIndexes import char_indexes, char_data
+    from char_data.CharData import CharData
+    from char_data.CharIndexes import CharIndexes
+    from char_data.formatters.heading_groupers.by_blocks_subblocks.BlockHeadings import BlockHeadings
+
+    char_data = CharData()
+    char_indexes = CharIndexes(char_data=char_data)
 
     from pprint import pprint
     pprint(list(char_indexes.keys()))
     pprint(list(char_data.keys()))
 
-    pprint(get_L_block_headings(
+    block_headings = BlockHeadings(char_data=char_data)
+    pprint(block_headings.get_L_block_headings(
         char_indexes.search('unicodedata.script', 'Arabic')
     ))
 

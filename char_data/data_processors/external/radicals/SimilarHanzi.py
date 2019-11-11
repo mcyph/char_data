@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from sys import maxsize
 
+from char_data.CharData import CharData
 from char_data.data_processors.external.property_formatters import ExternalFormatterBase
 from char_data.radicals.DataRadicals import DBothChars, DBothRads
 from toolkit.encodings.surrogates import w_unichr
@@ -8,23 +9,26 @@ from char_data.data_processors.consts import HEADER_RADICAL_STROKES
 
 
 class SimilarHanzi(ExternalFormatterBase):
-    def __init__(self, parent):
+    def __init__(self, parent, char_data=None):
         ExternalFormatterBase.__init__(
             self, parent, HEADER_RADICAL_STROKES, original_name='similar_hanzi',
             short_desc='Hanzi With Similar Radicals', LISOs=None #['ja', 'zh', 'zh_Hant', 'ko']
         )
+
+        if char_data is None:
+            char_data = CharData()
+        self.char_data = char_data
     
     def raw_data(self, ord_):
         """
         Return similar Hanzi/Kanji etc characters 
         using the MultiRadicals database
         """
-        from char_data.CharData import char_data
         char = w_unichr(ord_)
         
         if char in DBothChars:
             LRads = self.get_rads(char)
-            LNumStrokes = char_data.raw_data('unihan.totalstrokes', ord_) or []
+            LNumStrokes = self.char_data.raw_data('unihan.totalstrokes', ord_) or []
             #print LNumStrokes
             
             L = []
@@ -58,8 +62,7 @@ class SimilarHanzi(ExternalFormatterBase):
         stroke_diff = maxsize
         
         #print unichr(ord_), char_data.raw_data('unihan.totalstrokes', ord_)
-        from char_data.CharData import char_data
-        for num_strokes in char_data.raw_data('unihan.totalstrokes', ord_) or []:
+        for num_strokes in self.char_data.raw_data('unihan.totalstrokes', ord_) or []:
             for i_num_strokes in LNumStrokes:
                 x = abs(i_num_strokes-num_strokes)
                 
@@ -69,7 +72,7 @@ class SimilarHanzi(ExternalFormatterBase):
         # TODO: Get the frequency depending on language! ==========================================
         LFreqs = []
         for key in ('unihan.frequency', 'kanjidic.freq'):
-            freq = char_data.raw_data(key, ord_)
+            freq = self.char_data.raw_data(key, ord_)
             freq = freq[0] if freq else maxsize
             LFreqs.append(freq)
         

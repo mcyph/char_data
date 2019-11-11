@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 
 
 class ExternalSourceBase(ABC):
-    def __init__(self, key):
+    def __init__(self, char_data, key):
         """
         The base class from which external sources are derived.
         This is for data in other modules or data structures.
@@ -13,4 +13,5 @@ class ExternalSourceBase(ABC):
         :param key: The key as the external source will be referenced,
                     e.g. "cldr_alphabets" or "hanzi_variants"
         """
+        self.char_data = char_data
         self.key = key

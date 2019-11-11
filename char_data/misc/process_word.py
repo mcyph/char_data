@@ -198,8 +198,7 @@ def get_L_words(fISOCode, fVariant, Word, Deinflect=False):
             # In deinflect mode, look up possible stems in the character data
             from mscSentenceJpn import IsKana # HACK!
             if is_hanzi(oNoSpaces[0]) and IsKana(oNoSpaces[1:]):
-                from char_data.CharData import CharData # HACK!
-                LKun = CharData.raw_data('Japanese Kun', 
+                LKun = CharData.raw_data('Japanese Kun',
                                                     w_ord(oNoSpaces[0]))
                 if LKun:
                     LKun = unicodedata.normalize('NFD', LKun[0]).replace('-', '').split(' ')

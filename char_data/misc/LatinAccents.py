@@ -1,14 +1,25 @@
 # -*- coding: utf-8 -*-
-from char_data.CharData import char_data
-from char_data.CharIndexes import char_indexes
+from char_data.CharData import CharData
+from char_data.CharIndexes import CharIndexes
 from toolkit.encodings.surrogates import w_unichr
 
 from char_data.misc import get_smallest_name
 
 
-class _LatinAccents:
-    def __init__(self):
+class LatinAccents:
+    def __init__(self,
+                 char_data=None,
+                 char_indexes=None):
+
         self.DLatin = self.get_D_latin()
+
+        if char_data is None:
+            char_data = CharData()
+        self.char_data = char_data
+
+        if char_indexes is None:
+            char_indexes = CharIndexes(char_data=char_data)
+        self.char_indexes = char_indexes
 
     def get_D_latin(self, script='Latin'):
         """
@@ -21,7 +32,7 @@ class _LatinAccents:
         """
         DLatin = {}
 
-        LLatin = char_indexes.search('unicodedata.script', script)
+        LLatin = self.char_indexes.search('unicodedata.script', script)
         for L in LLatin:
             if not type(L) in (list, tuple):
                 L = [L, L]
@@ -31,7 +42,7 @@ class _LatinAccents:
                 char = w_unichr(ord_)
 
                 # Find the relevant key
-                name = [_.lower() for _ in char_data.raw_data('name', ord_)]
+                name = [_.lower() for _ in self.char_data.raw_data('name', ord_)]
                 letters = get_smallest_name(name)
                 #print 'SMALLEST NAME:', name, letters, unichr(ord_)
 
@@ -112,13 +123,13 @@ class _LatinAccents:
     def get_D_latin_to_L_chars(self, script='Latin'):
         DRtn = {}
 
-        LChars = char_indexes.search('unicodedata.script', script)
+        LChars = self.char_indexes.search('unicodedata.script', script)
         for LRange in LChars:
             if type(LRange) != tuple:
                 LRange = (LRange, LRange+1)
 
             for ord_ in range(*LRange):
-                name = char_data.raw_data('name', ord_)
+                name = self.char_data.raw_data('name', ord_)
                 key = get_smallest_name(name).lower()
                 #print key, unichr(ord_).encode('utf-8'), name
 
@@ -130,13 +141,10 @@ class _LatinAccents:
         return DRtn
 
 
-LatinAccents = _LatinAccents()
-
-
 if __name__ == '__main__':
-    print((LatinAccents.get_D_latin()))
+    print((LatinAccents().get_D_latin()))
 
-    print((LatinAccents.get_D_accents([
+    print((LatinAccents().get_D_accents([
         "ü",
         "e"
         "á",

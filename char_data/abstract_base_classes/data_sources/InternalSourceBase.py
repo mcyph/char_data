@@ -5,7 +5,8 @@ from char_data.data_paths import data_path
 
 
 class InternalSourceBase:
-    def __init__(self, key):
+    def __init__(self, char_data, key):
+        self.char_data = char_data
         self.key = key
 
         self.f_base_data, self.DBaseJSON = self.__get_file_and_D_config(

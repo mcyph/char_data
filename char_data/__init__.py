@@ -1,8 +1,6 @@
-from .CharData import char_data
-from .CharIndexes import char_indexes
 
-from .run_after_loaded import run_all
-run_all()
+#from .run_after_loaded import run_all
+#run_all()
 
 
 #from toolkit.on_demand.OnDemandClass import OnDemandClass

@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 from char_data.data_processors.internal.data_types.read import StringData
-from char_data.abstract_base_classes.formatters.InternalBaseClass import InternalBaseClass
+from char_data.abstract_base_classes.formatters.InternalFormatterBase import InternalFormatterBase
 
 
 class RadicalStrokes(StringData):
     def __init__(self, parent, header_const, original_name, short_desc,
                  long_desc=None, LISOs=None, index_type=None):
 
-        InternalBaseClass.__init__(
+        InternalFormatterBase.__init__(
             self, parent, header_const, original_name, short_desc,
             long_desc=long_desc, LISOs=LISOs, index_type=index_type
         )

@@ -28,13 +28,13 @@ class DataReader:
         """
         Load the basic data instances
         """
-        self.ccdict = CCDict()
-        self.kanjidic = Kanjidic()
-        self.unicodedata = UnicodeData()
-        self.unihan = Unihan()
+        self.ccdict = CCDict(self)
+        self.kanjidic = Kanjidic(self)
+        self.unicodedata = UnicodeData(self)
+        self.unihan = Unihan(self)
 
-        self.hanzi_variants = HanziVariants()
-        self.standard_encodings = StandardEncodings()
-        self.reformatted = ReformattedData()
-        self.cldr_alphabets = Alphabets()
+        self.hanzi_variants = HanziVariants(self)
+        self.standard_encodings = StandardEncodings(self)
+        self.reformatted = ReformattedData(self)
+        self.cldr_alphabets = Alphabets(self)
 

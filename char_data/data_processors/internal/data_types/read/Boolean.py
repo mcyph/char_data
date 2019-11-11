@@ -3,7 +3,7 @@ from toolkit.arrays import read_array, read_json
 from char_data.misc import get_adjusted_code_point
 from char_data.data_processors.internal.data_types.write import write_boolean
 
-from char_data.abstract_base_classes.formatters.InternalBaseClass import InternalBaseClass, NO_DATA
+from char_data.abstract_base_classes.formatters.InternalFormatterBase import InternalFormatterBase, NO_DATA
 
 
 DBool = {
@@ -13,7 +13,7 @@ DBool = {
 }
 
 
-class Boolean(InternalBaseClass):
+class Boolean(InternalFormatterBase):
     writer = staticmethod(write_boolean)
     
     def _load_data(self, key, f, DJSON):

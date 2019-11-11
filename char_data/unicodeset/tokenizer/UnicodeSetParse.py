@@ -1,37 +1,13 @@
 from string import ascii_letters
 from toolkit.encodings.surrogates import w_unichr
 
-from .UnicodeSetUtils import (
-    get_D_default_props, get_D_prop_aliases, get_D_values, get_D_props
-)
-from char_data.CharIndexes import char_indexes
+from char_data.CharIndexes import CharIndexes
+from char_data.CharData import CharData
 # Get various property/value aliases etc
-from .ProcessRangeBase import ProcessRangeBase
+from char_data.unicodeset.tokenizer.ProcessRangeBase import ProcessRangeBase
+from char_data.unicodeset.tokenizer.UnicodeSetUtils import UnicodeSetUtils
+from char_data.unicodeset.consts import RANGES, STRING, OPERATOR
 
-DProps = get_D_props()
-DDefaultProps = get_D_default_props()
-DPropAliases = get_D_prop_aliases()
-DValues = get_D_values()
-
-# Match types
-#
-# NOTE: OPERATOR works on all the items to the 
-# left of the operator in the current group, 
-# and only subtracts/intersects the *one* group 
-# to the right of the operator.
-#
-# See: http://userguide.icu-project.org/strings/unicodeset
-OPERATOR = 0 # (operator, (from, to))
-RANGES = 1 # [(from, to), ...]
-STRING = 2 # pattern
-
-# Operator types
-INTERSECT = 0 # A & B
-DIFFERENCE = 1 # A - B
-DOperators = {
-    '-': DIFFERENCE,
-    '&': INTERSECT
-}
 
 # TODO: 
 # * SUPPORT [{abc}] FORMAT! ========================================================
@@ -39,18 +15,30 @@ DOperators = {
 # * SUPPORT VARIABLES! =============================================================
 
 
-def get_unicode_set_ranges(s, DVars=None):
+def get_unicode_set_ranges(s, DVars=None, char_indexes=None):
     """
     Get the ICU UnicodeSet range tokens
     """
-    return UnicodeSetParse(s, DVars).ranges
+    return UnicodeSetParse(s, DVars, char_indexes=char_indexes).ranges
 
 
 class UnicodeSetParse(ProcessRangeBase):
-    def __init__(self, s, DVars=None):
+    def __init__(self, s, DVars=None, char_data=None, char_indexes=None):
         self.s = s
         self.DVars = DVars
         assert (s[0], s[-1]) == ('[', ']')
+
+        if char_data is None:
+            char_data = CharData()
+        self.char_data = char_data
+
+        if char_indexes is None:
+            char_indexes = CharIndexes(char_data=char_data)
+        self.char_indexes = char_indexes
+
+        self.unicode_set_utils = UnicodeSetUtils(
+            char_indexes=char_indexes
+        )
         self.ranges = self.get_ranges(s[1:-1])
         
     def get_ranges(self, s):
@@ -287,7 +275,9 @@ class UnicodeSetParse(ProcessRangeBase):
                     value_found = True
                 elif s[x:x+2] == ':]':
                     value = ''.join(LType).lower()
-                    return x+1, neg, self.get_L_ranges(DDefaultProps[value])
+                    return x+1, neg, self.get_L_ranges(
+                        self.unicode_set_utils.get_D_default_props()[value]
+                    )
                 else:
                     LType.append(c)
             
@@ -338,7 +328,9 @@ class UnicodeSetParse(ProcessRangeBase):
                     value_found = True
                 elif c == '}':
                     value = ''.join(LType).lower()
-                    return x, neg, self.get_L_ranges(DDefaultProps[value])
+                    return x, neg, self.get_L_ranges(
+                        self.unicode_set_utils.get_D_default_props()[value]
+                    )
                 else:
                     LType.append(c)
                 
@@ -366,7 +358,7 @@ class UnicodeSetParse(ProcessRangeBase):
             # name/conscript name/definitions etc! ===============================
             # (readings should allow partial matches I think)
             #print typ, value
-            for i in char_indexes.search(typ, value):
+            for i in self.char_indexes.search(typ, value):
                 if isinstance(i, (list, tuple)):
                     from_, to = i
                     LRtn.append((w_unichr(from_), w_unichr(to)))
@@ -380,11 +372,12 @@ class UnicodeSetParse(ProcessRangeBase):
         the associated Flazzle name (without underscores)
         """
         typ = typ.replace(' ', '_')
-        typ = DPropAliases.get(typ.lower(), typ)
-        typ = DProps[typ.lower()]
+        typ = self.unicode_set_utils.get_D_prop_aliases().get(typ.lower(), typ)
+        typ = self.unicode_set_utils.get_D_props()[typ.lower()]
         return typ.replace('_', ' ')
     
     def convert_value(self, typ, value):
+        DValues = self.unicode_set_utils.get_D_values()
         if not typ in DValues:
             return value # WARNING! ==============================================
         return DValues[typ].get(str(value), value)

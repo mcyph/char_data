@@ -13,8 +13,8 @@ from char_data.abstract_base_classes.data_sources.InternalSourceBase import Inte
 
 
 class Unihan(InternalSourceBase):
-    def __init__(self):
-        InternalSourceBase.__init__(self, 'unihan')
+    def __init__(self, char_data):
+        InternalSourceBase.__init__(self, char_data, 'unihan')
 
         #====================================================================#
         #                            Definitions                             #

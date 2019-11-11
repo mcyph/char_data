@@ -6,6 +6,6 @@ class Alphabets(ExternalSourceBase):
     """
     TODO: Use the data from Unicode CLDR!!
     """
-    def __init__(self):
-        ExternalSourceBase.__init__(self, 'cldr_alphabets')
+    def __init__(self, char_data):
+        ExternalSourceBase.__init__(self, char_data, 'cldr_alphabets')
         self.alphabets = AlphabetFormatter(self)

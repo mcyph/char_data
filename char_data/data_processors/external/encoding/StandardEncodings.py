@@ -3,8 +3,8 @@ from char_data.data_processors.external.encoding import EncodingFormatter
 
 
 class StandardEncodings(ExternalSourceBase):
-    def __init__(self):
-        ExternalSourceBase.__init__(self, 'standard_encodings')
+    def __init__(self, char_data):
+        ExternalSourceBase.__init__(self, char_data, 'standard_encodings')
 
         #================================================================#
         #                         all languages                          #

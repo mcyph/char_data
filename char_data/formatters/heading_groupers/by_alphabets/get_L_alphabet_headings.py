@@ -9,12 +9,12 @@ def get_L_alphabet_headings(search):
     """
     ld = LangData(search)
     script = ISOTools.split(ISOTools.guess_omitted_info(search)).script
-    from char_data.unicodeset import unicodeset_from_range
+    from char_data.unicodeset import UnicodeSet
 
     LRtn = []
     for heading, ranges_string in ld.get_L_alpha():
         LOut = []
-        for i_s in unicodeset_from_range(ranges_string):
+        for i_s in UnicodeSet(ranges_string):
             LOut.extend([ord(i) for i in i_s])
         #LRtn.extend(LOut)
 
