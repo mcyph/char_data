@@ -7,19 +7,10 @@ from char_data.misc import get_smallest_name
 
 
 class LatinAccents:
-    def __init__(self,
-                 char_data=None,
-                 char_indexes=None):
-
-        self.DLatin = self.get_D_latin()
-
-        if char_data is None:
-            char_data = CharData()
+    def __init__(self, char_data, char_indexes):
         self.char_data = char_data
-
-        if char_indexes is None:
-            char_indexes = CharIndexes(char_data=char_data)
         self.char_indexes = char_indexes
+        self.DLatin = self.get_D_latin()
 
     def get_D_latin(self, script='Latin'):
         """

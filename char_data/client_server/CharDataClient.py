@@ -1,42 +1,91 @@
-from char_data.client_server.CharDataServer import CharDataServer
+from toolkit.documentation.copydoc import copydoc
 from char_data.data_info_types.CharDataKeyInfo import CharDataKeyInfo
-from network_tools.mmap_sockets.MMapClient import MMapClient, client
+from network_tools.posix_shm_sockets.SHMClient import SHMClient
+from char_data.abstract_base_classes.CharDataBase import CharDataBase
 
 
-class CharDataClient:
+class CharDataClient(CharDataBase):
     def __init__(self):
-        self.client = MMapClient(port=40517)
+        """
+        A mirror of the `CharData` class, but allowing separation of
+        the data into a client-server arrangement, saving memory in
+        multi-process setups.
+        """
+        self.client = SHMClient(port=40517)
 
-    @client(CharDataServer.keys)
+    @copydoc(CharDataBase.get_data_sources)
+    def get_data_sources(self):
+        return self.client.send_json('get_data_sources', []) # FIXME!!!!! ===================================
+
+    @copydoc(CharDataBase.keys)
     def keys(self, data_source=None):
-        return self.keys.send_json('keys', [
-            data_source
-        ])
+        return self.client.send_json('keys', [data_source])
 
-    @client(CharDataServer.get_key_info)
+    @copydoc(CharDataBase.get_key_info)
     def get_key_info(self, key):
-        key_info = self.get_key_info.send_json('get_key_info', [key])
+        key_info = self.client.send_json('get_key_info', [key])
         if key_info:
             return CharDataKeyInfo.from_tuple(key_info)
         else:
             return None
 
-    @client(CharDataServer.raw_data)
+    @copydoc(CharDataBase.get_all_data_for_codepoint)
+    def get_all_data_for_codepoint(self, ord_):
+        return self.client.send_json('get_all_data_for_codepoint', [ord_])
+
+    @copydoc(CharDataBase.raw_data)
     def raw_data(self, key, ord_):
-        return self.client.send_json('raw_data', [
-            key, ord_
-        ])
+        return self.client.send_json('raw_data', [key, ord_])
 
-    @client(CharDataServer.formatted)
+    @copydoc(CharDataBase.formatted)
     def formatted(self, key, ord_):
-        return self.client.send_json('formatted', [
-            key, ord_
+        return self.client.send_json('formatted', [key, ord_])
+
+    @copydoc(CharDataBase.html_formatted)
+    def html_formatted(self, key, ord_):
+        return self.client.send_json('html_formatted', [key, ord_])
+
+    #=============================================================#
+    #                       Get Mappings                          #
+    #=============================================================#
+
+    @copydoc(CharDataBase.get_two_level_mapping)
+    def get_two_level_mapping(self, key):
+        return self.client.send_json('get_two_level_mapping', [key])
+
+    #=============================================================#
+    #                Group Characters by Headings                 #
+    #=============================================================#
+
+    @copydoc(CharDataBase.group_into_unicode_name_headings)
+    def group_into_unicode_name_headings(self, LRanges, name=None):
+        return self.client.send_json('group_into_unicode_name_headings', [
+            LRanges, name
         ])
 
-    @client(CharDataServer.html_formatted)
-    def html_formatted(self, key, ord_):
-        return self.client.send_json('html_formatted', [
-            key, ord_
+    @copydoc(CharDataBase.group_into_block_headings)
+    def group_into_block_headings(self, LRanges):
+        return self.client.send_json('group_into_block_headings', [
+            LRanges
+        ])
+
+    @copydoc(CharDataBase.group_into_alphabet_headings)
+    def group_into_alphabet_headings(self, search, char_indexes=None):
+        # HACK: char_indexes can't be sent!
+        return self.client.send_json('group_into_alphabet_headings', [
+            search, None
+        ])
+
+    @copydoc(CharDataBase.group_into_chinese_frequency_headings)
+    def group_into_chinese_frequency_headings(self, LRanges, LSortBy):
+        return self.client.send_json('group_into_chinese_frequency_headings', [
+            LRanges, LSortBy
+        ])
+
+    @copydoc(CharDataBase.group_into_japanese_frequency_headings)
+    def group_into_japanese_frequency_headings(self, LRanges):
+        return self.client.send_json('group_into_japanese_frequency_headings', [
+            LRanges
         ])
 
 

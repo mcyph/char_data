@@ -2,7 +2,7 @@ from string import ascii_letters
 from toolkit.encodings.surrogates import w_unichr
 
 from char_data.CharIndexes import CharIndexes
-from char_data.CharData import CharData
+from char_data.client_server.CharDataClient import CharDataClient
 # Get various property/value aliases etc
 from char_data.unicodeset.tokenizer.ProcessRangeBase import ProcessRangeBase
 from char_data.unicodeset.tokenizer.UnicodeSetUtils import UnicodeSetUtils
@@ -15,25 +15,20 @@ from char_data.unicodeset.consts import RANGES, STRING, OPERATOR
 # * SUPPORT VARIABLES! =============================================================
 
 
-def get_unicode_set_ranges(s, DVars=None, char_indexes=None):
+def get_unicode_set_ranges(char_data, char_indexes, s, DVars=None):
     """
     Get the ICU UnicodeSet range tokens
     """
-    return UnicodeSetParse(s, DVars, char_indexes=char_indexes).ranges
+    return UnicodeSetParse(char_data, char_indexes, s, DVars).ranges
 
 
 class UnicodeSetParse(ProcessRangeBase):
-    def __init__(self, s, DVars=None, char_data=None, char_indexes=None):
+    def __init__(self, char_data, char_indexes, s, DVars=None):
         self.s = s
         self.DVars = DVars
         assert (s[0], s[-1]) == ('[', ']')
 
-        if char_data is None:
-            char_data = CharData()
         self.char_data = char_data
-
-        if char_indexes is None:
-            char_indexes = CharIndexes(char_data=char_data)
         self.char_indexes = char_indexes
 
         self.unicode_set_utils = UnicodeSetUtils(

@@ -6,10 +6,7 @@ NO_BLOCK_CHANGE = 1
 
 
 class BlockHeadings:
-    def __init__(self, char_data=None):
-        if char_data is None:
-            from char_data.CharData import CharData
-            char_data = CharData()
+    def __init__(self, char_data):
         self.char_data = char_data
 
     #=============================================================================#
@@ -25,7 +22,7 @@ class BlockHeadings:
 
         LRtn = []
         for ord_ in LRanges:
-            if type(ord_) == tuple:
+            if isinstance(ord_, (tuple, list)):
                 for i_ord in range(ord_[0], ord_[1]+1):
                     # HACK: Fix Arabic subblock comment/title issues
                     self._process_codepoint(LRtn, DState, i_ord)
@@ -234,14 +231,9 @@ class BlockHeadings:
             )
 
 
-#block_headings = BlockHeadings()
-#get_L_block_headings = block_headings.get_L_block_headings
-
-
 if __name__ == '__main__':
     from char_data.CharData import CharData
     from char_data.CharIndexes import CharIndexes
-    from char_data.formatters.heading_groupers.by_blocks_subblocks.BlockHeadings import BlockHeadings
 
     char_data = CharData()
     char_indexes = CharIndexes(char_data=char_data)
@@ -251,7 +243,7 @@ if __name__ == '__main__':
     pprint(list(char_data.keys()))
 
     block_headings = BlockHeadings(char_data=char_data)
-    pprint(block_headings.get_L_block_headings(
+    pprint(BlockHeadings(
+        char_data,
         char_indexes.search('unicodedata.script', 'Arabic')
     ))
-

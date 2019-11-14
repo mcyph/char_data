@@ -79,6 +79,7 @@ class InternalFormatterBase(PropertyFormatterBase, ABC):
 
     def get_range_data(self, ord_):
         for from_, to, value in self.LRanges:
+            #print(ord_, from_, to, value)
             if from_ > ord_:
                 # Stop searching if no greater values
                 break

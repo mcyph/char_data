@@ -24,7 +24,7 @@ class Ranges:
                     if i[0] == OPERATOR:
                         prev_item = LOut.pop()
                         cur_item = unicode_set_from_token(
-                            i[1][1], char_indexes=self.char_indexes
+                            self.char_indexes, i[1][1]
                         )
 
                         if i[1][0] == '-':
@@ -36,9 +36,7 @@ class Ranges:
 
                     else:
                         LOut.append(
-                            unicode_set_from_token(
-                                i, char_indexes=self.char_indexes
-                            )
+                            unicode_set_from_token(self.char_indexes, i)
                         )
                 else:
                     LOut.append(i)

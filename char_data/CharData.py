@@ -1,52 +1,55 @@
 from toolkit.encodings.surrogates import w_ord
+from toolkit.documentation.copydoc import copydoc
 
-from char_data.abstract_base_classes.formatters.FormatterBase import PropertyFormatterBase
 from char_data.data_processors.DataReader import DataReader
-
-from char_data.abstract_base_classes.PropertyAccessBase import PropertyAccessBase
 from char_data.data_info_types.CharDataKeyInfo import CharDataKeyInfo
+from char_data.abstract_base_classes.CharDataBase import CharDataBase
+from char_data.abstract_base_classes.PropertyAccessBase import PropertyAccessBase
+from char_data.abstract_base_classes.formatters.FormatterBase import PropertyFormatterBase
+from char_data.abstract_base_classes.HeadingGrouperBase import HeadingGrouperBase
+from char_data.data_processors.consts import DTwoLevelMappings
 
 
-__char_data = None
+class CharData(HeadingGrouperBase, CharDataBase,
+               PropertyAccessBase, DataReader):
+    __init = False
+    __char_data = None
 
+    def __new__(cls):
+        # Only ever store a single instance in memory (singleton pattern)
+        if CharData.__char_data is None:
+            CharData.__char_data = super(CharData, cls).__new__(cls)
+        return CharData.__char_data
 
-def CharData():
-    global __char_data
-    if __char_data is None:
-        __char_data = _CharData()
-    return __char_data
-
-
-class _CharData(PropertyAccessBase, DataReader):
     def __init__(self):
-        DataReader.__init__(self)
-        PropertyAccessBase.__init__(self, self)
+        """
+        A class that allows looking up information
+        about given Unicode codepoints.
 
+        For example, `raw_data('a', 'name')` will give
+        `('LATIN SMALL LETTER A',)`.
+        """
+        if not CharData.__init:
+            CharData.__init = True
+            DataReader.__init__(self)
+            PropertyAccessBase.__init__(self, self)
 
+            from char_data.run_after_loaded import run_all
+            run_all()  # HACK!
 
     def __getattr__(self, item):
         return getattr(self.data_reader, item)
 
+    @copydoc(CharDataBase.get_data_sources)
     def get_data_sources(self):
-        """
-        Get a list of the possible data sources, such as "unicodedata"
-        (internal sources) or "hanzi_variants" (external sources)
-        :return: a list of data sources
-        """
         return [i[0] for i in self.LData]
 
     #=============================================================#
     #                  Get Character Data Keys                    #
     #=============================================================#
 
+    @copydoc(CharDataBase.keys)
     def keys(self, data_source=None):
-        """
-        Get a list of the possible data source/key combinations
-
-        :param data_source: one of the data sources returned by
-                            get_data_sources (optional)
-        :return: a list of ["source.key", ...]
-        """
         LRtn = []
 
         for key, _ in self.LData:
@@ -63,18 +66,8 @@ class _CharData(PropertyAccessBase, DataReader):
 
         return sorted(LRtn)
 
+    @copydoc(CharDataBase.get_key_info)
     def get_key_info(self, key):
-        """
-        Get information about internal key `key`,
-        e.g. to allow displaying the key to humans
-        (Kanjidic "freq" might be "Japanese Frequency", for instance)
-
-        :param key: a key in the format "source.key" as returned by
-                    `keys()`, or just "key" (will default to the
-                    first data source with that key as returned by
-                    `get_data_sources()`)
-        :return: a `CharDataKeyInfo` object with key information
-        """
         inst = self.get_class_by_property(key)
 
         if inst.index:
@@ -96,64 +89,83 @@ class _CharData(PropertyAccessBase, DataReader):
         )
 
     #=============================================================#
+    #                   Get Two-Level Mappings                    #
+    #=============================================================#
+
+    @copydoc(CharDataBase.get_two_level_mapping)
+    def get_two_level_mapping(self, key):
+        return DTwoLevelMappings.get(key, None)
+
+    #=============================================================#
     #                     Get Character Data                      #
     #=============================================================#
 
-    def raw_data(self, key, ord_):
-        """
-        Get the raw data from formatter instance `key`
-        about character ordinal or character `ord_`
+    @copydoc(CharDataBase.get_all_data_for_codepoint)
+    def get_all_data_for_codepoint(self, ord_):
+        ord_ = int(ord_)
+        DData = {}
 
-        :param key: a key in the format "source.key" as returned by
-                    `keys()`, or just "key" (will default to the
-                    first data source with that key as returned by
-                    `get_data_sources()`)
-        :param ord_: the ordinal (or string character) of the
-                     character to look up
-        :return: the raw data. The format may differ from source
-                 to source - may be an integer, a tuple of
-                 `((description, ordinal), ...)` for related
-                 characters, etc.
-        """
+        for key in list(self.keys()):
+            inst = self.get_class_by_property(key)
+            short_desc = inst.short_desc
+
+            # Get the raw value, to allow linking (if relevant)
+            if inst.index and inst.index.typ != 'fulltext':
+                raw_data = inst.raw_data(ord_)
+                if not isinstance(raw_data, str):
+                    # FIXME: Add support for non-string values!
+                    raw_data = None
+            else:
+                raw_data = None
+
+            html_value = inst.html_formatted(ord_)
+            # print('get_property_table:', key, short_desc, html_value, raw_data)
+
+            if html_value is not None:
+                DData.setdefault(inst.header_const, []).append((
+                    key, short_desc, html_value, raw_data
+                ))
+
+        for k in DData:
+            DData[k].sort(key=lambda i: i[1])
+
+        # Add a "Code Point" header
+        # hex_val = hex(ord_)[2:].upper()
+        # hex_val = (
+        #    hex_val.zfill(4) if len(hex_val) <= 4 else hex_val
+        # )
+        # DData[6.5] = [
+        # HACK: Make it so that it's after scripts/blocks
+        #    ('Unicode', 'Unicode', f'U+{hex_val}', None),
+        #    ('XML/HTML', 'XML/HTML', f'&amp;#{ord_};', None)
+        # ]
+        # DHeaders[6.5] = 'Code Point'
+
+        # Make sorted/output by header order
+        append_LData = []
+        for k in sorted(DData.keys(), key=lambda x: 65535 if x is None else x):
+            i_LData = DData[k]
+            append_LData.append((k, i_LData))
+        return append_LData
+
+    @copydoc(CharDataBase.raw_data)
+    def raw_data(self, key, ord_):
         if isinstance(ord_, str):
             ord_ = w_ord(ord_)
         
         inst = self.get_class_by_property(key)
         return inst.raw_data(ord_)
 
+    @copydoc(CharDataBase.formatted)
     def formatted(self, key, ord_):
-        """
-        Get the formatted data from formatter instance `key`
-        about character ordinal or character `ord_`
-
-        :param key: a key in the format "source.key" as returned by
-                    `keys()`, or just "key" (will default to the
-                    first data source with that key as returned by
-                    `get_data_sources()`)
-        :param ord_: the ordinal (or string character) of the
-                     character to look up
-        :return: the formatted data as a string
-        """
         if isinstance(ord_, str):
             ord_ = w_ord(ord_)
         
         inst = self.get_class_by_property(key)
         return inst.formatted(ord_)
 
+    @copydoc(CharDataBase.html_formatted)
     def html_formatted(self, key, ord_):
-        """
-        Uses the formatted() method above, but also adds basic
-        HTML formatting
-
-        :param key: a key in the format "source.key" as returned by
-                    `keys()`, or just "key" (will default to the
-                    first data source with that key as returned by
-                    `get_data_sources()`)
-        :param ord_: the ordinal (or string character) of the
-                     character to look up
-        :return: the formatted HTML data as a string
-        """
-
         if isinstance(ord_, str):
             ord_ = w_ord(ord_)
 

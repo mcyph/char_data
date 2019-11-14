@@ -1,57 +1,60 @@
-from char_data.CharData import CharData
+from toolkit.documentation.copydoc import copydoc
+
 from char_data.abstract_base_classes.formatters.FormatterBase import PropertyFormatterBase
 from char_data.abstract_base_classes.PropertyAccessBase import PropertyAccessBase
 from char_data.data_info_types.CharIndexKeyInfo import CharIndexKeyInfo
 from char_data.data_info_types.CharIndexValueInfo import CharIndexValueInfo
+from char_data.abstract_base_classes.CharIndexesBase import CharIndexesBase
 
 
-__char_indexes = None
+class CharIndexes(CharIndexesBase,
+                  PropertyAccessBase):
+    __init = False
+    __char_indexes = None
 
+    def __new__(cls, *args, **kw):
+        # Only ever store a single instance in memory (singleton pattern)
+        if CharIndexes.__char_indexes is None:
+            print("CREATE NEW INDEXES")
+            CharIndexes.__char_indexes = super(CharIndexes, cls).__new__(cls)
+        return CharIndexes.__char_indexes
 
-def CharIndexes(char_data=None):
-    global __char_indexes
-    if __char_indexes is None:
-        __char_indexes = _CharIndexes(char_data=char_data)
-    return __char_indexes
+    def __init__(self, char_data):
+        """
+        A class that finds Unicode codepoints
+        that are classified as being a certain property.
+        For example, `search('script', 'Latin')` will give
+        `[(65, 90), (97, 122), 170, 186, (192, 214), ..]`.
 
+        Note that each item may either be a two-item tuple,
+        signifying an inclusive codepoint range.
+        In the above example 65 -> A; 90 -> Z, so (65, 90)
+        means characters from A to Z inclusive.
+        """
+        from char_data.CharData import CharData
+        assert isinstance(char_data, CharData), \
+            "CharIndexes must be passed a non-network " \
+            "(non-CharIndexClient) direct class of CharData"
 
-class _CharIndexes(PropertyAccessBase):
-    #=========================================================#
-    #                        Indexes                          #
-    #=========================================================#
+        if not CharIndexes.__init:
+            print("INIT INDEXES")
+            CharIndexes.__init = True
 
-    def __init__(self, char_data=None):
-        if char_data is None:
-            char_data = CharData()
-        self.char_data = char_data
+            self.char_data = char_data
 
-        PropertyAccessBase.__init__(self, char_data)
+            PropertyAccessBase.__init__(self, char_data)
 
     #==================================================================#
     #                           Key-Related                            #
     #==================================================================#
 
+    @copydoc(CharIndexesBase.search)
     def search(self, key, value, *args, **kw):
-        """
-        search the index key for value,
-        This could be a FullText index, a
-        Radical.AdditionalStrokes index etc
-
-        :param key:
-        :param value:
-        :param args:
-        :param kw:
-        :return:
-        """
         inst = self.get_class_by_property(key)
         return inst.index.search(value, *args, **kw)
 
+    @copydoc(CharIndexesBase.keys)
     def keys(self, data_source=None):
-        """
-        Get the index keys, e.g. "Arabic Shaping Group"
-
-        :return: a list of keys in format "source.key"
-        """
         LRtn = []
 
         for key, _ in self.char_data.LData:
@@ -72,15 +75,8 @@ class _CharIndexes(PropertyAccessBase):
 
         return sorted(LRtn)
 
+    @copydoc(CharIndexesBase.get_key_info)
     def get_key_info(self, key):
-        """
-        Get information about internal key `key`,
-        e.g. to allow displaying the key to humans
-        (Kanjidic "freq" might be "Japanese Frequency", for instance)
-
-        :param key:
-        :return:
-        """
         # TODO: Should this all be in `char_data`???
         inst = self.get_class_by_property(key)
         return CharIndexKeyInfo(key, inst.key, inst.index.typ)
@@ -89,27 +85,14 @@ class _CharIndexes(PropertyAccessBase):
     #                          Value-Related                           #
     #==================================================================#
 
+    @copydoc(CharIndexesBase.values)
     def values(self, key):
-        """
-        Get a list of possible values in MultiIndex in RAW form
-        Returns [[key, key_type], ...]
-        key is the property name and key_type is e.g. "Fulltext" etc
-
-        :param key:
-        :return:
-        """
         inst = self.get_class_by_property(key)
         return list(inst.index.values())
 
+    @copydoc(CharIndexesBase.get_value_info)
     def get_value_info(self, key, value):
-        """
-
-        :param key:
-        :param value:
-        :return:
-        """
         # HACK: This really should perhaps be at a "formatter" level!!!
-
         inst = self.get_class_by_property(key)
         formatted = inst._format_data(0, value)  # HACK HACK HACK!
         return CharIndexValueInfo(value, formatted, description=None)
@@ -118,8 +101,10 @@ class _CharIndexes(PropertyAccessBase):
 if __name__ == '__main__':
     char_data = CharData()
     char_indexes = CharIndexes(char_data=char_data)
+    del char_indexes
+    char_indexes = CharIndexes(char_data=char_data)
 
-    print(char_indexes.search('general name', 'smile'))
+    print(char_indexes.search('name', 'smile'))
 
     LKeys = []
     for key in list(char_indexes.keys()):

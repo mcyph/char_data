@@ -1,24 +1,30 @@
-from network_tools.mmap_sockets.MMapClient import MMapClient
+from toolkit.documentation.copydoc import copydoc
+from network_tools.posix_shm_sockets.SHMClient import SHMClient
 from char_data.data_info_types.CharIndexKeyInfo import CharIndexKeyInfo
 from char_data.data_info_types.CharIndexValueInfo import CharIndexValueInfo
-from char_data.CharIndexes import CharIndexes
+from char_data.abstract_base_classes.CharIndexesBase import CharIndexesBase
 
 
-class CharIndexClient:
-    def __init__(self):
-        self.client = MMapClient(port=40518)
+class CharIndexClient(CharIndexesBase):
+    def __init__(self, char_data=None): # HACK! ============================================================
+        """
+        A mirror of the `CharIndexes` class, but allowing separation of
+        the data into a client-server arrangement, saving memory in
+        multi-process setups.
+        """
+        self.client = SHMClient(port=40518)
 
-    @use_docstring(CharIndexes.search)
+    @copydoc(CharIndexesBase.search)
     def search(self, key, value, *args, **kw):
         return self.client.send_json('search', [
             key, value, args, kw
         ])
 
-    @use_docstring(CharIndexes.keys)
+    @copydoc(CharIndexesBase.keys)
     def keys(self):
         return self.client.send_json('keys', [])
 
-    @use_docstring(CharIndexes.get_key_info)
+    @copydoc(CharIndexesBase.get_key_info)
     def get_key_info(self, key):
         key_info = self.client.send_json('get_key_info', [key])
         if key_info:
@@ -26,13 +32,13 @@ class CharIndexClient:
         else:
             return None
 
-    @use_docstring(CharIndexes.search)
+    @copydoc(CharIndexesBase.values)
     def values(self, key):
         return self.client.send_json('values', [
             key
         ])
 
-    @use_docstring(CharIndexes.search)
+    @copydoc(CharIndexesBase.get_value_info)
     def get_value_info(self, key, value):
         value_info = self.client.send_json('get_value_info', [
             key, value
@@ -50,4 +56,3 @@ if __name__ == '__main__':
     print(client.get_key_info('cldr_alphabets.alphabets'))
     print(client.values('cldr_alphabets.alphabets'))
     print(client.get_value_info('cldr_alphabets.alphabets', 'bn'))
-

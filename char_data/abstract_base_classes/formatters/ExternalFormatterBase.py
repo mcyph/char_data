@@ -35,8 +35,19 @@ class ExternalFormatterBase(PropertyFormatterBase, ABC):
 
     @abstractmethod
     def raw_data(self, ordinal):
+        """
+
+        :param ordinal:
+        :return:
+        """
         pass
 
     @abstractmethod
     def _format_data(self, ordinal, data):
+        """
+
+        :param ordinal:
+        :param data:
+        :return:
+        """
         pass

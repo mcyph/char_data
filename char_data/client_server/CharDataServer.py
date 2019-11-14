@@ -1,22 +1,42 @@
 from char_data.CharData import CharData
-from network_tools.mmap_sockets.MMapServer import MMapServer, json_method
+from network_tools.posix_shm_sockets.SHMServer import SHMServer, json_method
 
 
-class CharDataServer(MMapServer):
+class CharDataServer(SHMServer):
     def __init__(self, char_data=None):
         if char_data is None:
             char_data = CharData()
         self.char_data = char_data
 
-        MMapServer.__init__(self, port=40517)
+        SHMServer.__init__(self, DCmds={
+            'get_data_sources': self.get_data_sources,
+            'keys': self.keys,
+            'get_key_info': self.get_key_info,
+            'get_all_data_for_codepoint': self.get_all_data_for_codepoint,
+            'raw_data': self.raw_data,
+            'formatted': self.formatted,
+            'html_formatted': self.html_formatted,
 
-    @json_method(doc=CharData.keys)
+            'get_two_level_mapping': self.get_two_level_mapping,
+
+            'group_into_unicode_name_headings': self.group_into_unicode_name_headings,
+            'group_into_block_headings': self.group_into_block_headings,
+            'group_into_alphabet_headings': self.group_into_alphabet_headings,
+            'group_into_chinese_frequency_headings': self.group_into_chinese_frequency_headings,
+            'group_into_japanese_frequency_headings': self.group_into_japanese_frequency_headings
+        }, port=40517)
+
+    @json_method
+    def get_data_sources(self):
+        return self.char_data.get_data_sources()
+
+    @json_method
     def keys(self, data_source=None):
         return self.char_data.keys(
             data_source=data_source
         )
 
-    @json_method(doc=CharData.get_key_info)
+    @json_method
     def get_key_info(self, key):
         key_info = self.char_data.get_key_info(key)
         if key_info:
@@ -24,17 +44,51 @@ class CharDataServer(MMapServer):
         else:
             return None
 
-    @json_method(doc=CharData.raw_data)
+    @json_method
+    def get_all_data_for_codepoint(self, ord_):
+        return self.char_data.get_all_data_for_codepoint(ord_)
+
+    # Get data
+
+    @json_method
     def raw_data(self, key, ord_):
         return self.char_data.raw_data(key, ord_)
 
-    @json_method(doc=CharData.formatted)
+    @json_method
     def formatted(self, key, ord_):
         return self.char_data.formatted(key, ord_)
 
-    @json_method(doc=CharData.html_formatted)
+    @json_method
     def html_formatted(self, key, ord_):
         return self.char_data.html_formatted(key, ord_)
+
+    # Group mappings
+
+    @json_method
+    def get_two_level_mapping(self, key):
+        return self.char_data.get_two_level_mapping(key)
+
+    # Group into headings
+
+    @json_method
+    def group_into_unicode_name_headings(self, LRanges, name=None):
+        return self.char_data.group_into_unicode_name_headings(LRanges, name)
+
+    @json_method
+    def group_into_block_headings(self, LRanges):
+        return self.char_data.group_into_block_headings(LRanges)
+
+    @json_method
+    def group_into_alphabet_headings(self, search, char_indexes=None):
+        return self.char_data.group_into_alphabet_headings(search, char_indexes)
+
+    @json_method
+    def group_into_chinese_frequency_headings(self, LRanges, LSortBy):
+        return self.char_data.group_into_chinese_frequency_headings(LRanges, LSortBy)
+
+    @json_method
+    def group_into_japanese_frequency_headings(self, LRanges):
+        return self.char_data.group_into_japanese_frequency_headings(LRanges)
 
 
 if __name__ == '__main__':

@@ -2,10 +2,7 @@ from char_data.CharData import CharData
 
 
 class _ShortCharDefinitions:
-    def __init__(self,
-                 key='unicodedata.name',
-                 char_data=None):
-
+    def __init__(self, char_data, key='unicodedata.name'):
         self.key = key
 
         self.cur_block = None
@@ -14,8 +11,6 @@ class _ShortCharDefinitions:
         self.SCurSubblockTokens = set()
         self.SCurBlockTokens = set()
 
-        if char_data is None:
-            char_data = CharData()
         self.char_data = char_data
 
     def get_short_char_definitions(self, LChars):
@@ -96,7 +91,7 @@ class _ShortCharDefinitions:
             return s
 
 
-def get_short_char_definitions(LChars, char_data=None):
+def get_short_char_definitions(LChars, char_data):
     inst = _ShortCharDefinitions(char_data=char_data)
     return inst.get_short_char_definitions(LChars)
 

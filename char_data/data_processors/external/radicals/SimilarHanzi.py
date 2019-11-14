@@ -9,14 +9,11 @@ from char_data.data_processors.consts import HEADER_RADICAL_STROKES
 
 
 class SimilarHanzi(ExternalFormatterBase):
-    def __init__(self, parent, char_data=None):
+    def __init__(self, parent, char_data):
         ExternalFormatterBase.__init__(
             self, parent, HEADER_RADICAL_STROKES, original_name='similar_hanzi',
             short_desc='Hanzi With Similar Radicals', LISOs=None #['ja', 'zh', 'zh_Hant', 'ko']
         )
-
-        if char_data is None:
-            char_data = CharData()
         self.char_data = char_data
     
     def raw_data(self, ord_):
