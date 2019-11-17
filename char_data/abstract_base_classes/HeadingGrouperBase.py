@@ -13,7 +13,7 @@ class HeadingGrouperBase:
     #               Group Ranges by Unicode Name Headings               #
     #===================================================================#
 
-    @copydoc(CharDataBase.group_into_unicode_name_headings)
+    @copydoc(CharDataBase.group_by_unicode_name)
     def group_into_unicode_name_headings(self, LRanges, name=None):
         if name is None:
             first_ord = LRanges[0]
@@ -126,7 +126,7 @@ class HeadingGrouperBase:
     #                  Group Ranges by Block Headings                   #
     #===================================================================#
 
-    @copydoc(CharDataBase.group_into_block_headings)
+    @copydoc(CharDataBase.group_by_block)
     def group_into_block_headings(self, LRanges):
         block_headings = BlockHeadings(self)
         return block_headings.get_L_block_headings(LRanges)
@@ -135,7 +135,7 @@ class HeadingGrouperBase:
     #                Group Ranges by Alphabet Headings                  #
     #===================================================================#
 
-    @copydoc(CharDataBase.group_into_alphabet_headings)
+    @copydoc(CharDataBase.group_by_alphabet)
     def group_into_alphabet_headings(self, search, char_indexes=None):
         """
         The headings are actually provided by the CLDR data directly,
@@ -203,7 +203,7 @@ class HeadingGrouperBase:
         'kanjidic.grade': 'Japanese Grade'
     }
 
-    @copydoc(CharDataBase.group_into_chinese_frequency_headings)
+    @copydoc(CharDataBase.group_by_chinese_frequency)
     def group_into_chinese_frequency_headings(self, LRanges, LSortBy):
         """
         Group by frequencys/grade etc under subheadings
@@ -278,7 +278,7 @@ class HeadingGrouperBase:
     # nicer, but there are *always* exceptions :-)
     JFREQ_AMOUNT = 500
 
-    @copydoc(CharDataBase.group_into_japanese_frequency_headings)
+    @copydoc(CharDataBase.group_by_japanese_frequency)
     def group_into_japanese_frequency_headings(self, LRanges):
         # Group by frequency/grade etc under subheadings
         DRanges = {}

@@ -57,33 +57,33 @@ class CharDataClient(CharDataBase):
     #                Group Characters by Headings                 #
     #=============================================================#
 
-    @copydoc(CharDataBase.group_into_unicode_name_headings)
-    def group_into_unicode_name_headings(self, LRanges, name=None):
+    @copydoc(CharDataBase.group_by_unicode_name)
+    def group_by_unicode_name(self, LRanges, name=None):
         return self.client.send_json('group_into_unicode_name_headings', [
             LRanges, name
         ])
 
-    @copydoc(CharDataBase.group_into_block_headings)
-    def group_into_block_headings(self, LRanges):
+    @copydoc(CharDataBase.group_by_block)
+    def group_by_block(self, LRanges):
         return self.client.send_json('group_into_block_headings', [
             LRanges
         ])
 
-    @copydoc(CharDataBase.group_into_alphabet_headings)
-    def group_into_alphabet_headings(self, search, char_indexes=None):
+    @copydoc(CharDataBase.group_by_alphabet)
+    def group_by_alphabet(self, search, char_indexes=None):
         # HACK: char_indexes can't be sent!
         return self.client.send_json('group_into_alphabet_headings', [
             search, None
         ])
 
-    @copydoc(CharDataBase.group_into_chinese_frequency_headings)
-    def group_into_chinese_frequency_headings(self, LRanges, LSortBy):
+    @copydoc(CharDataBase.group_by_chinese_frequency)
+    def group_by_chinese_frequency(self, LRanges, LSortBy):
         return self.client.send_json('group_into_chinese_frequency_headings', [
             LRanges, LSortBy
         ])
 
-    @copydoc(CharDataBase.group_into_japanese_frequency_headings)
-    def group_into_japanese_frequency_headings(self, LRanges):
+    @copydoc(CharDataBase.group_by_japanese_frequency)
+    def group_by_japanese_frequency(self, LRanges):
         return self.client.send_json('group_into_japanese_frequency_headings', [
             LRanges
         ])

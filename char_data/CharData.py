@@ -10,8 +10,11 @@ from char_data.abstract_base_classes.HeadingGrouperBase import HeadingGrouperBas
 from char_data.data_processors.consts import DTwoLevelMappings
 
 
-class CharData(HeadingGrouperBase, CharDataBase,
-               PropertyAccessBase, DataReader):
+class CharData(PropertyAccessBase,
+               DataReader,
+               HeadingGrouperBase,
+               CharDataBase,
+               ):
     __init = False
     __char_data = None
 

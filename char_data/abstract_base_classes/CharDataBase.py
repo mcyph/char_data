@@ -134,7 +134,7 @@ class CharDataBase(ABC):
     #=============================================================#
 
     @abstractmethod
-    def group_into_unicode_name_headings(self, LRanges, name=None):
+    def group_by_unicode_name(self, LRanges, name=None):
         """
 
         :param LRanges:
@@ -144,7 +144,7 @@ class CharDataBase(ABC):
         pass
 
     @abstractmethod
-    def group_into_block_headings(self, LRanges):
+    def group_by_block(self, LRanges):
         """
 
         :param LRanges:
@@ -153,17 +153,17 @@ class CharDataBase(ABC):
         pass
 
     @abstractmethod
-    def group_into_alphabet_headings(self, search, char_indexes=None):
+    def group_by_alphabet(self, search, char_indexes=None):
         """
 
-        :param search:
+        :param search: the ISO code of the language
         :param char_indexes:
         :return:
         """
         pass
 
     @abstractmethod
-    def group_into_chinese_frequency_headings(self, LRanges, LSortBy):
+    def group_by_chinese_frequency(self, LRanges, LSortBy):
         """
 
         :param LRanges:
@@ -173,7 +173,7 @@ class CharDataBase(ABC):
         pass
 
     @abstractmethod
-    def group_into_japanese_frequency_headings(self, LRanges):
+    def group_by_japanese_frequency(self, LRanges):
         """
 
         :param LRanges:
