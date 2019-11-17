@@ -14,7 +14,7 @@ class HeadingGrouperBase:
     #===================================================================#
 
     @copydoc(CharDataBase.group_by_unicode_name)
-    def group_into_unicode_name_headings(self, LRanges, name=None):
+    def group_by_unicode_name(self, LRanges, name=None):
         if name is None:
             first_ord = LRanges[0]
             if type(first_ord) == tuple:
@@ -127,7 +127,7 @@ class HeadingGrouperBase:
     #===================================================================#
 
     @copydoc(CharDataBase.group_by_block)
-    def group_into_block_headings(self, LRanges):
+    def group_by_block(self, LRanges):
         block_headings = BlockHeadings(self)
         return block_headings.get_L_block_headings(LRanges)
 
@@ -136,7 +136,7 @@ class HeadingGrouperBase:
     #===================================================================#
 
     @copydoc(CharDataBase.group_by_alphabet)
-    def group_into_alphabet_headings(self, search, char_indexes=None):
+    def group_by_alphabet(self, search, char_indexes=None):
         """
         The headings are actually provided by the CLDR data directly,
         so if using the alphabet key, grab directly from the original source!
@@ -204,7 +204,7 @@ class HeadingGrouperBase:
     }
 
     @copydoc(CharDataBase.group_by_chinese_frequency)
-    def group_into_chinese_frequency_headings(self, LRanges, LSortBy):
+    def group_by_chinese_frequency(self, LRanges, LSortBy):
         """
         Group by frequencys/grade etc under subheadings
         """
@@ -279,7 +279,7 @@ class HeadingGrouperBase:
     JFREQ_AMOUNT = 500
 
     @copydoc(CharDataBase.group_by_japanese_frequency)
-    def group_into_japanese_frequency_headings(self, LRanges):
+    def group_by_japanese_frequency(self, LRanges):
         # Group by frequency/grade etc under subheadings
         DRanges = {}
         for ord_ in LRanges:

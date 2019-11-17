@@ -59,32 +59,32 @@ class CharDataClient(CharDataBase):
 
     @copydoc(CharDataBase.group_by_unicode_name)
     def group_by_unicode_name(self, LRanges, name=None):
-        return self.client.send_json('group_into_unicode_name_headings', [
+        return self.client.send_json('group_by_unicode_name', [
             LRanges, name
         ])
 
     @copydoc(CharDataBase.group_by_block)
     def group_by_block(self, LRanges):
-        return self.client.send_json('group_into_block_headings', [
+        return self.client.send_json('group_by_block', [
             LRanges
         ])
 
     @copydoc(CharDataBase.group_by_alphabet)
     def group_by_alphabet(self, search, char_indexes=None):
         # HACK: char_indexes can't be sent!
-        return self.client.send_json('group_into_alphabet_headings', [
+        return self.client.send_json('group_by_alphabet', [
             search, None
         ])
 
     @copydoc(CharDataBase.group_by_chinese_frequency)
     def group_by_chinese_frequency(self, LRanges, LSortBy):
-        return self.client.send_json('group_into_chinese_frequency_headings', [
+        return self.client.send_json('group_by_chinese_frequency', [
             LRanges, LSortBy
         ])
 
     @copydoc(CharDataBase.group_by_japanese_frequency)
     def group_by_japanese_frequency(self, LRanges):
-        return self.client.send_json('group_into_japanese_frequency_headings', [
+        return self.client.send_json('group_by_japanese_frequency', [
             LRanges
         ])
 

@@ -1,8 +1,9 @@
+from char_data.abstract_base_classes.CharDataBase import CharDataBase
 from char_data.CharData import CharData
 from network_tools.posix_shm_sockets.SHMServer import SHMServer, json_method
 
 
-class CharDataServer(SHMServer):
+class CharDataServer(SHMServer, CharDataBase):
     def __init__(self, char_data=None):
         if char_data is None:
             char_data = CharData()
@@ -19,11 +20,11 @@ class CharDataServer(SHMServer):
 
             'get_two_level_mapping': self.get_two_level_mapping,
 
-            'group_into_unicode_name_headings': self.group_into_unicode_name_headings,
-            'group_into_block_headings': self.group_into_block_headings,
-            'group_into_alphabet_headings': self.group_into_alphabet_headings,
-            'group_into_chinese_frequency_headings': self.group_into_chinese_frequency_headings,
-            'group_into_japanese_frequency_headings': self.group_into_japanese_frequency_headings
+            'group_by_unicode_name': self.group_by_unicode_name,
+            'group_by_block': self.group_by_block,
+            'group_by_alphabet': self.group_by_alphabet,
+            'group_by_chinese_frequency': self.group_by_chinese_frequency,
+            'group_by_japanese_frequency': self.group_by_japanese_frequency
         }, port=40517)
 
     @json_method
@@ -71,24 +72,24 @@ class CharDataServer(SHMServer):
     # Group into headings
 
     @json_method
-    def group_into_unicode_name_headings(self, LRanges, name=None):
-        return self.char_data.group_into_unicode_name_headings(LRanges, name)
+    def group_by_unicode_name(self, LRanges, name=None):
+        return self.char_data.group_by_unicode_name(LRanges, name)
 
     @json_method
-    def group_into_block_headings(self, LRanges):
-        return self.char_data.group_into_block_headings(LRanges)
+    def group_by_block(self, LRanges):
+        return self.char_data.group_by_block(LRanges)
 
     @json_method
-    def group_into_alphabet_headings(self, search, char_indexes=None):
-        return self.char_data.group_into_alphabet_headings(search, char_indexes)
+    def group_by_alphabet(self, search, char_indexes=None):
+        return self.char_data.group_by_alphabet(search, char_indexes)
 
     @json_method
-    def group_into_chinese_frequency_headings(self, LRanges, LSortBy):
-        return self.char_data.group_into_chinese_frequency_headings(LRanges, LSortBy)
+    def group_by_chinese_frequency(self, LRanges, LSortBy):
+        return self.char_data.group_by_chinese_frequency(LRanges, LSortBy)
 
     @json_method
-    def group_into_japanese_frequency_headings(self, LRanges):
-        return self.char_data.group_into_japanese_frequency_headings(LRanges)
+    def group_by_japanese_frequency(self, LRanges):
+        return self.char_data.group_by_japanese_frequency(LRanges)
 
 
 if __name__ == '__main__':
