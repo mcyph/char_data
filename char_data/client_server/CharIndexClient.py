@@ -1,3 +1,4 @@
+from toolkit.patterns.Singleton import Singleton
 from toolkit.documentation.copydoc import copydoc
 from network_tools.posix_shm_sockets.SHMClient import SHMClient
 from char_data.data_info_types.CharIndexKeyInfo import CharIndexKeyInfo
@@ -5,7 +6,10 @@ from char_data.data_info_types.CharIndexValueInfo import CharIndexValueInfo
 from char_data.abstract_base_classes.CharIndexesBase import CharIndexesBase
 
 
-class CharIndexClient(CharIndexesBase):
+class CharIndexClient(CharIndexesBase,
+                      Singleton,
+                      ):
+
     def __init__(self, char_data=None): # HACK! ============================================================
         """
         A mirror of the `CharIndexes` class, but allowing separation of

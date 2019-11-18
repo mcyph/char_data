@@ -1,3 +1,4 @@
+from toolkit.patterns.Singleton import Singleton
 from toolkit.documentation.copydoc import copydoc
 
 from char_data.abstract_base_classes.formatters.FormatterBase import PropertyFormatterBase
@@ -8,17 +9,9 @@ from char_data.abstract_base_classes.CharIndexesBase import CharIndexesBase
 
 
 class CharIndexes(CharIndexesBase,
-                  PropertyAccessBase):
-    __init = False
-    __char_indexes = None
-
-    def __new__(cls, *args, **kw):
-        # Only ever store a single instance in memory (singleton pattern)
-        if CharIndexes.__char_indexes is None:
-            print("CREATE NEW INDEXES")
-            CharIndexes.__char_indexes = super(CharIndexes, cls).__new__(cls)
-        return CharIndexes.__char_indexes
-
+                  PropertyAccessBase,
+                  Singleton
+                  ):
     def __init__(self, char_data):
         """
         A class that finds Unicode codepoints
@@ -36,13 +29,10 @@ class CharIndexes(CharIndexesBase,
             "CharIndexes must be passed a non-network " \
             "(non-CharIndexClient) direct class of CharData"
 
-        if not CharIndexes.__init:
-            print("INIT INDEXES")
-            CharIndexes.__init = True
+        print("INIT INDEXES")
+        self.char_data = char_data
 
-            self.char_data = char_data
-
-            PropertyAccessBase.__init__(self, char_data)
+        PropertyAccessBase.__init__(self, char_data)
 
     #==================================================================#
     #                           Key-Related                            #

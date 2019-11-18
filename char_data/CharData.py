@@ -1,4 +1,5 @@
 from toolkit.encodings.surrogates import w_ord
+from toolkit.patterns.Singleton import Singleton
 from toolkit.documentation.copydoc import copydoc
 
 from char_data.data_processors.DataReader import DataReader
@@ -14,15 +15,8 @@ class CharData(PropertyAccessBase,
                DataReader,
                HeadingGrouperBase,
                CharDataBase,
+               Singleton,
                ):
-    __init = False
-    __char_data = None
-
-    def __new__(cls):
-        # Only ever store a single instance in memory (singleton pattern)
-        if CharData.__char_data is None:
-            CharData.__char_data = super(CharData, cls).__new__(cls)
-        return CharData.__char_data
 
     def __init__(self):
         """
@@ -32,13 +26,11 @@ class CharData(PropertyAccessBase,
         For example, `raw_data('a', 'name')` will give
         `('LATIN SMALL LETTER A',)`.
         """
-        if not CharData.__init:
-            CharData.__init = True
-            DataReader.__init__(self)
-            PropertyAccessBase.__init__(self, self)
+        DataReader.__init__(self)
+        PropertyAccessBase.__init__(self, self)
 
-            from char_data.run_after_loaded import run_all
-            run_all()  # HACK!
+        from char_data.run_after_loaded import run_all
+        run_all()  # HACK!
 
     def __getattr__(self, item):
         return getattr(self.data_reader, item)

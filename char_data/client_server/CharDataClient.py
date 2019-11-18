@@ -1,10 +1,14 @@
+from toolkit.patterns.Singleton import Singleton
 from toolkit.documentation.copydoc import copydoc
 from char_data.data_info_types.CharDataKeyInfo import CharDataKeyInfo
 from network_tools.posix_shm_sockets.SHMClient import SHMClient
 from char_data.abstract_base_classes.CharDataBase import CharDataBase
 
 
-class CharDataClient(CharDataBase):
+class CharDataClient(CharDataBase,
+                     Singleton
+                     ):
+
     def __init__(self):
         """
         A mirror of the `CharData` class, but allowing separation of
