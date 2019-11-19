@@ -26,6 +26,8 @@ class CharData(PropertyAccessBase,
         For example, `raw_data('a', 'name')` will give
         `('LATIN SMALL LETTER A',)`.
         """
+        self.char_indexes = None
+
         DataReader.__init__(self)
         PropertyAccessBase.__init__(self, self)
 
@@ -66,11 +68,12 @@ class CharData(PropertyAccessBase,
         inst = self.get_class_by_property(key)
 
         if inst.index:
-            from char_data.CharIndexes import CharIndexes
-            char_indexes = CharIndexes(char_data=self)
+            if not self.char_indexes:
+                from char_data.CharIndexes import CharIndexes
+                self.char_indexes = CharIndexes(char_data=self)
 
             try:
-                ciki = char_indexes.get_key_info(key)
+                ciki = self.char_indexes.get_key_info(key)
             except KeyError:
                 ciki = None
         else:
