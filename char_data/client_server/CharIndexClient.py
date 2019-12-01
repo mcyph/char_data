@@ -1,50 +1,50 @@
 from toolkit.patterns.Singleton import Singleton
 from toolkit.documentation.copydoc import copydoc
-from network_tools.posix_shm_sockets.SHMClient import SHMClient
+from network_tools.rpc.base_classes.ClientMethodsBase import ClientMethodsBase
+from network_tools.rpc.posix_shm_sockets.SHMClient import SHMClient
+
 from char_data.data_info_types.CharIndexKeyInfo import CharIndexKeyInfo
 from char_data.data_info_types.CharIndexValueInfo import CharIndexValueInfo
 from char_data.abstract_base_classes.CharIndexesBase import CharIndexesBase
+from char_data.client_server.CharIndexServer import CharIndexServer as srv
 
 
 class CharIndexClient(CharIndexesBase,
                       Singleton,
+                      ClientMethodsBase
                       ):
 
-    def __init__(self, char_data=None): # HACK! ============================================================
+    def __init__(self,
+                 char_data=None,
+                 client_provider=None): # HACK! ============================================================
         """
         A mirror of the `CharIndexes` class, but allowing separation of
         the data into a client-server arrangement, saving memory in
         multi-process setups.
         """
-        self.client = SHMClient(port=40518)
+        if client_provider is None:
+            client_provider = SHMClient(srv)
+        ClientMethodsBase.__init__(self, client_provider)
 
     @copydoc(CharIndexesBase.search)
     def search(self, key, value, *args, **kw):
-        return self.client.send_json('search', [
-            key, value, args, kw
-        ])
+        return self.send(srv.search, [key, value, args, kw])
 
-    @copydoc(CharIndexesBase.keys)
-    def keys(self):
-        return self.client.send_json('keys', [])
+    keys = srv.keys.as_rpc()
 
     @copydoc(CharIndexesBase.get_key_info)
     def get_key_info(self, key):
-        key_info = self.client.send_json('get_key_info', [key])
+        key_info = self.send(srv.get_key_info, [key])
         if key_info:
             return CharIndexKeyInfo.from_tuple(*key_info)
         else:
             return None
 
-    @copydoc(CharIndexesBase.values)
-    def values(self, key):
-        return self.client.send_json('values', [
-            key
-        ])
+    values = srv.values.as_rpc()
 
     @copydoc(CharIndexesBase.get_value_info)
     def get_value_info(self, key, value):
-        value_info = self.client.send_json('get_value_info', [
+        value_info = self.send(srv.get_value_info, [
             key, value
         ])
         if value_info:

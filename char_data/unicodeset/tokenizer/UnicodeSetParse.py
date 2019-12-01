@@ -1,8 +1,6 @@
 from string import ascii_letters
 from toolkit.encodings.surrogates import w_unichr
 
-from char_data.CharIndexes import CharIndexes
-from char_data.client_server.CharDataClient import CharDataClient
 # Get various property/value aliases etc
 from char_data.unicodeset.tokenizer.ProcessRangeBase import ProcessRangeBase
 from char_data.unicodeset.tokenizer.UnicodeSetUtils import UnicodeSetUtils

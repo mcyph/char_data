@@ -1,16 +1,15 @@
 from char_data.CharIndexes import CharIndexes
-from network_tools.posix_shm_sockets.SHMServer import SHMServer, json_method
+from network_tools.rpc.base_classes.ServerMethodsBase import \
+    ServerMethodsBase
+from network_tools.rpc_decorators import json_method
 
 
-class CharIndexServer(SHMServer):
+class CharIndexServer(ServerMethodsBase):
+    port = 40518
+    name = 'char_idx'
+
     def __init__(self, char_data):
-        SHMServer.__init__(self, DCmds={
-            'search': self.search,
-            'keys': self.keys,
-            'get_key_info': self.get_key_info,
-            'values': self.values,
-            'get_value_info': self.get_value_info
-        }, port=40518)
+        ServerMethodsBase.__init__(self)
         self.char_indexes = CharIndexes(char_data=char_data)
 
     @json_method

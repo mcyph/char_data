@@ -1,31 +1,21 @@
 from char_data.abstract_base_classes.CharDataBase import CharDataBase
 from char_data.CharData import CharData
-from network_tools.posix_shm_sockets.SHMServer import SHMServer, json_method
+
+from network_tools.rpc.base_classes.ServerMethodsBase import \
+    ServerMethodsBase
+from network_tools.rpc_decorators import json_method
 
 
-class CharDataServer(SHMServer, CharDataBase):
+class CharDataServer(ServerMethodsBase, CharDataBase):
+    port = 40517
+    name = 'char_data'
+
     def __init__(self, char_data=None):
         if char_data is None:
             char_data = CharData()
         self.char_data = char_data
 
-        SHMServer.__init__(self, DCmds={
-            'get_data_sources': self.get_data_sources,
-            'keys': self.keys,
-            'get_key_info': self.get_key_info,
-            'get_all_data_for_codepoint': self.get_all_data_for_codepoint,
-            'raw_data': self.raw_data,
-            'formatted': self.formatted,
-            'html_formatted': self.html_formatted,
-
-            'get_two_level_mapping': self.get_two_level_mapping,
-
-            'group_by_unicode_name': self.group_by_unicode_name,
-            'group_by_block': self.group_by_block,
-            'group_by_alphabet': self.group_by_alphabet,
-            'group_by_chinese_frequency': self.group_by_chinese_frequency,
-            'group_by_japanese_frequency': self.group_by_japanese_frequency
-        }, port=40517)
+        ServerMethodsBase.__init__(self)
 
     @json_method
     def get_data_sources(self):
