@@ -1,7 +1,7 @@
 from toolkit.patterns.Singleton import Singleton
 from toolkit.documentation.copydoc import copydoc
 from network_tools.rpc.base_classes.ClientMethodsBase import ClientMethodsBase
-from network_tools.rpc.posix_shm_sockets.SHMClient import SHMClient
+from network_tools.rpc.shared_memory.SHMClient import SHMClient
 
 from char_data.data_info_types.CharIndexKeyInfo import CharIndexKeyInfo
 from char_data.data_info_types.CharIndexValueInfo import CharIndexValueInfo
