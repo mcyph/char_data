@@ -8,9 +8,13 @@ class CharIndexServer(ServerMethodsBase):
     port = 40518
     name = 'char_idx'
 
-    def __init__(self, char_data):
-        ServerMethodsBase.__init__(self)
+    def __init__(self, char_data=None):
+        if char_data is None:
+            from char_data.CharData import CharData
+            char_data = CharData()
+
         self.char_indexes = CharIndexes(char_data=char_data)
+        ServerMethodsBase.__init__(self)
 
     @json_method
     def search(self, key, value, args, kw):
