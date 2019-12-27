@@ -1,8 +1,12 @@
-from char_data.data_processors.internal.property_formatters import (
-    Definition, NoFormatStrings, Frequency,
-    NoFormatIntegers, Indices,
-    StringEnum, Readings
-)
+from char_data.data_processors.internal.property_formatters.definition.Definition import Definition
+from char_data.data_processors.internal.property_formatters.noformat.NoFormatStrings import NoFormatStrings
+from char_data.data_processors.internal.property_formatters.mappings.Frequency import Frequency
+from char_data.data_processors.internal.property_formatters.noformat.NoFormatIntegers import NoFormatIntegers
+from char_data.data_processors.internal.property_formatters.mappings.Indices import Indices
+from char_data.data_processors.internal.property_formatters.readings.Readings import Readings
+from char_data.data_processors.internal.property_formatters.enum.StringEnum import StringEnum
+
+
 from char_data.data_processors.consts import (
     HEADER_DEFINITION, HEADER_READINGS,
     HEADER_GRADES_FREQUENCIES,

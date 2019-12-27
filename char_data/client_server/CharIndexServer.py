@@ -1,7 +1,7 @@
 from char_data.CharIndexes import CharIndexes
-from network_tools.rpc.base_classes.ServerMethodsBase import \
+from shmrpc.rpc.base_classes.ServerMethodsBase import \
     ServerMethodsBase
-from network_tools.rpc_decorators import json_method
+from shmrpc.rpc_decorators import json_method
 
 
 class CharIndexServer(ServerMethodsBase):

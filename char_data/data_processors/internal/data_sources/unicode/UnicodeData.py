@@ -1,8 +1,12 @@
-from char_data.data_processors.internal.property_formatters import (
-    Definition, NoFormatStrings, UnicodeHex,
-    BooleanEnum,
-    MappingLink, StringEnum
-)
+
+from char_data.data_processors.internal.property_formatters.mappings.MappingLink import MappingLink
+from char_data.data_processors.internal.property_formatters.noformat.NoFormatStrings import NoFormatStrings
+from char_data.data_processors.internal.property_formatters.enum.BooleanEnum import BooleanEnum
+from char_data.data_processors.internal.property_formatters.enum.StringEnum import StringEnum
+from char_data.data_processors.internal.property_formatters.definition.Definition import Definition
+from char_data.data_processors.internal.property_formatters.hex.UnicodeHex import UnicodeHex
+
+
 from char_data.data_processors.consts import (
     HEADER_DEFINITION, HEADER_NUMERIC,
     HEADER_NAMED_ALIASES, HEADER_SCRIPTS_BLOCKS,

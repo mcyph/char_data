@@ -1,7 +1,7 @@
 from toolkit.patterns.Singleton import Singleton
 from toolkit.documentation.copydoc import copydoc
-from network_tools.rpc.base_classes.ClientMethodsBase import ClientMethodsBase
-from network_tools.rpc.shared_memory.SHMClient import SHMClient
+from shmrpc.rpc.base_classes.ClientMethodsBase import ClientMethodsBase
+from shmrpc.rpc.shared_memory.SHMClient import SHMClient
 
 from char_data.data_info_types.CharDataKeyInfo import CharDataKeyInfo
 from char_data.abstract_base_classes.CharDataBase import CharDataBase

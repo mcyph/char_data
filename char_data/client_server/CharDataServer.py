@@ -1,9 +1,9 @@
 from char_data.abstract_base_classes.CharDataBase import CharDataBase
 from char_data.CharData import CharData
 
-from network_tools.rpc.base_classes.ServerMethodsBase import \
+from shmrpc.rpc.base_classes.ServerMethodsBase import \
     ServerMethodsBase
-from network_tools.rpc_decorators import json_method
+from shmrpc.rpc_decorators import json_method
 
 
 class CharDataServer(ServerMethodsBase, CharDataBase):

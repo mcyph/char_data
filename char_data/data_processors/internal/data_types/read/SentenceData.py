@@ -1,7 +1,7 @@
 from toolkit.arrays import read_array, read_json
 
-from char_data.misc import get_adjusted_code_point
-from char_data.data_processors.internal.data_types.write import write_sentence_data
+from char_data.misc.get_adjusted_code_point import get_adjusted_code_point
+from char_data.data_processors.internal.data_types.write.write_sentence_data import write_sentence_data
 
 from char_data.abstract_base_classes.formatters.InternalFormatterBase import InternalFormatterBase, NO_DATA
 

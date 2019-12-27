@@ -1,9 +1,21 @@
-from .write import write_fulltext_index, write_indices_index, \
-                  write_radical_strokes_index, write_integer_keys_index, \
-                  write_string_keys_index, write_compressed_names_index
+from char_data.data_processors.internal.index_types.write.write_fulltext_index import \
+    write_fulltext_index
+from char_data.data_processors.internal.index_types.write.write_indices_index import \
+    write_indices_index
+from char_data.data_processors.internal.index_types.write.write_radical_strokes_index import \
+    write_radical_strokes_index
+from char_data.data_processors.internal.index_types.write.write_integer_keys_index import \
+    write_integer_keys_index
+from char_data.data_processors.internal.index_types.write.write_string_keys_index import \
+    write_string_keys_index
+from char_data.data_processors.internal.index_types.write.write_fulltext_index import \
+    write_compressed_names_index
 
-from .read import FulltextIndex, IndicesIndex, IntegerKeyIndex, \
-                 RadicalStrokesIndex, StringKeyIndex
+from char_data.data_processors.internal.index_types.read.Fulltext import FulltextIndex
+from char_data.data_processors.internal.index_types.read.Indices import IndicesIndex
+from char_data.data_processors.internal.index_types.read.IntegerKeys import IntegerKeyIndex
+from char_data.data_processors.internal.index_types.read.RadicalStrokes import RadicalStrokesIndex
+from char_data.data_processors.internal.index_types.read.StringKeys import StringKeyIndex
 
 DIndexWriters = {
     'CompressedNames': write_compressed_names_index, 

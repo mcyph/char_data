@@ -1,7 +1,14 @@
-from char_data.data_processors.internal.property_formatters import (
-    Definition, NoFormatStrings, IRG, UnicodeHex, Frequency,
-    BooleanEnum, NoFormatIntegers, Hex, Indices, RadicalStrokes
-)
+from char_data.data_processors.internal.property_formatters.enum.BooleanEnum import BooleanEnum
+from char_data.data_processors.internal.property_formatters.hex.UnicodeHex import UnicodeHex
+from char_data.data_processors.internal.property_formatters.mappings.Frequency import Frequency
+from char_data.data_processors.internal.property_formatters.noformat.NoFormatIntegers import NoFormatIntegers
+from char_data.data_processors.internal.property_formatters.mappings.Indices import Indices
+from char_data.data_processors.internal.property_formatters.definition.Definition import Definition
+from char_data.data_processors.internal.property_formatters.noformat.NoFormatStrings import NoFormatStrings
+from char_data.data_processors.internal.property_formatters.hex.Hex import Hex
+from char_data.data_processors.internal.property_formatters.radicals.RadicalStrokes import RadicalStrokes
+from char_data.data_processors.internal.property_formatters.encoding.IRG import IRG
+
 from char_data.data_processors.consts import (
     HEADER_FIXME, HEADER_DEFINITION, HEADER_NUMERIC, HEADER_READINGS,
     HEADER_LANGUAGE_USAGE, HEADER_VARIANTS, HEADER_GRADES_FREQUENCIES,
