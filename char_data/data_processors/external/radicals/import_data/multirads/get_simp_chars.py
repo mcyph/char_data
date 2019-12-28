@@ -1,4 +1,4 @@
-from toolkit.encodings.surrogates import w_unichr, w_ord
+from char_data.toolkit.encodings.surrogates import w_unichr, w_ord
 
 
 def get_simp_chars(char_data, Char, DTradChars=None):

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from toolkit.json_tools import loads
+from char_data.toolkit.json_tools import loads
 from langlynx.dicts.Edict.CEDict.JSimplified import DTradToSimp, DSimpToTrad
 
 

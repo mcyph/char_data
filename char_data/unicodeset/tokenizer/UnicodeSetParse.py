@@ -1,5 +1,5 @@
 from string import ascii_letters
-from toolkit.encodings.surrogates import w_unichr
+from char_data.toolkit.encodings.surrogates import w_unichr
 
 # Get various property/value aliases etc
 from char_data.unicodeset.tokenizer.ProcessRangeBase import ProcessRangeBase

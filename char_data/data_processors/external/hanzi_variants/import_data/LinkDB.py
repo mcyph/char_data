@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from toolkit import json_tools
-from toolkit.list_operations.rem_dupes import fast_rem_dupes
+from char_data.toolkit.list_operations.rem_dupes import fast_rem_dupes
 from dicts.misc.ExpandTree import open
 from dicts.japanese.JSimplified import trad_to_simp
 

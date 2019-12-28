@@ -1,4 +1,4 @@
-from toolkit.encodings.surrogates import w_ord
+from char_data.toolkit.encodings.surrogates import w_ord
 from char_data.importer.Write import WriteBase, add
 from .RadKFile import rad_k_file
 

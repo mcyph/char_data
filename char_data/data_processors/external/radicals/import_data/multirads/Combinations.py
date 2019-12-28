@@ -1,5 +1,5 @@
-from toolkit.list_operations.combs import get_L_unique_combs
-from toolkit.list_operations.rem_dupes import fast_rem_dupes
+from char_data.toolkit.list_operations.combs import get_L_unique_combs
+from char_data.toolkit.list_operations.rem_dupes import fast_rem_dupes
 
 
 def get_D_kanji_combs(DKanji):

@@ -1,6 +1,6 @@
-from toolkit.json_tools import load
+from char_data.toolkit.json_tools import load
 from char_data.data_paths import data_path
-from toolkit.py_ini.read import read_D_pyini
+from char_data.toolkit.py_ini.read import read_D_pyini
 from char_data.formatters import property_formatters
 
 

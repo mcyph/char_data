@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from toolkit.escape import E
+from char_data.toolkit.html_tools.escape import E
 
 
 class PropertyFormatterBase(ABC):

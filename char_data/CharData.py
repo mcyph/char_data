@@ -1,6 +1,6 @@
-from toolkit.encodings.surrogates import w_ord
-from toolkit.patterns.Singleton import Singleton
-from toolkit.documentation.copydoc import copydoc
+from char_data.toolkit.encodings.surrogates import w_ord
+from char_data.toolkit.patterns.Singleton import Singleton
+from char_data.toolkit.documentation.copydoc import copydoc
 
 from char_data.data_processors.DataReader import DataReader
 from char_data.data_info_types.CharDataKeyInfo import CharDataKeyInfo

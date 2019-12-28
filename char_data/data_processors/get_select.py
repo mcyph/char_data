@@ -1,4 +1,4 @@
-from toolkit.escape import E, esc_q
+from char_data.toolkit.html_tools.escape import E, esc_q
 USE_CACHE = True
 
 # This file contains info on HOW to display the data for the user interface,

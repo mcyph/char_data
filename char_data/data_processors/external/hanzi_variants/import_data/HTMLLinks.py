@@ -1,6 +1,6 @@
 from dicts.chinese.variants import LinkDB
 from dicts.misc.TextOut import w_word
-from toolkit.list_operations.rem_dupes import fast_rem_dupes
+from char_data.toolkit.list_operations.rem_dupes import fast_rem_dupes
 from dicts.misc.ExpandTree import open, close
 
 from dicts.chinese.variants.LinkDB import DNoDisp, DTypes

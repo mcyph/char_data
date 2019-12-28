@@ -1,4 +1,4 @@
-from toolkit.encodings.surrogates import w_unichr
+from char_data.toolkit.encodings.surrogates import w_unichr
 #from Dicts.Other.Import.DelimText import Encodings
 
 from char_data.abstract_base_classes.formatters.ExternalFormatterBase import ExternalFormatterBase

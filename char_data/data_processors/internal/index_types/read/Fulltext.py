@@ -3,8 +3,8 @@ import bisect
 #from editdist import distance
 from unicodedata import normalize
 
-from toolkit.arrays import read_json, read_array
-from toolkit.hashes.fast_hash import fast_hash
+from char_data.toolkit.arrays import read_json, read_array
+from char_data.toolkit.hashes.fast_hash import fast_hash
 
 from char_data.data_info_types.CharIndexValueInfo import CharIndexValueInfo
 

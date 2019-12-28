@@ -1,4 +1,4 @@
-from toolkit.arrays import read_array, read_json
+from char_data.toolkit.arrays import read_array, read_json
 
 from char_data.misc.get_adjusted_code_point import get_adjusted_code_point
 from char_data.data_processors.internal.data_types.write.write_encoding import write_encoding

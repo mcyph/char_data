@@ -1,4 +1,4 @@
-from toolkit.arrays import read_arrays
+from char_data.toolkit.arrays import read_arrays
 
 from char_data.data_info_types.CharIndexValueInfo import CharIndexValueInfo
 

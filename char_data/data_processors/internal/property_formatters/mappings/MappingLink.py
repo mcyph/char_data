@@ -1,7 +1,7 @@
-from toolkit.escape import E
-from toolkit.json_tools import dumps, loads
-from toolkit.encodings.surrogates import w_unichr
-from toolkit.encodings.hex_padding import get_uni_point
+from char_data.toolkit.html_tools.escape import E
+from char_data.toolkit.json_tools import dumps, loads
+from char_data.toolkit.encodings.surrogates import w_unichr
+from char_data.toolkit.encodings.hex_padding import get_uni_point
 from char_data.data_processors.internal.data_types.read import StringData
 from char_data.data_processors.internal.data_types.write.write_string_data import write_string_data
 

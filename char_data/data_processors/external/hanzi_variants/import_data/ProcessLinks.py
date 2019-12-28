@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from json import dumps
 from collections import defaultdict
-from toolkit.list_operations.rem_dupes import rem_dupes
+from char_data.toolkit.list_operations.rem_dupes import rem_dupes
 
 from dicts.chinese.cedict import OpenEdict
 

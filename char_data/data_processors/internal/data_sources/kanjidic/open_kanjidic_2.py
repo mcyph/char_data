@@ -1,7 +1,7 @@
 import gzip
-from toolkit.escape import E, esc_word_disp
+from char_data.toolkit.html_tools.escape import E, esc_word_disp
 from lxml.etree import iterparse
-from toolkit.encodings.surrogates import w_ord
+from char_data.toolkit.encodings.surrogates import w_ord
 
 
 SIgnored = set()

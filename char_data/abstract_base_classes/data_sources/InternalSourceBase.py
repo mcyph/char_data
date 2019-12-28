@@ -1,4 +1,4 @@
-from toolkit.json_tools.JSON import load
+from char_data.toolkit.json_tools.JSON import load
 
 from char_data.data_processors.get_key_name import get_key_name
 from char_data.data_paths import data_path

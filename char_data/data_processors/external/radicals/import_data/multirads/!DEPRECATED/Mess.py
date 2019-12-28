@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import array
 from Radical import get_D_rads
-from toolkit.list_operations.rem_dupes import fast_rem_dupes, rem_dupes
-from toolkit.caching.cache_funct import cache_funct
+from char_data.toolkit.list_operations.rem_dupes import fast_rem_dupes, rem_dupes
+from char_data.toolkit.caching.cache_funct import cache_funct
 from input.WidthConv import full_to_halfwidth
 DRadicals = get_D_rads()
 #from Chars.CharData import CharData # FIXME! ====================================================

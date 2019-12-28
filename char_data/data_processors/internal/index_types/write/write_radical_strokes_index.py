@@ -1,5 +1,5 @@
-from toolkit.arrays import get_int_array
-from toolkit.arrays import write_arrays
+from char_data.toolkit.arrays import get_int_array
+from char_data.toolkit.arrays import write_arrays
 
 def write_radical_strokes_index(f, key, DData):
     '''

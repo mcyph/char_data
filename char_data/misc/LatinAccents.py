@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from char_data.CharData import CharData
 from char_data.CharIndexes import CharIndexes
-from toolkit.encodings.surrogates import w_unichr
+from char_data.toolkit.encodings.surrogates import w_unichr
 
 from char_data.misc import get_smallest_name
 

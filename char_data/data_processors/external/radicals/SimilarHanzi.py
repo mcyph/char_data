@@ -4,7 +4,7 @@ from sys import maxsize
 from char_data.CharData import CharData
 from char_data.data_processors.external.property_formatters import ExternalFormatterBase
 from char_data.radicals.DataRadicals import DBothChars, DBothRads
-from toolkit.encodings.surrogates import w_unichr
+from char_data.toolkit.encodings.surrogates import w_unichr
 from char_data.data_processors.consts import HEADER_RADICAL_STROKES
 
 

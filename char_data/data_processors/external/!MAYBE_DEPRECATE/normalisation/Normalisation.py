@@ -1,7 +1,7 @@
 import unicodedata
 
-from toolkit.encodings.hex_padding import get_uni_point
-from toolkit.encodings.surrogates import w_unichr, w_ord
+from char_data.toolkit.encodings.hex_padding import get_uni_point
+from char_data.toolkit.encodings.surrogates import w_unichr, w_ord
 
 from char_data.data_processors.external.property_formatters import ExternalFormatterBase
 from char_data.data_processors.consts import HEADER_NORMALISATION

@@ -1,5 +1,5 @@
-from toolkit.arrays import get_uni_array, get_int_array
-from toolkit.arrays import write_arrays, write_json
+from char_data.toolkit.arrays import get_uni_array, get_int_array
+from char_data.toolkit.arrays import write_arrays, write_json
 
 
 def iter_values(values):

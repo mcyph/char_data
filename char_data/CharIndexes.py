@@ -1,5 +1,5 @@
-from toolkit.patterns.Singleton import Singleton
-from toolkit.documentation.copydoc import copydoc
+from char_data.toolkit.patterns.Singleton import Singleton
+from char_data.toolkit.documentation.copydoc import copydoc
 
 from char_data.abstract_base_classes.formatters.FormatterBase import PropertyFormatterBase
 from char_data.abstract_base_classes.PropertyAccessBase import PropertyAccessBase

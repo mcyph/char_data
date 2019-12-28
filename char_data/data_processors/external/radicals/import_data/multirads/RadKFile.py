@@ -1,5 +1,5 @@
 
-from toolkit.list_operations.rem_dupes import fast_rem_dupes
+from char_data.toolkit.list_operations.rem_dupes import fast_rem_dupes
 
 
 class RadKFile:

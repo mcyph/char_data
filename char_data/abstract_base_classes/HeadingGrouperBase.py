@@ -1,6 +1,6 @@
 from lang_data import LangData
 from iso_tools.ISOTools import ISOTools
-from toolkit.documentation.copydoc import copydoc
+from char_data.toolkit.documentation.copydoc import copydoc
 
 from char_data.unicodeset.UnicodeSet import UnicodeSet
 from char_data.misc.BlockHeadings import BlockHeadings

@@ -4,9 +4,9 @@
 import unicodedata
 #import fastdist
 #from title_idx.language_support.Stem import get_L_stemmed
-from toolkit.list_operations.rem_dupes import rem_dupes
-from toolkit.encodings.white_space import WHITESPACE, tWHITESPACE
-from toolkit.encodings.surrogates import w_ord
+from char_data.toolkit.list_operations.rem_dupes import rem_dupes
+from char_data.toolkit.encodings.white_space import WHITESPACE, tWHITESPACE
+from char_data.toolkit.encodings.surrogates import w_ord
 #from Translit.TranslitEngine import get_engine
 #CTones2PinYin = get_engine('Chinese Pinyin Accents-PinYin')
 

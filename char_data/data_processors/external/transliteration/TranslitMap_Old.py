@@ -1,4 +1,4 @@
-from toolkit.escape import E
+from char_data.toolkit.html_tools.escape import E
 from multi_translit.translit.Defines import *
 from multi_translit.translit.TranslitLoad import DIDToStr, DTranslitChars, DISOToDSet, DStrToISO
 

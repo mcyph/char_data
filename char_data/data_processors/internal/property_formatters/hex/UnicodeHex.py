@@ -1,5 +1,5 @@
-from toolkit.encodings.hex_padding import get_uni_point
-from toolkit.encodings.surrogates import w_unichr
+from char_data.toolkit.encodings.hex_padding import get_uni_point
+from char_data.toolkit.encodings.surrogates import w_unichr
 
 from char_data.data_processors.internal.data_types.read import Encoding
 

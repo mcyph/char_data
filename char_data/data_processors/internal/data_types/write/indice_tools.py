@@ -1,5 +1,5 @@
 import re
-from toolkit.py_ini import read_D_pyini
+from char_data.toolkit.py_ini import read_D_pyini
 
 # NOTE: Kanjidic is listed before Unihan
 # TODO: Fix busy people chapter "A"!

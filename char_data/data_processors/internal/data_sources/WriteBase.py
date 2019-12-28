@@ -1,7 +1,7 @@
 import warnings
 from json import dumps
 
-from toolkit.io.file_tools import file_write
+from char_data.toolkit.io.file_tools import file_write
 
 from char_data.data_processors.internal.index_types import DIndexWriters
 from char_data.abstract_base_classes.formatters.FormatterBase import PropertyFormatterBase

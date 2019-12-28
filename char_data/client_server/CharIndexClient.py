@@ -1,5 +1,5 @@
-from toolkit.patterns.Singleton import Singleton
-from toolkit.documentation.copydoc import copydoc
+from char_data.toolkit.patterns.Singleton import Singleton
+from char_data.toolkit.documentation.copydoc import copydoc
 from shmrpc.rpc.base_classes.ClientMethodsBase import ClientMethodsBase
 from shmrpc.rpc.shared_memory.SHMClient import SHMClient
 
