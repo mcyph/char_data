@@ -26,6 +26,7 @@ class CharData(PropertyAccessBase,
         For example, `raw_data('a', 'name')` will give
         `('LATIN SMALL LETTER A',)`.
         """
+        self.data_reader = None
         self.char_indexes = None
 
         DataReader.__init__(self)
@@ -34,8 +35,17 @@ class CharData(PropertyAccessBase,
         from char_data.run_after_loaded import run_all
         run_all()  # HACK!
 
+    def __hasattr__(self, item):
+        if self.data_reader:
+            return hasattr(self.data_reader, item) or \
+                   item in self.__dict__
+        else:
+            return hasattr(self, item)
+
     def __getattr__(self, item):
-        return getattr(self.data_reader, item)
+        if 'data_reader' in self.__dict__:
+            return getattr(self.data_reader, item)
+        raise AttributeError
 
     @copydoc(CharDataBase.get_data_sources)
     def get_data_sources(self):

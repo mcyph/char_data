@@ -1,6 +1,6 @@
 from lang_data import LangData, get_L_possible_isos as _get_L_possible_isos
-from iso_tools import ISOTools
-from iso_tools.iso_codes import ISOCodes
+from iso_tools.ISOTools import ISOTools
+from iso_tools.ISOCodes import ISOCodes
 
 
 def get_L_possible_isos():
@@ -72,7 +72,7 @@ class AlphabetIndex:
         for iso in get_L_possible_isos():
             iso_info = ISOTools.split(iso)
             if iso_info.territory:
-                from iso_tools.iso_codes.ISOCodes import DCountries
+                from iso_tools.ISOCodes import DCountries
                 region = DCountries.get(iso_info.territory, ['Unknown'])[0]  # TODO: ALLOW FOR i18n etc!!!
             else:
                 part3 = iso_info.lang

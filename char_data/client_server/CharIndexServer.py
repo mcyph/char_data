@@ -1,20 +1,20 @@
 from char_data.CharIndexes import CharIndexes
-from shmrpc.rpc.base_classes.ServerMethodsBase import \
+from speedysvc.client_server.base_classes.ServerMethodsBase import \
     ServerMethodsBase
-from shmrpc.rpc_decorators import json_method
+from speedysvc.rpc_decorators import json_method
 
 
 class CharIndexServer(ServerMethodsBase):
     port = 40518
     name = 'char_idx'
 
-    def __init__(self, char_data=None):
+    def __init__(self, logger_client, char_data=None):
         if char_data is None:
             from char_data.CharData import CharData
             char_data = CharData()
 
         self.char_indexes = CharIndexes(char_data=char_data)
-        ServerMethodsBase.__init__(self)
+        ServerMethodsBase.__init__(self, logger_client)
 
     @json_method
     def search(self, key, value, args, kw):

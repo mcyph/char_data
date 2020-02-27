@@ -1,21 +1,21 @@
 from char_data.abstract_base_classes.CharDataBase import CharDataBase
 from char_data.CharData import CharData
 
-from shmrpc.rpc.base_classes.ServerMethodsBase import \
+from speedysvc.client_server.base_classes.ServerMethodsBase import \
     ServerMethodsBase
-from shmrpc.rpc_decorators import json_method
+from speedysvc.rpc_decorators import json_method
 
 
 class CharDataServer(ServerMethodsBase, CharDataBase):
     port = 40517
     name = 'char_data'
 
-    def __init__(self, char_data=None):
+    def __init__(self, logger_client, char_data=None):
         if char_data is None:
             char_data = CharData()
         self.char_data = char_data
 
-        ServerMethodsBase.__init__(self)
+        ServerMethodsBase.__init__(self, logger_client)
 
     @json_method
     def get_data_sources(self):

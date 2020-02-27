@@ -1,7 +1,7 @@
 from char_data.toolkit.patterns.Singleton import Singleton
 from char_data.toolkit.documentation.copydoc import copydoc
-from shmrpc.rpc.base_classes.ClientMethodsBase import ClientMethodsBase
-from shmrpc.rpc.shared_memory.SHMClient import SHMClient
+from speedysvc.client_server.base_classes.ClientMethodsBase import ClientMethodsBase
+from speedysvc.client_server.shared_memory.SHMClient import SHMClient
 
 from char_data.data_info_types.CharDataKeyInfo import CharDataKeyInfo
 from char_data.abstract_base_classes.CharDataBase import CharDataBase
