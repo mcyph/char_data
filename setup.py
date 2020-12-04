@@ -33,7 +33,7 @@ setup(
     version='0.1.0',
     description='',
     long_description=long_description,
-    url='https://github.com/jiyiiy/char_data',
+    url='https://github.com/mcyph/char_data',
     author='David Morrissey',
     author_email='david.l.morrissey@gmail.com',
 
