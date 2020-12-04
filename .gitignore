@@ -1,3 +1,4 @@
+*.pyc
 /char_data.egg-info/
 /dist/
 /char_data.egg-info/
