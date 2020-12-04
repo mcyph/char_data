@@ -18,7 +18,10 @@ class CharIndexServer(ServerMethodsBase):
 
     @json_method
     def search(self, key, value, args, kw):
-        return self.char_indexes.search(key, value, *args, **kw)
+        r = self.char_indexes.search(key, value, *args, **kw)
+        if r.__class__.__name__ == 'NumArray':
+            r = [r[i] for i in range(len(r))]
+        return r
 
     @json_method
     def keys(self):

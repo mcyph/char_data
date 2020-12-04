@@ -29,7 +29,6 @@ class CharIndexes(CharIndexesBase,
             "CharIndexes must be passed a non-network " \
             "(non-CharIndexClient) direct class of CharData"
 
-        print("INIT INDEXES")
         self.char_data = char_data
 
         PropertyAccessBase.__init__(self, char_data)
