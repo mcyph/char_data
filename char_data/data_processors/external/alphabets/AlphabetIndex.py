@@ -32,9 +32,9 @@ def get_L_possible_isos():
 
     for iso in L:
         print('ALPHABETINDEX GET_L_POSSIBLE_ISOS:', iso)
-        ld = LangData(iso)
+        lang_data = LangData(iso)
         D[iso] = dumps(
-            [ld.get_L_alpha(), ld.get_L_symbols()]
+            [lang_data.get_L_alpha(), lang_data.get_L_symbols()]
         )
 
     for iso in L:
@@ -61,8 +61,8 @@ def get_L_possible_isos():
 class AlphabetIndex:
     typ = 'alphabets'
 
-    def __init__(self, ld, original_name):
-        self.ld = ld
+    def __init__(self, lang_data, original_name):
+        self.lang_data = lang_data
         self.__add_to_two_level_mappings()
 
     def __add_to_two_level_mappings(self):
@@ -96,22 +96,22 @@ class AlphabetIndex:
 
     def get_value_info(self, value):
         from char_data.data_info_types.CharIndexValueInfo import CharIndexValueInfo
-        pretty_printed = self.ld.prettify_lang(value)
+        pretty_printed = self.lang_data.prettify_lang(value)
         return CharIndexValueInfo(value, str(pretty_printed))
 
     def search(self, search):
-        ld = LangData(search)
+        lang_data = LangData(search)
         from char_data.unicodeset import UnicodeSet
 
         LRtn = []
-        for heading, ranges in ld.get_L_alpha():
+        for heading, ranges in lang_data.get_L_alpha():
             LOut = []
             for i_s in UnicodeSet(ranges):
                 LOut.extend([ord(i) for i in i_s])
             LRtn.extend(LOut)
             #LRtn.append((heading, LOut))
 
-        for typ1, typ2, i_L in ld.get_L_symbols():
+        for typ1, typ2, i_L in lang_data.get_L_symbols():
             for heading, chars in i_L:
                 if typ2:
                     # ??? What does typ1/typ2 do again??
@@ -127,11 +127,11 @@ class AlphabetIndex:
         from pprint import pprint
         pprint(LRtn)
 
-        #ld.get_currency_symbol()
-        #ld.locale_pattern()
-        #ld.ellipsis()
-        #ld.quotes('')
-        #ld.paranthesis('')
+        #lang_data.get_currency_symbol()
+        #lang_data.locale_pattern()
+        #lang_data.ellipsis()
+        #lang_data.quotes('')
+        #lang_data.paranthesis('')
         return LRtn
 
 

@@ -1,14 +1,28 @@
+from typing import Union
+from abc import ABC, abstractmethod
+
 from lang_data import LangData
 from iso_tools.ISOTools import ISOTools
-from char_data.toolkit.documentation.copydoc import copydoc
-
 from char_data.unicodeset.UnicodeSet import UnicodeSet
 from char_data.misc.BlockHeadings import BlockHeadings
+from char_data.toolkit.documentation.copydoc import copydoc
 from char_data.misc import get_font_script, get_smallest_name
 from char_data.abstract_base_classes.CharDataBase import CharDataBase
 
 
-class HeadingGrouperBase:
+class HeadingGrouperBase(ABC):
+    @abstractmethod
+    def raw_data(self,
+                 key: str,
+                 ord_: Union[int, chr]):
+        pass
+
+    @abstractmethod
+    def formatted(self,
+                  key: str,
+                  ord_: Union[int, chr]):
+        pass
+
     #===================================================================#
     #               Group Ranges by Unicode Name Headings               #
     #===================================================================#
@@ -145,11 +159,11 @@ class HeadingGrouperBase:
             from char_data.CharIndexes import CharIndexes
             char_indexes = CharIndexes(char_data=self)
 
-        ld = LangData(search)
+        lang_data = LangData(search)
         script = ISOTools.split(ISOTools.guess_omitted_info(search)).script
 
         LRtn = []
-        for heading, ranges_string in ld.get_L_alpha():
+        for heading, ranges_string in lang_data.get_L_alpha():
             LOut = []
             for i_s in UnicodeSet(self, char_indexes, ranges_string):
                 LOut.extend([ord(i) for i in i_s])
@@ -159,7 +173,7 @@ class HeadingGrouperBase:
             LRtn.append(('chars', LOut))
             # LRtn.append((heading, LOut))
 
-        for typ1, typ2, i_L in ld.get_L_symbols():
+        for typ1, typ2, i_L in lang_data.get_L_symbols():
             for heading, chars in i_L:
                 if typ2:
                     # ??? What does typ1/typ2 do again??
@@ -187,11 +201,11 @@ class HeadingGrouperBase:
         # from pprint import pprint
         # pprint(LRtn)
 
-        # ld.get_currency_symbol()
-        # ld.locale_pattern()
-        # ld.ellipsis()
-        # ld.quotes('')
-        # ld.paranthesis('')
+        # lang_data.get_currency_symbol()
+        # lang_data.locale_pattern()
+        # lang_data.ellipsis()
+        # lang_data.quotes('')
+        # lang_data.paranthesis('')
         return LRtn
 
     #===================================================================#

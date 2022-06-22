@@ -44,7 +44,7 @@ def open_unihan(LPaths, CCDict=False):
             continue
         elif not line.strip().strip('\t'): 
             continue
-        elif line == 'ld': 
+        elif line == 'lang_data': 
             continue
         
         #print line.encode('utf-8')

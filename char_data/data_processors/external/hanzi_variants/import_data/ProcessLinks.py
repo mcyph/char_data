@@ -323,6 +323,6 @@ if __name__ == '__main__':
     from dicts.data_paths import data_path
 
     ProcessLinks(
-        data_path('dicts-cn', 'Mandarin/English/cedict_mdbg/cedict_ts.u8'),
+        data_path('dicts', 'Asian/Chinese/Mandarin/English/cedict_mdbg/cedict_ts.u8'),
         data_path('chardata', 'cedict/variants.json')
     )

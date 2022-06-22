@@ -17,7 +17,7 @@ class CharIndexServer(ServerMethodsBase):
         ServerMethodsBase.__init__(self, logger_client)
 
     @json_method
-    def search(self, key, value, args, kw):
+    def search(self, key: str, value: str, args, kw):
         r = self.char_indexes.search(key, value, *args, **kw)
         if r.__class__.__name__ == 'NumArray':
             r = [r[i] for i in range(len(r))]
@@ -28,7 +28,7 @@ class CharIndexServer(ServerMethodsBase):
         return self.char_indexes.keys()
 
     @json_method
-    def get_key_info(self, key):
+    def get_key_info(self, key: str):
         key_info = self.char_indexes.get_key_info(key)
         if key_info:
             return key_info.to_tuple()
@@ -36,11 +36,11 @@ class CharIndexServer(ServerMethodsBase):
             return None
 
     @json_method
-    def values(self, key):
+    def values(self, key: str):
         return self.char_indexes.values(key)
 
     @json_method
-    def get_value_info(self, key, value):
+    def get_value_info(self, key: str, value):
         value_info = self.char_indexes.get_value_info(key, value)
         if value_info:
             return value_info.to_tuple()

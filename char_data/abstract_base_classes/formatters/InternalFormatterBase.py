@@ -9,8 +9,8 @@ class InternalFormatterBase(PropertyFormatterBase, ABC):
     def __init__(self,
                  parent,
                  header_const,
-                 original_name,
-                 short_desc,
+                 original_name: str,
+                 short_desc: str,
                  long_desc=None,
                  LISOs=None,
                  index_type=None):

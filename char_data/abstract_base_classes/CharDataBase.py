@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from typing import Optional, List, Union
 
 
 class CharDataBase(ABC):
@@ -8,7 +9,7 @@ class CharDataBase(ABC):
     """
 
     @abstractmethod
-    def get_data_sources(self):
+    def get_data_sources(self) -> List[str]:
         """
         Get a list of the possible data sources, such as "unicodedata"
         (internal sources) or "hanzi_variants" (external sources)
@@ -21,7 +22,8 @@ class CharDataBase(ABC):
     #=============================================================#
 
     @abstractmethod
-    def keys(self, data_source=None):
+    def keys(self,
+             data_source: Optional[str] = None) -> List[str]:
         """
         Get a list of the possible data source/key combinations
 
@@ -32,7 +34,7 @@ class CharDataBase(ABC):
         pass
 
     @abstractmethod
-    def get_key_info(self, key):
+    def get_key_info(self, key: str) -> CharDataKeyInfo:
         """
         Get information about internal key `key`,
         e.g. to allow displaying the key to humans
@@ -51,7 +53,7 @@ class CharDataBase(ABC):
     #=============================================================#
 
     @abstractmethod
-    def get_all_data_for_codepoint(self, ord_):
+    def get_all_data_for_codepoint(self, ord_: Union[int, chr]):
         """
         Get a list of all the data associated
         with this codepoint, grouped by heading.
@@ -66,7 +68,9 @@ class CharDataBase(ABC):
         pass
 
     @abstractmethod
-    def raw_data(self, key, ord_):
+    def raw_data(self,
+                 key: str,
+                 ord_: Union[int, chr]) -> Union[int, str, tuple]:
         """
         Get the raw data from formatter instance `key`
         about character ordinal or character `ord_`
@@ -85,7 +89,9 @@ class CharDataBase(ABC):
         pass
 
     @abstractmethod
-    def formatted(self, key, ord_):
+    def formatted(self,
+                  key: str,
+                  ord_: Union[int, chr]) -> str:
         """
         Get the formatted data from formatter instance `key`
         about character ordinal or character `ord_`
@@ -101,7 +107,9 @@ class CharDataBase(ABC):
         pass
 
     @abstractmethod
-    def html_formatted(self, key, ord_):
+    def html_formatted(self,
+                       key: str,
+                       ord_: Union[int, chr]) -> str:
         """
         Uses the formatted() method above, but also adds basic
         HTML formatting
@@ -121,7 +129,7 @@ class CharDataBase(ABC):
     #=============================================================#
 
     @abstractmethod
-    def get_two_level_mapping(self, key):
+    def get_two_level_mapping(self, key: str):
         """
 
         :param key:
@@ -153,7 +161,9 @@ class CharDataBase(ABC):
         pass
 
     @abstractmethod
-    def group_by_alphabet(self, search, char_indexes=None):
+    def group_by_alphabet(self,
+                          search: str,
+                          char_indexes=None):
         """
 
         :param search: the ISO code of the language

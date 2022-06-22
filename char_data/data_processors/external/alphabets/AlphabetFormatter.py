@@ -7,8 +7,8 @@ from .AlphabetIndex import AlphabetIndex
 # TODO: Write me!
 class AlphabetFormatter(ExternalFormatterBase):
     def __init__(self, parent):
-        self.ld = LangData('en')  # DEFAULT TO ENGLISH HACK!!!
-        index = AlphabetIndex(self.ld, 'alphabets')
+        self.lang_data = LangData('en')  # DEFAULT TO ENGLISH HACK!!!
+        index = AlphabetIndex(self.lang_data, 'alphabets')
 
         ExternalFormatterBase.__init__(
             self, parent, HEADER_LANGUAGE_USAGE, original_name='alphabets',
@@ -20,5 +20,5 @@ class AlphabetFormatter(ExternalFormatterBase):
     
     def _format_data(self, ord_, data):
         if data:
-            return self.ld.prettify_lang(data)
+            return self.lang_data.prettify_lang(data)
         return None
