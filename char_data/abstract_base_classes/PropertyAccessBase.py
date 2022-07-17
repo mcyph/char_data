@@ -16,15 +16,15 @@ class PropertyAccessBase(ABC):
         """
         self.o = o
         self.SPossible = set(i[0] for i in self.o.LData)
-        self.DCache = {}
+        self.cache_dict = {}
 
     def get_class_by_property(self, s):
         if isinstance(s, list):
             s = tuple(s)
         
-        if not s in self.DCache:
-            self.DCache[s] = self._get_class_by_property(s)
-        return self.DCache[s]
+        if not s in self.cache_dict:
+            self.cache_dict[s] = self._get_class_by_property(s)
+        return self.cache_dict[s]
 
     def _get_class_by_property(self, s):
         """
