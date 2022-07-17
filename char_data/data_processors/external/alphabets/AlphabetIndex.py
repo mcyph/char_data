@@ -103,13 +103,13 @@ class AlphabetIndex:
         lang_data = LangData(search)
         from char_data.unicodeset import UnicodeSet
 
-        LRtn = []
+        return_list = []
         for heading, ranges in lang_data.get_L_alpha():
             LOut = []
             for i_s in UnicodeSet(ranges):
                 LOut.extend([ord(i) for i in i_s])
-            LRtn.extend(LOut)
-            #LRtn.append((heading, LOut))
+            return_list.extend(LOut)
+            #return_list.append((heading, LOut))
 
         for typ1, typ2, i_L in lang_data.get_L_symbols():
             for heading, chars in i_L:
@@ -121,18 +121,18 @@ class AlphabetIndex:
                     heading = '%s %s' % (typ1, heading)
 
                 LExtend = [ord(i) for i in chars]
-                LRtn.extend(LExtend)
-                #LRtn.append((heading, LExtend))
+                return_list.extend(LExtend)
+                #return_list.append((heading, LExtend))
 
         from pprint import pprint
-        pprint(LRtn)
+        pprint(return_list)
 
         #lang_data.get_currency_symbol()
         #lang_data.locale_pattern()
         #lang_data.ellipsis()
         #lang_data.quotes('')
         #lang_data.paranthesis('')
-        return LRtn
+        return return_list
 
 
 if __name__ == '__main__':

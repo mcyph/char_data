@@ -53,7 +53,7 @@ class Definition(SentenceData):
         return data # HACK! =====================================================
 
     def add_sounds(self, s, iso, script):
-        LRtn = []
+        return_list = []
         if type(s) == tuple: 
             s = s[0] # HACK!
         elif s is None:
@@ -72,6 +72,6 @@ class Definition(SentenceData):
             if sound: 
                 reading = sound
             
-            LRtn.append(reading)
+            return_list.append(reading)
         
-        return (' '.join(LRtn),)
+        return (' '.join(return_list),)

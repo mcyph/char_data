@@ -36,6 +36,6 @@ def get_by_multi_rads(LRads, Trad):
             if LZVariant:
                 for Variant in LZVariant:
                     DPossible[Variant] = None
-    LRtn = list(DPossible.keys())
-    LRtn.sort()
-    return LRtn
+    return_list = list(DPossible.keys())
+    return_list.sort()
+    return return_list

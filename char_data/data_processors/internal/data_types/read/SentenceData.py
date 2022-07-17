@@ -62,19 +62,19 @@ class SentenceData(InternalFormatterBase):
     
     def get_L_sentence(self, seek):
         # WordLinks has the indice of the word in LWords
-        LRtn = [] # Contains all definitions
+        return_list = [] # Contains all definitions
         LSentence = [] # The current sentence only
         
         while 1:
             word_link = self.LWordLinks[seek]
             if word_link == 0:
                 # Ended by a 0 [LWordLinks+=2 to compensate]
-                LRtn.append(' '.join(LSentence))
+                return_list.append(' '.join(LSentence))
                 break
             
             elif word_link == 1:
                 # Separated by 1 to allow multiple names
-                LRtn.append(' '.join(LSentence))
+                return_list.append(' '.join(LSentence))
                 LSentence = []
             
             else:
@@ -83,7 +83,7 @@ class SentenceData(InternalFormatterBase):
                 LSentence.append(self.get_word(word_seek, self.LAmount[seek]))
             seek += 1
             
-        return tuple(LRtn)
+        return tuple(return_list)
     
     def get_word(self, seek, amount):
         return self.LWords[seek:seek+amount]

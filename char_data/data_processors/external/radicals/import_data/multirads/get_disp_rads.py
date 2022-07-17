@@ -17,7 +17,7 @@ def get_disp_rads(Trad):
         LKeys = LSimpRadKeys
         # LKeys.sort()
 
-    LRtn = []
+    return_list = []
 
     for rad in LKeys:
         LFound = []
@@ -52,16 +52,16 @@ def get_disp_rads(Trad):
             # HACK: THIS CHARACTER DOESN'T SEEM TO BE ENCODED!
             # THIS RADICAL IS ASSIGNED WRONGLY/HAS THE WRONG MEANING!
             # It's actually 5 strokes (like a lid with three dots above)
-            LRtn.append([5, '尚学', 'roof with three lines above, lid'])
-            LRtn.append([3, '尚学', 'three lines above'])
+            return_list.append([5, '尚学', 'roof with three lines above, lid'])
+            return_list.append([3, '尚学', 'three lines above'])
         else:
-            LRtn.append(LFound[0])
+            return_list.append(LFound[0])
 
         # 辶 has multiple stroke values depending on Japanese/Chinese
         # (2/3/4 strokes), so add that as an alias
         if rad == '辶':
-            LRtn.append([2, rad, name])
-            LRtn.append([3, rad, name])
+            return_list.append([2, rad, name])
+            return_list.append([3, rad, name])
 
     def append_rads(L, Trad):
         # Append the "normal" rads (i.e. the ones not in the
@@ -111,15 +111,15 @@ def get_disp_rads(Trad):
             nL.append((NumStrokes, RadChars, EngDef))
         return nL
 
-    LRtn = append_rads(LRtn, Trad)
+    return_list = append_rads(return_list, Trad)
 
     # Sort by strokes -> English Def -> Radical
-    LRtn = [((i[0], i[2].lower(), i[1]), i) for i in LRtn]
-    LRtn.sort()
-    LRtn = [i[1] for i in LRtn]
+    return_list = [((i[0], i[2].lower(), i[1]), i) for i in return_list]
+    return_list.sort()
+    return_list = [i[1] for i in return_list]
 
     nL = []
-    for strokes, rad, name in LRtn:
+    for strokes, rad, name in return_list:
         try:
             nL.append([rad, '%s\t%s\t%s' % (strokes, rad, name)])
         except:

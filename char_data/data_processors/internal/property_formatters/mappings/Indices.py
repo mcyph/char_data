@@ -9,7 +9,7 @@ class Indices(_Indices):
             return None
         LOrder, LData = data
         
-        LRtn = []
+        return_list = []
         for DData in LData:
             L = []
             for key in LOrder:
@@ -19,9 +19,9 @@ class Indices(_Indices):
                     L.append('%s: %s' % (key, value))
             
             if L:
-                LRtn.append(' '.join(L))
+                return_list.append(' '.join(L))
         
-        if LRtn: 
-            return '; '.join(LRtn)
+        if return_list: 
+            return '; '.join(return_list)
         else: 
             return None

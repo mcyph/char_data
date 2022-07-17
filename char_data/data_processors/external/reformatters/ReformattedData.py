@@ -13,15 +13,15 @@ class ReformattedData(ExternalSourceBase):
                 if not hasattr(self, 'LCommon'):
                     self.LCommon = self.__get_by_L_block_headings('unicodedata.script', 'Common')
 
-                LRtn = []
+                return_list = []
                 for heading, LUseOnly in L:
-                    LRtn.append([
+                    return_list.append([
                         heading,
                         self.__filter_to_only(
                             self.LCommon, LUseOnly=LUseOnly
                         )
                     ])
-                return LRtn
+                return return_list
             return fn
 
         self.emoji_and_other_symbols = ReformatDataFormatter(

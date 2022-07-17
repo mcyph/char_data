@@ -90,7 +90,7 @@ def get_translit_map(CodePoint):
         
         # Convert to HTML and return
         DUniqueLangs = {}
-        LRtn = []
+        return_list = []
         LKeys = list(DRtn.keys())
         LKeys.sort(cmp=compare)
         for Key in LKeys: # Key is e.g. "Latin" or "IPA"
@@ -116,8 +116,8 @@ def get_translit_map(CodePoint):
                 #LItem.append('<li><B>%s</B> <I>(%s)</I>: %s</li>' % (System, Langs, TranslitVal))
             
             #List = '<ul style="font-size: 0.9em">%s</ul>' % '\n'.join(LItem)
-            LRtn.append(['%s Transliterations' % Key, LItem])
+            return_list.append(['%s Transliterations' % Key, LItem])
             # TODO: Add support for multiple translit headings in Data!
-            #LRtn.append(['Transliteration', [Key, LItem]])
-        return tuple(DUniqueLangs.keys()), LRtn
+            #return_list.append(['Transliteration', [Key, LItem]])
+        return tuple(DUniqueLangs.keys()), return_list
     else: return [], []

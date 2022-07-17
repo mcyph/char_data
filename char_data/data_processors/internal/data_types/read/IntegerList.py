@@ -45,13 +45,13 @@ class IntegerList(InternalFormatterBase):
             value = self.LShort[ord_]
             
             if value: 
-                LRtn = [value-1]
+                return_list = [value-1]
                 
                 # Add extra integer values if there are 
                 # any for this ordinal in DMultiVals
                 if ua_ord in self.DMultiVals:
-                    LRtn.extend(self.DMultiVals[ua_ord])
+                    return_list.extend(self.DMultiVals[ua_ord])
                 
-                return tuple(LRtn)
+                return tuple(return_list)
             else: 
                 return None

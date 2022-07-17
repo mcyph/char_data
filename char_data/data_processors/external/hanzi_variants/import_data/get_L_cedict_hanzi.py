@@ -32,7 +32,7 @@ def get_L_cedict_hanzi(s):
     Get the Hanzi from string "s"
     """
 
-    LRtn = []
+    return_list = []
 
     def fn(m):
         trad, simp, pinyin = m.groups()
@@ -40,13 +40,13 @@ def get_L_cedict_hanzi(s):
         simp = simp[1:] if simp else trad
         pinyin = pinyin[1:-1] if pinyin else None
 
-        LRtn.append(
+        return_list.append(
             ZhWord(trad.strip(':'), simp.strip(':'), pinyin)
         )
         return ''
 
     cedict_re.sub(fn, s)
-    return LRtn
+    return return_list
 
 
 if __name__ == '__main__':

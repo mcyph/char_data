@@ -16,7 +16,7 @@ class Hex(Encoding):
         
         elif type(data) in (list, tuple):
             #print 'LIST/TUPLE IN FORMATHEX!'
-            LRtn = []
+            return_list = []
             for ord_, flags in data:
                 # TODO: PAD the HEX DIGITS!
                 
@@ -24,9 +24,9 @@ class Hex(Encoding):
                 LFlags = self.get_L_by_flags(flags)
                 
                 if LFlags:
-                    LRtn.append('%s: %s' % (','.join(LFlags), a))
+                    return_list.append('%s: %s' % (','.join(LFlags), a))
                 else:
-                    LRtn.append(a)
-            data = '; '.join(LRtn)
+                    return_list.append(a)
+            data = '; '.join(return_list)
         
         return data

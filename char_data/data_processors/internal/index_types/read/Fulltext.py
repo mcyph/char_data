@@ -143,22 +143,22 @@ class FulltextIndex:
         """
         search = str(search)
         
-        LRtn = []
+        return_list = []
         for word in self.LSpell:
             if not word[0] == search[0]: 
                 continue
             
-            LRtn.append((distance(search, word), word))
+            return_list.append((distance(search, word), word))
             
-        if not LRtn:
+        if not return_list:
             for word in self.LSpell:
                 if not word[-1] == search[-1]: 
                     continue
                 
-                LRtn.append((distance(search, word), word))
+                return_list.append((distance(search, word), word))
         
-        LRtn = [i for i in heapq.nsmallest(10, LRtn)]
-        LRtn.sort()
-        LRtn = [normalize('NFC', str(i[1].lower())) for i in LRtn]
-        #print 'SPELLCHECK:', LRtn
-        return LRtn
+        return_list = [i for i in heapq.nsmallest(10, return_list)]
+        return_list.sort()
+        return_list = [normalize('NFC', str(i[1].lower())) for i in return_list]
+        #print 'SPELLCHECK:', return_list
+        return return_list

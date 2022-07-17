@@ -22,7 +22,7 @@ def write_string_data(f, key, DOrds):
         if not isinstance(L, (tuple, list)):
             L = [L]
         
-        LRtn = []
+        return_list = []
         for data in L:
             # Append the seek position for string `data`
             if not data in DWordSeek:
@@ -30,10 +30,10 @@ def write_string_data(f, key, DOrds):
                 amount = LWords.extend(str(data))
                 DWordSeek[data] = (seek, amount)
 
-            LRtn.append(
+            return_list.append(
                 DWordSeek[data]
             )
-        return LRtn
+        return return_list
     
     LIgnoreRanges = []
     if DOrds:

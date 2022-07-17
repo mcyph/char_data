@@ -72,7 +72,7 @@ class CharData(PropertyAccessBase,
                             get_data_sources (optional)
         :return: a list of ["source.key", ...]
         """
-        LRtn = []
+        return_list = []
 
         for key, _ in self.LData:
             if data_source and data_source != key:
@@ -84,9 +84,9 @@ class CharData(PropertyAccessBase,
                 if not isinstance(i_o, PropertyFormatterBase):
                     continue
 
-                LRtn.append('%s.%s' % (key, property))
+                return_list.append('%s.%s' % (key, property))
 
-        return sorted(LRtn)
+        return sorted(return_list)
 
     @service_method()
     def key_info(self,
@@ -306,7 +306,7 @@ class CharData(PropertyAccessBase,
 
         :return: a list of keys in format "source.key"
         """
-        LRtn = []
+        return_list = []
 
         for key, _ in self.char_data.LData:
             if data_source and data_source != key:
@@ -322,9 +322,9 @@ class CharData(PropertyAccessBase,
                     continue
 
                 # Outputs [(internal key name, display key name, index kind), ...]
-                LRtn.append('%s.%s' % (key, property))
+                return_list.append('%s.%s' % (key, property))
 
-        return sorted(LRtn)
+        return sorted(return_list)
 
     @service_method()
     def index_key_info(self, key):

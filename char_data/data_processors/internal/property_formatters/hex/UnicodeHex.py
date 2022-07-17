@@ -20,7 +20,7 @@ class UnicodeHex(Encoding):
         
         elif type(data) in (list, tuple):
             #print 'LIST/TUPLE IN FORMATUHEX!'
-            LRtn = []
+            return_list = []
             for ord_, flags in data:
                 char = w_unichr(ord_)
                 # TODO: PAD the HEX DIGITS!
@@ -29,9 +29,9 @@ class UnicodeHex(Encoding):
                 LFlags = self.get_L_by_flags(flags)
                 
                 if LFlags:
-                    LRtn.append('%s: %s' % (','.join(LFlags), a))
+                    return_list.append('%s: %s' % (','.join(LFlags), a))
                 else:
-                    LRtn.append(a)
-            data = ' '.join(LRtn)
+                    return_list.append(a)
+            data = ' '.join(return_list)
         
         return data

@@ -95,7 +95,7 @@ class LatinAccents:
         return DRtn
 
     def _get_L_mappings(self, s):
-        LRtn = []
+        return_list = []
         for i_s in [s[:x] for x in range(1, len(s)+1)]:
             #print 'i_s:', i_s
             if all(_ in self.DLatin for _ in i_s):
@@ -106,10 +106,10 @@ class LatinAccents:
                     #print 'CHAR:', c, self.DLatin[c]
                     key += self.DLatin[c][0] # HACK!
 
-                LRtn.append(key)
+                return_list.append(key)
 
-        assert LRtn, s
-        return LRtn
+        assert return_list, s
+        return return_list
 
     def get_D_latin_to_L_chars(self, script='Latin'):
         DRtn = {}

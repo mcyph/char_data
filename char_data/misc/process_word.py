@@ -150,7 +150,7 @@ def get_L_words(fISOCode, fVariant, Word, Deinflect=False):
         
         # Spaces are replaced to fix startswith/endswith queries
         NoSpaces = iConv.replace('_', '')
-        LRtn = (Word, 
+        return_list = (Word,
                NoSpaces, 
                #Latin.lower().replace('_', '')
                )
@@ -189,10 +189,10 @@ def get_L_words(fISOCode, fVariant, Word, Deinflect=False):
                     if is_hanzi(Masculine[0]):
                         # Fix [Ko]wai -> [Kowa]i when first character Kanji
                         KanjiForm = Masculine[0]+Masculine[2:]
-                        LRtn += ('%sい' % Masculine, 
+                        return_list += ('%sい' % Masculine,
                                  '%sい' % KanjiForm)
                     else: 
-                        LRtn += ('%sい' % Masculine,)
+                        return_list += ('%sい' % Masculine,)
         
         if Deinflect and NoSpaces: 
             # In deinflect mode, look up possible stems in the character data
@@ -205,10 +205,10 @@ def get_L_words(fISOCode, fVariant, Word, Deinflect=False):
                     LExtend = ['%s%s' % (oNoSpaces[0], i.split('.')[1]) for i in LKun if '.' in i]
                     LExtend = [(fastdist.distance(oNoSpaces, i), i) for i in LExtend]
                     LExtend.sort(key=lambda x: -x[0])
-                    LRtn += tuple([i[1] for i in LExtend])
+                    return_list += tuple([i[1] for i in LExtend])
         
-        print((';'.join(LRtn).encode('utf-8')))
-        return LRtn
+        print((';'.join(return_list).encode('utf-8')))
+        return return_list
     else:
         Rtn = (Word, filter_accents(Word))
         #print 'get_L_words RTN:', Rtn

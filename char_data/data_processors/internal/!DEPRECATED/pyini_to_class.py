@@ -40,7 +40,7 @@ def get_D_data():
 
 
 def open_data(path):
-    LRtn = []
+    return_list = []
 
     DKeys = load(path + '.json')
     DINI = read_D_pyini(path.replace('/output/', '/') + '.pyini')
@@ -50,13 +50,13 @@ def open_data(path):
         for key, DJSON in list(DKeys.items()):
             i_DINI = DINI[key]
 
-            LRtn.append(
+            return_list.append(
                 instance_from_D_ini(key, i_DINI)
             )
 
-    LRtn.sort()
-    print(('\n'.join(i[-1] for i in LRtn)))
-    return LRtn
+    return_list.sort()
+    print(('\n'.join(i[-1] for i in return_list)))
+    return return_list
 
 
 format = '''

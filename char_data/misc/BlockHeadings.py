@@ -20,19 +20,19 @@ class BlockHeadings:
             'last_sub_block': -1
         }
 
-        LRtn = []
+        return_list = []
         for ord_ in LRanges:
             if isinstance(ord_, (tuple, list)):
                 for i_ord in range(ord_[0], ord_[1]+1):
                     # HACK: Fix Arabic subblock comment/title issues
-                    self._process_codepoint(LRtn, DState, i_ord)
-                #self._process_range(LRtn, DState, ord_)
+                    self._process_codepoint(return_list, DState, i_ord)
+                #self._process_range(return_list, DState, ord_)
             else:
-                self._process_codepoint(LRtn, DState, ord_)
+                self._process_codepoint(return_list, DState, ord_)
 
-        return DState['font_script'] or 'All', LRtn
+        return DState['font_script'] or 'All', return_list
 
-    def _process_range(self, LRtn, DState, ord_):
+    def _process_range(self, return_list, DState, ord_):
         """
         A range. If the first BlockName item is None and the last item is None
         OR the last BlockName doesn't equal the first BlockName
@@ -64,23 +64,23 @@ class BlockHeadings:
 
         if last_equal and from_equals_to and not from_is_None:
             # block unchanged, so only iter sub_block without changing block
-            self.iter_sub_range(LRtn, ord_, DState, NO_BLOCK_CHANGE)
+            self.iter_sub_range(return_list, ord_, DState, NO_BLOCK_CHANGE)
 
         elif from_equals_to and not from_is_None:
             # block changed, change and iter sub_block without changing block
-            self.append_block(LRtn, from_block, from_)
+            self.append_block(return_list, from_block, from_)
             DState['last_block'] = from_block
 
-            self.iter_sub_range(LRtn, ord_, DState, NO_BLOCK_CHANGE)
+            self.iter_sub_range(return_list, ord_, DState, NO_BLOCK_CHANGE)
 
         else:
             # Otherwise, the following are possible:
             # 1: The from_block != to_block, so check each ord_ for changes
             # 2: The from_block is None, in which case it could change mid-range
             # 3: A combination of the above two
-            self.iter_sub_range(LRtn, ord_, DState, BLOCK_CHANGE)
+            self.iter_sub_range(return_list, ord_, DState, BLOCK_CHANGE)
 
-    def _process_codepoint(self, LRtn, DState, ord_):
+    def _process_codepoint(self, return_list, DState, ord_):
         """
         A codepoint, only one SubName required
         """
@@ -102,30 +102,30 @@ class BlockHeadings:
 
         # Update block name/block subnames if they've changed
         if block != DState['last_block']:
-            self.append_block(LRtn, block, ord_)
+            self.append_block(return_list, block, ord_)
             DState['last_block'] = block
 
         if sub_block and sub_block != DState['last_sub_block']:
-            self.append_sub_block(LRtn, sub_block, ord_)
+            self.append_sub_block(return_list, sub_block, ord_)
             DState['last_sub_block'] = sub_block
 
         # Append to the last "chars" entry to save space if possible
-        if LRtn[-1][0] != 'chars':
-            LRtn.append(('chars', []))
-        LRtn[-1][1].append(ord_)
+        if return_list[-1][0] != 'chars':
+            return_list.append(('chars', []))
+        return_list[-1][1].append(ord_)
 
-    def append_block(self, LRtn, block, ord_):
+    def append_block(self, return_list, block, ord_):
         """
         Append a block, including block description if it exists
         """
         desc = self.char_data.formatted('block description', ord_)
 
         if desc:
-            LRtn.append(
+            return_list.append(
                 ('block', [block, '. '.join(i.strip('.') for i in desc)])
             )
         else:
-            LRtn.append(
+            return_list.append(
                 ('block', [block, None])
             )
 
@@ -133,7 +133,7 @@ class BlockHeadings:
     #                         Iterate Through Sub-Ranges                          #
     #=============================================================================#
 
-    def iter_sub_range(self, LRtn, LRange, DState, flag):
+    def iter_sub_range(self, return_list, LRange, DState, flag):
         from_, to = LRange
         from_sub_block = self.char_data.formatted('subblock heading', from_)
         to_sub_block = self.char_data.formatted('subblock heading', to)
@@ -145,18 +145,18 @@ class BlockHeadings:
 
         if last_equal and from_equals_to and not from_none:
             # Subblock unchanged, so just append the range
-            if LRtn[-1][0] != 'chars':
-                LRtn.append(('chars', []))
-            LRtn[-1][1].append(LRange)
+            if return_list[-1][0] != 'chars':
+                return_list.append(('chars', []))
+            return_list[-1][1].append(LRange)
 
         elif from_equals_to and not from_none:
             # Subblock changed, change and iter sub_block without changing block
-            self.append_sub_block(LRtn, from_sub_block, from_)
+            self.append_sub_block(return_list, from_sub_block, from_)
             DState['last_sub_block'] = from_sub_block
 
-            if LRtn[-1][0] != 'chars':
-                LRtn.append(('chars', []))
-            LRtn[-1][1].append(LRange)
+            if return_list[-1][0] != 'chars':
+                return_list.append(('chars', []))
+            return_list[-1][1].append(LRange)
 
         else:
             # Otherwise, the following are possible:
@@ -174,23 +174,23 @@ class BlockHeadings:
                     if block != DState['last_block']:
                         # Change block, but only if changed as this code
                         # can be triggered if from_ equals None
-                        #LRtn.append(('block', block))
-                        self.append_block(LRtn, block, ord_)
+                        #return_list.append(('block', block))
+                        self.append_block(return_list, block, ord_)
                         DState['last_block'] = block
 
                 sub_block = self.char_data.formatted('subblock heading', ord_)
 
                 if sub_block != DState['last_sub_block']:
-                    self.append_sub_block(LRtn, sub_block, ord_)
+                    self.append_sub_block(return_list, sub_block, ord_)
                     DState['last_sub_block'] = sub_block
 
-                if LRtn[-1][0] != 'chars':
-                    LRtn.append(('chars', []))
+                if return_list[-1][0] != 'chars':
+                    return_list.append(('chars', []))
 
                 # TODO: Add range support!
-                LRtn[-1][1].append(ord_)
+                return_list[-1][1].append(ord_)
 
-    def append_sub_block(self, LRtn, sub_block, ord_):
+    def append_sub_block(self, return_list, sub_block, ord_):
         """
         Append, including:
         * subblock technical notice
@@ -222,11 +222,11 @@ class BlockHeadings:
             comment = see_also
 
         if comment:
-            LRtn.append(
+            return_list.append(
                 ('sub_block', ['. '.join(sub_block), comment])
             )
         else:
-            LRtn.append(
+            return_list.append(
                 ('sub_block', ['. '.join(sub_block), None])
             )
 

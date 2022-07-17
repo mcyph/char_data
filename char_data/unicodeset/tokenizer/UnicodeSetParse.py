@@ -36,7 +36,7 @@ class UnicodeSetParse(ProcessRangeBase):
         
     def get_ranges(self, s):
         x = 0
-        LRtn = []
+        return_list = []
         
         backslash_mode = False
         cur_operator = None
@@ -52,16 +52,16 @@ class UnicodeSetParse(ProcessRangeBase):
                 if c in 'pP':
                     # perl-syntax!
                     x, neg, LRanges = self.process_perl(x, s)
-                    LRtn.append((RANGES, neg, LRanges))
+                    return_list.append((RANGES, neg, LRanges))
                     
                 elif c == 'u':
                     # Unicode backslash
-                    LRtn.append((STRING, w_unichr(int(s[x+1:x+5], 16))))
+                    return_list.append((STRING, w_unichr(int(s[x+1:x+5], 16))))
                     x += 4
                 
                 elif c == '\\':
                     # a literal backslash
-                    LRtn.append((STRING, '\\'))
+                    return_list.append((STRING, '\\'))
                 
                 backslash_mode = False
                 
@@ -72,19 +72,19 @@ class UnicodeSetParse(ProcessRangeBase):
             elif c == '{':
                 # Extract a string
                 x, str_ = self.process_curly_braces(x, s)
-                LRtn.append((STRING, str_))
+                return_list.append((STRING, str_))
             
             elif s[x:x+2] == '[:':
                 # A POSIX range
                 x, neg, LRanges = self.process_posix(x, s)
-                LRtn.append((RANGES, neg, LRanges))
+                return_list.append((RANGES, neg, LRanges))
             
             elif c == '[':
                 # Embedded ranges
                 # TODO: Fix PERL BACKSLASHES! =======================================
                 x, range_text = self.process_range(x, s)
                 assert (range_text[0], range_text[-1]) == ('[', ']')
-                LRtn.append(self.get_ranges(range_text[1:-1]))
+                return_list.append(self.get_ranges(range_text[1:-1]))
                 
             elif c == ']':
                 # Should never be a closing bracket here!
@@ -123,7 +123,7 @@ class UnicodeSetParse(ProcessRangeBase):
             elif c.strip():
                 # Non-whitespace - add a single character as a string
                 # OPEN ISSUE: Ignore whitespace??? ================================
-                LRtn.append((STRING, c))
+                return_list.append((STRING, c))
             
             else:
                 # Whitespace - ignore it
@@ -131,32 +131,32 @@ class UnicodeSetParse(ProcessRangeBase):
                 continue
             
             
-            if not backslash_mode and cur_operator and len(LRtn)<2:
+            if not backslash_mode and cur_operator and len(return_list)<2:
                 # Allow initial "-" and "&" characters
-                LRtn.append((STRING, cur_operator))
+                return_list.append((STRING, cur_operator))
                 cur_operator = None
                 
             elif not backslash_mode and cur_operator:
                 
-                if LRtn[-1][0] in (RANGES, OPERATOR):
+                if return_list[-1][0] in (RANGES, OPERATOR):
                     # A range difference etc, e.g. "[[a-e]-[c]]"
-                    assert LRtn[-2][0] in (RANGES, OPERATOR)
-                    LRtn.append((OPERATOR, (cur_operator, LRtn.pop())))
+                    assert return_list[-2][0] in (RANGES, OPERATOR)
+                    return_list.append((OPERATOR, (cur_operator, return_list.pop())))
                 else:
                     # an ordinary range, e.g. "[a-e]"
-                    item2, item1 = LRtn.pop(), LRtn.pop()
+                    item2, item1 = return_list.pop(), return_list.pop()
                     
                     assert cur_operator == '-'
                     assert (item1[0], item2[0]) == (STRING, STRING), (item1, item2, self.s)
                     assert (len(item1[1]), len(item2[1])) == (1, 1)
                     
                     # Note the "FALSE!"
-                    LRtn.append((RANGES, False, ((item1[1], item2[1]),)))
+                    return_list.append((RANGES, False, ((item1[1], item2[1]),)))
                 
                 cur_operator = None
             
             x += 1
-        return (RANGES, neg, tuple(LRtn))
+        return (RANGES, neg, tuple(return_list))
     
     #===============================================================#
     #                      Process Literals                         #
@@ -344,7 +344,7 @@ class UnicodeSetParse(ProcessRangeBase):
     def get_L_ranges(self, L):
         """
         """
-        LRtn = []
+        return_list = []
         for typ, value in L:
             # FIXME: Don't allow searches by 
             # fulltext unless it's a direct match for 
@@ -354,10 +354,10 @@ class UnicodeSetParse(ProcessRangeBase):
             for i in self.char_indexes.search(typ, value):
                 if isinstance(i, (list, tuple)):
                     from_, to = i
-                    LRtn.append((w_unichr(from_), w_unichr(to)))
+                    return_list.append((w_unichr(from_), w_unichr(to)))
                 else:
-                    LRtn.append(w_unichr(i))
-        return tuple(LRtn)
+                    return_list.append(w_unichr(i))
+        return tuple(return_list)
         
     def convert_type(self, typ):
         """

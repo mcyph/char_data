@@ -128,12 +128,12 @@ class LinkDB:
     def _iter_variants(self, D, LWords):
         #print ' '.join(LWords)
         
-        def recurse(word, o_word, x, typ, LRtn, 
+        def recurse(word, o_word, x, typ, return_list, 
                     append='', no_append=False):
             # Get all combinations in key
             len_ = len(word)
             if x == len(word):
-                return LRtn
+                return return_list
             
             while 1:
                 if len_ == x: 
@@ -147,12 +147,12 @@ class LinkDB:
                     for i_L in D[slice]:
                         # TODO: What about REVERSE SIMPLIFIED variants?
                         if no_append: 
-                            LRtn.append(None)
+                            return_list.append(None)
                         else: 
-                            LRtn.append(append+i_L[typ]+word[len(append)+len(i_L[typ]):])
+                            return_list.append(append+i_L[typ]+word[len(append)+len(i_L[typ]):])
                         
                         recurse(
-                            word, o_word, len_, typ, LRtn,
+                            word, o_word, len_, typ, return_list,
                             append=append+i_L[typ],
                             no_append=no_append
                         )
@@ -160,34 +160,34 @@ class LinkDB:
                 elif o_word[x:len_] in D:
                     # append "None"s if found in the opposite variant
                     for i_L in D[o_word[x:len_]]:
-                        LRtn.append(None)
+                        return_list.append(None)
                         recurse(
-                            word, o_word, len_, typ, LRtn,
+                            word, o_word, len_, typ, return_list,
                             append=append+i_L[typ],
                             no_append=True
                         )
                     
                 elif len(slice) == 1:
                     recurse(
-                        word, o_word, len_, typ, LRtn,
+                        word, o_word, len_, typ, return_list,
                         append=append+slice,
                         no_append=no_append
                     )
                 len_ -= 1
-            return LRtn
+            return return_list
         
         LRtn1 = recurse(LWords[0], LWords[1], 0, 0, []) # Simplified
         LRtn2 = recurse(LWords[1], LWords[0], 0, 1, []) # Traditional
-        LRtn = []
+        return_list = []
         for i in range(len(LRtn1)):
             try: 
-                LRtn.append((LRtn1[i], LRtn2[i]))
+                return_list.append((LRtn1[i], LRtn2[i]))
             except: 
                 print(('LINKDB WARNING: %s' % ' '.join(LWords)))
                 return [] # WARNING!
         
-        LRtn = [i for i in LRtn if i[0] != LWords[0] and i[1] != LWords[1]] # WARNING!
-        return fast_rem_dupes(LRtn)
+        return_list = [i for i in return_list if i[0] != LWords[0] and i[1] != LWords[1]] # WARNING!
+        return fast_rem_dupes(return_list)
 
 
 if __name__ == '__main__':

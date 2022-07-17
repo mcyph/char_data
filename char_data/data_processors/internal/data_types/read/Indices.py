@@ -64,9 +64,9 @@ class Indices(InternalFormatterBase):
                     else: 
                         DRtn[key] = None
             
-            LRtn = [DRtn]
+            return_list = [DRtn]
             
             if ua_ord in self.DMultiVals:
-                LRtn.extend(self.DMultiVals[ua_ord])
+                return_list.extend(self.DMultiVals[ua_ord])
             
-            return LOrder, LRtn
+            return LOrder, return_list

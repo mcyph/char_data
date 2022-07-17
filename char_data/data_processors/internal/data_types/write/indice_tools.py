@@ -57,14 +57,14 @@ def create_re_object(key):
     #print 'KEY:', key
     # Create the re_ object referenced by key
     o_key = key
-    LRtn = []
+    return_list = []
     DTypes = {}
     
     format = DIndicies[key]
     LFormat = format.split('<')
     
     # Append and chop off the first item
-    LRtn.append(LFormat[0].replace('.', '\\.'))
+    return_list.append(LFormat[0].replace('.', '\\.'))
     LFormat = LFormat[1:]
     
     for i in LFormat:
@@ -109,10 +109,10 @@ def create_re_object(key):
             
             DTypes[key] = data_type
         
-        LRtn.append(''.join(L))
-        LRtn.append(extra.replace('.', '\\.'))
+        return_list.append(''.join(L))
+        return_list.append(extra.replace('.', '\\.'))
     
-    re_ = ''.join(LRtn)
+    re_ = ''.join(return_list)
     re_ = '^%s$' % re_
     #print 'key:', o_key, 're_:', re_
     re_ = re.compile(re_, re.UNICODE)

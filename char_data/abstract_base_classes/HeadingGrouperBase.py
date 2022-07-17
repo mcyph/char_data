@@ -38,7 +38,7 @@ class HeadingGrouperBase(ABC):
             name = script if script else None
             # print '**NAME:', name
 
-        LRtn = []
+        return_list = []
         font_script = None
 
         for ord_ in LRanges:
@@ -71,7 +71,7 @@ class HeadingGrouperBase(ABC):
                         # HACK: fix e.g. 'ef' and 'em' and 'es' (f/m/s)
                         append = append[1]
 
-                    LRtn.append((append, i_code))
+                    return_list.append((append, i_code))
 
             else:
                 # A codepoint, only one SubName required
@@ -97,16 +97,16 @@ class HeadingGrouperBase(ABC):
                     # HACK: fix e.g. 'ef' and 'em' and 'es' (f/m/s)
                     append = append[1]
 
-                LRtn.append((append, ord_))
+                return_list.append((append, ord_))
 
         # if not font_script: font_script = 'All'
-        LRtn.sort()
+        return_list.sort()
 
-        n_LRtn = []
-        n_LRtn.append(('block', name))  # HACK!
+        new_return_list = []
+        new_return_list.append(('block', name))  # HACK!
 
         last_key = None
-        for sort_key, ord_ in LRtn:
+        for sort_key, ord_ in return_list:
             if not font_script:
                 font_script = get_font_script(self, ord_)
 
@@ -120,21 +120,21 @@ class HeadingGrouperBase(ABC):
                 last_key = chk_key
 
                 if chk_key == 'zz':
-                    n_LRtn.append(
+                    new_return_list.append(
                         ['sub_block', ['Miscellaneous Symbols', None]]
                     )
                 else:
-                    n_LRtn.append(
+                    new_return_list.append(
                         ['sub_block', ['characters starting with "%s"' %
                                            chk_key.lower(),
                                        None]]
                     )
 
-                n_LRtn.append(['chars', []])
-            n_LRtn[-1][-1].append(ord_)
+                new_return_list.append(['chars', []])
+            new_return_list[-1][-1].append(ord_)
 
-        # LRtn = [['chars', [i[1] for i in LRtn]]]
-        return font_script, n_LRtn
+        # return_list = [['chars', [i[1] for i in return_list]]]
+        return font_script, new_return_list
 
     #===================================================================#
     #                  Group Ranges by Block Headings                   #
@@ -162,16 +162,16 @@ class HeadingGrouperBase(ABC):
         lang_data = LangData(search)
         script = ISOTools.split(ISOTools.guess_omitted_info(search)).script
 
-        LRtn = []
+        return_list = []
         for heading, ranges_string in lang_data.get_L_alpha():
             LOut = []
             for i_s in UnicodeSet(self, char_indexes, ranges_string):
                 LOut.extend([ord(i) for i in i_s])
-            # LRtn.extend(LOut)
+            # return_list.extend(LOut)
 
-            LRtn.append(('block', (heading, '')))
-            LRtn.append(('chars', LOut))
-            # LRtn.append((heading, LOut))
+            return_list.append(('block', (heading, '')))
+            return_list.append(('chars', LOut))
+            # return_list.append((heading, LOut))
 
         for typ1, typ2, i_L in lang_data.get_L_symbols():
             for heading, chars in i_L:
@@ -193,20 +193,20 @@ class HeadingGrouperBase(ABC):
                     continue
 
                 LExtend = [ord(i) for i in chars]
-                LRtn.append(('block', (heading, '')))
-                LRtn.append(('chars', LExtend))
-                # LRtn.extend(LExtend)
-                # LRtn.append((heading, LExtend))
+                return_list.append(('block', (heading, '')))
+                return_list.append(('chars', LExtend))
+                # return_list.extend(LExtend)
+                # return_list.append((heading, LExtend))
 
         # from pprint import pprint
-        # pprint(LRtn)
+        # pprint(return_list)
 
         # lang_data.get_currency_symbol()
         # lang_data.locale_pattern()
         # lang_data.ellipsis()
         # lang_data.quotes('')
         # lang_data.paranthesis('')
-        return LRtn
+        return return_list
 
     #===================================================================#
     #            Group Ranges by Chinese Frequency Headings             #
@@ -243,7 +243,7 @@ class HeadingGrouperBase(ABC):
             DRanges[freq].append(ord_)
 
         # Group by secondary sort key
-        LRtn = []
+        return_list = []
         LKeys = list(DRanges.keys())
         if LSortBy[0] in DGrades or True:
             nLKeys = []
@@ -268,8 +268,8 @@ class HeadingGrouperBase(ABC):
             LKeys.sort()
 
         for key in LKeys:
-            LRtn.append(('sub_block', [key, None]))
-            LRtn.append(['chars', []])
+            return_list.append(('sub_block', [key, None]))
+            return_list.append(['chars', []])
 
             for ord_ in DRanges[key]:
                 LCodePointOrder = []
@@ -278,11 +278,11 @@ class HeadingGrouperBase(ABC):
                     freq = self.formatted(sort, ord_)
                     LCodePointOrder.append(freq)
 
-                LRtn[-1][1].append((LCodePointOrder, ord_))
+                return_list[-1][1].append((LCodePointOrder, ord_))
 
-            LRtn[-1][1].sort()
-            LRtn[-1][1] = [i[1] for i in LRtn[-1][1]]
-        return LRtn
+            return_list[-1][1].sort()
+            return_list[-1][1] = [i[1] for i in return_list[-1][1]]
+        return return_list
 
     #===================================================================#
     #           Group Ranges by Japanese Frequency Headings             #
@@ -317,7 +317,7 @@ class HeadingGrouperBase(ABC):
         LKeys = list(DRanges.keys())
         LKeys.sort()
 
-        LRtn = []
+        return_list = []
         for key in LKeys:
             if type(key) == int:
                 from_ = key * JFREQ_AMOUNT
@@ -328,6 +328,6 @@ class HeadingGrouperBase(ABC):
 
             DRanges[key].sort()
 
-            LRtn.append(('sub_block', [sub_block, None]))
-            LRtn.append(['chars', [i[1] for i in DRanges[key]]])
-        return LRtn
+            return_list.append(('sub_block', [sub_block, None]))
+            return_list.append(['chars', [i[1] for i in DRanges[key]]])
+        return return_list

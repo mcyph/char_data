@@ -46,16 +46,16 @@ class DefinitionCombineFormatter(ExternalFormatterBase):
         pass
     
     def formatted(self, ord_, data):
-        LRtn = []
+        return_list = []
         if typ == 'cmn:eng':
-            extend_data(LRtn, )
+            extend_data(return_list, )
         
         elif typ == 'yue:eng':
             # Add Cantonese Definition
-            added = extend_data(LRtn, 'Cantonese Definition', ord_)
+            added = extend_data(return_list, 'Cantonese Definition', ord_)
             
             if not added:
-                extend_data(LRtn, 'Chinese Definition', ord_,
+                extend_data(return_list, 'Chinese Definition', ord_,
                             format=' [Mandarin Definition]')
         
         elif type.startswith('jpn:'):
@@ -64,18 +64,18 @@ class DefinitionCombineFormatter(ExternalFormatterBase):
                       'por': 'Japanese Definition in Portuguese',
                       'spa': 'Japanese Definition in Spanish'}
             
-            LRtn = []
+            return_list = []
             to_iso = typ.split(':')[-1]
-            added = extend_data(LRtn, DTypes[to_iso], ord_)
+            added = extend_data(return_list, DTypes[to_iso], ord_)
             
             if not added and to_iso=='eng':
                 # Fallback to a Chinese definition 
                 # if not one found for Japanese
-                extend_data(LRtn, 'Chinese Definition', ord_, 
+                extend_data(return_list, 'Chinese Definition', ord_,
                             format='%s [Mandarin definition]')
         
         else: 
             raise Exception("Unknown CharMap type: %s" % typ)
         
-        return LRtn
+        return return_list
     

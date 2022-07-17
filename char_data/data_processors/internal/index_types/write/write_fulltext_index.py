@@ -126,7 +126,7 @@ class FulltextWriter:
                                  add_to_spellcheck=False)
     
     def get_L_tokens(self, ord_, LWords, add_to_spellcheck=True):
-        LRtn = []
+        return_list = []
         for word in LWords:
             # Convert words to uppercased, decomposed (combining) form
             word = normalize('NFD', str(word))
@@ -153,8 +153,8 @@ class FulltextWriter:
                     self.SSpell.add(no_tones)
             
             # Add the word itself
-            LRtn.append((fast_hash(word), ord_))
-        return rem_dupes(LRtn)
+            return_list.append((fast_hash(word), ord_))
+        return rem_dupes(return_list)
     
     def get_L_general(self, ord_, value):
         """
@@ -162,7 +162,7 @@ class FulltextWriter:
         etc to make it more likely that searches will 
         find the result the user wanted
         """
-        LRtn = []
+        return_list = []
         for word in value.split():
             """
             Add With and without a 'period' 
@@ -174,11 +174,11 @@ class FulltextWriter:
             
             tokens = normalize('NFD', str(tokens))            
             tokens = remove_tones(tokens)
-            LRtn.extend(self.get_L_tokens(ord_, [tokens]))
-        return LRtn
+            return_list.extend(self.get_L_tokens(ord_, [tokens]))
+        return return_list
     
     def get_L_tang(self, ord_, value):
-        LRtn = []
+        return_list = []
         for word in value.split():
             """
             HACK: Tang dynasty Chinese has * characters 
@@ -192,5 +192,5 @@ class FulltextWriter:
                        tokens,
                        remove_tones(word),
                        remove_tones(tokens)]
-            LRtn.extend(self.get_L_tokens(ord_, LTokens))
-        return LRtn
+            return_list.extend(self.get_L_tokens(ord_, LTokens))
+        return return_list

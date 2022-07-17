@@ -8,15 +8,15 @@ class NoFormatStrings(StringData):  # WARNING! =================================
         if self.key == 'cangjie' and data:
             # CANGJIE HACK!
             # TODO: Move to a separate type :-P
-            LRtn = []
+            return_list = []
 
             for c in data:
                 if c in DCangjie:
-                    LRtn.append(DCangjie[c][0])
+                    return_list.append(DCangjie[c][0])
                 else:
-                    LRtn.append('?')
+                    return_list.append('?')
 
-            return '%s (%s)' % (data, ''.join(LRtn))
+            return '%s (%s)' % (data, ''.join(return_list))
 
         elif isinstance(data, str):
             data = data.replace('_', ' ')

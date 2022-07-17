@@ -78,7 +78,7 @@ def write_encoding(f, key, DOrds):
 def get_L_encoding(DFlags, hex_):
     if type(hex_) in (str, str):
         # Return a list of ints from the hex values separated by spaces
-        LRtn = []
+        return_list = []
         for enc in hex_.split():
             if not enc.strip(): 
                 continue
@@ -101,8 +101,8 @@ def get_L_encoding(DFlags, hex_):
             else:
                 flag = 0
             
-            LRtn.append((int(enc, 16), flag))
-        return LRtn
+            return_list.append((int(enc, 16), flag))
+        return return_list
     
     elif type(hex_) in (list, tuple):
         return [(i, 0) for i in hex_]

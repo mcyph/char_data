@@ -30,13 +30,13 @@ class Encoding(InternalFormatterBase):
         # OPEN ISSUE: Create an index by encodings? ======================================================
         
     def get_L_by_flags(self, flags):
-        LRtn = []
+        return_list = []
         for pow_ in range(len(self.DFlags)):
             flag = 2**pow_
             #print flag, flag& flags, self.DFlags[str(flag)]
             if flag& flags:
-                LRtn.append(self.DFlags[str(flag)])
-        return LRtn
+                return_list.append(self.DFlags[str(flag)])
+        return return_list
         
     def raw_data(self, ord_):
         #print 'CODEPOINT:', ord_, self.LIgnoreRanges
@@ -55,7 +55,7 @@ class Encoding(InternalFormatterBase):
         
         else:
             '''
-            Return the encoding value, each item in LRtn 
+            Return the encoding value, each item in return_list 
             is a single int, representing a single byte,
             showing how the character is represented in 
             this encoding
@@ -67,7 +67,7 @@ class Encoding(InternalFormatterBase):
             else: 
                 seek -= 1 # [+1]
             
-            LRtn = []
+            return_list = []
             for i in range(self.LValues[seek]):
                 seek += 1
                 enc = self.LValues[seek]
@@ -77,5 +77,5 @@ class Encoding(InternalFormatterBase):
                 else:
                     flag = 0
                 
-                LRtn.append((enc, flag))
-            return tuple(LRtn)
+                return_list.append((enc, flag))
+            return tuple(return_list)

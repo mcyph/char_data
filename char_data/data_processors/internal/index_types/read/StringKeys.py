@@ -58,18 +58,18 @@ class StringKeyIndex:
     @init_me
     def search(self, search):
         # TODO: How will codepoint subdividers be added?
-        LRtn = []
+        return_list = []
         
         if search in self.DStringKeys:
             #print self.DStringKeys
-            LRtn.extend([(i, i) for i in self.DStringKeys[search]])
+            return_list.extend([(i, i) for i in self.DStringKeys[search]])
         
         if search in self.DRanges:
-            LRtn.extend([(i[0], i) for i in self.DRanges[search]])
+            return_list.extend([(i[0], i) for i in self.DRanges[search]])
         
-        if not LRtn: 
+        if not return_list: 
             raise KeyError(search)
         
-        LRtn.sort()
-        LRtn = [i[1] for i in LRtn]
-        return LRtn
+        return_list.sort()
+        return_list = [i[1] for i in return_list]
+        return return_list

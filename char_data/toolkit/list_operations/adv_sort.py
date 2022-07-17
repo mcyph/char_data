@@ -23,7 +23,7 @@ def adv_sort(LSort):
         LPos.append((percent, DPos))
     
     SAdded = set()
-    LRtn = []
+    return_list = []
     for _, i_DPos in LPos:
         for k in i_DPos:
             if k in SAdded: 
@@ -41,11 +41,11 @@ def adv_sort(LSort):
             if 0: 
                 c_val = pow(c_val, 2)
             
-            LRtn.append((c_val, k))
+            return_list.append((c_val, k))
     
-    LRtn.sort()
-    LRtn = [i[1] for i in LRtn]
-    return LRtn
+    return_list.sort()
+    return_list = [i[1] for i in return_list]
+    return return_list
 
 
 compare = lambda a: a[0]
@@ -68,7 +68,7 @@ def chunk_sort(LSort, LChunkKeys):
         if do_print:
             print('%s: %s' % (text, ''.join(DChunk[text][:20]).encode('utf-8')))
     
-    LRtn = []
+    return_list = []
     c_index = 0
     DAdded = {}
     while 1:
@@ -80,7 +80,7 @@ def chunk_sort(LSort, LChunkKeys):
                 
                 if not char in DAdded:
                     DAdded[char] = None
-                    LRtn.append(char)
+                    return_list.append(char)
         
         if not remaining: 
             break
@@ -88,7 +88,7 @@ def chunk_sort(LSort, LChunkKeys):
         
         if c_index > 121: 
             break # SPEED HACK!
-    return LRtn
+    return return_list
 
 
 if __name__ == '__main__':

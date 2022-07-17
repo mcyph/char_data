@@ -18,7 +18,7 @@ class Readings(SentenceData):
             return None
         
         elif type(data) in (tuple, list):
-            LRtn = []
+            return_list = []
             for readings in data:
                 if self.key in ('Japanese On', 'Japanese Kun', 'Japanese Nanori'):
                     readings = self.format_japanese(readings)
@@ -32,11 +32,11 @@ class Readings(SentenceData):
                     readings = readings.replace('(', ' (') # ' (freq ')
                     
                 if _is_upper(data):
-                    LRtn.append(conv_hex(self.key, readings.lower()))
+                    return_list.append(conv_hex(self.key, readings.lower()))
                 else: 
-                    LRtn.append(conv_hex(self.key, readings))
+                    return_list.append(conv_hex(self.key, readings))
             
-            return tuple(LRtn)
+            return tuple(return_list)
         
         elif _is_upper(data):
             return conv_hex(self.key, data.title())

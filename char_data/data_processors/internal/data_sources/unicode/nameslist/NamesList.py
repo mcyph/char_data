@@ -345,19 +345,19 @@ class NamesList:
 
 def longest(L):
     nL = []
-    LRtn = []
+    return_list = []
     for i in L:
         if isinstance(i, str):
             nL.append(i)
         else:
             if nL:
-                LRtn.append(' '.join(nL))
+                return_list.append(' '.join(nL))
                 nL = []
-            LRtn.append(i)
+            return_list.append(i)
     
     if nL:
-        LRtn.append(' '.join(nL))
-    return LRtn
+        return_list.append(' '.join(nL))
+    return return_list
 
 
 def convert(i):

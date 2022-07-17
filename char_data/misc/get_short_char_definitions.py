@@ -49,10 +49,10 @@ class _ShortCharDefinitions:
         return LOut
 
     def _range_processed(self, from_ord, to_ord):
-        LRtn = []
+        return_list = []
         for ord_ in range(from_ord, to_ord):
-            LRtn.append(self._codepoint_processed(ord_))
-        return LRtn
+            return_list.append(self._codepoint_processed(ord_))
+        return return_list
 
     def _codepoint_processed(self, ord_):
         # TODO: add su
