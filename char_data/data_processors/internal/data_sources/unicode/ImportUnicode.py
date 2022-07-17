@@ -90,7 +90,7 @@ class ImportUnicode(WriteBase):
             elif '(This position shall not be used)' in line:
                 continue
             
-            LCols = [
+            cols_dict = [
                 'code value', 
                 'name', 
                      
@@ -111,7 +111,7 @@ class ImportUnicode(WriteBase):
                 'titlecase'
             ]
             
-            for key, value in zip(LCols, line.split(';')):
+            for key, value in zip(cols_dict, line.split(';')):
                 if key == 'code value':
                     ord_ = int(value, 16)
                     continue
