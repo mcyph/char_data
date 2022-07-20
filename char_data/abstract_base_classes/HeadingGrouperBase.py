@@ -163,7 +163,7 @@ class HeadingGrouperBase(ABC):
         script = ISOTools.split(ISOTools.guess_omitted_info(search)).script
 
         return_list = []
-        for heading, ranges_string in lang_data.get_L_alpha():
+        for heading, ranges_string in lang_data.get_alpha_list():
             LOut = []
             for i_s in UnicodeSet(self, char_indexes, ranges_string):
                 LOut.extend([ord(i) for i in i_s])
@@ -173,7 +173,7 @@ class HeadingGrouperBase(ABC):
             return_list.append(('chars', LOut))
             # return_list.append((heading, LOut))
 
-        for typ1, typ2, i_L in lang_data.get_L_symbols():
+        for typ1, typ2, i_L in lang_data.get_symbols_list():
             for heading, chars in i_L:
                 if typ2:
                     # ??? What does typ1/typ2 do again??

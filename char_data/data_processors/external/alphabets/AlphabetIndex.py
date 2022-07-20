@@ -1,12 +1,12 @@
-from lang_data import LangData, get_L_possible_isos as _get_L_possible_isos
+from lang_data import LangData, get_possible_isos_list as _get_L_possible_isos
 from iso_tools.ISOTools import ISOTools
 from iso_tools.ISOCodes import ISOCodes
 
 
-def get_L_possible_isos():
-    # NOTE ME: The below get_L_possible_isos is **really** slow, so this is the cached output
+def get_possible_isos_list():
+    # NOTE ME: The below get_possible_isos_list is **really** slow, so this is the cached output
     #from warnings import warn
-    #warn("Please add a better caching solution to get_L_possible_isos")
+    #warn("Please add a better caching solution to get_possible_isos_list")
 
     return ['aa', 'af', 'agq', 'ak', 'am', 'ar', 'as', 'asa', 'az', 'az_Cyrl', 'az_Latn', 'bas', 'be', 'bem', 'bez', 'bg',
      'bm', 'bn', 'bo', 'br', 'brx', 'bs', 'byn', 'ca', 'cch', 'cgg', 'chr', 'cs', 'cy', 'da', 'dav', 'de', 'de-CH',
@@ -26,7 +26,7 @@ def get_L_possible_isos():
 
 
 """
-def get_L_possible_isos():
+def get_possible_isos_list():
     D = {}
     L = _get_L_possible_isos()
 
@@ -34,7 +34,7 @@ def get_L_possible_isos():
         print('ALPHABETINDEX GET_L_POSSIBLE_ISOS:', iso)
         lang_data = LangData(iso)
         D[iso] = dumps(
-            [lang_data.get_L_alpha(), lang_data.get_L_symbols()]
+            [lang_data.get_alpha_list(), lang_data.get_symbols_list()]
         )
 
     for iso in L:
@@ -69,7 +69,7 @@ class AlphabetIndex:
         # TODO: ADD TO DTwoLevelMappings!!!
         DOut = {}
 
-        for iso in get_L_possible_isos():
+        for iso in get_possible_isos_list():
             iso_info = ISOTools.split(iso)
             if iso_info.territory:
                 from iso_tools.ISOCodes import DCountries
@@ -92,7 +92,7 @@ class AlphabetIndex:
         DTwoLevelMappings['cldr_alphabets.alphabets'] = LOut  # HACK!
 
     def values(self):
-        return get_L_possible_isos()
+        return get_possible_isos_list()
 
     def get_value_info(self, value):
         from char_data.data_info_types.CharIndexValueInfo import CharIndexValueInfo
@@ -104,14 +104,14 @@ class AlphabetIndex:
         from char_data.unicodeset import UnicodeSet
 
         return_list = []
-        for heading, ranges in lang_data.get_L_alpha():
+        for heading, ranges in lang_data.get_alpha_list():
             LOut = []
             for i_s in UnicodeSet(ranges):
                 LOut.extend([ord(i) for i in i_s])
             return_list.extend(LOut)
             #return_list.append((heading, LOut))
 
-        for typ1, typ2, i_L in lang_data.get_L_symbols():
+        for typ1, typ2, i_L in lang_data.get_symbols_list():
             for heading, chars in i_L:
                 if typ2:
                     # ??? What does typ1/typ2 do again??
