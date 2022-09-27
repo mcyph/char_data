@@ -3,7 +3,7 @@
 class ProcessRangeBase:
     def process_range(self, x, s):
         """
-        Extracts a range in it's entirety.
+        Extracts a range in its entirety.
         
         Doesn't convert unicode backslashes 
         as I intend to do that later.

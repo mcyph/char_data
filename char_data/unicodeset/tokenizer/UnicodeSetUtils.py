@@ -4,12 +4,10 @@ from char_data.data_paths import data_path
 __unicode_set_utils = None
 
 
-def UnicodeSetUtils(char_indexes):
+def UnicodeSetUtils(char_data):
     global __unicode_set_utils
     if __unicode_set_utils is None:
-        __unicode_set_utils = __UnicodeSetUtils(
-            char_indexes=char_indexes
-        )
+        __unicode_set_utils = __UnicodeSetUtils(char_data=char_data)
     return __unicode_set_utils
 
 
@@ -25,8 +23,8 @@ def _cache(fn):
 
 
 class __UnicodeSetUtils:
-    def __init__(self, char_indexes):
-        self.char_indexes = char_indexes
+    def __init__(self, char_data):
+        self.char_data = char_data
 
     #=========================================================#
     #                       Properties                        #
@@ -35,7 +33,7 @@ class __UnicodeSetUtils:
     @_cache
     def get_D_props(self):
         D = {}
-        for key in list(self.char_indexes.keys()):
+        for key in list(self.char_data.index_keys()):
             D[key.partition('.')[-1]] = key
         return D
 
@@ -78,7 +76,7 @@ class __UnicodeSetUtils:
     @_cache
     def get_D_values(self):
         D = {}
-        for key in list(self.char_indexes.keys()):
+        for key in list(self.char_data.index_keys()):
             D[key] = D[key.partition('.')[-1]] = self._get_D_values(key)
         return D
 
@@ -89,13 +87,13 @@ class __UnicodeSetUtils:
 
         TODO: support property value aliases!
         """
-        L = self.char_indexes.values(key)
+        L = self.char_data.index_values(key)
         #print key, type(L)
         if not L:
             return {} # WARNING! =============================================
 
         D = {}
-        for i in self.char_indexes.values(key):
+        for i in self.char_data.index_values(key):
             k = str(i).lower()
             assert not k in D
             D[k] = i
@@ -107,14 +105,7 @@ class __UnicodeSetUtils:
     @_cache
     def get_D_general_cat_aliases(self):
         D = {}
-        with open(
-            data_path(
-                'chardata',
-                'GeneralCatAliases.txt'
-            ),
-            'r', encoding='utf-8'
-        ) as f:
-
+        with open(data_path('chardata', 'GeneralCatAliases.txt'), 'r', encoding='utf-8') as f:
             for line in f:
                 line = line.split('#')[0].strip()
                 if not line:
@@ -153,7 +144,7 @@ class __UnicodeSetUtils:
             'Lt'
         )]
 
-        for key in self.char_indexes.values('general category'):
+        for key in self.char_data.index_values('general category'):
             # make it so that e.g. "L"/"l" finds all letters
             D.setdefault(key[0].lower(), []).append(('general category', key))
 

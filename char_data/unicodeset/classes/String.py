@@ -1,6 +1,6 @@
 class String:
-    def __init__(self, char_indexes, s):
-        self.char_indexes = char_indexes
+    def __init__(self, char_data, s):
+        self.char_data = char_data
         self.s = s
 
     def contains(self, c):

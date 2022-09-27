@@ -17,9 +17,7 @@ from char_data.abstract_base_classes.formatters.FormatterBase import PropertyFor
 class CharData(PropertyAccessBase,
                DataReader,
                HeadingGrouperBase,
-               Singleton,
-               ):
-
+               Singleton):
     def __init__(self):
         """
         A class that allows looking up information
@@ -29,7 +27,6 @@ class CharData(PropertyAccessBase,
         `('LATIN SMALL LETTER A',)`.
         """
         self.data_reader = None
-        self.char_indexes = None
 
         DataReader.__init__(self)
         PropertyAccessBase.__init__(self, self)
@@ -89,8 +86,7 @@ class CharData(PropertyAccessBase,
         return sorted(return_list)
 
     @service_method(decode_returns=lambda x: CharIndexKeyInfo.from_tuple(*x) if x else None)
-    def key_info(self,
-                     key: str) -> CharDataKeyInfo:
+    def key_info(self, key: str) -> CharDataKeyInfo:
         """
         Get information about internal key `key`,
         e.g. to allow displaying the key to humans
@@ -105,12 +101,8 @@ class CharData(PropertyAccessBase,
         inst = self.get_class_by_property(key)
 
         if inst.index:
-            if not self.char_indexes:
-                from char_data.CharIndexes import CharIndexes
-                self.char_indexes = CharIndexes(char_data=self)
-
             try:
-                ciki = self.char_indexes.get_key_info(key)
+                ciki = self.index_key_info(key)
             except KeyError:
                 ciki = None
         else:
@@ -137,7 +129,7 @@ class CharData(PropertyAccessBase,
 
     @service_method()
     def all_data_for_codepoint(self,
-                               ord_: Union[int, chr]) -> List[Tuple[Any]]:
+                               ord_: Union[int, chr]) -> List[Tuple[Any, Any]]:
         """
         Get a list of all the data associated
         with this codepoint, grouped by heading.

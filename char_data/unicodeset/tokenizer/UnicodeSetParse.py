@@ -13,83 +13,73 @@ from char_data.unicodeset.consts import RANGES, STRING, OPERATOR
 # * SUPPORT VARIABLES! =============================================================
 
 
-def get_unicode_set_ranges(char_data, char_indexes, s, DVars=None):
+def get_unicode_set_ranges(char_data, s, DVars=None):
     """
     Get the ICU UnicodeSet range tokens
     """
-    return UnicodeSetParse(char_data, char_indexes, s, DVars).ranges
+    return UnicodeSetParse(char_data, s, DVars).ranges
 
 
 class UnicodeSetParse(ProcessRangeBase):
-    def __init__(self, char_data, char_indexes, s, DVars=None):
+    def __init__(self, char_data, s, DVars=None):
         self.s = s
         self.DVars = DVars
         assert (s[0], s[-1]) == ('[', ']')
 
         self.char_data = char_data
-        self.char_indexes = char_indexes
 
-        self.unicode_set_utils = UnicodeSetUtils(
-            char_indexes=char_indexes
-        )
+        self.unicode_set_utils = UnicodeSetUtils(char_data=char_data)
         self.ranges = self.get_ranges(s[1:-1])
-        
+
     def get_ranges(self, s):
         x = 0
         return_list = []
-        
+
         backslash_mode = False
         cur_operator = None
         neg = False
-        
+
         while 1:
             # Get the current char
-            try: c = s[x]
-            except: break
-            #print 'GET_RANGES:', c
-            
+            try:
+                c = s[x]
+            except:
+                break
+            # print 'GET_RANGES:', c
+
             if backslash_mode:
                 if c in 'pP':
                     # perl-syntax!
                     x, neg, LRanges = self.process_perl(x, s)
                     return_list.append((RANGES, neg, LRanges))
-                    
                 elif c == 'u':
                     # Unicode backslash
-                    return_list.append((STRING, w_unichr(int(s[x+1:x+5], 16))))
+                    return_list.append((STRING, w_unichr(int(s[x + 1:x + 5], 16))))
                     x += 4
-                
                 elif c == '\\':
                     # a literal backslash
                     return_list.append((STRING, '\\'))
-                
                 backslash_mode = False
-                
             elif c == '\\':
                 # Activate backslash mode
                 backslash_mode = True
-            
             elif c == '{':
                 # Extract a string
                 x, str_ = self.process_curly_braces(x, s)
                 return_list.append((STRING, str_))
-            
-            elif s[x:x+2] == '[:':
+            elif s[x:x + 2] == '[:':
                 # A POSIX range
                 x, neg, LRanges = self.process_posix(x, s)
                 return_list.append((RANGES, neg, LRanges))
-            
             elif c == '[':
                 # Embedded ranges
                 # TODO: Fix PERL BACKSLASHES! =======================================
                 x, range_text = self.process_range(x, s)
                 assert (range_text[0], range_text[-1]) == ('[', ']')
                 return_list.append(self.get_ranges(range_text[1:-1]))
-                
             elif c == ']':
                 # Should never be a closing bracket here!
                 raise Exception("']' without '['!")
-            
             elif c in '-&':
                 # Operators
                 # - is difference
@@ -97,47 +87,39 @@ class UnicodeSetParse(ProcessRangeBase):
                 cur_operator = c
                 x += 1
                 continue
-            
-            elif not x and c=='^':
+            elif not x and c == '^':
                 # Negative mode
                 neg = True
-            
-            elif c=='$' and (x==len(s)-1):
+            elif c == '$' and (x == len(s) - 1):
                 pass
-                #FIXME # FIXME! ================================================
-                
-            elif c=='$' and self.DVars!=None:
+                # FIXME # FIXME! ================================================
+            elif c == '$' and self.DVars != None:
                 # Process `$variableName`
                 y, name = self.process_variable(x, s)
-                
+
                 value = self.DVars[name]
                 if isinstance(value, (tuple, list)):
-                    value = ''.join(_[-1] for _ in value) # TYPE WARNING! ==========
-                
+                    value = ''.join(_[-1] for _ in value)  # TYPE WARNING! ==========
+
                 # Insert the variable, and reprocess
-                #print 'BEFORE:', s, value
-                s = s[:x]+value+s[y:]
-                #print s, s[x]
+                # print 'BEFORE:', s, value
+                s = s[:x] + value + s[y:]
+                # print s, s[x]
                 x -= 1
-            
             elif c.strip():
                 # Non-whitespace - add a single character as a string
                 # OPEN ISSUE: Ignore whitespace??? ================================
                 return_list.append((STRING, c))
-            
             else:
                 # Whitespace - ignore it
                 x += 1
                 continue
-            
-            
-            if not backslash_mode and cur_operator and len(return_list)<2:
+
+            if not backslash_mode and cur_operator and len(return_list) < 2:
                 # Allow initial "-" and "&" characters
                 return_list.append((STRING, cur_operator))
                 cur_operator = None
-                
             elif not backslash_mode and cur_operator:
-                
                 if return_list[-1][0] in (RANGES, OPERATOR):
                     # A range difference etc, e.g. "[[a-e]-[c]]"
                     assert return_list[-2][0] in (RANGES, OPERATOR)
@@ -145,23 +127,22 @@ class UnicodeSetParse(ProcessRangeBase):
                 else:
                     # an ordinary range, e.g. "[a-e]"
                     item2, item1 = return_list.pop(), return_list.pop()
-                    
+
                     assert cur_operator == '-'
                     assert (item1[0], item2[0]) == (STRING, STRING), (item1, item2, self.s)
                     assert (len(item1[1]), len(item2[1])) == (1, 1)
-                    
+
                     # Note the "FALSE!"
                     return_list.append((RANGES, False, ((item1[1], item2[1]),)))
-                
                 cur_operator = None
-            
             x += 1
+
         return (RANGES, neg, tuple(return_list))
-    
-    #===============================================================#
+
+    # ===============================================================#
     #                      Process Literals                         #
-    #===============================================================#
-    
+    # ===============================================================#
+
     def process_quotes(self, x, s):
         """
         According to
@@ -170,7 +151,7 @@ class UnicodeSetParse(ProcessRangeBase):
         the case when I was playing around with UnicodeSet in PyICU...
         """
         FIXME
-    
+
     def process_curly_braces(self, x, s):
         """
         Characters inside curly braces/
@@ -179,16 +160,18 @@ class UnicodeSetParse(ProcessRangeBase):
         L = []
         backslash_mode = False
         x += 1
-        
+
         while 1:
             # Get the current char
-            try: c = s[x]
-            except: break
-            
+            try:
+                c = s[x]
+            except:
+                break
+
             if backslash_mode and c == 'u':
                 # A Unicode backslash
                 L.append(
-                    w_unichr(int(s[x+1:x+5], 16))
+                    w_unichr(int(s[x + 1:x + 5], 16))
                 )
                 backslash_mode = False
                 x += 4
@@ -196,7 +179,7 @@ class UnicodeSetParse(ProcessRangeBase):
             elif backslash_mode:
                 L.append(c)
                 backslash_mode = False
-            
+
             elif c.strip():
                 if c == '}':
                     break
@@ -205,37 +188,39 @@ class UnicodeSetParse(ProcessRangeBase):
                 else:
                     L.append(c)
             x += 1
-        
+
         return x, ''.join(L)
-    
-    #===============================================================#
+
+    # ===============================================================#
     #                      Process Variables                        #
-    #===============================================================#
-    
+    # ===============================================================#
+
     def process_variable(self, x, s):
         """
         Get the `$variable_name`
         """
-        SAllowed = set(ascii_letters+'_0123456789')
-        
+        SAllowed = set(ascii_letters + '_0123456789')
+
         L = []
-        x += 1 # Skip the $
+        x += 1  # Skip the $
         while 1:
             # Get the current char
-            try: c = s[x]
-            except: break
-            
+            try:
+                c = s[x]
+            except:
+                break
+
             if c in SAllowed:
                 L.append(c)
-            else: 
+            else:
                 break
             x += 1
         return x, ''.join(L)
-    
-    #===============================================================#
+
+    # ===============================================================#
     #                   Process Property-Values                     #
-    #===============================================================#
-    
+    # ===============================================================#
+
     def process_posix(self, x, s):
         """
         Process posix-style:
@@ -247,46 +232,48 @@ class UnicodeSetParse(ProcessRangeBase):
         """
         LType = []
         LValue = []
-        
+
         first_char = True
         neg = False
         value_found = False
-        
-        assert s[x:x+2] == '[:' # bloody well hope so!
-        x += 2 # ignore the '[:'
-        
+
+        assert s[x:x + 2] == '[:'  # bloody well hope so!
+        x += 2  # ignore the '[:'
+
         while 1:
             # Get the current char
-            try: c = s[x]
-            except: break
-            
-            if first_char and c=='^':
+            try:
+                c = s[x]
+            except:
+                break
+
+            if first_char and c == '^':
                 neg = True
-                
+
             elif not value_found:
                 if c == '=':
                     value_found = True
-                elif s[x:x+2] == ':]':
+                elif s[x:x + 2] == ':]':
                     value = ''.join(LType).lower()
-                    return x+1, neg, self.get_L_ranges(
+                    return x + 1, neg, self.get_L_ranges(
                         self.unicode_set_utils.get_D_default_props()[value]
                     )
                 else:
                     LType.append(c)
-            
+
             else:
-                if s[x:x+2] == ':]':
+                if s[x:x + 2] == ':]':
                     break
                 LValue.append(c)
-            
+
             first_char = False
             x += 1
-        
+
         typ = self.convert_type(''.join(LType))
         value = self.convert_value(typ, ''.join(LValue))
         LRanges = self.get_L_ranges([(typ, value)])
-        return x+1, neg, LRanges
-    
+        return x + 1, neg, LRanges
+
     def process_perl(self, x, s):
         """
         Process perl-style:
@@ -298,24 +285,26 @@ class UnicodeSetParse(ProcessRangeBase):
         """
         LType = []
         LValue = []
-        
+
         value_found = False
         first_char = True
-        
+
         while 1:
             # Get the current char
-            try: c = s[x]
-            except: break
-            
+            try:
+                c = s[x]
+            except:
+                break
+
             if first_char:
                 # p -> positive/P -> negative
                 neg = {'p': False, 'P': True}[c]
                 first_char = False
-                
+
                 # Skip the initial {
-                assert s[x+1]=='{'
+                assert s[x + 1] == '{'
                 x += 1
-                
+
             elif not value_found:
                 if c == '=':
                     value_found = True
@@ -326,21 +315,21 @@ class UnicodeSetParse(ProcessRangeBase):
                     )
                 else:
                     LType.append(c)
-                
+
             else:
                 if c == '}':
                     break
                 else:
                     LValue.append(c)
-            
+
             x += 1
-        
+
         # OPEN ISSUE: Convert the type
         typ = self.convert_type(''.join(LType))
         value = self.convert_value(typ, ''.join(LValue))
         LRanges = self.get_L_ranges([(typ, value)])
         return x, neg, LRanges
-        
+
     def get_L_ranges(self, L):
         """
         """
@@ -350,15 +339,15 @@ class UnicodeSetParse(ProcessRangeBase):
             # fulltext unless it's a direct match for 
             # name/conscript name/definitions etc! ===============================
             # (readings should allow partial matches I think)
-            #print typ, value
-            for i in self.char_indexes.search(typ, value):
+            # print typ, value
+            for i in self.char_data.index_search(typ, value):
                 if isinstance(i, (list, tuple)):
                     from_, to = i
                     return_list.append((w_unichr(from_), w_unichr(to)))
                 else:
                     return_list.append(w_unichr(i))
         return tuple(return_list)
-        
+
     def convert_type(self, typ):
         """
         Convert aliases to the original name and return 
@@ -368,11 +357,11 @@ class UnicodeSetParse(ProcessRangeBase):
         typ = self.unicode_set_utils.get_D_prop_aliases().get(typ.lower(), typ)
         typ = self.unicode_set_utils.get_D_props()[typ.lower()]
         return typ.replace('_', ' ')
-    
+
     def convert_value(self, typ, value):
         DValues = self.unicode_set_utils.get_D_values()
         if not typ in DValues:
-            return value # WARNING! ==============================================
+            return value  # WARNING! ==============================================
         return DValues[typ].get(str(value), value)
 
 
@@ -388,4 +377,5 @@ if __name__ == '__main__':
     ]:
         print(i)
         from pprint import pprint
+
         pprint(get_unicode_set_ranges(i))

@@ -4,9 +4,9 @@ from char_data.unicodeset.consts import OPERATOR
 
 
 class Ranges:
-    def __init__(self, char_indexes, neg, L):
+    def __init__(self, char_data, neg, L):
         from char_data.unicodeset.UnicodeSet import unicode_set_from_token
-        self.char_indexes = char_indexes
+        self.char_data = char_data
 
         LOut = []
 
@@ -23,9 +23,7 @@ class Ranges:
                     # A subitem
                     if i[0] == OPERATOR:
                         prev_item = LOut.pop()
-                        cur_item = unicode_set_from_token(
-                            self.char_indexes, i[1][1]
-                        )
+                        cur_item = unicode_set_from_token(self.char_data, i[1][1])
 
                         if i[1][0] == '-':
                             LOut.append(Difference(prev_item, cur_item))
@@ -35,9 +33,7 @@ class Ranges:
                             raise Exception(i)
 
                     else:
-                        LOut.append(
-                            unicode_set_from_token(self.char_indexes, i)
-                        )
+                        LOut.append(unicode_set_from_token(self.char_data, i))
                 else:
                     LOut.append(i)
             else:
