@@ -1,8 +1,9 @@
-from typing import Union, Optional, List, Any
+from typing import Union, Optional, List, Any, Tuple
+
+from speedysvc.service_method import service_method
 
 from char_data.toolkit.encodings.surrogates import w_ord
 from char_data.toolkit.patterns.Singleton import Singleton
-
 from char_data.data_processors.DataReader import DataReader
 from char_data.data_processors.consts import DTwoLevelMappings
 from char_data.data_info_types.CharDataKeyInfo import CharDataKeyInfo
@@ -17,7 +18,6 @@ class CharData(PropertyAccessBase,
                DataReader,
                HeadingGrouperBase,
                Singleton,
-               SpeedySVCService,
                ):
 
     def __init__(self):
@@ -88,7 +88,7 @@ class CharData(PropertyAccessBase,
 
         return sorted(return_list)
 
-    @service_method()
+    @service_method(decode_returns=lambda x: CharIndexKeyInfo.from_tuple(*x) if x else None)
     def key_info(self,
                      key: str) -> CharDataKeyInfo:
         """
@@ -326,7 +326,7 @@ class CharData(PropertyAccessBase,
 
         return sorted(return_list)
 
-    @service_method()
+    @service_method(decode_returns=lambda x: CharIndexKeyInfo.from_tuple(*x) if x else None)
     def index_key_info(self, key):
         """
         Get information about internal key `key`,
@@ -357,14 +357,8 @@ class CharData(PropertyAccessBase,
         inst = self.get_class_by_property(key)
         return list(inst.index.values())
 
-    @service_method()
+    @service_method(decode_returns=lambda x: CharIndexValueInfo.from_tuple(*x) if x else None)
     def index_value_info(self, key, value):
-        """
-
-        :param key:
-        :param value:
-        :return:
-        """
         # HACK: This really should perhaps be at a "formatter" level!!!
         inst = self.get_class_by_property(key)
         formatted = inst._format_data(0, value)  # HACK HACK HACK!
