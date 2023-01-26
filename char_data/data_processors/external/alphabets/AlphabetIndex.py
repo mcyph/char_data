@@ -1,12 +1,13 @@
-from lang_data import LangData, get_possible_isos_list as _get_L_possible_isos
-from iso_tools.ISOTools import ISOTools
-from iso_tools.ISOCodes import ISOCodes
+from iso_tools.cldr.CLDR import CLDR
+from iso_tools.bcp47.BCP47Info import BCP47Info
+from iso_tools.iso639.ISO639DataDB import ISO639DataDB
+from iso_tools.cldr.get_possible_isos_list import get_possible_isos_list
 
 
 def get_possible_isos_list():
     # NOTE ME: The below get_possible_isos_list is **really** slow, so this is the cached output
-    #from warnings import warn
-    #warn("Please add a better caching solution to get_possible_isos_list")
+    from warnings import warn
+    warn("Please add a better caching solution to get_possible_isos_list")
 
     return ['aa', 'af', 'agq', 'ak', 'am', 'ar', 'as', 'asa', 'az', 'az_Cyrl', 'az_Latn', 'bas', 'be', 'bem', 'bez', 'bg',
      'bm', 'bn', 'bo', 'br', 'brx', 'bs', 'byn', 'ca', 'cch', 'cgg', 'chr', 'cs', 'cy', 'da', 'dav', 'de', 'de-CH',
@@ -32,7 +33,7 @@ def get_possible_isos_list():
 
     for iso in L:
         print('ALPHABETINDEX GET_L_POSSIBLE_ISOS:', iso)
-        lang_data = LangData(iso)
+        lang_data = CLDR(iso)
         D[iso] = dumps(
             [lang_data.get_alpha_list(), lang_data.get_symbols_list()]
         )
@@ -70,15 +71,15 @@ class AlphabetIndex:
         DOut = {}
 
         for iso in get_possible_isos_list():
-            iso_info = ISOTools.split(iso)
-            if iso_info.territory:
-                from iso_tools.ISOCodes import DCountries
-                region = DCountries.get(iso_info.territory, ['Unknown'])[0]  # TODO: ALLOW FOR i18n etc!!!
+            iso_info = BCP47Info(iso)
+            if iso_info.region:
+                from iso_tools.iso15924.countries_dict import countries_dict
+                region = countries_dict.get(iso_info.region, ['Unknown'])[0]  # TODO: ALLOW FOR i18n etc!!!
             else:
-                part3 = iso_info.lang
+                part3 = iso_info.language
                 # OPEN ISSUE: Use LCountry[2] here, to use continent rather than country??
                 try:
-                    region = ISOCodes.get_D_iso(part3)['LCountry'][1]
+                    region = ISO639DataDB.get_iso_dict(part3)['LCountry'][1]
                 except KeyError:
                     region = 'Unknown'
 
@@ -100,13 +101,16 @@ class AlphabetIndex:
         return CharIndexValueInfo(value, str(pretty_printed))
 
     def search(self, search):
-        lang_data = LangData(search)
-        from char_data.unicodeset import UnicodeSet
+        from char_data.CharData import CharData
+        from char_data.unicodeset.UnicodeSet import UnicodeSet
+
+        lang_data = CLDR(search)
+        char_data = CharData()
 
         return_list = []
         for heading, ranges in lang_data.get_alpha_list():
             LOut = []
-            for i_s in UnicodeSet(ranges):
+            for i_s in UnicodeSet(char_data, ranges):
                 LOut.extend([ord(i) for i in i_s])
             return_list.extend(LOut)
             #return_list.append((heading, LOut))

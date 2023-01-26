@@ -1,4 +1,4 @@
-from lang_data import LangData
+from iso_tools.cldr.CLDR import CLDR
 from char_data.abstract_base_classes.formatters.ExternalFormatterBase import ExternalFormatterBase
 from char_data.data_processors.consts import HEADER_LANGUAGE_USAGE  # HACK!!!!
 from .AlphabetIndex import AlphabetIndex
@@ -7,7 +7,7 @@ from .AlphabetIndex import AlphabetIndex
 # TODO: Write me!
 class AlphabetFormatter(ExternalFormatterBase):
     def __init__(self, parent):
-        self.lang_data = LangData('en')  # DEFAULT TO ENGLISH HACK!!!
+        self.lang_data = CLDR('en')  # DEFAULT TO ENGLISH HACK!!!
         index = AlphabetIndex(self.lang_data, 'alphabets')
 
         ExternalFormatterBase.__init__(

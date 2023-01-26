@@ -1,13 +1,11 @@
 from typing import Union
 from abc import ABC, abstractmethod
 
-from lang_data import LangData
-from iso_tools.ISOTools import ISOTools
-from char_data.unicodeset.UnicodeSet import UnicodeSet
+from iso_tools.cldr.CLDR import CLDR
+from iso_tools.bcp47.BCP47Info import BCP47Info
 from char_data.misc.BlockHeadings import BlockHeadings
-from char_data.toolkit.documentation.copydoc import copydoc
+from char_data.unicodeset.UnicodeSet import UnicodeSet
 from char_data.misc import get_font_script, get_smallest_name
-from char_data.abstract_base_classes.CharDataBase import CharDataBase
 
 
 class HeadingGrouperBase(ABC):
@@ -27,7 +25,6 @@ class HeadingGrouperBase(ABC):
     #               Group Ranges by Unicode Name Headings               #
     #===================================================================#
 
-    @copydoc(CharDataBase.group_by_unicode_name)
     def group_by_unicode_name(self, LRanges, name=None):
         if name is None:
             first_ord = LRanges[0]
@@ -140,7 +137,6 @@ class HeadingGrouperBase(ABC):
     #                  Group Ranges by Block Headings                   #
     #===================================================================#
 
-    @copydoc(CharDataBase.group_by_block)
     def group_by_block(self, LRanges):
         block_headings = BlockHeadings(self)
         return block_headings.get_L_block_headings(LRanges)
@@ -149,7 +145,6 @@ class HeadingGrouperBase(ABC):
     #                Group Ranges by Alphabet Headings                  #
     #===================================================================#
 
-    @copydoc(CharDataBase.group_by_alphabet)
     def group_by_alphabet(self, search, char_indexes=None):
         """
         The headings are actually provided by the CLDR data directly,
@@ -159,8 +154,8 @@ class HeadingGrouperBase(ABC):
             from char_data.CharIndexes import CharIndexes
             char_indexes = CharIndexes(char_data=self)
 
-        lang_data = LangData(search)
-        script = ISOTools.split(ISOTools.guess_omitted_info(search)).script
+        lang_data = CLDR(search)
+        script = BCP47Info(search).infer_omitted_info().script
 
         return_list = []
         for heading, ranges_string in lang_data.get_alpha_list():
@@ -217,7 +212,6 @@ class HeadingGrouperBase(ABC):
         'kanjidic.grade': 'Japanese Grade'
     }
 
-    @copydoc(CharDataBase.group_by_chinese_frequency)
     def group_by_chinese_frequency(self, LRanges, LSortBy):
         """
         Group by frequencys/grade etc under subheadings
@@ -292,7 +286,6 @@ class HeadingGrouperBase(ABC):
     # nicer, but there are *always* exceptions :-)
     JFREQ_AMOUNT = 500
 
-    @copydoc(CharDataBase.group_by_japanese_frequency)
     def group_by_japanese_frequency(self, LRanges):
         # Group by frequency/grade etc under subheadings
         DRanges = {}

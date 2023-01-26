@@ -55,12 +55,8 @@ class ReformattedData(ExternalSourceBase):
         self.block_headings = BlockHeadings(char_data=char_data)
 
     def __get_by_L_block_headings(self, key, value, LUseOnly=None):
-        if self.char_indexes is None:
-            from char_data.CharIndexes import CharIndexes
-            self.char_indexes = CharIndexes(char_data=self.char_data)
-
         r = self.block_headings.get_L_block_headings(
-            self.char_indexes.search(key, value)
+            self.char_data.index_search(key, value)
         )[-1]
 
         if LUseOnly:
